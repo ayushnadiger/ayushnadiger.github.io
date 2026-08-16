@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Research — Ayush Nadiger</title>
+  <meta name="description" content="Research by Ayush Nadiger in quantum networks, quantum error correction, trapped-ion electric-field noise, and randomized numerical linear algebra.">
+  <link rel="canonical" href="https://lostree9.github.io/research.html">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <p class="site-title"><a href="index.html">Ayush Nadiger</a></p>
+  <nav class="site-nav" aria-label="Main navigation">
+    <a href="research.html" aria-current="page">Research</a>
+    <a href="papers.html">Papers</a>
+    <a href="notes.html">Notes</a>
+    <a href="cv.html">CV</a>
+  </nav>
+</header>
+
+<main class="container">
+  <h1>Research</h1>
+  <p class="page-deck">Current questions first; older and exploratory work is kept in the archive rather than made to look more finished than it is.</p>
+
+  <section class="research-entry" id="networks">
+    <h2><span class="section-number">1.</span>Quantum networks</h2>
+    <p>I study entanglement distribution in heterogeneous repeater networks: some nodes are cheap and noisy, while a sparse subset can store qubits longer or perform local error correction. The interesting regime is therefore neither an ideal fully error-corrected network nor a uniform chain. It is the intermediate architecture, where routing, waiting, local processing, and classical metadata all interact.</p>
+    <p class="meta"><a href="projects/hybrid-quantum-repeaters.html">project page</a> · <span class="status">current</span></p>
+  </section>
+
+  <section class="research-entry" id="qec">
+    <h2><span class="section-number">2.</span>Quantum error correction for networks</h2>
+    <p>A second line of work concerns heralded erasures and asynchronous information in network QEC. The physical setting matters: losses can be known, entanglement does not arrive on a common clock, and high-quality memory may be scarce. I am interested in what code structure and decoding information remain useful once those constraints are treated as part of the model rather than averaged away.</p>
+    <p class="meta"><span class="status">current</span> · work in progress</p>
+  </section>
+
+  <section class="research-entry" id="ions">
+    <h2><span class="section-number">3.</span>Trapped-ion noise and geometry</h2>
+    <p>My honors thesis studied anomalous electric-field noise in ion traps through geometry. Instead of treating electrode distance as the only scale, I used finite-element Green-function kernels and billiard-style geometric diagnostics to ask how boundaries recycle or redirect field-noise contributions. The resulting picture separates nearly surface-like geometries from channel-like geometries whose multi-boundary structure changes both noise strength and anisotropy.</p>
+    <p class="meta"><a href="projects/trapped-ion-diagnostics.html">project page</a> · <a href="https://honorspaths.honors.umass.edu/massurc/home/abstract/4634">MassURC abstract</a></p>
+  </section>
+
+  <section class="research-entry" id="numerics">
+    <h2><span class="section-number">4.</span>Randomized numerical linear algebra</h2>
+    <p>RA-FEAST explores whether randomized subspace information can reduce the cost of contour-integral eigensolvers without giving up the accuracy that makes FEAST attractive. The project combines randomized initialization, inexact refinement, error analysis, and sparse numerical experiments.</p>
+    <p class="meta"><a href="projects/randomized-feast.html">project page</a> · <a href="https://arxiv.org/abs/2512.01257">arXiv:2512.01257</a></p>
+  </section>
+
+  <section class="research-entry" id="archive">
+    <h2>Archive</h2>
+    <p class="small muted">Earlier work and expository side projects. These are kept separate from the current research program.</p>
+    <div class="project-index">
+      <div class="project-row"><div class="kind">optimization</div><div><h3><a href="https://arxiv.org/abs/2604.16718">Quantum route optimization and energy use</a></h3><p>QAOA-based route optimization compared against classical baselines.</p></div></div>
+      <div class="project-row"><div class="kind">geometry</div><div><h3><a href="projects/cp3-segre-concurrence.html">CP³ / Segre geometry and concurrence</a></h3><p>An expository geometric view of two-qubit separability and concurrence.</p></div></div>
+      <div class="project-row"><div class="kind">spectral</div><div><h3><a href="projects/billiards-tda-scarring.html">Quantum scarring and topological diagnostics</a></h3><p>Exploratory work on billiards, eigenfunctions, and topological summaries.</p></div></div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer"><p>Last revised 16 August 2026.</p></footer>
+</body>
+</html>
