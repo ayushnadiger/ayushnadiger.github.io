@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Randomized-Accelerated FEAST — Ayush Nadiger</title>
+  <meta name="description" content="Randomized-Accelerated FEAST, a hybrid randomized numerical linear algebra approach for large-scale eigenvalue problems.">
+  <link rel="canonical" href="https://lostree9.github.io/projects/randomized-feast.html">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <p class="site-title"><a href="../index.html">Ayush Nadiger</a></p>
+  <nav class="site-nav" aria-label="Main navigation">
+    <a href="../research.html" aria-current="page">Research</a>
+    <a href="../papers.html">Papers</a>
+    <a href="../notes.html">Notes</a>
+    <a href="../cv.html">CV</a>
+  </nav>
+</header>
+
+<main class="container">
+  <header class="paper-header">
+    <h1>Randomized-Accelerated FEAST</h1>
+    <p class="meta">A. Nadiger · numerical linear algebra · 2025</p>
+    <p class="project-links">[<a href="https://arxiv.org/abs/2512.01257">arXiv:2512.01257</a>]</p>
+  </header>
+
+  <section class="paper-abstract">
+    <p><span class="label">Abstract.</span> RA-FEAST combines contour-integral eigensolvers with randomized numerical linear algebra for partial eigendecomposition of large sparse matrices. Randomized subspace initialization permits more aggressive quadrature and truncated refinement while retaining high accuracy on the tested problems.</p>
+  </section>
+
+  <section class="paper-section">
+    <h2><span class="section-number">1.</span>Idea</h2>
+    <p>FEAST obtains an eigenspace by applying a rational approximation to a spectral projector. The expensive part is repeatedly solving shifted linear systems along the contour. RA-FEAST asks whether a good randomized starting subspace can reduce the amount of contour work required before refinement.</p>
+  </section>
+
+  <section class="paper-section">
+    <h2><span class="section-number">2.</span>Results</h2>
+    <p>The preprint gives a probabilistic warm-start error bound, a perturbation result for inexact FEAST iterations, and sparse graph-Laplacian experiments. In the reported benchmark regime, the randomized variant reached speedups of up to 38× while preserving accurate approximations to the target eigenspace.</p>
+  </section>
+
+  <p class="small"><a href="../research.html">← research</a></p>
+</main>
+<footer class="site-footer"><p>Last revised 16 August 2026.</p></footer>
+</body>
+</html>
