@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="index,follow">
   <title>CP³, the Segre Embedding, and Concurrence — Ayush Nadiger</title>
-  <meta name="description" content="Expository notes by Ayush Nadiger on two-qubit entanglement, CP3, the Segre embedding, and concurrence.">
+  <meta name="description" content="Expository notes by Ayush Nadiger on two-qubit entanglement, CP3, the Segre embedding, and concurrence, originating in a May 2025 differential geometry presentation.">
   <link rel="canonical" href="https://lostree9.github.io/projects/cp3-segre-concurrence.html">
   <link rel="stylesheet" href="../css/style.css">
 </head>
@@ -23,11 +23,11 @@
 <main class="container">
   <header class="paper-header">
     <h1>CP³, the Segre embedding, and concurrence</h1>
-    <p class="meta">expository note · geometry / quantum information</p>
+    <p class="meta">May 2025 · differential geometry presentation · geometry / quantum information</p>
   </header>
 
   <section class="paper-abstract">
-    <p><span class="label">Abstract.</span> A pure two-qubit state is a point of complex projective three-space. Product states form the Segre quadric, and the familiar determinant condition for separability becomes a geometric equation. These notes collect that picture and relate it to concurrence.</p>
+    <p><span class="label">Abstract.</span> A pure two-qubit state is a point of complex projective three-space. Product states form the Segre quadric, and the familiar determinant condition for separability becomes a geometric equation. These notes began as a differential geometry presentation in May 2025 and collect the projective-geometric picture relating separability, Fubini–Study geometry, and concurrence.</p>
   </section>
 
   <section class="paper-section">
@@ -37,11 +37,17 @@
 
   <section class="paper-section">
     <h2><span class="section-number">2.</span>Concurrence</h2>
-    <p>For a normalized pure state, concurrence is twice the absolute determinant of the coefficient matrix. Algebraically it vanishes on the Segre quadric; geometrically it measures departure from the product-state locus. The phrase “distance” requires care because the numerical value depends on the chosen metric and normalization.</p>
+    <p>For a normalized pure state, concurrence is twice the absolute determinant of the coefficient matrix. Algebraically it vanishes on the Segre quadric. With the standard Fubini–Study normalization, it is a monotone function of the distance to the separable locus. This geometric viewpoint later became the starting point for a different question: what does the normal geometry of an exact quantum error-correcting-code locus look like?</p>
+  </section>
+
+  <section class="paper-section">
+    <h2><span class="section-number">3.</span>From entanglement geometry to QEC</h2>
+    <p>The current continuation replaces the Segre variety by the exact Knill–Laflamme zero locus inside a Grassmannian of code subspaces. Linearizing the erasure-correction constraints gives a normal operator controlled exactly by the covariance tensor of the erased marginal. For an erased qubit, concurrence reappears as the reduced normal condition number.</p>
+    <p class="meta"><a href="covariance-geometry-qec.html">current project: covariance geometry of linearized QEC →</a></p>
   </section>
 
   <p class="small"><a href="../notes.html">← notes</a></p>
 </main>
-<footer class="site-footer"><p>Expository note. Last revised 16 August 2026.</p></footer>
+<footer class="site-footer"><p>Originally presented May 2025. Last revised 16 August 2026.</p></footer>
 </body>
 </html>
