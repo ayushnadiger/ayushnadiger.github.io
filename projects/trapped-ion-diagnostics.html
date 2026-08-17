@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Trapped-Ion Noise and Geometry — Ayush Nadiger</title>
-  <meta name="description" content="Billiard-theoretic and Green-function geometry diagnostics for patch-induced anomalous heating in trapped-ion systems.">
+  <title>Geometric Noise Recycling in Planar Ion-Trap Enclosures — Ayush Nadiger</title>
+  <meta name="description" content="Research by Ayush Nadiger on geometry-dependent trapped-ion electric-field noise, exact enclosure laws, Green-function kernels, and ray-dynamical reconstruction of patch-potential coupling.">
   <link rel="canonical" href="https://lostree9.github.io/projects/trapped-ion-diagnostics.html">
   <link rel="stylesheet" href="../css/style.css">
 </head>
@@ -21,32 +21,39 @@
 
 <main class="container">
   <header class="paper-header">
-    <h1>Billiard-theoretic geometry diagnostics for patch-induced heating in trapped ions</h1>
-    <p class="meta">A. Nadiger · honors thesis · 2026</p>
+    <h1>Geometric noise recycling in planar ion-trap enclosures and ray-dynamical reconstruction of patch-potential coupling</h1>
+    <p class="meta">A. Nadiger · manuscript July 2026 · trapped-ion physics / geometry</p>
     <p class="project-links">[<a href="https://honorspaths.honors.umass.edu/massurc/home/abstract/4634">MassURC abstract</a>]</p>
   </header>
 
   <section class="paper-abstract">
-    <p><span class="label">Abstract.</span> Anomalous heating in trapped-ion systems is often summarized by a distance scaling law, but realistic electrode geometries contain additional structure. This work uses electrostatic Green-function kernels computed with finite elements, together with billiard-inspired diagnostics, to isolate how boundaries alter electric-field-noise coupling and anisotropy.</p>
+    <p><span class="label">Abstract.</span> Within a spatially local patch-potential model, electric-field noise at a trapped ion separates into a material spectrum and a deterministic Green-function geometry functional. This work solves that geometry problem exactly for planar enclosures and then asks how much of the field-level boundary kernel can be reconstructed from simple ray-dynamical passage statistics.</p>
   </section>
 
   <section class="paper-section">
-    <h2><span class="section-number">1.</span>Geometry factor</h2>
-    <p>For spatially white surface-potential noise, the electric-field spectrum separates into a surface-noise spectrum and a geometry-dependent factor. That factor can be computed directly from a boundary Green kernel, making it possible to compare trap geometries without re-fitting a phenomenological distance law for every device.</p>
+    <h2><span class="section-number">1.</span>Exact enclosure law</h2>
+    <p>For a two-dimensional grounded strip and three-dimensional parallel plates, the vertical geometry functional decomposes exactly into the open-boundary contribution plus a strictly positive image-pair remainder. The remainder decreases as the enclosure opens, giving a precise version of the “noise recycling” picture rather than only a geometric analogy.</p>
+    <p>The three-dimensional result can be inverted into engineering rules: in the current manuscript, limiting the added vertical coupling to 5% or 1% requires cover clearance h/d of at least 2.870 or 4.372, respectively.</p>
   </section>
 
   <section class="paper-section">
-    <h2><span class="section-number">2.</span>Interpretation</h2>
-    <p>Open, plate-like geometries behave close to the familiar surface picture. Channel-like geometries can instead redirect field contributions through repeated boundary interactions, changing both the magnitude and directional anisotropy of the noise. Billiard statistics provide a geometric language for those repeated paths.</p>
+    <h2><span class="section-number">2.</span>Correlations</h2>
+    <p>Convergent spectral representations give exact open-boundary decorrelation distances of 2d/√3 in two dimensions and 2d√(2/3) in three dimensions. In the strip, h ≤ 2d is a sufficient exact condition for nonnegative vertical correlation at every separation. The spectral form also avoids spurious far-field zero crossings caused by naively truncating image sums.</p>
   </section>
 
   <section class="paper-section">
-    <h2><span class="section-number">3.</span>Computation</h2>
-    <p>The numerical pipeline used three-dimensional finite-element electrostatics, boundary-flux evaluation, mesh-convergence checks, and independent geometric diagnostics. The thesis was carried out at UMass Amherst with Chris Cox and Robert Niffenegger.</p>
+    <h2><span class="section-number">3.</span>Ray reconstruction</h2>
+    <p>Direction-resolved circular-gate passage counts, split by arrival direction and centrally differenced in ion height, reconstruct the field-level boundary kernel in the ideal strip. The current simulations separate sampling variance from deterministic error through independent sweeps in gate radius, height step, ray count, and bounce depth, and test where the identity degrades on non-flat boundaries.</p>
+    <p class="small muted">The ray identity is structural for the controlled geometry; it is not claimed as a general-domain replacement for an electrostatic solver.</p>
+  </section>
+
+  <section class="paper-section">
+    <h2><span class="section-number">4.</span>Thesis lineage</h2>
+    <p>This manuscript grew out of my 2026 Commonwealth Honors Thesis on geometry-dependent anomalous heating, carried out at UMass Amherst with Christopher Cox and Robert Niffenegger. The broader thesis used finite-element Green-function kernels and billiard/TDA diagnostics across slot, trench, covered, and blade-like geometries.</p>
   </section>
 
   <p class="small"><a href="../research.html">← research</a></p>
 </main>
-<footer class="site-footer"><p>Last revised 16 August 2026.</p></footer>
+<footer class="site-footer"><p>Research project. Current manuscript July 2026; page revised 17 August 2026.</p></footer>
 </body>
 </html>
