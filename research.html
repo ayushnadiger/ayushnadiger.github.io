@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Research — Ayush Nadiger</title>
-  <meta name="description" content="Research by Ayush Nadiger in quantum networks, quantum error correction, trapped-ion electric-field noise, and randomized numerical linear algebra.">
+  <meta name="description" content="Research by Ayush Nadiger in quantum networks, quantum error correction, predictive-rank diagnostics, trapped-ion electric-field noise, and randomized numerical linear algebra.">
   <link rel="canonical" href="https://lostree9.github.io/research.html">
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -32,14 +32,16 @@
   <section class="research-entry" id="qec">
     <h2><span class="section-number">2.</span>Quantum error correction</h2>
     <p>One line of work concerns heralded erasures and asynchronous information in network QEC. The physical setting matters: losses can be known, entanglement does not arrive on a common clock, and high-quality memory may be scarce. I am interested in what code structure and decoding information remain useful once those constraints are treated as part of the model rather than averaged away.</p>
-    <p>A separate mathematical direction studies the local geometry of exact erasure correction itself. Linearizing the Knill–Laflamme constraints on the Grassmannian of code subspaces produces a normal operator controlled exactly by the covariance tensor of the erased marginal; stacked constraints then give a deformation-theoretic test of code rigidity.</p>
-    <p class="meta"><a href="projects/covariance-geometry-qec.html">covariance geometry of linearized QEC</a> · <span class="status">current</span></p>
+    <p>A separate mathematical direction studies the local geometry of exact erasure correction itself. Linearizing the Knill–Laflamme constraints on the Grassmannian of code subspaces gives a covariance-controlled normal operator, an explicit leakage Hessian, and deformation-theoretic tests of code rigidity.</p>
+    <p>More recently, I have been studying syndrome records themselves as statistical objects. Finite past–future probability matrices give predictive-rank witnesses for memory in repeated QEC circuits. The circuit contribution must be accounted for explicitly; the resulting framework combines separator bounds, finite-sample rank tests, and conditional model checking on public surface-code records.</p>
+    <p class="meta"><a href="projects/covariance-geometry-qec.html">covariance geometry of linearized QEC</a> · <a href="projects/predictive-rank-qec.html">predictive rank for syndrome records</a> · <span class="status">current</span></p>
   </section>
 
   <section class="research-entry" id="ions">
     <h2><span class="section-number">3.</span>Trapped-ion noise and geometry</h2>
-    <p>My honors thesis studied anomalous electric-field noise in ion traps through geometry. Instead of treating electrode distance as the only scale, I used finite-element Green-function kernels and billiard-style geometric diagnostics to ask how boundaries recycle or redirect field-noise contributions. The resulting picture separates nearly surface-like geometries from channel-like geometries whose multi-boundary structure changes both noise strength and anisotropy.</p>
-    <p class="meta"><a href="projects/trapped-ion-diagnostics.html">project page</a> · <a href="https://honorspaths.honors.umass.edu/massurc/home/abstract/4634">MassURC abstract</a></p>
+    <p>My trapped-ion work asks how electrode geometry changes electric-field noise when the underlying surface-noise spectrum is held fixed. The current manuscript gives exact enclosure laws for planar geometries, derives two-point correlation structure, and turns a billiard-style ray analogy into a controlled reconstruction of the field-level Green-function boundary kernel in the ideal strip.</p>
+    <p>This grew out of my honors thesis, which used finite-element Green-function kernels and billiard/TDA diagnostics to compare open, covered, trench, slot, and blade-like geometries. The broader picture is that geometry can reshape both total coupling and anisotropy rather than acting only through a single ion–electrode distance.</p>
+    <p class="meta"><a href="projects/trapped-ion-diagnostics.html">current manuscript/project page</a> · <a href="https://honorspaths.honors.umass.edu/massurc/home/abstract/4634">MassURC abstract</a></p>
   </section>
 
   <section class="research-entry" id="numerics">
@@ -59,6 +61,6 @@
   </section>
 </main>
 
-<footer class="site-footer"><p>Last revised 16 August 2026.</p></footer>
+<footer class="site-footer"><p>Last revised 17 August 2026.</p></footer>
 </body>
 </html>
