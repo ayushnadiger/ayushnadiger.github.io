@@ -4,11 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ayush Nadiger — Quantum Information</title>
-  <meta name="description" content="Ayush Nadiger works on quantum information, quantum networks, quantum error correction, predictive-rank diagnostics, trapped-ion systems, and randomized numerical linear algebra at UMass Amherst.">
+  <meta name="description" content="Ayush Nadiger works on quantum information, quantum networks, quantum error correction, graph-state fault diagnosis, predictive-rank diagnostics, trapped-ion systems, and randomized numerical linear algebra at UMass Amherst.">
   <link rel="canonical" href="https://lostree9.github.io/">
   <meta property="og:type" content="profile">
   <meta property="og:title" content="Ayush Nadiger — Quantum Information">
-  <meta property="og:description" content="Research in quantum networks, quantum error correction, syndrome-record statistics, trapped-ion systems, and numerical linear algebra.">
+  <meta property="og:description" content="Research in quantum networks, quantum error correction, graph-state fault diagnosis, syndrome-record statistics, trapped-ion systems, and numerical linear algebra.">
   <meta property="og:url" content="https://lostree9.github.io/">
   <link rel="stylesheet" href="css/style.css">
   <script type="application/ld+json">
@@ -28,6 +28,8 @@
       "quantum information",
       "quantum networks",
       "quantum error correction",
+      "graph states",
+      "quantum fault diagnosis",
       "predictive rank",
       "syndrome records",
       "quantum repeaters",
@@ -56,10 +58,10 @@
   <section class="abstract" aria-labelledby="abstract-label">
     <p><span class="abstract-label" id="abstract-label">Abstract.</span>
       I work on quantum information, especially quantum networks and quantum error correction.
-      Current projects include heterogeneous repeater architectures, differential geometry of exact
-      erasure correction, and statistical memory diagnostics for repeated syndrome records. Earlier
-      work of mine includes trapped-ion electric-field noise and randomized algorithms for large
-      eigenvalue problems. I begin an M.S. in ECE at UMass Amherst in Fall 2026.
+      Current projects include heterogeneous repeater architectures, repair diagnosis in graph states,
+      differential geometry of exact erasure correction, and statistical memory diagnostics for repeated
+      syndrome records. Earlier work of mine includes trapped-ion electric-field noise and randomized
+      algorithms for large eigenvalue problems. I begin an M.S. in ECE at UMass Amherst in Fall 2026.
     </p>
   </section>
 
@@ -78,6 +80,13 @@
         <div>
           <h3><a href="projects/hybrid-quantum-repeaters.html">Hybrid quantum repeaters</a></h3>
           <p>Entanglement distribution when only a sparse subset of repeater nodes has high-quality memory and local error correction.</p>
+        </div>
+      </div>
+      <div class="project-row">
+        <div class="kind">graph states</div>
+        <div>
+          <h3><a href="projects/graph-state-repair-diagnosis.html">Repair identifiability and product-measurement complexity</a></h3>
+          <p>Which graph-state fault mechanisms can be distinguished from product-Pauli data, and how measurement context, retained statistics, Pauli weight, and noise constrain repair diagnosis.</p>
         </div>
       </div>
       <div class="project-row">
@@ -107,6 +116,11 @@
   <section class="paper-section">
     <h2><span class="section-number">2.</span>Selected papers and manuscripts</h2>
     <ol class="bibliography">
+      <li>
+        A. Nadiger,
+        <span class="pub-title">“Repair Identifiability and Product-Measurement Complexity of Bond Failures in Graph States.”</span>
+        manuscript v9 (August 2026). <span class="pub-links">[<a href="projects/graph-state-repair-diagnosis.html">project</a>]</span>
+      </li>
       <li>
         A. Nadiger,
         <span class="pub-title">“Predictive Rank as a Memory Witness for Quantum Error-Correction Syndrome Records.”</span>
