@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="index,follow">
+  <title>Predictive Rank as a Memory Witness for QEC Syndrome Records — Ayush Nadiger</title>
+  <meta name="description" content="Research by Ayush Nadiger on predictive-rank diagnostics for repeated quantum error-correction syndrome records, finite-sample rank testing, circuit separator bounds, and public Google surface-code data.">
+  <link rel="canonical" href="https://lostree9.github.io/projects/predictive-rank-qec.html">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <p class="site-title"><a href="../index.html">Ayush Nadiger</a></p>
+  <nav class="site-nav" aria-label="Main navigation">
+    <a href="../research.html" aria-current="page">Research</a>
+    <a href="../papers.html">Papers</a>
+    <a href="../notes.html">Notes</a>
+    <a href="../cv.html">CV</a>
+  </nav>
+</header>
+
+<main class="container">
+  <header class="paper-header">
+    <h1>Predictive rank as a memory witness for quantum error-correction syndrome records</h1>
+    <p class="meta">A. Nadiger · manuscript August 2026 · quantum error correction / statistics</p>
+  </header>
+
+  <section class="paper-abstract">
+    <p><span class="label">Abstract.</span> Repeated QEC circuits produce syndrome streams with memory from both the known circuit and the unknown noise process. This work asks what finite observed records can certify about that memory without first fitting a microscopic noise model. The central object is a finite past–future probability matrix whose rank is bounded by a separator dimension of the circuit-plus-noise representation.</p>
+  </section>
+
+  <section class="paper-section">
+    <h2><span class="section-number">1.</span>Structural bound</h2>
+    <p>For a selected detector light cone and any past–future separator Γ, the finite predictive matrix obeys a circuit/noise factorization bound. In the one-dimensional spatiotemporal Pauli-process representation this reduces to <span class="math">rank H<sup>(ℓ)</sup> ≤ κ<sub>Γ</sub>D</span>, where κ<sub>Γ</sub> is the known circuit/postprocessing separator contribution and D is the latent noise-process bond dimension.</p>
+    <p>For a single repeated stabilizer detector, adjacent-round differencing reuses one binary measurement index across the cut, giving κ<sub>Γ</sub> = 2. A two-state correlated-noise construction attains the resulting rank-four bound, so the circuit factor cannot simply be dropped.</p>
+  </section>
+
+  <section class="paper-section">
+    <h2><span class="section-number">2.</span>Finite-sample statistics</h2>
+    <p>The manuscript separates exact rank implications from finite-data inference. A distribution-free distance-to-rank-r test gives sample complexity Θ(ε<sup>−2</sup> log(1/δ)) for spectrally separated alternatives, with matching scaling already present in a stationary binary Markov example. Extensions treat β-mixing and reversible observed-Markov records, while making explicit where dependence assumptions are required.</p>
+  </section>
+
+  <section class="paper-section">
+    <h2><span class="section-number">3.</span>Google surface-code records</h2>
+    <p>The empirical section applies circuit-relative diagnostics to two public Google distance-5 surface-code records. Detector track <code>x2_y5</code> gives the largest persistent discrepancy from the supplied noisy-circuit model in both memory bases, surviving the manuscript's multiple-testing correction and acquisition-half checks.</p>
+    <p class="small muted">Interpretation is deliberately limited: this is a finite-horizon mismatch with the supplied circuit model. It is not, by itself, identification of leakage or a device-level latent-memory lower bound.</p>
+  </section>
+
+  <section class="paper-section">
+    <h2><span class="section-number">4.</span>Status</h2>
+    <p>Current manuscript version: v7, August 2026. The separator theorem and finite-sample theory are the main formal results; the Google analysis is reported as a conditional model check.</p>
+    <p class="meta">manuscript in preparation</p>
+  </section>
+
+  <p class="small"><a href="../research.html">← research</a></p>
+</main>
+<footer class="site-footer"><p>Research project. Current manuscript August 2026.</p></footer>
+</body>
+</html>
