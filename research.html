@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Research — Ayush Nadiger</title>
-  <meta name="description" content="Research by Ayush Nadiger in quantum networks, quantum error correction, predictive-rank diagnostics, trapped-ion electric-field noise, and randomized numerical linear algebra.">
+  <meta name="description" content="Research by Ayush Nadiger in quantum networks, quantum error correction, graph-state fault diagnosis, predictive-rank diagnostics, trapped-ion electric-field noise, and randomized numerical linear algebra.">
   <link rel="canonical" href="https://lostree9.github.io/research.html">
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -30,11 +30,12 @@
   </section>
 
   <section class="research-entry" id="qec">
-    <h2><span class="section-number">2.</span>Quantum error correction</h2>
+    <h2><span class="section-number">2.</span>Quantum error correction and fault diagnosis</h2>
     <p>One line of work concerns heralded erasures and asynchronous information in network QEC. The physical setting matters: losses can be known, entanglement does not arrive on a common clock, and high-quality memory may be scarce. I am interested in what code structure and decoding information remain useful once those constraints are treated as part of the model rather than averaged away.</p>
-    <p>A separate mathematical direction studies the local geometry of exact erasure correction itself. Linearizing the Knill–Laflamme constraints on the Grassmannian of code subspaces gives a covariance-controlled normal operator, an explicit leakage Hessian, and deformation-theoretic tests of code rigidity.</p>
-    <p>More recently, I have been studying syndrome records themselves as statistical objects. Finite past–future probability matrices give predictive-rank witnesses for memory in repeated QEC circuits. The circuit contribution must be accounted for explicitly; the resulting framework combines separator bounds, finite-sample rank tests, and conditional model checking on public surface-code records.</p>
-    <p class="meta"><a href="projects/covariance-geometry-qec.html">covariance geometry of linearized QEC</a> · <a href="projects/predictive-rank-qec.html">predictive rank for syndrome records</a> · <span class="status">current</span></p>
+    <p>A separate graph-state project asks what measurements actually identify the physical repair required after a bond failure. Target stabilizer statistics can become nearly blind to the difference between a severed edge and dephased endpoint memories, while failed-graph stabilizers recover the missing mechanism label. The resulting theory separates physical fault catalogues, retained statistics, measurement-context complexity, Pauli weight, and noisy sample complexity.</p>
+    <p>Another mathematical direction studies the local geometry of exact erasure correction itself. Linearizing the Knill–Laflamme constraints on the Grassmannian of code subspaces gives a covariance-controlled normal operator, an explicit leakage Hessian, and deformation-theoretic tests of code rigidity.</p>
+    <p>I have also been studying syndrome records themselves as statistical objects. Finite past–future probability matrices give predictive-rank witnesses for memory in repeated QEC circuits. The circuit contribution must be accounted for explicitly; the resulting framework combines separator bounds, finite-sample rank tests, and conditional model checking on public surface-code records.</p>
+    <p class="meta"><a href="projects/graph-state-repair-diagnosis.html">graph-state repair diagnosis</a> · <a href="projects/covariance-geometry-qec.html">covariance geometry of linearized QEC</a> · <a href="projects/predictive-rank-qec.html">predictive rank for syndrome records</a> · <span class="status">current</span></p>
   </section>
 
   <section class="research-entry" id="ions">
