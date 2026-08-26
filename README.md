@@ -4,6 +4,7 @@ I am a researcher at the University of Massachusetts Amherst working on **quantu
 
 **Research site:** https://ayushnadiger.github.io/  
 **GitHub:** https://github.com/ayushnadiger  
+**Google Scholar:** https://scholar.google.com/citations?user=pOxwKVIAAAAJ&hl=en  
 **arXiv:** https://arxiv.org/search/?searchtype=author&query=Nadiger%2C+A
 
 ## Selected public work
