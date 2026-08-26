@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Geometric Noise Recycling in Planar Ion-Trap Enclosures — Ayush Nadiger</title>
-  <meta name="description" content="Research by Ayush Nadiger on geometry-dependent trapped-ion electric-field noise, exact enclosure laws, Green-function kernels, and ray-dynamical reconstruction of patch-potential coupling.">
+  <title>Geometry-Controlled Correlated Electric-Field Noise in Enclosed Ion Traps — Ayush Nadiger</title>
+  <meta name="description" content="Ayush Nadiger's trapped-ion preprint on geometry-controlled correlated electric-field noise in enclosed ion traps, Green-function kernels, enclosure effects, and billiard return spectra.">
   <link rel="canonical" href="https://lostree9.github.io/projects/trapped-ion-diagnostics.html">
   <link rel="stylesheet" href="../css/style.css">
 </head>
@@ -21,19 +21,19 @@
 
 <main class="container">
   <header class="paper-header">
-    <h1>Geometric noise recycling in planar ion-trap enclosures and ray-dynamical reconstruction of patch-potential coupling</h1>
-    <p class="meta">A. Nadiger · manuscript July 2026 · trapped-ion physics / geometry</p>
-    <p class="project-links">[<a href="https://honorspaths.honors.umass.edu/massurc/home/abstract/4634">MassURC abstract</a>]</p>
+    <h1>Geometry-controlled correlated electric-field noise in enclosed ion traps from billiard return spectra</h1>
+    <p class="meta">A. Nadiger · arXiv:2608.24770 · 2026 · quantum physics / atomic physics</p>
+    <p class="project-links">[<a href="https://arxiv.org/abs/2608.24770">arXiv</a>] [<a href="https://github.com/lostree9/noise_recycling">code and numerical data</a>] [<a href="https://honorspaths.honors.umass.edu/massurc/home/abstract/4634">MassURC abstract</a>]</p>
   </header>
 
   <section class="paper-abstract">
-    <p><span class="label">Abstract.</span> Within a spatially local patch-potential model, electric-field noise at a trapped ion separates into a material spectrum and a deterministic Green-function geometry functional. This work solves that geometry problem exactly for planar enclosures and then asks how much of the field-level boundary kernel can be reconstructed from simple ray-dynamical passage statistics.</p>
+    <p><span class="label">Abstract.</span> Within a spatially local patch-potential model, electric-field noise at a trapped ion separates into a material spectrum and a deterministic Green-function geometry functional. This work solves that geometry problem for controlled enclosures, characterizes spatial correlations, and connects the field-level boundary response to billiard return statistics.</p>
   </section>
 
   <section class="paper-section">
     <h2><span class="section-number">1.</span>Exact enclosure law</h2>
     <p>For a two-dimensional grounded strip and three-dimensional parallel plates, the vertical geometry functional decomposes exactly into the open-boundary contribution plus a strictly positive image-pair remainder. The remainder decreases as the enclosure opens, giving a precise version of the “noise recycling” picture rather than only a geometric analogy.</p>
-    <p>The three-dimensional result can be inverted into engineering rules: in the current manuscript, limiting the added vertical coupling to 5% or 1% requires cover clearance h/d of at least 2.870 or 4.372, respectively.</p>
+    <p>The three-dimensional result can be inverted into engineering rules: limiting the added vertical coupling to 5% or 1% requires cover clearance h/d of at least 2.870 or 4.372, respectively.</p>
   </section>
 
   <section class="paper-section">
@@ -42,18 +42,18 @@
   </section>
 
   <section class="paper-section">
-    <h2><span class="section-number">3.</span>Ray reconstruction</h2>
-    <p>Direction-resolved circular-gate passage counts, split by arrival direction and centrally differenced in ion height, reconstruct the field-level boundary kernel in the ideal strip. The current simulations separate sampling variance from deterministic error through independent sweeps in gate radius, height step, ray count, and bounce depth, and test where the identity degrades on non-flat boundaries.</p>
+    <h2><span class="section-number">3.</span>Billiard return spectra</h2>
+    <p>Direction-resolved circular-gate passage counts, split by arrival direction and centrally differenced in ion height, reconstruct the field-level boundary kernel in the ideal strip. The simulations separate sampling variance from deterministic error through independent sweeps in gate radius, height step, ray count, and bounce depth, and test where the identity degrades on non-flat boundaries.</p>
     <p class="small muted">The ray identity is structural for the controlled geometry; it is not claimed as a general-domain replacement for an electrostatic solver.</p>
   </section>
 
   <section class="paper-section">
     <h2><span class="section-number">4.</span>Thesis lineage</h2>
-    <p>This manuscript grew out of my 2026 Commonwealth Honors Thesis on geometry-dependent anomalous heating, carried out at UMass Amherst with Christopher Cox and Robert Niffenegger. The broader thesis used finite-element Green-function kernels and billiard/TDA diagnostics across slot, trench, covered, and blade-like geometries.</p>
+    <p>This preprint grew out of my 2026 Commonwealth Honors Thesis on geometry-dependent anomalous heating, carried out at UMass Amherst with Christopher Cox and Robert Niffenegger. The broader thesis used finite-element Green-function kernels and billiard/TDA diagnostics across slot, trench, covered, and blade-like geometries.</p>
   </section>
 
   <p class="small"><a href="../research.html">← research</a></p>
 </main>
-<footer class="site-footer"><p>Research project. Current manuscript July 2026; page revised 17 August 2026.</p></footer>
+<footer class="site-footer"><p>Research project. arXiv:2608.24770; page revised 26 August 2026.</p></footer>
 </body>
 </html>
