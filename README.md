@@ -2,7 +2,8 @@
 
 I am a researcher at the University of Massachusetts Amherst working on **quantum information**, especially **quantum error correction** and **quantum networks**. My current work includes heterogeneous quantum repeaters, graph-state fault diagnosis, geometric structure in QEC, statistical memory diagnostics for syndrome records, and trapped-ion electric-field noise.
 
-**Research site:** https://lostree9.github.io/  
+**Research site:** https://ayushnadiger.github.io/  
+**GitHub:** https://github.com/ayushnadiger  
 **arXiv:** https://arxiv.org/search/?searchtype=author&query=Nadiger%2C+A
 
 ## Selected public work
@@ -31,4 +32,4 @@ Old `projects.html`, `writing.html`, and `contact.html` routes are retained as `
 - The homepage contains `Person` JSON-LD and explicit identity links.
 - Each real project has a focused title, description, canonical URL, and plain-text explanation.
 
-Canonical URLs currently use `https://lostree9.github.io/`. Replace the hostname when a custom domain is connected.
+Canonical URLs use `https://ayushnadiger.github.io/`. If a custom domain is added later, update the canonical host, sitemap, and identity links together.
