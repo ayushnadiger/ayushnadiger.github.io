@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://lostree9.github.io/sitemap.xml
+Sitemap: https://ayushnadiger.github.io/sitemap.xml
