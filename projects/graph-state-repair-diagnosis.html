@@ -5,10 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="index,follow">
   <title>Repair Identifiability and Product-Measurement Complexity of Bond Failures in Graph States | Ayush Nadiger</title>
-  <meta name="description" content="Research by Ayush Nadiger on repair identifiability, graph-state bond failures, stabilizer blindness, product-Pauli measurement complexity, and bounded-weight fault diagnosis.">
+  <meta name="description" content="Research by Ayush Nadiger on graph-state repair identifiability, exact Pauli fault witnesses, product-Pauli measurement complexity, bounded-weight diagnosis, and stabilizer data compression.">
   <link rel="canonical" href="https://ayushnadiger.github.io/projects/graph-state-repair-diagnosis.html">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" sizes="any">
   <link rel="stylesheet" href="../css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "name": "Repair Identifiability and Product-Measurement Complexity of Bond Failures in Graph States",
+    "author": {"@type": "Person", "name": "Ayush Nadiger", "url": "https://ayushnadiger.github.io/"},
+    "dateCreated": "2026-08",
+    "description": "A known-topology graph-state fault-diagnosis study separating edge localization from physical repair identification under product-Pauli measurements and retained stabilizer statistics.",
+    "keywords": ["quantum error correction", "graph states", "fault diagnosis", "stabilizer measurements", "quantum learning", "product Pauli measurements"],
+    "url": "https://ayushnadiger.github.io/projects/graph-state-repair-diagnosis.html"
+  }
+  </script>
 </head>
 <body>
 <header class="site-header">
@@ -24,34 +36,40 @@
 <main class="container">
   <header class="paper-header">
     <h1>Repair identifiability and product-measurement complexity of bond failures in graph states</h1>
-    <p class="meta">A. Nadiger · manuscript v9, August 2026 · graph states / fault diagnosis</p>
+    <p class="meta">A. Nadiger · manuscript v10, August 2026 · graph states / fault diagnosis</p>
   </header>
 
   <section class="paper-abstract">
-    <p><span class="label">Abstract.</span> Graph-state verification can pass while still failing to tell us how to repair the device. I study that gap for a known graph with one suspect bond. A severed edge and complete independent Z-dephasing of its endpoint memories have the same target-stabilizer statistics. Partial dephasing gives a continuous near-blind regime with target-statistics copy complexity Θ(g<sup>−2</sup> log(1/δ)). The paper identifies the product-Pauli measurements that recover the missing repair information and counts the required global measurement contexts.</p>
+    <p><span class="label">Abstract.</span> A state-verification record can contain enough information to localize a graph-state defect while discarding the information needed to choose the physical repair. For a known graph and one suspect intended bond, the paper characterizes the missing Pauli information exactly: at full endpoint dephasing, a Pauli distinguishes a severed bond from endpoint-memory dephasing if and only if it lies in the failed-graph stabilizer group but outside the target stabilizer group, <span class="math">±S(G−e) \ ±S(G)</span>. It then quantifies the measurement contexts, witness weight, and finite-shot cost required to recover that repair label.</p>
   </section>
 
   <section class="paper-section">
     <h2><span class="section-number">1.</span>Exact repair witnesses</h2>
-    <p>For an intended edge e, the Pauli observables that distinguish the cut state from the endpoint-dephased state are characterized exactly: they are the failed-graph stabilizers outside the target stabilizer group, <span class="math">±S(G−e) \ ±S(G)</span>. This identifies the local boundary checks that a repair protocol must add after ordinary target-stabilizer data become blind.</p>
-    <p>The characterization also gives locality consequences. In particular, endpoint-only tomography is generally insufficient; the missing repair information usually lives on a neighborhood support determined by the failed graph.</p>
+    <p>A severed edge and complete independent Z-dephasing of its endpoint memories have identical target graph-basis diagonals and target-stabilizer statistics. The complete Pauli distinguisher set is <span class="math">±S(G−e) \ ±S(G)</span>: the repair information lives exactly in failed-graph stabilizers absent from the target dictionary.</p>
+    <p>This gives a sharp locality criterion. Endpoint-pair tomography is generally blind; it succeeds only when an endpoint is a leaf or the endpoints are external twins. For a generic bulk edge, a repair witness must reach into the failed edge's neighborhood.</p>
   </section>
 
   <section class="paper-section">
     <h2><span class="section-number">2.</span>Measurement resources</h2>
-    <p>The paper separates two axes that are often conflated: the physical fault catalogue (cut localization versus repair diagnosis) and the retained statistics (full product outcomes versus target-stabilizer parities). This gives three finite context numbers and an exact decomposition of raw repair diagnosis into target edge localization plus failed-graph mechanism coverage.</p>
-    <p>Among the structural results: stars are exactly the connected graphs diagnosable for the bond-local repair catalogue in one raw context; complete graphs require two; an edge-separating chromatic parameter gives general upper bounds; and exact computation over every connected graph through eight vertices finds raw cut complexity at most two and raw repair complexity at most three.</p>
+    <p>The paper separates two axes: the physical catalogue (single-edge localization versus bond-local repair diagnosis) and the retained statistics (full product outcomes versus target-stabilizer parities). A raw repair schedule succeeds exactly when its target information localizes every candidate edge and its contexts expose a failed-graph repair witness for every edge. This yields <span class="math">c<sub>raw</sub><sup>cut</sup> ≤ c<sub>targ</sub><sup>cut</sup> ≤ c<sub>raw</sub><sup>rep</sup></span>.</p>
+    <p>Stars are exactly the connected graphs diagnosable for the bond-local repair catalogue in one raw context; complete graphs require two. Exact computation over every connected graph through eight vertices finds no raw cut complexity above two and no raw repair complexity above three.</p>
   </section>
 
   <section class="paper-section">
     <h2><span class="section-number">3.</span>Bounded weight and noisy hardware</h2>
-    <p>Bounding Pauli weight changes the information hierarchy. For wheels W<sub>n</sub> with n ≥ 8, weight-three raw product records still localize every single cut with χ(C<sub>n−1</sub>) contexts, while target-stabilizer diagnosis is impossible at that weight. Complete graphs provide a contrasting family where the minimum useful weight is already two and the unrestricted context profile is unchanged.</p>
-    <p>A failed-edge weight scale also controls noisy sampling. Under local depolarizing attenuation, the lightest non-target failed-graph stabilizer determines the high-noise exponent of the optimal cut-versus-memory test: for fixed graph and edge, the required number of copies scales as Θ<sub>G</sub>(f<sup>−2d</sup> log(1/δ)), even allowing collective measurements.</p>
+    <p>Bounding Pauli weight produces an information separation on an infinite family. For wheels W<sub>n</sub> with n ≥ 8, weight-three raw product records still localize every single edge deletion with χ(C<sub>n−1</sub>) contexts, while target-stabilizer cut diagnosis is impossible at that weight. Complete graphs provide a contrasting family where weight two already realizes the unrestricted context profile.</p>
+    <p>Under local depolarizing attenuation, the lightest failed-graph-only stabilizer determines the high-noise exponent of the optimal severed-bond versus memory-dephasing test: for fixed graph and edge, the copy requirement scales as Θ<sub>G</sub>(f<sup>−2d</sup> log(1/δ)), even allowing collective measurements.</p>
   </section>
 
   <section class="paper-section">
-    <h2><span class="section-number">4.</span>Status</h2>
-    <p>Current manuscript version: v9, August 2026. The main results are the exact Pauli distinguisher characterization, the repair-context decomposition, the one-context star classification, bounded-weight wheel separation, and the depolarizing sampling exponent.</p>
+    <h2><span class="section-number">4.</span>Relation to hidden-cut and StateHSP learning</h2>
+    <p>The hidden-cut and StateHSP problems learn an unknown bipartition, symmetry, or stabilizer structure from quantum states. This manuscript assumes the graph topology is known in advance. The latent variable is instead a physical fault mechanism at an intended edge, and the question is which repair-relevant information survives a restricted measurement-and-retention interface. The connection is therefore quantum identifiability under constrained observations, not an extension of the hidden-cut search problem.</p>
+  </section>
+
+  <section class="paper-section">
+    <h2><span class="section-number">5.</span>Status and reproducibility</h2>
+    <p>Current manuscript version: v10, August 2026. This freeze pass adds current StateHSP prior art, strengthens the physical motivation of the bond-local catalogue, foregrounds the exact Pauli-support theorem, and removes stale machine-specific paths from the verification scripts.</p>
+    <p class="pub-links">[<a href="https://github.com/ayushnadiger/ayushnadiger.github.io/tree/main/code/repair-identifiability">verification code</a>]</p>
     <p class="meta">manuscript in preparation</p>
   </section>
 
