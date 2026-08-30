@@ -4,7 +4,7 @@ Expected: c_raw^rep(W10)=3, 23698 distinct nonzero masks.
 import multiprocessing as mp, random, sys
 from audit_raw_repair_fast import wheel, make_graph, context_mask
 from raw_repair_context import sep_mask as slow_sep_mask
-from cdiag_independent_verify import CdiagSolver
+from cdiag_verify import CdiagSolver
 
 N=10
 E=wheel(N)
@@ -61,7 +61,6 @@ def main():
     assert len(nz)==23698
     assert no_two_cover(masks), 'found a two-context repair schedule'
     print('exact two-cover obstruction: PASS')
-
     T=make_graph(N,E); C=[make_graph(N,[f for f in E if f!=e]) for e in E]
     rng=random.Random(9173)
     for i in range(120):
