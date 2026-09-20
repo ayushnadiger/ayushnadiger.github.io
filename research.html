@@ -15,18 +15,17 @@
   <nav class="site-nav" aria-label="Main navigation">
     <a href="research.html" aria-current="page">Research</a>
     <a href="papers.html">Papers</a>
-    <a href="notes.html">Notes</a>
     <a href="cv.html">CV</a>
   </nav>
 </header>
 
 <main class="container">
   <h1>Research</h1>
-  <p class="page-deck">I study how physical noise, limited memories, and probabilistic interconnects shape quantum error correction and fault-tolerant architectures. My work combines mathematical models and simulation, from device noise to network protocols.</p>
+  <p class="page-deck">From physical noise to reliable quantum networks.</p>
 
   <section class="research-entry" id="networks">
     <h2><span class="section-number">1.</span>Heterogeneous quantum network architectures</h2>
-    <p>My current work with Filip Rozpędek asks how sparsely expensive memories and local error correction can be deployed while preserving useful network performance. I study hybrid repeater networks in one and two dimensions, keeping memory coherence, gate errors, link-generation probabilities, node placement, routing, and synchronization explicit. The central question is when additional hardware pays for itself, and when waiting or detours erase the benefit.</p>
+    <p>My current work with Filip Rozpędek asks how sparsely expensive memories and local error correction can be deployed while preserving useful network performance. I study hybrid repeater networks in one and two dimensions, keeping memory coherence, gate errors, link-generation probabilities, node placement, routing, and synchronization explicit. I compare fidelity, secret-key rate, completion time, and hardware requirements.</p>
     <p class="meta"><a href="projects/hybrid-quantum-repeaters.html">project page</a> · <span class="status">current</span></p>
   </section>
 
@@ -37,34 +36,20 @@
 
   <section class="research-entry" id="ions">
     <h2><span class="section-number">3.</span>Trapped-ion noise and geometry</h2>
-    <p>My trapped-ion work asks how electrode geometry changes electric-field noise when the underlying surface-noise spectrum is held fixed. The preprint develops controlled enclosure laws, derives two-point correlation structure, and connects a billiard-style return spectrum to the field-level Green-function boundary response.</p>
-    <p>This grew out of my honors thesis, which used finite-element Green-function kernels and billiard/TDA diagnostics to compare open, covered, trench, slot, and blade-like geometries. The result I care about is sharper than distance scaling: changing the enclosure can change the total coupling and even flip its anisotropy.</p>
-    <p class="meta"><a href="https://arxiv.org/abs/2608.24770">arXiv:2608.24770</a> · <a href="projects/trapped-ion-diagnostics.html">project page</a> · <a href="https://github.com/ayushnadiger/noise_recycling">code and numerical data</a> · <a href="https://honorspaths.honors.umass.edu/massurc/home/abstract/4634">MassURC abstract</a></p>
+    <p>My honors thesis and subsequent preprint study how electrode geometry changes electric-field noise and spatial correlations for a fixed surface-noise spectrum. Green-function kernels and numerical geometry diagnostics connect device enclosure to coupling strength and anisotropy.</p>
+    <p class="meta"><a href="https://arxiv.org/abs/2608.24770">Preprint</a> · <a href="projects/trapped-ion-diagnostics.html">Project</a> · <a href="https://github.com/ayushnadiger/noise_recycling">Code &amp; data</a></p>
   </section>
 
   <section class="research-entry" id="diagnostics">
-    <h2><span class="section-number">4.</span>Fault diagnosis and mathematical foundations</h2>
-    <p>A separate graph-state project asks what measurements actually identify the physical repair required after a bond failure. Target stabilizer statistics can become nearly blind to the difference between a severed edge and dephased endpoint memories, while failed-graph stabilizers recover the missing mechanism label. The resulting theory separates physical fault catalogues, retained statistics, measurement-context complexity, Pauli weight, and noisy sample complexity.</p>
-    <p>Another mathematical direction studies the local geometry of exact erasure correction itself. Linearizing the Knill–Laflamme constraints on the Grassmannian of code subspaces gives a covariance-controlled normal operator, an explicit leakage Hessian, and deformation-theoretic tests of code rigidity.</p>
-    <p>I have also been studying syndrome records themselves as statistical objects. Finite past–future probability matrices give predictive-rank witnesses for memory in repeated QEC circuits. The circuit contribution must be accounted for explicitly; the resulting framework combines separator bounds, finite-sample rank tests, and conditional model checking on public surface-code records.</p>
-    <p class="meta"><a href="projects/graph-state-repair-diagnosis.html">graph-state repair diagnosis</a> · <a href="projects/covariance-geometry-qec.html">covariance geometry of linearized QEC</a> · <a href="projects/predictive-rank-qec.html">predictive rank for syndrome records</a> · <span class="status">current</span></p>
+    <h2><span class="section-number">4.</span>Related mathematical work</h2>
+    <p>Additional manuscripts study what measurement records reveal about faults and memory, and the local geometry of exact error correction.</p>
+    <ul>
+      <li><a href="projects/graph-state-repair-diagnosis.html">Repair identifiability in graph states</a> — distinguishing fault mechanisms that require different physical repairs.</li>
+      <li><a href="projects/predictive-rank-qec.html">Predictive rank of QEC syndrome records</a> — statistical witnesses of memory with circuit contributions made explicit.</li>
+      <li><a href="projects/covariance-geometry-qec.html">Covariance geometry of erasure correction</a> — local constraints, leakage, and code rigidity.</li>
+    </ul>
   </section>
 
-  <section class="research-entry" id="numerics">
-    <h2><span class="section-number">5.</span>Randomized numerical linear algebra</h2>
-    <p>RA-FEAST explores whether randomized subspace information can reduce the cost of contour-integral eigensolvers without giving up the accuracy that makes FEAST attractive. The project combines randomized initialization, inexact refinement, error analysis, and sparse numerical experiments.</p>
-    <p class="meta"><a href="projects/randomized-feast.html">project page</a> · <a href="https://arxiv.org/abs/2512.01257">arXiv:2512.01257</a></p>
-  </section>
-
-  <section class="research-entry" id="archive">
-    <h2>Archive</h2>
-    <p class="small muted">Earlier work and expository side projects. These are kept separate from the current research program.</p>
-    <div class="project-index">
-      <div class="project-row"><div class="kind">optimization</div><div><h3><a href="https://arxiv.org/abs/2604.16718">Quantum route optimization and energy use</a></h3><p>QAOA-based route optimization compared against classical baselines.</p></div></div>
-      <div class="project-row"><div class="kind">May 2025</div><div><h3><a href="projects/cp3-segre-concurrence.html">CP³ / Segre geometry and concurrence</a></h3><p>The differential-geometric starting point for the later covariance-QEC work.</p></div></div>
-      <div class="project-row"><div class="kind">spectral</div><div><h3><a href="projects/billiards-tda-scarring.html">Quantum scarring and topological diagnostics</a></h3><p>Exploratory work on billiards, eigenfunctions, and topological summaries.</p></div></div>
-    </div>
-  </section>
 </main>
 
 <footer class="site-footer"><p>Last revised 20 September 2026.</p></footer>
