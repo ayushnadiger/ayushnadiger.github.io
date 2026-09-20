@@ -364,3 +364,21 @@ code {
   body { font-size: 11pt; line-height: 1.45; }
   a { text-decoration: none; }
 }
+
+/* Compact research homepage; preserve the paper typography. */
+.home .byline { font-size: .88rem; margin-bottom: 1.65rem; }
+.home .abstract { width: 100%; padding: 0; margin-bottom: 1.3rem; }
+.home .abstract p + p { margin-top: .8rem; }
+.home .front-links { margin: 1.1rem 0 2rem; }
+.home .paper-section { margin-top: 2rem; }
+.research-brief { margin: 0 0 1.15rem; }
+.research-brief h3 { margin: 0 0 .25rem; }
+.research-brief p { margin: 0; }
+.featured-paper { margin-bottom: .8rem; }
+.pub-links { white-space: normal; }
+.section-number { margin-right: .25rem; }
+a { overflow-wrap: anywhere; }
+@media (max-width: 690px) {
+  .site-header { padding-left: 1.25rem; padding-right: 1.25rem; }
+  .home .byline { max-width: 22rem; margin-left: auto; margin-right: auto; }
+}
