@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ayush Nadiger | Quantum Information Research</title>
-  <meta name="description" content="Ayush Nadiger is a quantum-information researcher at UMass Amherst working on quantum error correction, quantum networks, and trapped-ion physics.">
+  <title>Ayush Nadiger | Quantum Error Correction &amp; Quantum Architectures</title>
+  <meta name="description" content="Ayush Nadiger studies quantum error correction and fault-tolerant architectures under physical hardware constraints at UMass Amherst.">
   <meta name="author" content="Ayush Nadiger">
   <meta name="robots" content="index,follow,max-image-preview:large">
   <link rel="canonical" href="https://ayushnadiger.github.io/">
@@ -12,12 +12,12 @@
   <meta name="theme-color" content="#111111">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Ayush Nadiger">
-  <meta property="og:title" content="Ayush Nadiger | Quantum Information Research">
-  <meta property="og:description" content="Quantum error correction, quantum networks, trapped-ion physics, papers, research notes, and CV.">
+  <meta property="og:title" content="Ayush Nadiger | Quantum Error Correction &amp; Quantum Architectures">
+  <meta property="og:description" content="Quantum error correction, fault-tolerant quantum architectures, heterogeneous networks, and trapped-ion device noise.">
   <meta property="og:url" content="https://ayushnadiger.github.io/">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Ayush Nadiger | Quantum Information Research">
-  <meta name="twitter:description" content="Quantum error correction, quantum networks, trapped-ion physics, papers, research notes, and CV.">
+  <meta name="twitter:title" content="Ayush Nadiger | Quantum Error Correction &amp; Quantum Architectures">
+  <meta name="twitter:description" content="Quantum error correction, fault-tolerant quantum architectures, heterogeneous networks, and trapped-ion device noise.">
   <link rel="stylesheet" href="css/style.css">
   <script type="application/ld+json">
   {
@@ -29,14 +29,14 @@
         "url": "https://ayushnadiger.github.io/",
         "name": "Ayush Nadiger",
         "alternateName": "Ayush Nadiger Research",
-        "description": "Research website of Ayush Nadiger in quantum information, quantum error correction, quantum networks, and trapped-ion physics.",
+        "description": "Research by Ayush Nadiger on quantum error correction and fault-tolerant architectures under physical hardware constraints.",
         "inLanguage": "en-US"
       },
       {
         "@type": "WebPage",
         "@id": "https://ayushnadiger.github.io/#webpage",
         "url": "https://ayushnadiger.github.io/",
-        "name": "Ayush Nadiger | Quantum Information Research",
+        "name": "Ayush Nadiger | Quantum Error Correction & Quantum Architectures",
         "isPartOf": {"@id": "https://ayushnadiger.github.io/#website"},
         "about": {"@id": "https://ayushnadiger.github.io/#person"},
         "inLanguage": "en-US"
@@ -63,6 +63,7 @@
           "https://inspirehep.net/authors/3147394"
         ],
         "knowsAbout": [
+          "fault-tolerant quantum architectures",
           "quantum information",
           "quantum error correction",
           "quantum networks",
@@ -96,11 +97,11 @@
 
   <section class="abstract" aria-labelledby="abstract-label">
     <p><span class="abstract-label" id="abstract-label">Abstract.</span>
-      I work on quantum information, especially quantum error correction and quantum networks.
-      Right now I am studying sparse error-corrected nodes in repeater networks, repair diagnosis in graph
-      states, and the geometry and statistics of QEC constraints and syndrome records. My earlier work covers
-      trapped-ion electric-field noise and randomized eigensolvers. I begin an M.S. in ECE at UMass Amherst
-      in Fall 2026.
+      I study quantum error correction and fault-tolerant quantum architectures under physical hardware constraints.
+      My current work asks how memory lifetimes, gate errors, probabilistic entanglement generation, and classical
+      communication shape the design of quantum networks. I focus on sparse hybrid repeaters and asynchronous
+      QEC, building on earlier work on geometry-dependent electric-field noise in trapped-ion devices.
+      I am an M.S. student in ECE and a graduate research assistant with Filip Rozpędek at UMass Amherst.
     </p>
   </section>
 
@@ -119,7 +120,21 @@
         <div class="kind">QEC / networks</div>
         <div>
           <h3><a href="projects/hybrid-quantum-repeaters.html">Hybrid quantum repeaters</a></h3>
-          <p>Entanglement distribution when only a sparse subset of repeater nodes has high-quality memory and local error correction.</p>
+          <p>How sparsely can better memories and local error correction be deployed while retaining useful network performance? Joint studies of hardware, placement, routing, and synchronization.</p>
+        </div>
+      </div>
+      <div class="project-row">
+        <div class="kind">QEC / architecture</div>
+        <div>
+          <h3><a href="research.html#qec">Asynchronous quantum error correction</a></h3>
+          <p>Ongoing work on QEC and decoding when entanglement arrives at different times: heralded failures, memory age, syndrome scheduling, and the cost of waiting.</p>
+        </div>
+      </div>
+      <div class="project-row">
+        <div class="kind">trapped ions</div>
+        <div>
+          <h3><a href="projects/trapped-ion-diagnostics.html">Geometry-controlled correlated electric-field noise in enclosed ion traps</a></h3>
+          <p>Geometry-dependent correlated electric-field noise, enclosure effects, Green-function kernels, and billiard return spectra in trapped-ion devices.</p>
         </div>
       </div>
       <div class="project-row">
@@ -130,13 +145,6 @@
         </div>
       </div>
       <div class="project-row">
-        <div class="kind">QEC / geometry</div>
-        <div>
-          <h3><a href="projects/covariance-geometry-qec.html">Covariance geometry of linearized quantum erasure correction</a></h3>
-          <p>Grassmannian geometry of the exact Knill–Laflamme locus, covariance-controlled normal structure, leakage Hessians, and code rigidity.</p>
-        </div>
-      </div>
-      <div class="project-row">
         <div class="kind">QEC / statistics</div>
         <div>
           <h3><a href="projects/predictive-rank-qec.html">Predictive rank as a memory witness for QEC syndrome records</a></h3>
@@ -144,10 +152,10 @@
         </div>
       </div>
       <div class="project-row">
-        <div class="kind">trapped ions</div>
+        <div class="kind">QEC / geometry</div>
         <div>
-          <h3><a href="projects/trapped-ion-diagnostics.html">Geometry-controlled correlated electric-field noise in enclosed ion traps</a></h3>
-          <p>Geometry-dependent correlated electric-field noise, enclosure effects, Green-function kernels, and billiard return spectra in trapped-ion devices.</p>
+          <h3><a href="projects/covariance-geometry-qec.html">Covariance geometry of linearized quantum erasure correction</a></h3>
+          <p>Grassmannian geometry of the exact Knill–Laflamme locus, covariance-controlled normal structure, leakage Hessians, and code rigidity.</p>
         </div>
       </div>
     </div>
@@ -206,7 +214,7 @@
 </main>
 
 <footer class="site-footer">
-  <p>Last revised 30 August 2026. Plain HTML and CSS; no framework.</p>
+  <p>Last revised 20 September 2026.</p>
 </footer>
 
 </body>
