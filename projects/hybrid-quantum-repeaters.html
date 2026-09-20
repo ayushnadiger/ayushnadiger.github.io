@@ -27,17 +27,17 @@
   </header>
 
   <section class="paper-abstract">
-    <p><span class="label">Abstract.</span> This project asks a plain hardware question: if only a few repeaters have good memories and local error correction, when are they worth routing through? A detour may protect the state, but it also adds hops, waiting, and coordination. I study where that tradeoff helps and where it does not.</p>
+    <p><span class="label">Abstract.</span> How much high-quality hardware does a quantum network need? I study whether sparse deployment of better memories and local error correction can retain the performance of a more expensive, densely upgraded network. The design problem couples hardware quality and placement to routing, waiting, and coordination.</p>
   </section>
 
   <section class="paper-section">
     <h2><span class="section-number">1.</span>Physical model</h2>
-    <p>The network is modeled as a two-dimensional repeater lattice with stochastic elementary-link generation, memory decoherence, entanglement swapping, and a distinguished class of hybrid nodes with better local hardware. The analysis keeps hardware quality, path choice, waiting, and local correction explicit rather than collapsing them into a single effective edge weight.</p>
+    <p>The network is modeled using repeater chains and two-dimensional lattices with stochastic elementary-link generation, memory decoherence, entanglement swapping, and a distinguished class of hybrid nodes with better local hardware. The analysis keeps hardware quality, path choice, waiting, and local correction explicit rather than collapsing them into a single effective edge weight.</p>
   </section>
 
   <section class="paper-section">
     <h2><span class="section-number">2.</span>Questions</h2>
-    <p>How sparse can the good nodes be before they stop helping? When should a route detour through them? How much of the gain comes from memory, local gates, or the code itself? I also track the classical information required for swap order, qubit age, and local permutations.</p>
+    <p>How do the useful spacing and density of hybrid nodes depend on link success, memory coherence, and gate errors? When should a route detour through a hybrid node or skip its correction operation? How much of the gain comes from better hardware, coding, or scheduling? I compare fidelity, secret-key rate, completion time, and hardware requirements, and study the classical information needed to track swap outcomes and qubit age.</p>
   </section>
 
   <section class="paper-section">
@@ -47,6 +47,6 @@
 
   <p class="small"><a href="../research.html">← research</a></p>
 </main>
-<footer class="site-footer"><p>Last revised 29 August 2026.</p></footer>
+<footer class="site-footer"><p>Last revised 20 September 2026.</p></footer>
 </body>
 </html>
