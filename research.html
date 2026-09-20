@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Research | Ayush Nadiger</title>
-  <meta name="description" content="Research by Ayush Nadiger in quantum information, quantum error correction, quantum networks, graph-state fault diagnosis, predictive-rank diagnostics, and trapped-ion electric-field noise.">
+  <meta name="description" content="Quantum error correction and fault-tolerant architectures under physical hardware constraints: hybrid repeaters, asynchronous QEC, and trapped-ion device noise.">
   <link rel="canonical" href="https://ayushnadiger.github.io/research.html">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" sizes="any">
   <link rel="stylesheet" href="css/style.css">
@@ -22,21 +22,17 @@
 
 <main class="container">
   <h1>Research</h1>
-  <p class="page-deck">Current questions first; older and exploratory work is kept in the archive rather than made to look more finished than it is.</p>
+  <p class="page-deck">I study how physical noise, limited memories, and probabilistic interconnects shape quantum error correction and fault-tolerant architectures. My work combines mathematical models and simulation, from device noise to network protocols.</p>
 
   <section class="research-entry" id="networks">
-    <h2><span class="section-number">1.</span>Quantum networks</h2>
-    <p>A network of identical repeater nodes is the easy limit. I am interested in the middle: most nodes are cheap and short-lived, while a few can store qubits longer or run local error correction. A route may detour to reach those nodes, but the extra hops add loss and delay.</p>
+    <h2><span class="section-number">1.</span>Heterogeneous quantum network architectures</h2>
+    <p>My current work with Filip Rozpędek asks how sparsely expensive memories and local error correction can be deployed while preserving useful network performance. I study hybrid repeater networks in one and two dimensions, keeping memory coherence, gate errors, link-generation probabilities, node placement, routing, and synchronization explicit. The central question is when additional hardware pays for itself, and when waiting or detours erase the benefit.</p>
     <p class="meta"><a href="projects/hybrid-quantum-repeaters.html">project page</a> · <span class="status">current</span></p>
   </section>
 
   <section class="research-entry" id="qec">
-    <h2><span class="section-number">2.</span>Quantum error correction and fault diagnosis</h2>
-    <p>One line of work concerns heralded erasures and asynchronous information in network QEC. The physical setting matters: losses can be known, entanglement does not arrive on a common clock, and high-quality memory may be scarce. I am interested in what code structure and decoding information remain useful once those constraints are treated as part of the model rather than averaged away.</p>
-    <p>A separate graph-state project asks what measurements actually identify the physical repair required after a bond failure. Target stabilizer statistics can become nearly blind to the difference between a severed edge and dephased endpoint memories, while failed-graph stabilizers recover the missing mechanism label. The resulting theory separates physical fault catalogues, retained statistics, measurement-context complexity, Pauli weight, and noisy sample complexity.</p>
-    <p>Another mathematical direction studies the local geometry of exact erasure correction itself. Linearizing the Knill–Laflamme constraints on the Grassmannian of code subspaces gives a covariance-controlled normal operator, an explicit leakage Hessian, and deformation-theoretic tests of code rigidity.</p>
-    <p>I have also been studying syndrome records themselves as statistical objects. Finite past–future probability matrices give predictive-rank witnesses for memory in repeated QEC circuits. The circuit contribution must be accounted for explicitly; the resulting framework combines separator bounds, finite-sample rank tests, and conditional model checking on public surface-code records.</p>
-    <p class="meta"><a href="projects/graph-state-repair-diagnosis.html">graph-state repair diagnosis</a> · <a href="projects/covariance-geometry-qec.html">covariance geometry of linearized QEC</a> · <a href="projects/predictive-rank-qec.html">predictive rank for syndrome records</a> · <span class="status">current</span></p>
+    <h2><span class="section-number">2.</span>Asynchronous quantum error correction</h2>
+    <p>Entanglement between network nodes arrives probabilistically, so qubits in the same code block can have different ages and noise histories. I am studying how heralding information, memory age, and measurement timing should enter QEC protocols and decoders. Starting with repetition codes and small CSS codes, this work examines when more general codes, including quantum LDPC codes, justify their connectivity and syndrome-extraction costs in a network. This is an ongoing research direction.</p>
   </section>
 
   <section class="research-entry" id="ions">
@@ -46,8 +42,16 @@
     <p class="meta"><a href="https://arxiv.org/abs/2608.24770">arXiv:2608.24770</a> · <a href="projects/trapped-ion-diagnostics.html">project page</a> · <a href="https://github.com/ayushnadiger/noise_recycling">code and numerical data</a> · <a href="https://honorspaths.honors.umass.edu/massurc/home/abstract/4634">MassURC abstract</a></p>
   </section>
 
+  <section class="research-entry" id="diagnostics">
+    <h2><span class="section-number">4.</span>Fault diagnosis and mathematical foundations</h2>
+    <p>A separate graph-state project asks what measurements actually identify the physical repair required after a bond failure. Target stabilizer statistics can become nearly blind to the difference between a severed edge and dephased endpoint memories, while failed-graph stabilizers recover the missing mechanism label. The resulting theory separates physical fault catalogues, retained statistics, measurement-context complexity, Pauli weight, and noisy sample complexity.</p>
+    <p>Another mathematical direction studies the local geometry of exact erasure correction itself. Linearizing the Knill–Laflamme constraints on the Grassmannian of code subspaces gives a covariance-controlled normal operator, an explicit leakage Hessian, and deformation-theoretic tests of code rigidity.</p>
+    <p>I have also been studying syndrome records themselves as statistical objects. Finite past–future probability matrices give predictive-rank witnesses for memory in repeated QEC circuits. The circuit contribution must be accounted for explicitly; the resulting framework combines separator bounds, finite-sample rank tests, and conditional model checking on public surface-code records.</p>
+    <p class="meta"><a href="projects/graph-state-repair-diagnosis.html">graph-state repair diagnosis</a> · <a href="projects/covariance-geometry-qec.html">covariance geometry of linearized QEC</a> · <a href="projects/predictive-rank-qec.html">predictive rank for syndrome records</a> · <span class="status">current</span></p>
+  </section>
+
   <section class="research-entry" id="numerics">
-    <h2><span class="section-number">4.</span>Randomized numerical linear algebra</h2>
+    <h2><span class="section-number">5.</span>Randomized numerical linear algebra</h2>
     <p>RA-FEAST explores whether randomized subspace information can reduce the cost of contour-integral eigensolvers without giving up the accuracy that makes FEAST attractive. The project combines randomized initialization, inexact refinement, error analysis, and sparse numerical experiments.</p>
     <p class="meta"><a href="projects/randomized-feast.html">project page</a> · <a href="https://arxiv.org/abs/2512.01257">arXiv:2512.01257</a></p>
   </section>
@@ -63,6 +67,6 @@
   </section>
 </main>
 
-<footer class="site-footer"><p>Last revised 29 August 2026.</p></footer>
+<footer class="site-footer"><p>Last revised 20 September 2026.</p></footer>
 </body>
 </html>
