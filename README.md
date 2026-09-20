@@ -1,6 +1,6 @@
-# Ayush Nadiger: quantum information research
+# Ayush Nadiger: quantum error correction and quantum architectures
 
-I work on quantum information at the University of Massachusetts Amherst, especially quantum error correction and quantum networks. My current projects cover heterogeneous quantum repeaters, graph-state fault diagnosis, QEC geometry, syndrome-record statistics, and trapped-ion electric-field noise.
+I study quantum error correction and fault-tolerant architectures under physical hardware constraints at the University of Massachusetts Amherst. My current work focuses on heterogeneous quantum repeaters and asynchronous network QEC, building on earlier research on geometry-dependent trapped-ion electric-field noise. I am an M.S. student in ECE and a graduate research assistant with Filip Rozpędek.
 
 [Research site](https://ayushnadiger.github.io/) · [GitHub](https://github.com/ayushnadiger) · [Google Scholar](https://scholar.google.com/citations?user=pOxwKVIAAAAJ&hl=en) · [arXiv](https://arxiv.org/search/?searchtype=author&query=Nadiger%2C+A)
 
