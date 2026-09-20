@@ -87,129 +87,48 @@
   <nav class="site-nav" aria-label="Main navigation">
     <a href="research.html">Research</a>
     <a href="papers.html">Papers</a>
-    <a href="notes.html">Notes</a>
     <a href="cv.html">CV</a>
   </nav>
 </header>
 
-<main class="container">
-  <p class="byline">Department of Electrical &amp; Computer Engineering<br>University of Massachusetts Amherst</p>
-
+<main class="container home">
+  <p class="byline">Electrical &amp; Computer Engineering · University of Massachusetts Amherst</p>
   <section class="abstract" aria-labelledby="abstract-label">
-    <p><span class="abstract-label" id="abstract-label">Abstract.</span>
-      I study quantum error correction and fault-tolerant quantum architectures under physical hardware constraints.
-      My current work asks how memory lifetimes, gate errors, probabilistic entanglement generation, and classical
-      communication shape the design of quantum networks. I focus on sparse hybrid repeaters and asynchronous
-      QEC, building on earlier work on geometry-dependent electric-field noise in trapped-ion devices.
-      I am an M.S. student in ECE and a graduate research assistant with Filip Rozpędek at UMass Amherst.
-    </p>
+    <p><span class="abstract-label" id="abstract-label">Research.</span>
+    I study quantum error correction and fault-tolerant architectures under physical hardware constraints.
+    How should a quantum network be designed when memories decay, gates are imperfect, and entanglement arrives at random times?</p>
+    <p>I am an M.S. student and graduate research assistant with Filip Rozpędek at UMass Amherst.
+    My work combines mathematical analysis and simulation, building on earlier research on electric-field noise in trapped-ion devices.</p>
   </section>
-
   <p class="front-links">
-    <a href="mailto:anadiger@umass.edu">email</a><span class="sep">·</span>
-    <a href="https://github.com/ayushnadiger">GitHub</a><span class="sep">·</span>
+    <a href="mailto:anadiger@umass.edu">Email</a><span class="sep">·</span>
     <a href="https://scholar.google.com/citations?user=pOxwKVIAAAAJ&amp;hl=en">Scholar</a><span class="sep">·</span>
-    <a href="https://arxiv.org/search/?searchtype=author&amp;query=Nadiger%2C+A">arXiv</a><span class="sep">·</span>
-    <a href="https://www.linkedin.com/in/ayushnadiger">LinkedIn</a>
+    <a href="https://github.com/ayushnadiger">GitHub</a><span class="sep">·</span>
+    <a href="cv.html">CV</a>
   </p>
 
-  <section class="paper-section">
-    <h2><span class="section-number">1.</span>Current work</h2>
-    <div class="project-index">
-      <div class="project-row">
-        <div class="kind">QEC / networks</div>
-        <div>
-          <h3><a href="projects/hybrid-quantum-repeaters.html">Hybrid quantum repeaters</a></h3>
-          <p>How sparsely can better memories and local error correction be deployed while retaining useful network performance? Joint studies of hardware, placement, routing, and synchronization.</p>
-        </div>
-      </div>
-      <div class="project-row">
-        <div class="kind">QEC / architecture</div>
-        <div>
-          <h3><a href="research.html#qec">Asynchronous quantum error correction</a></h3>
-          <p>Ongoing work on QEC and decoding when entanglement arrives at different times: heralded failures, memory age, syndrome scheduling, and the cost of waiting.</p>
-        </div>
-      </div>
-      <div class="project-row">
-        <div class="kind">trapped ions</div>
-        <div>
-          <h3><a href="projects/trapped-ion-diagnostics.html">Geometry-controlled correlated electric-field noise in enclosed ion traps</a></h3>
-          <p>Geometry-dependent correlated electric-field noise, enclosure effects, Green-function kernels, and billiard return spectra in trapped-ion devices.</p>
-        </div>
-      </div>
-      <div class="project-row">
-        <div class="kind">QEC / graph states</div>
-        <div>
-          <h3><a href="projects/graph-state-repair-diagnosis.html">Repair identifiability and product-measurement complexity</a></h3>
-          <p>Which graph-state fault mechanisms can be distinguished from product-Pauli data, and how measurement context, retained statistics, Pauli weight, and noise constrain repair diagnosis.</p>
-        </div>
-      </div>
-      <div class="project-row">
-        <div class="kind">QEC / statistics</div>
-        <div>
-          <h3><a href="projects/predictive-rank-qec.html">Predictive rank as a memory witness for QEC syndrome records</a></h3>
-          <p>Circuit separator bounds, finite-sample rank tests, and conditional model checking on public Google surface-code records.</p>
-        </div>
-      </div>
-      <div class="project-row">
-        <div class="kind">QEC / geometry</div>
-        <div>
-          <h3><a href="projects/covariance-geometry-qec.html">Covariance geometry of linearized quantum erasure correction</a></h3>
-          <p>Grassmannian geometry of the exact Knill–Laflamme locus, covariance-controlled normal structure, leakage Hessians, and code rigidity.</p>
-        </div>
-      </div>
+  <section class="paper-section" aria-labelledby="research-heading">
+    <h2 id="research-heading"><span class="section-number">1.</span>Research directions</h2>
+    <div class="research-brief">
+      <h3><a href="projects/hybrid-quantum-repeaters.html">Sparse quantum repeater architectures</a></h3>
+      <p>When can a small number of better memories and error-correcting nodes deliver the performance of a much more expensive network? I study hardware requirements, placement, routing, and synchronization.</p>
+    </div>
+    <div class="research-brief">
+      <h3><a href="research.html#qec">Asynchronous quantum error correction</a></h3>
+      <p>QEC and decoding when qubits have different ages and entanglement links succeed at different times. Current work examines heralding information, syndrome timing, and the cost of waiting.</p>
+    </div>
+    <div class="research-brief">
+      <h3><a href="projects/trapped-ion-diagnostics.html">Device geometry and correlated noise</a></h3>
+      <p>How electrode geometry shapes electric-field noise and spatial correlations in ion traps, using Green-function models and numerical geometry diagnostics.</p>
     </div>
   </section>
 
-  <section class="paper-section">
-    <h2><span class="section-number">2.</span>Selected papers and manuscripts</h2>
-    <ol class="bibliography">
-      <li>
-        A. Nadiger,
-        <cite class="pub-title">Geometry-controlled correlated electric-field noise in enclosed ion traps from billiard return spectra.</cite>
-        arXiv:2608.24770 (2026). <span class="pub-links">[<a href="https://arxiv.org/abs/2608.24770">arXiv</a>] [<a href="projects/trapped-ion-diagnostics.html">project</a>]</span>
-      </li>
-      <li>
-        A. Nadiger,
-        <cite class="pub-title">Repair Identifiability and Product-Measurement Complexity of Bond Failures in Graph States.</cite>
-        manuscript v10 (August 2026). <span class="pub-links">[<a href="projects/graph-state-repair-diagnosis.html">project</a>] [<a href="https://github.com/ayushnadiger/repair-identifiability">code</a>]</span>
-      </li>
-      <li>
-        A. Nadiger,
-        <cite class="pub-title">Predictive Rank as a Memory Witness for Quantum Error-Correction Syndrome Records.</cite>
-        manuscript (August 2026). <span class="pub-links">[<a href="projects/predictive-rank-qec.html">project</a>]</span>
-      </li>
-      <li>
-        A. Nadiger,
-        <cite class="pub-title">Covariance Geometry of Linearized Quantum Erasure Correction.</cite>
-        manuscript (August 2026). <span class="pub-links">[<a href="projects/covariance-geometry-qec.html">project</a>]</span>
-      </li>
-      <li>
-        A. Nadiger, A. Caraeni, and K. Schouten,
-        <cite class="pub-title">Potential Energy Savings from Quantum Computing-Based Route Optimization.</cite>
-        arXiv:2604.16718 (2026). <span class="pub-links">[<a href="https://arxiv.org/abs/2604.16718">arXiv</a>]</span>
-      </li>
-    </ol>
-    <p class="small"><a href="papers.html">Full list and research outputs →</a></p>
-  </section>
-
-  <section class="paper-section">
-    <h2><span class="section-number">3.</span>Notes</h2>
-    <p>
-      Short expository notes and records of things I wanted to understand well enough to write down.
-      They are not papers, and some are intentionally unfinished.
-    </p>
-    <ul class="note-list">
-      <li>
-        <span class="note-date">May 2025</span>
-        <span><a class="note-title" href="projects/cp3-segre-concurrence.html">CP³, the Segre embedding, and concurrence</a></span>
-      </li>
-      <li>
-        <span class="note-date">spectral</span>
-        <span><a class="note-title" href="projects/billiards-tda-scarring.html">Quantum scarring and topological diagnostics</a></span>
-      </li>
-    </ul>
-    <p class="small" style="margin-top: .8rem"><a href="notes.html">All notes →</a></p>
+  <section class="paper-section" aria-labelledby="paper-heading">
+    <h2 id="paper-heading"><span class="section-number">2.</span>Selected preprint</h2>
+    <p class="featured-paper"><cite>Geometry-controlled correlated electric-field noise in enclosed ion traps from billiard return spectra.</cite><br>
+    <span class="pub-meta">A. Nadiger · 2026</span><br>
+    <span class="pub-links"><a href="https://arxiv.org/abs/2608.24770">arXiv</a> · <a href="https://github.com/ayushnadiger/noise_recycling">Code &amp; data</a></span></p>
+    <p class="small"><a href="papers.html">All papers and manuscripts →</a></p>
   </section>
 </main>
 
