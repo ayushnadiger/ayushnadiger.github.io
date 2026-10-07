@@ -93,7 +93,7 @@
 </header>
 
 <main class="container home">
-  <section class="abstract" aria-labelledby="abstract-label">
+  <section class="abstract" aria-label="About">
     <p>
     I am an ECE master's student and graduate research assistant at UMass Amherst. I work with
     <a href="https://www.cics.umass.edu/about/directory/filip-rozpedek">Filip Rozpędek</a> (UMass Amherst) in the
@@ -101,12 +101,6 @@
     <a href="https://www.uta.edu/academics/faculty/profile?user=stav.haldar">Stav Haldar</a> (UT Arlington).
     My thesis is chaired by <a href="https://www.cics.umass.edu/about/directory/don-towsley">Don Towsley</a> in the
     <a href="https://www.cics.umass.edu/organizations/acquire">ACQuIRE lab</a>.</p>
-    <p>Can a quantum network do better by combining two kinds of repeater hardware than by using either one alone?
-      We study fault tolerant entanglment distribution in networks that mix many simple nodes with a sparse set of hybrid nodes. In our hardware model, simple nodes use highly multiplexed but shorter-lived memories (e.g., diamond color centers or atomic-frequency-comb memories) to generate and swap entanglement.
-     Hybrid nodes combine these interfaces with longer-lived, lower-error memories (e.g., trapped ions or neutral atoms) for storage and local error correction. We ask when this mix outperforms a uniform network, how much of the better hardware is needed, and where it should be placed.</p>
-     <p>I also investigate asynchronous syndrome extraction in quantum error correction.
-    When entanglement links become ready at different times, can available error checks proceed without waiting for an entire measurement round to synchronize?
-    I study how code structure, measurement schedules, and decoding should account for link availability and the noise memories accumulate while waiting, with the goal of protecting quantum information throughout execution while preserving fault tolerance.</p>
   </section>
   <p class="front-links">
     <a href="mailto:anadiger@umass.edu">Email</a><span class="sep">·</span>
@@ -119,30 +113,21 @@
     <h2 id="research-heading"><span class="section-number">1.</span>Research directions</h2>
     <div class="research-brief">
       <h3><a href="projects/asynchronous-qec.html">Asynchronous quantum error correction</a></h3>
-      <p>How can a code and its measurement schedule protect quantum information when links and checks become available at different times? Current work examines heralding information, accumulated memory noise, and the conditions for safe execution.</p>
+      <p>When entanglement links become ready at different times, can available error checks proceed without waiting for an entire measurement round to synchronize? I study how code structure, measurement schedules, and decoding can account for link availability and accumulated memory noise, with the goal of protecting quantum information throughout execution while preserving fault tolerance.</p>
     </div>
     <div class="research-brief">
       <h3><a href="projects/hybrid-quantum-repeaters.html">Hybrid quantum repeater architectures</a></h3>
-      <p>How much high-quality hardware does a quantum network need? With Filip Rozpędek and Stav Haldar, I study how memory quality, local error correction, placement, and routing jointly affect fidelity and rate.</p>
+      <p>With Filip Rozpędek and Stav Haldar, I study fault-tolerant entanglement distribution in networks that mix many simple nodes with a sparse set of hybrid nodes. In our hardware model, simple nodes use highly multiplexed, shorter-lived memories (e.g., diamond color centers or atomic-frequency-comb memories); hybrid nodes add longer-lived, lower-error memories (e.g., trapped ions or neutral atoms) for storage and local error correction. We ask when the mix outperforms a uniform network, how much higher-quality hardware is needed, and where it should go.</p>
     </div>
     <div class="research-brief">
       <h3><a href="projects/trapped-ion-diagnostics.html">Device geometry and correlated noise</a></h3>
-      <p>How electrode geometry shapes electric-field noise and spatial correlations in ion traps, using Green-function models and numerical geometry diagnostics.</p>
+      <p>I study how electrode geometry shapes electric-field noise and spatial correlations in ion traps, using Green-function models and numerical geometry diagnostics.</p>
+      <p class="small">Preprint: <cite>Geometry-controlled correlated electric-field noise in enclosed ion traps from billiard return spectra.</cite> <span class="pub-links"><a href="https://arxiv.org/abs/2608.24770">arXiv</a> · <a href="https://github.com/ayushnadiger/noise_recycling">Code &amp; data</a></span></p>
     </div>
-  </section>
-
-  <section class="paper-section" aria-labelledby="paper-heading">
-    <h2 id="paper-heading"><span class="section-number">2.</span>Selected preprint</h2>
-    <p class="featured-paper"><cite>Geometry-controlled correlated electric-field noise in enclosed ion traps from billiard return spectra.</cite><br>
-    <span class="pub-meta">A. Nadiger · 2026</span><br>
-    <span class="pub-links"><a href="https://arxiv.org/abs/2608.24770">arXiv</a> · <a href="https://github.com/ayushnadiger/noise_recycling">Code &amp; data</a></span></p>
     <p class="small"><a href="papers.html">All papers and manuscripts</a></p>
   </section>
 </main>
 
-<footer class="site-footer">
-  <p>Last revised 7 October 2026.</p>
-</footer>
 
 </body>
 </html>
