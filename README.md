@@ -1,6 +1,6 @@
 # Ayush Nadiger: quantum error correction and quantum architectures
 
-I study quantum error correction and fault-tolerant architectures under physical hardware constraints at the University of Massachusetts Amherst. My current work focuses on heterogeneous quantum repeaters and asynchronous network QEC, building on earlier research on geometry-dependent trapped-ion electric-field noise. I am an M.S. student in ECE and a graduate research assistant with Filip Rozpędek.
+I study quantum error correction and fault-tolerant architectures under physical hardware and network constraints at the University of Massachusetts Amherst. My current work investigates how codes and schedules should accommodate probabilistic entanglement and finite memory coherence. I am an M.S. student in ECE and a graduate research assistant with Filip Rozpędek, work on hybrid repeaters with Filip and Stav Haldar, and am a member of Don Towsley's ACQuIRE lab.
 
 [Research site](https://ayushnadiger.github.io/) · [GitHub](https://github.com/ayushnadiger) · [Google Scholar](https://scholar.google.com/citations?user=pOxwKVIAAAAJ&hl=en) · [arXiv](https://arxiv.org/search/?searchtype=author&query=Nadiger%2C+A)
 
@@ -20,6 +20,7 @@ This repository hosts my static research site. I designed it to read like a shor
 - `papers.html`: public bibliography
 - `notes.html`: expository and exploratory notes
 - `cv.html`: compact web CV
+- `projects/asynchronous-qec.html`: current asynchronous-QEC research direction
 
 Old `projects.html`, `writing.html`, and `contact.html` routes are retained as `noindex` redirects.
 
