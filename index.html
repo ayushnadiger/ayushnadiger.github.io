@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ayush Nadiger | Quantum Error Correction &amp; Quantum Architectures</title>
-  <meta name="description" content="Ayush Nadiger studies quantum error correction and fault-tolerant architectures under physical hardware constraints at UMass Amherst.">
+  <meta name="description" content="Ayush Nadiger studies quantum error correction, asynchronous protocols, and fault-tolerant architectures under hardware and network constraints at UMass Amherst.">
   <meta name="author" content="Ayush Nadiger">
   <meta name="robots" content="index,follow,max-image-preview:large">
   <link rel="canonical" href="https://ayushnadiger.github.io/">
@@ -13,11 +13,11 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Ayush Nadiger">
   <meta property="og:title" content="Ayush Nadiger | Quantum Error Correction &amp; Quantum Architectures">
-  <meta property="og:description" content="Quantum error correction, fault-tolerant quantum architectures, heterogeneous networks, and trapped-ion device noise.">
+  <meta property="og:description" content="Quantum error correction, asynchronous protocols, hybrid quantum networks, and trapped-ion device noise.">
   <meta property="og:url" content="https://ayushnadiger.github.io/">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Ayush Nadiger | Quantum Error Correction &amp; Quantum Architectures">
-  <meta name="twitter:description" content="Quantum error correction, fault-tolerant quantum architectures, heterogeneous networks, and trapped-ion device noise.">
+  <meta name="twitter:description" content="Quantum error correction, asynchronous protocols, hybrid quantum networks, and trapped-ion device noise.">
   <link rel="stylesheet" href="css/style.css">
   <script type="application/ld+json">
   {
@@ -29,7 +29,7 @@
         "url": "https://ayushnadiger.github.io/",
         "name": "Ayush Nadiger",
         "alternateName": "Ayush Nadiger Research",
-        "description": "Research by Ayush Nadiger on quantum error correction and fault-tolerant architectures under physical hardware constraints.",
+        "description": "Research by Ayush Nadiger on quantum error correction and fault-tolerant architectures under hardware and network constraints.",
         "inLanguage": "en-US"
       },
       {
@@ -66,6 +66,7 @@
           "fault-tolerant quantum architectures",
           "quantum information",
           "quantum error correction",
+          "asynchronous quantum error correction",
           "quantum networks",
           "quantum repeaters",
           "graph states",
@@ -95,10 +96,11 @@
   <p class="byline">Electrical &amp; Computer Engineering · University of Massachusetts Amherst</p>
   <section class="abstract" aria-labelledby="abstract-label">
     <p><span class="abstract-label" id="abstract-label">Research.</span>
-    I study quantum error correction and fault-tolerant architectures under physical hardware constraints.
-    How should a quantum network be designed when memories decay, gates are imperfect, and entanglement arrives at random times?</p>
-    <p>I am an M.S. student and graduate research assistant with Filip Rozpędek at UMass Amherst.
-    My work combines mathematical analysis and simulation, building on earlier research on electric-field noise in trapped-ion devices.</p>
+    I study quantum error correction and fault-tolerant architectures under physical hardware and network constraints.
+    My central question is how codes, logical operations, and schedules should be designed together when entanglement arrives probabilistically and quantum memories keep aging.</p>
+    <p>I am an M.S. student and graduate research assistant in ECE at UMass Amherst.
+    I work on hybrid quantum repeaters with Filip Rozpędek and Stav Haldar and am a member of Don Towsley's ACQuIRE lab.
+    My research combines mathematical analysis and simulation, building on an undergraduate background in engineering, mathematics, and statistics and earlier work on trapped-ion electric-field noise.</p>
   </section>
   <p class="front-links">
     <a href="mailto:anadiger@umass.edu">Email</a><span class="sep">·</span>
@@ -110,12 +112,12 @@
   <section class="paper-section" aria-labelledby="research-heading">
     <h2 id="research-heading"><span class="section-number">1.</span>Research directions</h2>
     <div class="research-brief">
-      <h3><a href="projects/hybrid-quantum-repeaters.html">Sparse quantum repeater architectures</a></h3>
-      <p>When can a small number of better memories and error-correcting nodes deliver the performance of a much more expensive network? I study hardware requirements, placement, routing, and synchronization.</p>
+      <h3><a href="projects/asynchronous-qec.html">Asynchronous quantum error correction</a></h3>
+      <p>How can a code and its measurement schedule protect quantum information when links and checks become available at different times? Current work examines heralding information, accumulated memory noise, and the conditions for safe execution.</p>
     </div>
     <div class="research-brief">
-      <h3><a href="research.html#qec">Asynchronous quantum error correction</a></h3>
-      <p>QEC and decoding when qubits have different ages and entanglement links succeed at different times. Current work examines heralding information, syndrome timing, and the cost of waiting.</p>
+      <h3><a href="projects/hybrid-quantum-repeaters.html">Hybrid quantum repeater architectures</a></h3>
+      <p>How much high-quality hardware does a quantum network need? With Filip Rozpędek and Stav Haldar, I study how memory quality, local error correction, placement, and routing jointly affect fidelity and rate.</p>
     </div>
     <div class="research-brief">
       <h3><a href="projects/trapped-ion-diagnostics.html">Device geometry and correlated noise</a></h3>
@@ -128,12 +130,12 @@
     <p class="featured-paper"><cite>Geometry-controlled correlated electric-field noise in enclosed ion traps from billiard return spectra.</cite><br>
     <span class="pub-meta">A. Nadiger · 2026</span><br>
     <span class="pub-links"><a href="https://arxiv.org/abs/2608.24770">arXiv</a> · <a href="https://github.com/ayushnadiger/noise_recycling">Code &amp; data</a></span></p>
-    <p class="small"><a href="papers.html">All papers and manuscripts →</a></p>
+    <p class="small"><a href="papers.html">All papers and manuscripts</a></p>
   </section>
 </main>
 
 <footer class="site-footer">
-  <p>Last revised 20 September 2026.</p>
+  <p>Last revised 7 October 2026.</p>
 </footer>
 
 </body>
