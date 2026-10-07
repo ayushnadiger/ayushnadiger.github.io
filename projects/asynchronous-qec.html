@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Asynchronous Quantum Error Correction | Ayush Nadiger</title>
+  <meta name="description" content="Ongoing research by Ayush Nadiger on codes, measurement schedules, and decoding for quantum networks with probabilistic entanglement and finite memory coherence.">
+  <link rel="canonical" href="https://ayushnadiger.github.io/projects/asynchronous-qec.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" sizes="any">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <p class="site-title"><a href="../index.html">Ayush Nadiger</a></p>
+  <nav class="site-nav" aria-label="Main navigation">
+    <a href="../research.html" aria-current="page">Research</a>
+    <a href="../papers.html">Papers</a>
+    <a href="../cv.html">CV</a>
+  </nav>
+</header>
+
+<main class="container">
+  <header class="paper-header">
+    <h1>Asynchronous quantum error correction</h1>
+    <p class="meta">Ayush Nadiger · quantum error correction and network architectures · <span class="status">ongoing research</span></p>
+  </header>
+
+  <section class="paper-abstract">
+    <p><span class="label">Research question.</span> How should a quantum code and its execution schedule be designed together when entanglement links succeed at random times, memories accumulate noise while waiting, and measurement records arrive asynchronously? I am investigating protocols that use the available timing and heralding information to control uncertainty throughout execution.</p>
+  </section>
+
+  <section class="paper-section">
+    <h2><span class="section-number">1.</span>What the network changes</h2>
+    <p>In a network, remote operations depend on entanglement that must first be generated and heralded. Waiting for every resource to become available exposes already prepared qubits to additional memory noise. Performing operations earlier changes both the information available to the decoder and the faults that can propagate through the circuit.</p>
+    <p>This couples the algebraic structure of a code to the physical availability of its operations. Link heralds, memory ages, syndrome outcomes, and classical communication delays all belong in the protocol model.</p>
+  </section>
+
+  <section class="paper-section">
+    <h2><span class="section-number">2.</span>Code, schedule, and decoder</h2>
+    <p>The goal is to find a code and a schedule that keep accumulated uncertainty correctable during execution. The key questions are which checks can be measured with the resources currently available, how unresolved syndrome information should be represented, and when a logical operation can safely be committed.</p>
+    <p>Protection against unheralded Pauli errors must be accounted for alongside missing resources and delayed checks. A scheduling decision also has to respect what each node can know from its local records and the classical messages it has received.</p>
+  </section>
+
+  <section class="paper-section">
+    <h2><span class="section-number">3.</span>Current approach</h2>
+    <p>I use small stabilizer and CSS-code models, including Steane and Shor codes, and Pauli-frame simulations to examine correction, measurement timing, and logical ambiguity. These models help identify which ideas preserve error-correcting capability before extending them to larger codes and network architectures.</p>
+    <p>The evaluation asks whether a protocol improves completion time or useful throughput at a matched logical-error target and physical-resource budget. Fault propagation, memory aging, and classical latency are part of that comparison.</p>
+    <p>This is an ongoing research direction. The current focus is formulating and testing code-and-schedule constructions and establishing the conditions under which they protect quantum information.</p>
+  </section>
+
+  <p class="small">Related work: <a href="hybrid-quantum-repeaters.html">hybrid quantum repeater architectures</a> · <a href="../research.html">research overview</a></p>
+</main>
+<footer class="site-footer"><p>Last revised 7 October 2026.</p></footer>
+</body>
+</html>
