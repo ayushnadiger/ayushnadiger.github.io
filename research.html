@@ -13,43 +13,70 @@
 <header class="site-header">
   <p class="site-title"><a href="index.html">Ayush Nadiger</a></p>
   <nav class="site-nav" aria-label="Main navigation">
-    <a href="research.html" aria-current="page">Research</a>
-    <a href="papers.html">Papers</a>
-    <a href="cv.html">CV</a>
+    <a href="research.html" aria-current="page">Research</a><span aria-hidden="true">·</span>
+    <a href="assets/Ayush_Nadiger_CV.pdf">CV (PDF)</a><span aria-hidden="true">·</span>
+    <a href="mailto:anadiger@umass.edu">Email</a>
   </nav>
 </header>
 
-<main class="container" aria-label="Research">
+<main class="container research-page" aria-label="Research">
   <section class="research-entry" id="qec">
-    <h2><span class="section-number">1.</span>Asynchronous quantum error correction</h2>
-    <p>Quantum networks make the timing of error correction part of the design problem. Entanglement generation is probabilistic, memories accumulate noise while waiting, and heralds and measurement records become available at different times. I am investigating how a code and its schedule can use this information to control uncertainty during execution while preserving protection against physical errors.</p>
-    <p>The work uses small stabilizer and CSS-code models and Pauli-frame simulations to examine measurement timing, decoding, and logical commitment. The broader goal is to identify code structures and fault-tolerant operations suited to probabilistic interconnects. A central evaluation question is whether an asynchronous protocol improves the fidelity–latency tradeoff at matched physical resources and logical-error targets.</p>
-    <p class="meta"><a href="projects/asynchronous-qec.html">Project overview</a> · <span class="status">ongoing research</span></p>
+    <h2>Asynchronous quantum error correction</h2>
+    <p><strong>Question.</strong> What syndrome information and error-correcting guarantees survive while a distributed transversal CNOT is assembled from entanglement arriving at different times?</p>
+    <p><strong>Results.</strong> I derived an exact formula for the local-syndrome deficit of a partial CSS transversal CNOT and a rate–distance bound that holds for every coordinate order. I also established an arbitrary-order deferred-recovery guarantee for coordinate-confined Pauli faults and built exact stabilizer and Pauli-frame tests. Recent tests expose schedules in which individually recoverable pauses accumulate an unresolved logical ambiguity.</p>
+    <p><strong>Status.</strong> Manuscript in preparation. The algebraic results and idealized tests are distinct from the ongoing work on noisy extraction circuits and performance at matched physical resources.</p>
+    <p class="meta"><a href="projects/asynchronous-qec.html">Technical details and assumptions</a></p>
   </section>
 
   <section class="research-entry" id="networks">
-    <h2><span class="section-number">2.</span>Hybrid quantum repeater architectures</h2>
-    <p>With Filip Rozpędek and Stav Haldar, I study how sparsely deployed nodes with better memories and local error correction can support useful quantum-network performance. The design couples memory coherence and gate quality to node placement, routing, and synchronization.</p>
-    <p>Current work connects analytical spacing estimates to chain simulations and develops extensions to two-dimensional networks and multiple paths. Fidelity, secret-key rate, completion time, and hardware requirements provide complementary measures of the design tradeoffs.</p>
-    <p class="meta"><a href="projects/hybrid-quantum-repeaters.html">Project overview</a> · <span class="status">ongoing research</span></p>
+    <h2>Hybrid quantum repeater architectures</h2>
+    <p><strong>Question.</strong> Can a network mix many simple repeater nodes with sparse, higher-quality nodes to outperform a uniform architecture?</p>
+    <p><strong>Built.</strong> With Filip Rozpędek and Stav Haldar, I reproduced the one-dimensional chain benchmark from the supplied simulation code and developed hardware-dependent spacing estimates. The model combines highly multiplexed, shorter-lived memories (e.g., diamond color centers or atomic-frequency-comb memories) with longer-lived, lower-error memories (e.g., trapped ions or neutral atoms) at hybrid nodes. The analysis connects memory coherence and gate errors to correction spacing, fidelity, and secret-key rate.</p>
+    <p><strong>Status.</strong> Ongoing collaborative research. The chain baseline supports extensions to two-dimensional placement, routing, and multiple paths; those extensions are under validation.</p>
+    <p class="meta"><a href="projects/hybrid-quantum-repeaters.html">Model and validation details</a></p>
   </section>
 
   <section class="research-entry" id="ions">
-    <h2><span class="section-number">3.</span>Trapped-ion noise and geometry</h2>
-    <p>My honors thesis and subsequent preprint study how electrode geometry changes electric-field noise and spatial correlations for a fixed surface-noise spectrum. Green-function kernels and numerical geometry diagnostics connect device enclosure to coupling strength and anisotropy.</p>
-    <p class="meta"><a href="https://arxiv.org/abs/2608.24770">Preprint</a> · <a href="projects/trapped-ion-diagnostics.html">Project</a> · <a href="https://github.com/ayushnadiger/noise_recycling">Code &amp; data</a></p>
+    <h2>Trapped-ion noise and geometry</h2>
+    <p><strong>Question.</strong> How does an electrode enclosure change electric-field noise and spatial correlations when the surface-noise spectrum is fixed?</p>
+    <p><strong>Results.</strong> I derived Green-function geometry factors, exact enclosure laws for controlled geometries, and spatial noise correlations. Numerical geometry diagnostics connect the electrostatic response to billiard return spectra. The work grew out of my honors thesis with Christopher Cox and Robert Niffenegger.</p>
+    <p><strong>Status.</strong> Public preprint, with code and numerical data.</p>
+    <p class="meta"><a href="https://arxiv.org/abs/2608.24770">arXiv:2608.24770</a> · <a href="projects/trapped-ion-diagnostics.html">Derivations and results</a> · <a href="https://github.com/ayushnadiger/noise_recycling">Code &amp; data</a></p>
   </section>
 
-  <section class="research-entry" id="diagnostics">
-    <h2><span class="section-number">4.</span>Related mathematical work</h2>
-    <p>Additional manuscripts study what measurement records reveal about faults and memory, and the local geometry of exact error correction.</p>
-    <ul>
-      <li><a href="projects/graph-state-repair-diagnosis.html">Repair identifiability in graph states</a> — distinguishing fault mechanisms that require different physical repairs.</li>
-      <li><a href="projects/predictive-rank-qec.html">Predictive rank of QEC syndrome records</a> — statistical witnesses of memory with circuit contributions made explicit.</li>
-      <li><a href="projects/covariance-geometry-qec.html">Covariance geometry of erasure correction</a> — local constraints, leakage, and code rigidity.</li>
-    </ul>
+  <section class="paper-section" aria-labelledby="related-heading">
+    <h2 id="related-heading">Related mathematical work</h2>
+    <article class="research-entry" id="repair">
+      <h3>Repair identifiability in graph states</h3>
+      <p><strong>Question.</strong> Can a measurement record identify a fault while hiding the information needed to repair it?</p>
+      <p><strong>Results.</strong> I characterized the Pauli witnesses that distinguish a severed bond from endpoint-memory dephasing and showed why target-stabilizer statistics can discard the repair label. A verification suite checks the witness and measurement-resource claims on finite graphs.</p>
+      <p><strong>Status.</strong> Manuscript in preparation. <a href="projects/graph-state-repair-diagnosis.html">Theorems and examples</a> · <a href="https://github.com/ayushnadiger/repair-identifiability">Verification code</a></p>
+    </article>
+    <article class="research-entry" id="predictive-rank">
+      <h3>Predictive rank of QEC syndrome records</h3>
+      <p><strong>Question.</strong> What can finite syndrome records reveal about noise memory once the circuit's own contribution is accounted for?</p>
+      <p><strong>Results.</strong> I derived a circuit/noise separator bound on predictive rank and finite-sample tests. Applying the diagnostics to public distance-5 surface-code records identifies a finite-horizon discrepancy from the supplied circuit model.</p>
+      <p><strong>Status.</strong> Manuscript in preparation; the empirical result is a conditional model check, without identifying a microscopic noise mechanism. <a href="projects/predictive-rank-qec.html">Theory and data analysis</a></p>
+    </article>
+    <article class="research-entry" id="geometry">
+      <h3>Covariance geometry of erasure correction</h3>
+      <p><strong>Question.</strong> How does the set of exactly correctable code subspaces sit inside the Grassmannian?</p>
+      <p><strong>Results.</strong> I derived a covariance-controlled normal form for the linearized Knill–Laflamme constraints. Exact symbolic calculations establish infinitesimal rigidity modulo local unitaries for the stated erasure constraints on the [[4,2,2]] and [[5,1,3]] codes.</p>
+      <p><strong>Status.</strong> Manuscript in preparation, with a public verification suite. <a href="projects/covariance-geometry-qec.html">Derivations and verification</a></p>
+    </article>
   </section>
 
+  <section class="paper-section" id="preprints" aria-labelledby="preprints-heading">
+    <h2 id="preprints-heading">Preprints</h2>
+    <ol class="bibliography compact-preprints">
+      <li>A. Nadiger. <cite>Geometry-controlled correlated electric-field noise in enclosed ion traps from billiard return spectra.</cite> 2026. <a href="https://arxiv.org/abs/2608.24770">arXiv:2608.24770</a> · <a href="#ions">Project</a> · <a href="https://github.com/ayushnadiger/noise_recycling">Code &amp; data</a></li>
+    </ol>
+    <h3 id="earlier-work">Earlier work</h3>
+    <ol class="bibliography compact-preprints" start="2">
+      <li>A. Nadiger, A. Caraeni, and K. Schouten. <cite>Potential Energy Savings from Quantum Computing-Based Route Optimization.</cite> 2026. <a href="https://arxiv.org/abs/2604.16718">arXiv:2604.16718</a><br><span class="pub-meta">QAOA-based route optimization and comparisons with classical baselines.</span></li>
+      <li>A. Nadiger. <cite>Randomized-Accelerated FEAST: A Hybrid Approach for Large-Scale Eigenvalue Problems.</cite> 2025. <a href="https://arxiv.org/abs/2512.01257">arXiv:2512.01257</a> · <a href="projects/randomized-feast.html">Methods and results</a><br><span class="pub-meta">Randomized subspace initialization for contour-integral eigensolvers.</span></li>
+    </ol>
+  </section>
 </main>
 
 </body>

@@ -13,9 +13,9 @@
 <header class="site-header">
   <p class="site-title"><a href="../index.html">Ayush Nadiger</a></p>
   <nav class="site-nav" aria-label="Main navigation">
-    <a href="../research.html" aria-current="page">Research</a>
-    <a href="../papers.html">Papers</a>
-    <a href="../cv.html">CV</a>
+    <a href="../research.html" aria-current="page">Research</a><span aria-hidden="true">·</span>
+    <a href="../assets/Ayush_Nadiger_CV.pdf">CV (PDF)</a><span aria-hidden="true">·</span>
+    <a href="mailto:anadiger@umass.edu">Email</a>
   </nav>
 </header>
 
@@ -40,13 +40,18 @@
   </section>
 
   <section class="paper-section">
-    <h2><span class="section-number">3.</span>Current work</h2>
-    <p>I am connecting analytical estimates of useful hybrid-node spacing to chain simulations and developing extensions to two-dimensional networks with multiple paths. The simulation work tracks memory age through entanglement swapping so that fidelity and rate estimates reflect the actual waiting history.</p>
+    <h2><span class="section-number">3.</span>Benchmark and validation</h2>
+    <p>I reproduced the supplied one-dimensional chain benchmark and developed analytical spacing estimates as functions of memory coherence and gate errors. The chain is the validation baseline for extensions to two-dimensional networks with multiple paths. These extensions must preserve link identity, endpoint memory ages, and correction histories through entanglement swapping before their fidelity and rate comparisons are accepted.</p>
     <p>This is an ongoing collaborative project. It motivates my work on <a href="asynchronous-qec.html">asynchronous quantum error correction</a>: designing correction protocols around the timing and noise of network operations.</p>
+  </section>
+
+  <section class="paper-section">
+    <h2><span class="section-number">4.</span>Comparison protocol</h2>
+    <p>Comparisons vary hybrid-node density and placement while tracking fidelity, secret-key rate, completion time, and hardware use. Routing and correction policies must receive the same link-generation, memory, and local-operation budgets. The two-dimensional validation checks memory-age bookkeeping and correction records before interpreting any routing advantage.</p>
+    <p class="meta">Baseline framework: <a href="https://arxiv.org/abs/2609.19783">Haldar, Guha, Towsley, and Rozpędek, encoded hybrid repeater chains</a>.</p>
   </section>
 
   <p class="small"><a href="../research.html">← research</a></p>
 </main>
-<footer class="site-footer"><p>Last revised 7 October 2026.</p></footer>
 </body>
 </html>

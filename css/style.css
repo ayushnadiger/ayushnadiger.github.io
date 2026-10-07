@@ -91,7 +91,7 @@ h1.site-title { font-size: 1.72rem; }
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0.2rem 1.25rem;
+  gap: 0.2rem 0.65rem;
   font-size: 0.93rem;
 }
 
@@ -382,3 +382,12 @@ a { overflow-wrap: anywhere; }
   .site-header { padding-left: 1.25rem; padding-right: 1.25rem; }
   .home .byline { max-width: 22rem; margin-left: auto; margin-right: auto; }
 }
+
+/* Results are summarized here; project pages carry technical depth. */
+.research-page > .research-entry:first-child h2 { margin-top: 0; }
+.research-page .research-entry p { margin-bottom: .65rem; }
+.research-page .research-entry h3 { margin-top: 1.5rem; }
+.compact-preprints { font-size: .92rem; }
+.compact-preprints[start="2"] { counter-reset: bib 1; }
+.result-equation { text-align: center; font-style: italic; }
+.research-entry, #preprints { scroll-margin-top: 1.5rem; }

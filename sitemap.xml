@@ -2,8 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://ayushnadiger.github.io/</loc><lastmod>2026-10-07</lastmod></url>
   <url><loc>https://ayushnadiger.github.io/research.html</loc><lastmod>2026-10-07</lastmod></url>
-  <url><loc>https://ayushnadiger.github.io/papers.html</loc><lastmod>2026-09-20</lastmod></url>
-  <url><loc>https://ayushnadiger.github.io/cv.html</loc><lastmod>2026-10-07</lastmod></url>
   <url><loc>https://ayushnadiger.github.io/projects/asynchronous-qec.html</loc><lastmod>2026-10-07</lastmod></url>
   <url><loc>https://ayushnadiger.github.io/projects/hybrid-quantum-repeaters.html</loc><lastmod>2026-10-07</lastmod></url>
   <url><loc>https://ayushnadiger.github.io/projects/graph-state-repair-diagnosis.html</loc><lastmod>2026-09-20</lastmod></url>
@@ -11,4 +9,5 @@
   <url><loc>https://ayushnadiger.github.io/projects/predictive-rank-qec.html</loc><lastmod>2026-09-20</lastmod></url>
   <url><loc>https://ayushnadiger.github.io/projects/trapped-ion-diagnostics.html</loc><lastmod>2026-09-20</lastmod></url>
   <url><loc>https://ayushnadiger.github.io/projects/randomized-feast.html</loc><lastmod>2026-09-20</lastmod></url>
+  <url><loc>https://ayushnadiger.github.io/assets/Ayush_Nadiger_CV.pdf</loc><lastmod>2026-10-07</lastmod></url>
 </urlset>

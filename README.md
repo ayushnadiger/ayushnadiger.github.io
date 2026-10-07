@@ -15,14 +15,18 @@ I study quantum error correction and fault-tolerant architectures under physical
 This repository hosts my static research site. I designed it to read like a short scientific paper, not a portfolio template.
 
 ### Pages
-- `index.html`: front matter and selected work
-- `research.html`: current research and archive
-- `papers.html`: public bibliography
+- `index.html`: affiliation paragraph and one-line research hooks
+- `research.html`: questions, results, project status, and public preprints
+- `papers.html`: compatibility redirect to the Research bibliography
 - `notes.html`: expository and exploratory notes
-- `cv.html`: compact web CV
+- `assets/Ayush_Nadiger_CV.pdf`: downloadable academic CV
+- `cv.html`: compatibility redirect to the PDF
+- `tools/build_cv.py`: editable source for rebuilding the PDF
 - `projects/asynchronous-qec.html`: current asynchronous-QEC research direction
 
-Old `projects.html`, `writing.html`, and `contact.html` routes are retained as `noindex` redirects.
+Old `papers.html`, `cv.html`, `projects.html`, `writing.html`, and `contact.html` routes are retained as `noindex` redirects. Navigation is Research · CV (PDF) · Email.
+
+Rebuild the CV with `python tools/build_cv.py`.
 
 ### Search and machine-readable metadata
 - `robots.txt` explicitly allows ordinary search crawlers plus OAI-SearchBot.
