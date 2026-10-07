@@ -21,17 +21,20 @@
 
 <main class="container">
   <h1>Research</h1>
-  <p class="page-deck">From physical noise to reliable quantum networks.</p>
-
-  <section class="research-entry" id="networks">
-    <h2><span class="section-number">1.</span>Heterogeneous quantum network architectures</h2>
-    <p>My current work with Filip Rozpędek asks how sparsely expensive memories and local error correction can be deployed while preserving useful network performance. I study hybrid repeater networks in one and two dimensions, keeping memory coherence, gate errors, link-generation probabilities, node placement, routing, and synchronization explicit. I compare fidelity, secret-key rate, completion time, and hardware requirements.</p>
-    <p class="meta"><a href="projects/hybrid-quantum-repeaters.html">project page</a> · <span class="status">current</span></p>
-  </section>
+  <p class="page-deck">Quantum error correction, network architectures, and physical noise.</p>
 
   <section class="research-entry" id="qec">
-    <h2><span class="section-number">2.</span>Asynchronous quantum error correction</h2>
-    <p>Entanglement between network nodes arrives probabilistically, so qubits in the same code block can have different ages and noise histories. I am studying how heralding information, memory age, and measurement timing should enter QEC protocols and decoders. Starting with repetition codes and small CSS codes, this work examines when more general codes, including quantum LDPC codes, justify their connectivity and syndrome-extraction costs in a network. This is an ongoing research direction.</p>
+    <h2><span class="section-number">1.</span>Asynchronous quantum error correction</h2>
+    <p>Quantum networks make the timing of error correction part of the design problem. Entanglement generation is probabilistic, memories accumulate noise while waiting, and heralds and measurement records become available at different times. I am investigating how a code and its schedule can use this information to control uncertainty during execution while preserving protection against physical errors.</p>
+    <p>The work uses small stabilizer and CSS-code models and Pauli-frame simulations to examine measurement timing, decoding, and logical commitment. The broader goal is to identify code structures and fault-tolerant operations suited to probabilistic interconnects. A central evaluation question is whether an asynchronous protocol improves the fidelity–latency tradeoff at matched physical resources and logical-error targets.</p>
+    <p class="meta"><a href="projects/asynchronous-qec.html">Project overview</a> · <span class="status">ongoing research</span></p>
+  </section>
+
+  <section class="research-entry" id="networks">
+    <h2><span class="section-number">2.</span>Hybrid quantum repeater architectures</h2>
+    <p>With Filip Rozpędek and Stav Haldar, I study how sparsely deployed nodes with better memories and local error correction can support useful quantum-network performance. The design couples memory coherence and gate quality to node placement, routing, and synchronization.</p>
+    <p>Current work connects analytical spacing estimates to chain simulations and develops extensions to two-dimensional networks and multiple paths. Fidelity, secret-key rate, completion time, and hardware requirements provide complementary measures of the design tradeoffs.</p>
+    <p class="meta"><a href="projects/hybrid-quantum-repeaters.html">Project overview</a> · <span class="status">ongoing research</span></p>
   </section>
 
   <section class="research-entry" id="ions">
@@ -52,6 +55,6 @@
 
 </main>
 
-<footer class="site-footer"><p>Last revised 20 September 2026.</p></footer>
+<footer class="site-footer"><p>Last revised 7 October 2026.</p></footer>
 </body>
 </html>
