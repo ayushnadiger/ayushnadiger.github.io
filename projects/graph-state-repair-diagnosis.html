@@ -1,79 +1,1190 @@
 <!doctype html>
-<html lang="en">
-<head>
+<html lang="en"><head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="robots" content="index,follow">
-  <title>Repair Identifiability and Product-Measurement Complexity of Bond Failures in Graph States | Ayush Nadiger</title>
-  <meta name="description" content="Research by Ayush Nadiger on graph-state repair identifiability, exact Pauli fault witnesses, product-Pauli measurement complexity, bounded-weight diagnosis, and stabilizer data compression.">
+  <title>The Bond Repair Problem in Graph States | Ayush Nadiger</title>
+  <meta name="description" content="Distinguishing a missing entangling gate from endpoint-memory dephasing using product measurements.">
   <link rel="canonical" href="https://ayushnadiger.github.io/projects/graph-state-repair-diagnosis.html">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml" sizes="any">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../css/style.css">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ScholarlyArticle",
-    "name": "Repair Identifiability and Product-Measurement Complexity of Bond Failures in Graph States",
-    "author": {"@type": "Person", "name": "Ayush Nadiger", "url": "https://ayushnadiger.github.io/"},
-    "dateCreated": "2026-08",
-    "description": "A known-topology graph-state fault-diagnosis study separating edge localization from physical repair identification under product-Pauli measurements and retained stabilizer statistics.",
-    "keywords": ["quantum error correction", "graph states", "fault diagnosis", "stabilizer measurements", "quantum learning", "product Pauli measurements"],
-    "url": "https://ayushnadiger.github.io/projects/graph-state-repair-diagnosis.html",
-    "codeRepository": "https://github.com/ayushnadiger/repair-identifiability"
-  }
-  </script>
-</head>
-<body>
-<header class="site-header">
-  <p class="site-title"><a href="../index.html">Ayush Nadiger</a></p>
-  <nav class="site-nav" aria-label="Main navigation">
-    <a href="../research.html" aria-current="page">Research</a><span aria-hidden="true">·</span>
-    <a href="../assets/Ayush_Nadiger_CV.pdf">CV (PDF)</a><span aria-hidden="true">·</span>
-    <a href="mailto:anadiger@umass.edu">Email</a>
-  </nav>
-</header>
-
-<main class="container">
-  <header class="paper-header">
-    <h1>Repair identifiability and product-measurement complexity of bond failures in graph states</h1>
-    <p class="meta">A. Nadiger · manuscript v10, August 2026 · graph states / fault diagnosis</p>
-  </header>
-
-  <section class="paper-abstract">
-    <p><span class="label">Abstract.</span> A state-verification record can contain enough information to localize a graph-state defect while discarding the information needed to choose the physical repair. For a known graph and one suspect intended bond, the paper characterizes the missing Pauli information exactly: at full endpoint dephasing, a Pauli distinguishes a severed bond from endpoint-memory dephasing if and only if it lies in the failed-graph stabilizer group but outside the target stabilizer group, <span class="math">±S(G−e) \ ±S(G)</span>. It then quantifies the measurement contexts, witness weight, and finite-shot cost required to recover that repair label.</p>
+  <link rel="stylesheet" href="../css/paper.css">
+<script>window.MathJax={loader:{load:["[tex]/html","[tex]/boldsymbol"]},tex:{tags:"none",packages:{"[+]": ["ams","html","boldsymbol"]}},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]},chtml:{displayOverflow:"scroll"}};</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head><body class="reader-page">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header"><p class="site-title"><a href="../index.html">Ayush Nadiger</a></p></header>
+<main class="container" id="main">
+  <p class="back-link"><a href="../index.html#projects">← Projects</a></p>
+  <section class="project-overview" aria-labelledby="project-title">
+    <h1 id="project-title">The Bond Repair Problem in Graph States</h1>
+    <p class="project-date">2026</p>
+    <p class="project-context">Independent project</p>
+    <p>Distinguishing a missing entangling gate from endpoint-memory dephasing using product measurements.</p>
   </section>
+<aside class="paper-toc" aria-label="Paper contents"><details><summary>Contents</summary><ol><li class="toc-h2"><a href="#introduction">1. Introduction</a></li><li class="toc-h3"><a href="#partial-dephasing">1.1 Partial dephasing</a></li><li class="toc-h3"><a href="#how-many-local-pauli-settings-are-needed">1.2 How many local Pauli settings are needed?</a></li><li class="toc-h3"><a href="#related-work">1.3 Related work</a></li><li class="toc-h2"><a href="#graph-states-and-product-pauli-measurements">2. Graph states and product Pauli measurements</a></li><li class="toc-h3"><a href="#target-stabilizers-and-graph-basis-diagonals">2.1 Target stabilizers and graph-basis diagonals</a></li><li class="toc-h3"><a href="#missing-edge-signatures">2.2 Missing-edge signatures</a></li><li class="toc-h3"><a href="#product-pauli-measurement-settings">2.3 Product Pauli measurement settings</a></li><li class="toc-h2"><a href="#identifiability-before-measurement-complexity">3. Identifiability before measurement complexity</a></li><li class="toc-h3"><a href="#pauli-measurements-that-identify-the-failure">3.1 Pauli measurements that identify the failure</a></li><li class="toc-h2"><a href="#measurement-settings-for-edge-localization-and-bond-repair">4. Measurement settings for edge localization and bond repair</a></li><li class="toc-h2"><a href="#locating-a-missing-edge-from-target-stabilizers">5. Locating a missing edge from target stabilizers</a></li><li class="toc-h2"><a href="#an-edge-separating-upper-bound">6. An edge-separating upper bound</a></li><li class="toc-h2"><a href="#identifying-the-failure-mechanism-from-full-outcomes">7. Identifying the failure mechanism from full outcomes</a></li><li class="toc-h3"><a href="#exact-raw-setting-census-through-eight-vertices">7.1 Exact raw-setting census through eight vertices</a></li><li class="toc-h2"><a href="#finite-shot-guarantees">8. Finite-shot guarantees</a></li><li class="toc-h2"><a href="#scope-and-limitations">9. Scope and limitations</a></li><li class="toc-h2"><a href="#open-questions">10. Open questions</a></li><li class="toc-h2"><a href="#a.-low-weight-wheel-stabilizers">A. Low-weight wheel stabilizers</a></li><li class="toc-h2"><a href="#b.-reproducibility">B. Reproducibility</a></li><li><a href="#references">References</a></li></ol></details></aside>
+<article class="manuscript" id="paper" aria-label="Full paper">
+<section class="manuscript-abstract" id="abstract"><h3>Abstract</h3><p>We study a graph-state fault-identification problem in which the
+graph and a suspected edge are known. Given copies of the delivered
+state, the task is to decide whether the entangling gate on that edge
+never acted or acted before the two endpoint memories dephased. The two
+failures have identical statistics for every stabilizer of the intended
+graph. We characterize the missing Pauli information exactly: a Pauli
+distinguishes the two states if and only if it stabilizes the graph with
+the edge removed but not the intended graph. Consequently, a region can
+carry distinguishing information exactly when it supports such a
+failed-graph stabilizer; the two endpoints alone are generically
+insufficient. With residual endpoint coherence <span
+class="math inline">\(g\)</span>, target-stabilizer data require <span
+class="math inline">\(\Theta(g^{-2}\log(1/\delta))\)</span> copies.
+Under a weight-three cap, every missing edge of a wheel <span
+class="math inline">\(W_n\)</span>, <span
+class="math inline">\(n\ge8\)</span>, is identified from full
+product-measurement outcomes in at most three settings, whereas
+target-stabilizer statistics cannot identify the edge at any number of
+settings.</p>
+</section>
+<h2 id="introduction">1. Introduction</h2>
+<p>Graph states place a qubit at each vertex and apply an entangling
+gate along each edge [<a href="#ref-Hein06">1</a>]. In a network or
+modular processor, a missing entangling operation calls for bond repair
+or rerouting, while memory dephasing calls for memory reset. After a
+bond is flagged, can measurement data determine which failure
+occurred?</p>
+<p>Let <span class="math inline">\(G\)</span> be the intended graph and
+let <span class="math inline">\(e=(u,v)\)</span> be the suspected edge.
+We compare <span class="math display">\[C_e = |G-e\rangle\langle G-e|,
+  \qquad
+  D_e = \Delta_{Z_u}\Delta_{Z_v}\bigl(|G\rangle\langle
+G|\bigr),\]</span> where <span class="math inline">\(\Delta_{Z_w}\)</span> denotes complete dephasing
+of qubit <span class="math inline">\(w\)</span> in the <span class="math inline">\(Z\)</span> basis.</p>
+<blockquote>
+<p><strong>Definition 1.1 (Bond repair problem).</strong> <span id="def:bondrepair"></span> Given copies of a state promised to be
+either <span class="math inline">\(C_e\)</span> or <span class="math inline">\(D_e\)</span>, identify which failure occurred.</p>
+</blockquote>
+<p>We restrict to product measurements in single-qubit Pauli bases on
+independent copies and compare two records from the same measurements:
+the complete outcomes and the expectation values of stabilizers of the
+intended state <span class="math inline">\(|G\rangle\)</span>. The
+latter record is natural for graph-state verification and graph-diagonal
+characterization [<a href="#ref-WangEtAl25">11</a>], but may discard the
+failure mechanism.</p>
+<p>Our first result is an exact characterization of that lost
+information. Write <span class="math inline">\(S(G)\)</span> for the
+stabilizer group of <span class="math inline">\(|G\rangle\)</span>.</p>
+<blockquote>
+<p><strong>Theorem 1.2 (Main result).</strong> <span id="thm:intro-main"></span> For every graph <span class="math inline">\(G\)</span> and every edge <span class="math inline">\(e\)</span>, the states <span class="math inline">\(C_e\)</span> and <span class="math inline">\(D_e\)</span> have the same expectation value on
+every element of <span class="math inline">\(S(G)\)</span>. Moreover,
+for every Pauli observable <span class="math inline">\(P\)</span>, <span class="math display">\[\operatorname{Tr}(P\,C_e)\ne\operatorname{Tr}(P\,D_e)
+  \quad\Longleftrightarrow\quad
+  P\in\pm S(G-e)\setminus\pm S(G).\]</span></p>
+</blockquote>
+<p>Target-stabilizer measurements therefore cannot identify the failure
+mechanism, even with arbitrarily many copies. The distinguishing Paulis
+are precisely the stabilizers created by removing the edge.</p>
+<blockquote>
+<p><strong>Corollary 1.3 (Endpoint measurements are generically
+insufficient).</strong> <span id="cor:intro-endpoint"></span>
+Measurements confined to <span class="math inline">\(u\)</span> and
+<span class="math inline">\(v\)</span>, even full two-qubit tomography,
+distinguish <span class="math inline">\(C_e\)</span> from <span class="math inline">\(D_e\)</span> if and only if <span class="math inline">\(u\)</span> or <span class="math inline">\(v\)</span> is a leaf, or <span class="math inline">\(u\)</span> and <span class="math inline">\(v\)</span> have the same neighbors outside the
+edge <span class="math inline">\(e\)</span>.</p>
+</blockquote>
+<p>For a bulk edge in a path, cycle, grid, or irregular graph, neither
+condition typically holds.</p>
 
-  <section class="paper-section">
-    <h2><span class="section-number">1.</span>Exact repair witnesses</h2>
-    <p>A severed edge and complete independent Z-dephasing of its endpoint memories have identical target graph-basis diagonals and target-stabilizer statistics. The complete Pauli distinguisher set is <span class="math">±S(G−e) \ ±S(G)</span>: the repair information lives exactly in failed-graph stabilizers absent from the target dictionary.</p>
-    <p>This gives a sharp locality criterion. Endpoint-pair tomography is generally blind; it succeeds only when an endpoint is a leaf or the endpoints are external twins. For a generic bulk edge, a repair witness must reach into the failed edge's neighborhood.</p>
-  </section>
+<figure id="fig:mechanisms"><img src="../assets/papers/bond-repair/diagram.svg" alt="Figure 1; full description in the caption below." loading="lazy"><figcaption><strong>Figure 1.</strong> The graph and suspected edge are known; the unknown is whether the
+entangling gate was missing (<span class="math inline">\(C_e\)</span>)
+or the endpoint memories dephased (<span class="math inline">\(D_e\)</span>).</figcaption></figure>
 
-  <section class="paper-section">
-    <h2><span class="section-number">2.</span>Measurement resources</h2>
-    <p>The paper separates two axes: the physical catalogue (single-edge localization versus bond-local repair diagnosis) and the retained statistics (full product outcomes versus target-stabilizer parities). A raw repair schedule succeeds exactly when its target information localizes every candidate edge and its contexts expose a failed-graph repair witness for every edge. This yields <span class="math">c<sub>raw</sub><sup>cut</sup> ≤ c<sub>targ</sub><sup>cut</sup> ≤ c<sub>raw</sub><sup>rep</sup></span>.</p>
-    <p>Stars are exactly the connected graphs diagnosable for the bond-local repair catalogue in one raw context; complete graphs require two. Exact computation over every connected graph through eight vertices finds no raw cut complexity above two and no raw repair complexity above three.</p>
-  </section>
+<h3 id="partial-dephasing">1.1 Partial dephasing</h3>
+<p>If the endpoint memories retain coherences <span class="math inline">\(\lambda_u,\lambda_v\)</span> and <span class="math display">\[g=\max\{|\lambda_u|,|\lambda_v|\},\]</span> then
+the largest target-stabilizer contrast is <span class="math inline">\(g\)</span>, and distinguishing the two failures
+with error probability at most <span class="math inline">\(\delta\)</span> requires and is achieved with
+<span class="math display">\[\Theta\!\left(g^{-2}\log\frac1\delta\right)\]</span>
+copies when only target-stabilizer statistics are retained (Theorem <a href="#prop:nearblind">3.2</a>); the exact collision occurs at <span class="math inline">\(g=0\)</span>.</p>
+<h3 id="how-many-local-pauli-settings-are-needed">1.2 How many local
+Pauli settings are needed?</h3>
+<p>A measurement setting chooses one Pauli basis <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span>, or <span class="math inline">\(Z\)</span> at each qubit; the same outcomes
+estimate all compatible correlations. We ask how many settings identify
+a missing edge and how the answer changes when only target-stabilizer
+statistics are kept.</p>
+<p>A weight cap makes the difference qualitative because local noise
+suppresses high-weight correlators. Wheels give an infinite
+separation.</p>
+<blockquote>
+<p><strong>Theorem 1.4 (Fixed-weight separation).</strong> <span id="thm:intro-sep"></span> For every wheel <span class="math inline">\(W_n\)</span> with <span class="math inline">\(n\ge8\)</span>, weight-three observables identify
+every single missing edge from the full product-measurement outcomes in
+exactly <span class="math inline">\(\chi(C_{n-1})\le3\)</span> settings,
+while no finite number of settings suffices using only target-stabilizer
+statistics.</p>
+</blockquote>
+<p>On <span class="math inline">\(W_8\)</span>, the all-<span class="math inline">\(X\)</span> setting contains no nontrivial target
+stabilizer, yet its full outcome distribution identifies the missing
+edge.</p>
+<p>For the promise family <span class="math inline">\(\{|G\rangle,C_e,D_e:e\in E\}\)</span>, a
+collection of settings succeeds exactly when its target-stabilizer
+information identifies the edge and every edge has a compatible Pauli in
+<span class="math inline">\(\pm S(G-e)\setminus\pm S(G)\)</span>
+(Theorem <a href="#thm:repdecomp">4.1</a>). This gives two settings for
+every bipartite graph (Theorem <a href="#thm:edgecover">6.2</a>). A
+connected graph is one-setting diagnosable exactly when it is a star
+(Theorem <a href="#thm:repairone">7.3</a>).</p>
+<p>Under local depolarizing attenuation of strength <span class="math inline">\(f\)</span>, let <span class="math inline">\(d_e^{\rm fail}\)</span> be the minimum weight of a
+Pauli in <span class="math inline">\(\pm S(G-e)\setminus\pm
+S(G)\)</span>. For fixed <span class="math inline">\(G,e\)</span>, the
+optimal copy complexity is <span class="math display">\[\Theta_G\!\left(f^{-2d_e^{\rm
+fail}}\log\frac1\delta\right)\]</span> in the high-noise limit, even
+allowing collective measurements (Proposition <a href="#prop:failweightexponent">8.2</a>).</p>
+<h3 id="related-work">1.3 Related work</h3>
+<p>The closest problem in spirit is hidden cut [<a href="#ref-BGW25">2</a>]: the state is promised to factor across an
+unknown bipartition, which must be identified from copies. Hinsche,
+Eisert, and Carrasco [<a href="#ref-HEC26">3</a>] place hidden cut and
+stabilizer-group learning in an abelian StateHSP framework. Here the
+graph and suspected edge are known; the unknown is the failure
+mechanism. We do not reduce the problem to hidden cut or StateHSP.</p>
+<p>Other work learns an unknown graph state from product
+measurements [<a href="#ref-OT22">4</a>], infers network topology from
+local measurements [<a href="#ref-ChenTopology23">9</a>], or verifies a
+known graph state [<a href="#ref-PLM18">5</a>, <a href="#ref-ZhuHayashi19">6</a>, <a href="#ref-DHZ20">7</a>, <a href="#ref-Theis25">8</a>]. Graph-diagonal characterization and noise
+learning [<a href="#ref-ParkSunJeong25">10</a>, <a href="#ref-WangEtAl25">11</a>, <a href="#ref-SahaOllivier26">12</a>]
+need not identify the physical failure mechanism.</p>
+<h2 id="graph-states-and-product-pauli-measurements">2. Graph states and
+product Pauli measurements</h2>
+<div id="sec:prelim">
 
-  <section class="paper-section">
-    <h2><span class="section-number">3.</span>Bounded weight and noisy hardware</h2>
-    <p>Bounding Pauli weight produces an information separation on an infinite family. For wheels W<sub>n</sub> with n ≥ 8, weight-three raw product records still localize every single edge deletion with χ(C<sub>n−1</sub>) contexts, while target-stabilizer cut diagnosis is impossible at that weight. Complete graphs provide a contrasting family where weight two already realizes the unrestricted context profile.</p>
-    <p>Under local depolarizing attenuation, the lightest failed-graph-only stabilizer determines the high-noise exponent of the optimal severed-bond versus memory-dephasing test: for fixed graph and edge, the copy requirement scales as Θ<sub>G</sub>(f<sup>−2d</sup> log(1/δ)), even allowing collective measurements.</p>
-  </section>
+</div>
+<h3 id="target-stabilizers-and-graph-basis-diagonals">2.1 Target
+stabilizers and graph-basis diagonals</h3>
+<p>Let <span class="math inline">\(G=(V,E)\)</span> be a simple graph on
+<span class="math inline">\(n=|V|\)</span> qubits, <span class="math inline">\(\Gamma_G\)</span> its adjacency matrix over <span class="math inline">\(\mathbb{F}_2\)</span>. The graph state <span class="math inline">\(|G\rangle\)</span> [<a href="#ref-Hein06">1</a>]
+is the joint <span class="math inline">\(+1\)</span> eigenstate of the
+generators <span class="math inline">\(K_a=X_a\prod_{b\in
+N(a)}Z_b\)</span>, and for <span class="math inline">\(A\subseteq
+V\)</span> we write <span class="math inline">\(s_A=\prod_{a\in
+A}K_a\)</span>, so that <span class="math inline">\(S(G)=\{s_A:A\subseteq V\}\)</span> with binary
+label <span class="math inline">\(\ell_A=(\mathbf 1_A,\Gamma_G\mathbf
+1_A)\)</span>. The local Pauli of <span class="math inline">\(s_A\)</span> at qubit <span class="math inline">\(q\)</span> is <span class="math inline">\(X,Y,Z,I\)</span> according to <span class="math inline">\((\mathbf 1_A(q),(\Gamma_G\mathbf
+1_A)(q))=(1,0),(1,1),(0,1),(0,0)\)</span>; in particular the <span class="math inline">\(X/Y\)</span>-support of <span class="math inline">\(s_A\)</span> is exactly <span class="math inline">\(A\)</span>. We use <span class="math inline">\(K_A^G\)</span> and <span class="math inline">\(s_A\)</span> interchangeably for the target
+stabilizer indexed by <span class="math inline">\(A\)</span>. For <span class="math inline">\(a\in\mathbb{F}_2^V\)</span>, define <span class="math inline">\(|G_a\rangle=Z^a|G\rangle\)</span>; these states
+form the target graph basis.</p>
+<p>If <span class="math display">\[p_a=\langle
+G_a|\rho|G_a\rangle\]</span> is the diagonal of <span class="math inline">\(\rho\)</span> in the graph basis, then the
+target-stabilizer expectations and the graph-basis diagonal are Fourier
+transforms of one another: <span class="math display">\[\langle
+K_A^G\rangle_\rho = \sum_{a\in\mathbb{F}_2^n}(-1)^{a\cdot \mathbf
+1_A}p_a,
+\qquad
+p_a=2^{-n}\sum_{A\subseteq V}(-1)^{a\cdot \mathbf 1_A}\langle
+K_A^G\rangle_\rho.\]</span> Thus two states agree on every target
+stabilizer exactly when they have the same diagonal in the target graph
+basis.</p>
+<h3 id="missing-edge-signatures">2.2 Missing-edge signatures</h3>
+<p>If the entangling gate at <span class="math inline">\(e=(u,v)\in
+E\)</span> never acted, the delivered state is <span class="math inline">\(|G-e\rangle\)</span>. For missing-edge
+identification we use <span class="math display">\[\mathcal
+H(G)=\{\text{missing edge }e:e\in E\}\cup\{\varnothing\},\]</span> where
+<span class="math inline">\(\varnothing\)</span> is the no-defect
+hypothesis. Target stabilizers represent each edge deletion by which
+measured supports hit its endpoints.</p>
+<blockquote>
+<p><strong>Lemma 2.1 (Missing-edge signature).</strong> <span id="lem:sig"></span> For every <span class="math inline">\(A\subseteq
+V\)</span> and every <span class="math inline">\(e=(u,v)\in E\)</span>,
+<span class="math display">\[\sigma_e(s_A):=\langle
+G-e|\,s_A\,|G-e\rangle=\mathbf 1\!\left[A\cap\{u,v\}=\emptyset\right],
+\qquad
+\sigma_\varnothing(s_A)=1 .\]</span></p>
+</blockquote>
+<div class="proof">
+<p><em>Proof.</em> If <span class="math inline">\(A\cap\{u,v\}=\emptyset\)</span>, the generators
+<span class="math inline">\(K_a\)</span> of <span class="math inline">\(G\)</span> and <span class="math inline">\(G-e\)</span> coincide for every <span class="math inline">\(a\in A\)</span> (only the endpoint generators
+change under edge deletion), so <span class="math inline">\(s_A\in
+S(G-e)\)</span> and the expectation is <span class="math inline">\(+1\)</span>. If <span class="math inline">\(v\in
+A\)</span> (the case <span class="math inline">\(u\in A\)</span> is
+symmetric), pair <span class="math inline">\(s_A\)</span> against the
+stabilizer <span class="math inline">\(K_u^{G-e}\in S(G-e)\)</span> with
+label <span class="math inline">\((e_u,\Gamma_{G-e}e_u)\)</span>: the
+symplectic form gives <span class="math display">\[\mathbf
+1_A\cdot\Gamma_{G-e}e_u+(\Gamma_G\mathbf 1_A)\cdot e_u
+=(\Gamma_{G-e}\mathbf 1_A)_u+(\Gamma_G\mathbf 1_A)_u
+=\mathbf 1[v\in A]=1,\]</span> so <span class="math inline">\(s_A\)</span> anticommutes with a stabilizer of
+<span class="math inline">\(|G-e\rangle\)</span> and its expectation
+vanishes. ◻</p>
+</div>
+<p>We say <span class="math inline">\(s_A\)</span> <em>separates</em>
+two hypotheses if its signatures under them differ; concretely, <span class="math inline">\(s_A\)</span> separates two missing edges <span class="math inline">\(e\neq e'\)</span> iff <span class="math inline">\(A\)</span> meets exactly one of them, and
+separates <span class="math inline">\(\varnothing\)</span> from <span class="math inline">\(e\)</span> iff <span class="math inline">\(A\)</span> meets <span class="math inline">\(e\)</span>.</p>
+<h3 id="product-pauli-measurement-settings">2.3 Product Pauli
+measurement settings</h3>
+<p>A <em>measurement setting</em> is a choice <span class="math inline">\(\beta:V\to\{X,Y,Z\}\)</span> of one Pauli basis at
+each qubit. A Pauli operator is compatible with <span class="math inline">\(\beta\)</span> if, on each qubit, it is either the
+identity or the Pauli chosen by the setting. Its expectation can then be
+estimated by multiplying the corresponding local outcomes. We write
+<span class="math display">\[M(\beta)=\{s\in S(G): s\text{ is compatible
+with }\beta\}\]</span> for the target stabilizers accessible in the
+setting.</p>
+<p>If the complete product-measurement outcomes are kept, the accessible
+information is larger than <span class="math inline">\(M(\beta)\)</span>. Define the compatible
+product-Pauli set <span class="math display">\[\mathcal
+P(\beta)=\left\{P_A^\beta:=\prod_{v\in A}\beta(v):A\subseteq
+V\right\}.\]</span> If the local outcomes are <span class="math inline">\(y\in\{\pm1\}^V\)</span>, Fourier inversion
+gives</p>
+<div id="eq:rawfourier">
 
-  <section class="paper-section">
-    <h2><span class="section-number">4.</span>Relation to hidden-cut and StateHSP learning</h2>
-    <p>The hidden-cut and StateHSP problems learn an unknown bipartition, symmetry, or stabilizer structure from quantum states. This manuscript assumes the graph topology is known in advance. The latent variable is instead a physical fault mechanism at an intended edge, and the question is which repair-relevant information survives a restricted measurement-and-retention interface. The connection is therefore quantum identifiability under constrained observations, not an extension of the hidden-cut search problem.</p>
-  </section>
+</div>
+<p><span class="math display">\[p_\rho^\beta(y)=2^{-n}\sum_{A\subseteq
+V}\left(\prod_{v\in A}y_v\right)\operatorname{Tr}(P_A^\beta\rho).
+\tag{1}\]</span></p>
+<p>Hence two states have identical outcome distributions in setting
+<span class="math inline">\(\beta\)</span> exactly when they agree on
+every compatible Pauli in <span class="math inline">\(\mathcal
+P(\beta)\)</span>.</p>
+<p>The target stabilizers compatible with a setting have a simple linear
+description.</p>
+<blockquote>
+<p><strong>Lemma 2.2 (Target stabilizers compatible with one
+setting).</strong> <span id="lem:code"></span> For a setting <span class="math inline">\(\beta\)</span>, let <span class="math inline">\(M_\beta\)</span> be the <span class="math inline">\(\mathbb{F}_2\)</span>-matrix whose row at vertex
+<span class="math inline">\(v\)</span> is <span class="math display">\[m_v(\beta)=
+\begin{cases}
+\Gamma_v,&amp; \beta(v)=X,\\
+\Gamma_v+e_v,&amp; \beta(v)=Y,\\
+e_v,&amp; \beta(v)=Z,
+\end{cases}\]</span> where <span class="math inline">\(\Gamma_v\)</span>
+is the <span class="math inline">\(v\)</span>th row of <span class="math inline">\(\Gamma_G\)</span>, and let <span class="math inline">\(C_\beta=\ker
+M_\beta\subseteq\mathbb{F}_2^V\)</span>. Then <span class="math inline">\(M(\beta)=\{s_A:\mathbf 1_A\in C_\beta\}\)</span>.
+In particular <span class="math inline">\(M(\beta)\)</span> is a
+subgroup of <span class="math inline">\(S(G)\)</span> and its support
+vectors form the binary linear code <span class="math inline">\(C_\beta\)</span>.</p>
+</blockquote>
+<div class="proof">
+<p><em>Proof.</em> Measurability of <span class="math inline">\(s_A\)</span> at <span class="math inline">\(v\)</span> requires its local Pauli to lie in
+<span class="math inline">\(\{I,\beta(v)\}\)</span>. By the label
+formula of Section <a href="#sec:prelim">2</a>, the local Pauli at <span class="math inline">\(v\)</span> has <span class="math inline">\(x\)</span>-bit <span class="math inline">\(\mathbf
+1_A(v)\)</span> and <span class="math inline">\(z\)</span>-bit <span class="math inline">\((\Gamma_G\mathbf 1_A)(v)\)</span>, so the
+requirement is <span class="math inline">\((\Gamma_G\mathbf
+1_A)_v=0\)</span> for <span class="math inline">\(\beta(v)=X\)</span>,
+<span class="math inline">\((\Gamma_G\mathbf 1_A)_v+\mathbf
+1_A(v)=0\)</span> for <span class="math inline">\(\beta(v)=Y\)</span>,
+and <span class="math inline">\(\mathbf 1_A(v)=0\)</span> for <span class="math inline">\(\beta(v)=Z\)</span>: exactly <span class="math inline">\(m_v(\beta)\cdot\mathbf 1_A=0\)</span>. ◻</p>
+</div>
+<h2 id="identifiability-before-measurement-complexity">3.
+Identifiability before measurement complexity</h2>
+<div id="sec:ident">
 
-  <section class="paper-section">
-    <h2><span class="section-number">5.</span>Status and reproducibility</h2>
-    <p>Current manuscript version: v10, August 2026. This freeze pass adds current StateHSP prior art, strengthens the physical motivation of the bond-local catalogue, foregrounds the exact Pauli-support theorem, and removes stale machine-specific paths from the verification scripts.</p>
-    <p class="pub-links">[<a href="https://github.com/ayushnadiger/repair-identifiability">verification code</a>]</p>
-    <p class="meta">manuscript in preparation</p>
-  </section>
+</div>
+<p>Lemma <a href="#lem:sig">2.1</a> can localize a missing edge from
+target stabilizers. It does not identify the failure mechanism.</p>
+<p>For a Pauli <span class="math inline">\(P\)</span>, define full
+dephasing by <span class="math inline">\(P\)</span> as <span class="math inline">\(\Delta_P(\rho)=\frac12(\rho+P\rho P)\)</span>. For
+an edge <span class="math inline">\(e=(u,v)\)</span>, independent
+endpoint dephasing is <span class="math inline">\(\Delta_{Z_u}\Delta_{Z_v}\)</span>.</p>
+<blockquote>
+<p><strong>Theorem 3.1 (Severed edge versus endpoint
+dephasing).</strong> <span id="thm:keystone"></span> Let <span class="math inline">\(e=(u,v)\in E(G)\)</span> and <span class="math inline">\(G'=G-e\)</span>. For every <span class="math inline">\(K_A^G\in S(G)\)</span>, <span class="math display">\[\operatorname{Tr}\!\left(K_A^G
+|G'\rangle\langle G'|\right)
+=
+\operatorname{Tr}\!\left(K_A^G\,\Delta_{Z_u}\Delta_{Z_v}(|G\rangle\langle
+G|)\right).\]</span> Therefore the two states have identical graph-basis
+diagonals with respect to <span class="math inline">\(G\)</span>.</p>
+</blockquote>
+<div class="proof">
+<p><em>Proof.</em> Deleting the intended edge is equivalent to applying
+<span class="math inline">\(CZ_{uv}\)</span> once more to the target
+graph state. Using <span class="math display">\[CZ_{uv}=\tfrac12\big(I+Z_u+Z_v-Z_uZ_v\big),\]</span>
+we obtain <span class="math display">\[|G-e\rangle=\tfrac12\big(|G\rangle+Z_u|G\rangle+Z_v|G\rangle-Z_uZ_v|G\rangle\big).\]</span>
+The four terms are orthogonal target graph-basis states and have equal
+modulus. Hence the target graph-basis diagonal of <span class="math inline">\(C_e\)</span> is the uniform distribution on these
+four labels. Independent full endpoint dephasing produces exactly the
+incoherent uniform mixture of the same four graph-basis states. The
+Fourier relation above then gives equality of every target-stabilizer
+expectation. Equivalently, both signatures equal <span class="math inline">\(1\)</span> when <span class="math inline">\(A\)</span> avoids <span class="math inline">\(u,v\)</span> and <span class="math inline">\(0\)</span> otherwise. ◻</p>
+</div>
+<blockquote>
+<p><strong>Theorem 3.2 (Target-data near-blindness is quadratic in
+coherence).</strong> <span id="prop:nearblind"></span> Let <span class="math inline">\(D_e(\lambda_u,\lambda_v)\)</span> be independent
+endpoint <span class="math inline">\(Z\)</span>-dephasing with coherence
+factors <span class="math inline">\(\lambda_u,\lambda_v\in[-1,1]\)</span>, and put
+<span class="math display">\[g:=\max\{|\lambda_u|,|\lambda_v|\}.\]</span> For
+every target stabilizer <span class="math inline">\(K_A^G\)</span>,
+<span class="math display">\[\langle K_A^G\rangle_{D_e}
+=\lambda_u^{\mathbf 1[u\in A]}\lambda_v^{\mathbf 1[v\in A]},
+\qquad
+\langle K_A^G\rangle_{C_e}=\mathbf 1[A\cap\{u,v\}=\emptyset].\]</span>
+Hence the largest target-stabilizer contrast is exactly <span class="math inline">\(g\)</span>. Moreover, for <span class="math inline">\(0&lt;g\le1\)</span> and <span class="math inline">\(0&lt;\delta&lt;1/4\)</span>, any protocol whose
+retained data consist only of target-stabilizer parities requires <span class="math display">\[N\ge \frac{1}{2g^2}\log\frac{1}{4\delta}\]</span>
+copies to distinguish <span class="math inline">\(C_e\)</span> from
+<span class="math inline">\(D_e(\lambda_u,\lambda_v)\)</span> with both
+hypothesis errors at most <span class="math inline">\(\delta\)</span>,
+while <span class="math display">\[N\le
+\frac{8}{g^2}\log\frac{2}{\delta}\]</span> copies suffice. Thus the
+target-data copy complexity is <span class="math display">\[\Theta\!\left(g^{-2}\log\frac1\delta\right).\]</span>
+At <span class="math inline">\(g=0\)</span> the target graph-basis
+distributions coincide exactly, recovering Theorem <a href="#thm:keystone">3.1</a> as the singular endpoint. The upper bound
+is an instance-wise statement: the testing rule may depend on <span class="math inline">\((\lambda_u,\lambda_v)\)</span> (or equivalent
+calibration information). It is not a uniform finite-sample guarantee
+over a composite alternative that permits arbitrarily small nonzero
+coherence.</p>
+</blockquote>
+<div class="proof">
+<p><em>Proof.</em> Independent dephasing multiplies a Pauli expectation
+by <span class="math inline">\(\lambda_u\)</span> or <span class="math inline">\(\lambda_v\)</span> exactly when its <span class="math inline">\(X/Y\)</span> support contains that endpoint. The
+<span class="math inline">\(X/Y\)</span> support of <span class="math inline">\(K_A^G\)</span> is <span class="math inline">\(A\)</span>, while Lemma <a href="#lem:sig">2.1</a>
+gives the missing-edge value, proving the formula and the contrast <span class="math inline">\(g\)</span>. Measuring <span class="math inline">\(K_u^G\)</span> or <span class="math inline">\(K_v^G\)</span> at the endpoint with larger
+absolute coherence and thresholding its sample mean halfway between the
+two expectations gives the stated upper bound by Hoeffding’s
+inequality.</p>
+<p>For the converse, grant the protocol an ideal target graph-basis
+sample on every copy. This is at least as informative as any retained
+target-stabilizer parity transcript, because every such parity is a
+deterministic function of the graph-basis label; adaptivity cannot
+increase the relative entropy beyond that of the underlying samples.
+Under <span class="math inline">\(C_e\)</span> the two relevant
+graph-basis error bits are uniform. Under <span class="math inline">\(D_e(\lambda_u,\lambda_v)\)</span> they are
+independent with probabilities <span class="math inline">\((1+\lambda_a)/2\)</span> and <span class="math inline">\((1-\lambda_a)/2\)</span>. Their one-copy relative
+entropy from the uniform distribution is the sum of two Bernoulli
+relative entropies. Using <span class="math inline">\(D(P\|Q)\le\chi^2(P\|Q)\)</span> gives <span class="math display">\[D\!\left(D_e^{\rm diag}\middle\|C_e^{\rm
+diag}\right)
+\le \lambda_u^2+\lambda_v^2\le2g^2.\]</span> For <span class="math inline">\(N\)</span> copies the divergence is at most <span class="math inline">\(2Ng^2\)</span>. The Bretagnolle–Huber inequality
+implies that the sum of the two testing errors is at least <span class="math inline">\(\tfrac12 e^{-2Ng^2}\)</span>. If both errors are
+at most <span class="math inline">\(\delta\)</span>, then <span class="math inline">\(2\delta\ge\tfrac12e^{-2Ng^2}\)</span>, yielding
+the lower bound. ◻</p>
+</div>
+<p>Computational-basis outcomes also coincide: edge deletion changes
+only phases, and <span class="math inline">\(Z\)</span>-dephasing leaves
+the computational-basis diagonal unchanged.</p>
+<h3 id="pauli-measurements-that-identify-the-failure">3.1 Pauli
+measurements that identify the failure</h3>
+<p>Define failed-graph boundary stabilizers <span class="math display">\[K_u^{G'}=X_u\prod_{w\in
+N_G(u)\setminus\{v\}}Z_w,
+\qquad
+K_v^{G'}=X_v\prod_{w\in N_G(v)\setminus\{u\}}Z_w.\]</span></p>
+<p>These boundary stabilizers already distinguish the two failures:
+<span class="math display">\[\langle
+K_u^{G'}\rangle_{|G'\rangle}=\langle
+K_v^{G'}\rangle_{|G'\rangle}=1,
+\qquad
+\langle K_u^{G'}\rangle_{D_e}=
+\langle K_v^{G'}\rangle_{D_e}=0.\]</span> The first equalities hold
+because they stabilize <span class="math inline">\(|G'\rangle\)</span>; the second because <span class="math inline">\(K_u^{G'}\)</span> contains <span class="math inline">\(X_u\)</span> and <span class="math inline">\(K_v^{G'}\)</span> contains <span class="math inline">\(X_v\)</span>, which are removed by the
+corresponding <span class="math inline">\(Z\)</span>-dephasing
+channels.</p>
+<blockquote>
+<p><strong>Theorem 3.3 (Pauli distinguisher characterization).</strong>
+<span id="thm:minimality"></span> Let <span class="math inline">\(\rho_{\rm miss}=|G-e\rangle\langle G-e|\)</span>
+and let <span class="math inline">\(\rho_{\rm
+mem}=\Delta_{Z_u}\Delta_{Z_v}(|G\rangle\langle G|)\)</span>. A Pauli
+observable <span class="math inline">\(P\)</span> satisfies <span class="math display">\[\operatorname{Tr}(P\rho_{\rm miss})\ne
+\operatorname{Tr}(P\rho_{\rm mem})\]</span> if and only if <span class="math inline">\(P\in \pm S(G-e)\setminus \pm S(G)\)</span>.</p>
+</blockquote>
+<div class="proof">
+<p><em>Proof.</em> The missing-edge state has nonzero Pauli expectations
+exactly on <span class="math inline">\(\pm S(G-e)\)</span>. Endpoint
+dephasing only removes coefficients from the target stabilizer
+expansion, so <span class="math inline">\(D_e\)</span> has no non-target
+Pauli coefficient; Theorem <a href="#thm:keystone">3.1</a> gives
+equality on every target Pauli. Hence the distinguishing Paulis are
+<span class="math inline">\(\pm S(G-e)\setminus\pm S(G)\)</span>. If a
+Pauli label lies in both stabilizer groups, equality of labels forces
+its generator support to avoid <span class="math inline">\(u,v\)</span>,
+so the stabilizer signs also agree. ◻</p>
+</div>
+<blockquote>
+<p><strong>Corollary 3.4 (Consequence for one product-measurement
+setting).</strong> <span id="cor:rawcriterion"></span> For a
+product-Pauli setting <span class="math inline">\(\beta\)</span>, the
+full outcome distributions of <span class="math inline">\(C_e\)</span>
+and <span class="math inline">\(D_e\)</span> differ if and only if <span class="math display">\[\mathcal P(\beta)\cap\big(\pm S(G-e)\setminus\pm
+S(G)\big)\ne\emptyset.\]</span></p>
+</blockquote>
+<div class="proof">
+<p><em>Proof.</em> Equation <a href="#eq:rawfourier">(1)</a> says that a
+setting separates two states exactly when some compatible Pauli
+expectation differs; Theorem <a href="#thm:minimality">3.3</a>
+characterizes all such Paulis. ◻</p>
+</div>
+<blockquote>
+<p><strong>Theorem 3.5 (Local-support criterion).</strong> <span id="thm:locality"></span> Let <span class="math inline">\(R\subseteq
+V\)</span> and let <span class="math inline">\(\rho_{\rm
+miss}=|G-e\rangle\langle G-e|\)</span>, <span class="math inline">\(\rho_{\rm
+mem}=\Delta_{Z_u}\Delta_{Z_v}(|G\rangle\langle G|)\)</span>. The reduced
+states on <span class="math inline">\(R\)</span> are equal if and only
+if no Pauli observable supported inside <span class="math inline">\(R\)</span> lies in <span class="math inline">\(\pm
+S(G-e)\setminus\pm S(G)\)</span>. Equivalently, a local tomography
+experiment on <span class="math inline">\(R\)</span> can distinguish the
+blind pair if and only if the failed-graph stabilizer group contains a
+non-target stabilizer supported on <span class="math inline">\(R\)</span>.</p>
+</blockquote>
+<div class="proof">
+<p><em>Proof.</em> Pauli strings supported on <span class="math inline">\(R\)</span> form an operator basis for the reduced
+density matrix on <span class="math inline">\(R\)</span>. By Theorem <a href="#thm:minimality">3.3</a>, the only Pauli strings with different
+expectations under the two hypotheses are precisely the elements of
+<span class="math inline">\(\pm S(G-e)\setminus\pm S(G)\)</span>. Thus
+all local observables on <span class="math inline">\(R\)</span> are
+blind exactly when no such Pauli has support contained in <span class="math inline">\(R\)</span>. ◻</p>
+</div>
+<blockquote>
+<p><strong>Corollary 3.6 (When endpoint-pair tomography fails).</strong>
+<span id="cor:pairtomo"></span> For <span class="math inline">\(e=(u,v)\)</span>, tomography restricted to the
+endpoint pair <span class="math inline">\(\{u,v\}\)</span> distinguishes
+<span class="math inline">\(|G-e\rangle\)</span> from endpoint <span class="math inline">\(Z\)</span>-dephasing only in the following special
+cases: <span class="math inline">\(u\)</span> is a leaf, <span class="math inline">\(v\)</span> is a leaf, or <span class="math inline">\(u\)</span> and <span class="math inline">\(v\)</span> have the same external neighborhood,
+<span class="math inline">\(N_G(u)\setminus\{v\}=N_G(v)\setminus\{u\}\)</span>.
+In particular, endpoint-pair tomography is blind for every edge whose
+endpoints are non-leaves and not external twins.</p>
+</blockquote>
+<div class="proof">
+<p><em>Proof.</em> Any stabilizer of <span class="math inline">\(G-e\)</span> supported on <span class="math inline">\(\{u,v\}\)</span> must be <span class="math inline">\(K_A^{G-e}\)</span> with <span class="math inline">\(A\subseteq\{u,v\}\)</span>. For <span class="math inline">\(A=\{u\}\)</span> this requires <span class="math inline">\(N_G(u)\setminus\{v\}=\emptyset\)</span>, and
+similarly for <span class="math inline">\(A=\{v\}\)</span>. For <span class="math inline">\(A=\{u,v\}\)</span> the external <span class="math inline">\(Z\)</span> labels cancel exactly when the two
+external neighborhoods coincide. These are the only nonempty choices of
+<span class="math inline">\(A\)</span>. ◻</p>
+</div>
+<p>Adaptivity does not restore this information. In any setting, the
+joint distribution of measurable target-stabilizer parities is
+determined by expectations of products of those stabilizers, which
+remain in <span class="math inline">\(S(G)\)</span>. If two states agree
+on <span class="math inline">\(S(G)\)</span>, induction over adaptive
+rounds gives identical retained transcripts. Thus adaptive protocols
+that keep only target-stabilizer parities cannot distinguish <span class="math inline">\(C_e\)</span> from <span class="math inline">\(D_e\)</span> at complete dephasing.</p>
+<h2 id="measurement-settings-for-edge-localization-and-bond-repair">4.
+Measurement settings for edge localization and bond repair</h2>
+<div id="sec:resources">
 
-  <p class="small"><a href="../research.html">← research</a></p>
-</main>
-</body>
-</html>
+</div>
+<p>We use two promise families: <span class="math display">\[\mathcal
+H_{\rm edge}(G)=\{|G\rangle\}\cup\{C_e:e\in E\},
+\qquad
+\mathcal H_{\rm rep}(G)=\{|G\rangle\}\cup\{C_e,D_e:e\in E\}.\]</span>
+The first asks which edge is missing; the second also asks which failure
+mechanism occurred.</p>
+<p>Let <span class="math inline">\(c_{\mathrm{raw}}^{\mathrm{edge}}(G)\)</span> be
+the minimum number of settings whose full outcomes identify <span class="math inline">\(\mathcal H_{\rm edge}(G)\)</span>, let <span class="math inline">\(c_{\mathrm{targ}}^{\mathrm{edge}}(G)\)</span> be
+the minimum when only target-stabilizer statistics are retained, and let
+<span class="math inline">\(c_{\mathrm{raw}}^{\mathrm{rep}}(G)\)</span>
+be the minimum number of full-outcome settings identifying <span class="math inline">\(\mathcal H_{\rm rep}(G)\)</span>.</p>
+<blockquote>
+<p><strong>Theorem 4.1 (When a collection of settings identifies the
+failure mechanism).</strong> <span id="thm:repdecomp"></span> A
+collection of settings <span class="math inline">\(\beta_1,\ldots,\beta_k\)</span> identifies every
+state in <span class="math inline">\(\mathcal H_{\rm rep}(G)\)</span>
+from the full product-measurement outcomes if and only if</p>
+<ol>
+<li><p>the target stabilizers compatible with the settings identify
+every state in <span class="math inline">\(\mathcal H_{\rm
+edge}(G)\)</span>; and</p></li>
+<li><p>for every edge <span class="math inline">\(e\)</span>, at least
+one setting contains a compatible Pauli <span class="math display">\[P\in \pm S(G-e)\setminus\pm
+S(G).\]</span></p></li>
+</ol>
+</blockquote>
+<div class="proof">
+<p><em>Proof.</em> Restrict first to the states <span class="math inline">\(\{|G\rangle,D_e:e\in E\}\)</span>. Endpoint
+dephasing only removes coefficients from the target stabilizer
+expansion, so compatible non-target Paulis have zero expectation on
+every state in this restricted family. The informative observables are
+therefore target stabilizers, and their values on <span class="math inline">\(D_e\)</span> are exactly the missing-edge values
+of Lemma <a href="#lem:sig">2.1</a>. This proves the necessity of
+(i).</p>
+<p>After (i) holds, the target-stabilizer data distinguish the intact
+state from every failure and distinguish failures attached to different
+edges. The only unresolved pair at edge <span class="math inline">\(e\)</span> is therefore <span class="math inline">\(C_e\)</span> versus <span class="math inline">\(D_e\)</span>. By Theorem <a href="#thm:minimality">3.3</a> and Fourier inversion of the product
+outcomes, a setting separates this pair exactly when it contains a
+compatible Pauli in <span class="math inline">\(\pm S(G-e)\setminus\pm
+S(G)\)</span>. This is condition (ii), and it is also sufficient. ◻</p>
+</div>
+<p>Therefore</p>
+<div id="eq:settinghierarchy">
+
+</div>
+<p><span class="math display">\[\boxed{c_{\mathrm{raw}}^{\mathrm{edge}}(G)\le
+c_{\mathrm{targ}}^{\mathrm{edge}}(G)\le
+c_{\mathrm{raw}}^{\mathrm{rep}}(G).}
+\tag{2}\]</span></p>
+<p>The first inequality holds because target-stabilizer parities are
+functions of the full outcomes; the second is Theorem <a href="#thm:repdecomp">4.1</a>(i).</p>
+<p>A superscript “<span class="math inline">\(\le w\)</span>” requires
+every pair of states to have a compatible separating Pauli of weight at
+most <span class="math inline">\(w\)</span>. At full endpoint
+dephasing,</p>
+<div id="eq:weighthierarchy">
+
+</div>
+<p><span class="math display">\[c_{\rm raw}^{\rm edge,\le w}(G)
+\le c_{\rm targ}^{\rm edge,\le w}(G)
+\le c_{\rm raw}^{\rm rep,\le w}(G).
+\tag{3}\]</span></p>
+<p>Two minimum Pauli weights determine when these bounded-weight
+problems are even possible: <span class="math display">\[d_{\rm
+targ}(G):=\min_{P\in\pm S(G)\setminus\{\pm I\}}\mathrm{wt}(P),
+\qquad
+d_e^{\rm fail}(G):=\min_{P\in\pm S(G-e)\setminus\pm
+S(G)}\mathrm{wt}(P),\]</span> and <span class="math inline">\(d_{\rm
+fail}(G):=\max_{e\in E}d_e^{\rm fail}(G)\)</span>. If <span class="math inline">\(w&lt;d_{\rm targ}(G)\)</span>, then
+target-stabilizer edge localization is impossible at weight <span class="math inline">\(w\)</span>, and hence so is bond repair. If <span class="math inline">\(w&lt;d_{\rm fail}(G)\)</span>, then some same-edge
+pair <span class="math inline">\(C_e,D_e\)</span> has no allowed Pauli
+witness, so bond repair is again impossible.</p>
+<blockquote>
+<p><strong>Theorem 4.2 (Fixed-weight missing-edge separation on
+wheels).</strong> <span id="thm:wheelweightfamily"></span> Let <span class="math inline">\(W_n\)</span> have hub <span class="math inline">\(h\)</span> and rim <span class="math inline">\(C_m\)</span>, <span class="math inline">\(m=n-1\)</span>. Then:</p>
+<ol>
+<li><p>for every <span class="math inline">\(n\ge8\)</span>, <span class="math inline">\(d_{\rm targ}(W_n)=4\)</span>, and therefore <span class="math display">\[c_{\rm targ}^{\rm edge,\le3}(W_n)=c_{\rm
+raw}^{\rm rep,\le3}(W_n)=\infty;\]</span></p></li>
+<li><p>for every <span class="math inline">\(n\ge6\)</span>, <span class="math display">\[c_{\rm raw}^{\rm edge,\le3}(W_n)\le
+\chi(C_{n-1})\le3;\]</span></p></li>
+<li><p>for every <span class="math inline">\(n\ge9\)</span> the upper
+bound is exact: <span class="math display">\[\boxed{c_{\rm raw}^{\rm
+edge,\le3}(W_n)=\chi(C_{n-1}).}\]</span></p></li>
+</ol>
+<p>Together with Proposition <a href="#prop:wheelexact">4.4</a>, this
+gives for every <span class="math inline">\(n\ge8\)</span> <span class="math display">\[\boxed{
+c_{\rm raw}^{\rm edge,\le3}(W_n)=\chi(C_{n-1})&lt;
+c_{\rm targ}^{\rm edge,\le3}(W_n)=c_{\rm raw}^{\rm
+rep,\le3}(W_n)=\infty.}\]</span></p>
+</blockquote>
+<div class="proof">
+<p><em>Proof.</em> Part (i) is Lemma <a href="#lem:wheeltargetweight">A.1</a> below. For the raw upper bound,
+properly color the rim as <span class="math inline">\(L_1\sqcup\cdots\sqcup L_{\chi(C_m)}\)</span>. In
+setting <span class="math inline">\(j\)</span>, measure <span class="math inline">\(X\)</span> on <span class="math inline">\(L_j\)</span> and <span class="math inline">\(Z\)</span> everywhere else, including the hub.
+Every edge <span class="math inline">\(e\)</span> has a rim endpoint
+<span class="math inline">\(i\)</span>. If <span class="math inline">\(e=(h,i)\)</span> is a spoke, then <span class="math inline">\(K_i^{W_n-e}=X_iZ_{i-1}Z_{i+1}\)</span>; if <span class="math inline">\(e=(i,i+1)\)</span> is a rim edge, then <span class="math inline">\(K_i^{W_n-e}=X_iZ_{i-1}Z_h\)</span>. In either case
+the witness has weight three and is measurable in the color setting
+containing <span class="math inline">\(i\)</span>. Its <span class="math inline">\(X\)</span>-support is the singleton <span class="math inline">\(\{i\}\)</span>, so on any other
+single-edge-deleted graph <span class="math inline">\(W_n-f\)</span> the
+only possible stabilizer with that <span class="math inline">\(X\)</span>-support is <span class="math inline">\(K_i^{W_n-f}\)</span>; because <span class="math inline">\(f\ne e\)</span> changes a different neighborhood
+(or none at <span class="math inline">\(i\)</span>), this Pauli is
+absent. Hence each witness is an indicator for its own missing-edge
+hypothesis, proving (ii).</p>
+<p>For (iii), Lemma <a href="#lem:spokeweight3">A.2</a> shows that for
+<span class="math inline">\(n\ge9\)</span> the unique
+weight-at-most-three non-target stabilizer of the spoke-deleted graph
+<span class="math inline">\(W_n-(h,i)\)</span> is <span class="math inline">\(X_iZ_{i-1}Z_{i+1}\)</span>. By part (i), no
+nonidentity target stabilizer has weight at most three, so any
+weight-three separator for the pair <span class="math inline">\(|W_n\rangle\)</span> versus <span class="math inline">\(|W_n-(h,i)\rangle\)</span> must lie on the
+failed-graph side. Therefore a setting that detects this spoke at weight
+three must measure <span class="math inline">\(X\)</span> at <span class="math inline">\(i\)</span> and <span class="math inline">\(Z\)</span> at <span class="math inline">\(i-1,i+1\)</span>. No setting can serve two
+adjacent spokes, so the spokes covered by each setting form an
+independent set of the rim cycle. Covering all <span class="math inline">\(m\)</span> spokes needs at least <span class="math inline">\(\chi(C_m)\)</span> settings, matching the
+construction. ◻</p>
+</div>
+<p>The threshold <span class="math inline">\(n=8\)</span> is sharp:
+<span class="math inline">\(W_7\)</span> has the weight-three target
+stabilizer <span class="math inline">\(X_hY_iY_{i+3}\)</span>.</p>
+<blockquote>
+<p><strong>Proposition 4.3 (Weight cap is inactive on complete
+graphs).</strong> <span id="prop:Knweight"></span> For every <span class="math inline">\(n\ge4\)</span>, <span class="math display">\[d_{\rm targ}(K_n)=d_{\rm fail}(K_n)=2,\]</span>
+and at weight cap two, <span class="math display">\[\boxed{
+\big(c_{\rm raw}^{\rm edge,\le2},c_{\rm targ}^{\rm edge,\le2},c_{\rm
+raw}^{\rm rep,\le2}\big)(K_n)=(1,1,2).}\]</span> Thus the bounded-weight
+resource profile is identical to the unrestricted profile on complete
+graphs.</p>
+</blockquote>
+<div class="proof">
+<p><em>Proof.</em> A connected graph state has no weight-one stabilizer:
+nontrivial stabilizer <span class="math inline">\(X/Y\)</span>-support
+is a nonempty generator label <span class="math inline">\(A\)</span>, so
+weight one would force <span class="math inline">\(A=\{v\}\)</span> and
+<span class="math inline">\(v\)</span> isolated. In <span class="math inline">\(K_n\)</span>, <span class="math inline">\(K_uK_v\)</span> is (up to its stabilizer sign)
+<span class="math inline">\(Y_uY_v\)</span>, giving <span class="math inline">\(d_{\rm targ}=2\)</span>. If <span class="math inline">\(e=(u,v)\)</span> is deleted, then <span class="math inline">\(K_u^{K_n-e}K_v^{K_n-e}=X_uX_v\in
+S(K_n-e)\setminus\pm S(K_n)\)</span>, so <span class="math inline">\(d_e^{\rm fail}=2\)</span> for every edge.</p>
+<p>The all-<span class="math inline">\(X\)</span> setting exposes <span class="math inline">\(X_uX_v\)</span> and therefore identifies every
+missing edge <span class="math inline">\(e=(u,v)\)</span> in one
+setting. The all-<span class="math inline">\(Y\)</span> setting exposes
+the weight-two target stabilizers <span class="math inline">\(Y_uY_v\)</span>; these pair supports edge-separate
+<span class="math inline">\(K_n\)</span> for <span class="math inline">\(n\ge4\)</span>, so one target-stabilizer setting
+also suffices. The two settings together diagnose the repair family,
+while one setting cannot do so because <span class="math inline">\(K_n\)</span> is not a star (Theorem <a href="#thm:repairone">7.3</a>). ◻</p>
+</div>
+<blockquote>
+<p><strong>Proposition 4.4 (Exact wheel values;
+computer-assisted).</strong> <span id="prop:wheelexact"></span> For
+<span class="math inline">\(W_8\)</span>, <span class="math display">\[c_{\mathrm{raw}}^{\mathrm{edge}}=1,\qquad
+c_{\mathrm{targ}}^{\mathrm{edge}}=2,\qquad
+c_{\mathrm{raw}}^{\mathrm{rep}}=3,\qquad \chi=4,
+\qquad d_{\rm targ}=4,\qquad d_{\rm fail}=3,\]</span> with
+bounded-weight profile <span class="math display">\[\begin{array}{c|ccc}
+&amp;c_{\rm raw}^{\rm edge,\le w}&amp;c_{\rm targ}^{\rm edge,\le
+w}&amp;c_{\rm raw}^{\rm rep,\le w}\\ \hline
+w\le2&amp;\infty&amp;\infty&amp;\infty\\
+w=3&amp;3&amp;\infty&amp;\infty\\
+w=4&amp;1&amp;2&amp;3.
+\end{array}\]</span> For <span class="math inline">\(W_{10}\)</span>,
+<span class="math inline">\(c_{\mathrm{targ}}^{\mathrm{edge}}=2&lt;3=c_{\mathrm{raw}}^{\mathrm{rep}}\)</span>;
+for <span class="math inline">\(W_{14}\)</span>, <span class="math inline">\(c_{\mathrm{raw}}^{\mathrm{rep}}=3\)</span>; and
+both satisfy <span class="math inline">\(c_{\rm raw}^{\rm
+rep,\le4}=3\)</span>. Moreover <span class="math inline">\(\ker\Gamma_{W_8}=0\)</span>, so the all-<span class="math inline">\(X\)</span> setting achieving <span class="math inline">\(c_{\mathrm{raw}}^{\mathrm{edge}}(W_8)=1\)</span>
+contains no nontrivial target stabilizer at all: its missing-edge
+information lies entirely outside the retained record.</p>
+</blockquote>
+<div class="proof">
+<p><em>Proof.</em> For <span class="math inline">\(W_8\)</span>, direct
+binary elimination gives <span class="math inline">\(\ker\Gamma_{W_8}=0\)</span>, and exact enumeration
+over all <span class="math inline">\(3^8\)</span> settings gives the
+stated unrestricted and bounded-weight values. For <span class="math inline">\(W_{10}\)</span> and <span class="math inline">\(W_{14}\)</span>, exact no-two-setting-cover
+searches give the lower bound <span class="math inline">\(c_{\mathrm{raw}}^{\mathrm{rep}}\ge3\)</span>;
+Theorem <a href="#thm:wheels">7.1</a> gives the matching upper bound.
+Appendix <a href="#app:repro">B</a> records the enumeration sizes and
+reproduction commands. ◻</p>
+</div>
+<h2 id="locating-a-missing-edge-from-target-stabilizers">5. Locating a
+missing edge from target stabilizers</h2>
+<div id="sec:param">
+
+</div>
+<p>For a fixed setting, missing-edge distinguishability reduces to
+two-dimensional edge labels.</p>
+<blockquote>
+<p><strong>Lemma 5.1 (Edge labels in one setting).</strong> <span id="lem:span"></span> Fix a setting <span class="math inline">\(\beta\)</span> with support code <span class="math inline">\(C_\beta\)</span> (Lemma <a href="#lem:code">2.2</a>) and, for <span class="math inline">\(v\in
+V\)</span>, let <span class="math inline">\(\varphi_v\in
+C_\beta^*\)</span> be the coordinate functional <span class="math inline">\(a\mapsto a_v\)</span>. For an edge <span class="math inline">\(e=(u,v)\)</span> define <span class="math display">\[S_e^\beta:=\operatorname{span}\{\varphi_u,\varphi_v\}\subseteq
+C_\beta^*.\]</span> Write the edge hit pattern of <span class="math inline">\(e\)</span> for the map <span class="math inline">\(C_\beta\to\mathbb{F}_2\)</span>, <span class="math inline">\(a\mapsto\mathbf 1[\operatorname{supp}(a)\cap
+e\neq\varnothing]\)</span>. It determines and is determined by the label
+subspace <span class="math inline">\(S_e^\beta\)</span>. Consequently,
+within the single setting <span class="math inline">\(\beta\)</span>:
+the missing-edge hypothesis <span class="math inline">\(e\)</span> is
+separated from the null hypothesis iff <span class="math inline">\(S_e^\beta\neq0\)</span>, and the missing-edge
+hypotheses <span class="math inline">\(e\neq f\)</span> are separated
+iff <span class="math inline">\(S_e^\beta\neq S_f^\beta\)</span>.
+Equivalently, identifying <span class="math inline">\(C_\beta^*\cong\mathbb{F}_2^V/\operatorname{row}(M_\beta)\)</span>,
+the subspace <span class="math inline">\(S_e^\beta\)</span> is the span
+of the quotient classes of <span class="math inline">\(e_u\)</span> and
+<span class="math inline">\(e_v\)</span>.</p>
+</blockquote>
+<div class="proof">
+<p><em>Proof.</em> By Lemma <a href="#lem:sig">2.1</a>, the signature of
+a measured <span class="math inline">\(s_A\)</span> distinguishes
+hypotheses exactly through the hit pattern. The hit pattern vanishes on
+<span class="math inline">\(a\)</span> precisely when <span class="math inline">\(a_u=a_v=0\)</span>, i.e. when <span class="math inline">\(a\in\ker\varphi_u\cap\ker\varphi_v\)</span>, which
+is the annihilator of <span class="math inline">\(S_e^\beta\)</span> in
+<span class="math inline">\(C_\beta\)</span>. Thus the hit pattern
+equals <span class="math inline">\(1-\mathbf
+1[a\in\operatorname{ann}(S_e^\beta)]\)</span>, and annihilation is an
+inclusion-reversing bijection between subspaces of <span class="math inline">\(C_\beta^*\)</span> and of <span class="math inline">\(C_\beta\)</span>, so the hit pattern and label
+subspace determine one another. The two separation statements follow:
+the hit pattern is identically <span class="math inline">\(0\)</span>
+iff <span class="math inline">\(S_e^\beta=0\)</span>, and two hit
+patterns agree iff the label subspaces agree. For the last
+identification, <span class="math inline">\(C_\beta^\perp=\operatorname{row}(M_\beta)\)</span>,
+so restriction of coordinates induces <span class="math inline">\(\mathbb{F}_2^V/\operatorname{row}(M_\beta)\xrightarrow{\
+\sim\ }C_\beta^*\)</span> carrying <span class="math inline">\([e_v]\)</span> to <span class="math inline">\(\varphi_v\)</span>. ◻</p>
+</div>
+<blockquote>
+<p><strong>Corollary 5.2 (Edge labels across several settings).</strong>
+<span id="cor:labels"></span> The settings <span class="math inline">\(\beta_1,\dots,\beta_k\)</span> identify the intact
+graph and every single missing edge if and only if the label tuples
+<span class="math display">\[L(e):=\big(S_e^{\beta_1},\dots,S_e^{\beta_k}\big),\qquad
+e\in E,\]</span> are pairwise distinct and none is the all-zero
+tuple.</p>
+</blockquote>
+<div class="proof">
+<p><em>Proof.</em> A pair of promised states is separated by the
+collection iff some single setting separates it, which by Lemma <a href="#lem:span">5.1</a> is a coordinatewise comparison of the
+tuples. ◻</p>
+</div>
+<p>Each edge label has dimension at most two and is computable by
+Gaussian elimination.</p>
+<h2 id="an-edge-separating-upper-bound">6. An edge-separating upper
+bound</h2>
+<div id="sec:twoset">
+
+</div>
+<blockquote>
+<p><strong>Definition 6.1 (Edge-separating vertex set).</strong> <span id="def:edgeseparating"></span> A set <span class="math inline">\(R\subseteq V\)</span> is <em>edge-separating</em>
+if every edge meets <span class="math inline">\(R\)</span>, and for
+every two distinct edges <span class="math inline">\(e\neq f\)</span>,
+the symmetric difference <span class="math inline">\(e\triangle
+f\)</span> contains a vertex of <span class="math inline">\(R\)</span>.
+Equivalently, the endpoint-intersection map <span class="math inline">\(e\mapsto e\cap R\)</span> is injective and never
+empty.</p>
+</blockquote>
+<blockquote>
+<p><strong>Theorem 6.2 (Upper bound from an edge-separating
+set).</strong> <span id="thm:edgecover"></span> If <span class="math inline">\(R\subseteq V\)</span> is edge-separating and <span class="math inline">\(G[R]\)</span> is <span class="math inline">\(k\)</span>-colorable, then the same <span class="math inline">\(k\)</span> settings solve both the
+target-stabilizer missing-edge problem and the full-outcome bond-repair
+problem: <span class="math display">\[c_{\mathrm{targ}}^{\mathrm{edge}}(G)\le k,\qquad
+c_{\mathrm{raw}}^{\mathrm{rep}}(G)\le k.\]</span></p>
+</blockquote>
+<div class="proof">
+<p><em>Proof.</em> Let <span class="math inline">\(R=L_1\sqcup\cdots\sqcup L_k\)</span> be a proper
+coloring of <span class="math inline">\(G[R]\)</span>. In setting <span class="math inline">\(i\)</span>, measure <span class="math inline">\(X\)</span> on <span class="math inline">\(L_i\)</span> and <span class="math inline">\(Z\)</span> elsewhere. Independence of <span class="math inline">\(L_i\)</span> makes every target generator <span class="math inline">\(K_x^G\)</span>, <span class="math inline">\(x\in
+L_i\)</span>, compatible, so the <span class="math inline">\(k\)</span>
+settings retain the incidence signature of every <span class="math inline">\(x\in R\)</span>. Edge-separation makes the map
+<span class="math inline">\(e\mapsto e\cap R\)</span> nonempty and
+injective, so these target generators distinguish the null hypothesis
+and localize the edge label for both <span class="math inline">\(C_e\)</span> and <span class="math inline">\(D_e\)</span>.</p>
+<p>It remains only to identify the mechanism once the edge <span class="math inline">\(e=(u,v)\)</span> is known. Choose an endpoint
+<span class="math inline">\(u\in e\cap R\)</span>, and let <span class="math inline">\(u\in L_i\)</span>. Because <span class="math inline">\(L_i\)</span> is independent, every neighbor of
+<span class="math inline">\(u\)</span> is measured in <span class="math inline">\(Z\)</span> in setting <span class="math inline">\(\beta_{L_i}\)</span>. Hence the failed-graph
+boundary stabilizer <span class="math display">\[K_u^{G-e}=X_u\prod_{w\in
+N_G(u)\setminus\{v\}}Z_w\]</span> is measurable in that same setting. By
+Theorem <a href="#thm:minimality">3.3</a>, it distinguishes <span class="math inline">\(C_e\)</span> from <span class="math inline">\(D_e\)</span>.</p>
+<p>It remains to check pairs carrying different edge labels. If <span class="math inline">\(e\neq f\)</span>, edge-separation gives <span class="math inline">\(x\in R\cap(e\triangle f)\)</span>. The singleton
+generator <span class="math inline">\(K_x^G\)</span> has expectation
+<span class="math inline">\(0\)</span> for the hypothesis whose edge
+label contains <span class="math inline">\(x\)</span> and <span class="math inline">\(1\)</span> for the other. This argument is
+independent of mechanism type, so it covers missing-edge–missing-edge,
+dephasing–dephasing, and in particular the mixed pair <span class="math inline">\((C_e,D_f)\)</span>. Thus every cross-edge pair is
+already separated by the target incidence signatures, and the same <span class="math inline">\(k\)</span> settings diagnose the full bond repair
+family. ◻</p>
+</div>
+<p>Minimizing Theorem <a href="#thm:edgecover">6.2</a> over <span class="math inline">\(R\)</span> gives</p>
+<div id="eq:kesbound">
+
+</div>
+<p><span class="math display">\[c_{\mathrm{targ}}^{\mathrm{edge}}(G)\le
+c_{\mathrm{raw}}^{\mathrm{rep}}(G)\le
+\min_{R\text{ edge-separating}}\chi(G[R])\le\chi(G).
+\tag{4}\]</span></p>
+<p>This upper bound can be loose: for <span class="math inline">\(K_n\)</span> the middle minimum is <span class="math inline">\(n-1\)</span>, whereas Theorem <a href="#thm:repaircomplete">7.4</a> gives <span class="math inline">\(c_{\mathrm{raw}}^{\mathrm{rep}}(K_n)=2\)</span>.</p>
+<h2 id="identifying-the-failure-mechanism-from-full-outcomes">7.
+Identifying the failure mechanism from full outcomes</h2>
+<div id="sec:repaircontexts">
+
+</div>
+<p>Theorem <a href="#thm:minimality">3.3</a> turns failure
+identification into a covering problem over stabilizers of graphs with
+one edge removed.</p>
+<blockquote>
+<p><strong>Theorem 7.1 (Three settings suffice for bond repair on every
+wheel).</strong> <span id="thm:wheels"></span> Let <span class="math inline">\(W_n\)</span> denote the wheel on <span class="math inline">\(n\)</span> vertices: one hub joined to a rim cycle
+<span class="math inline">\(C_{n-1}\)</span>. Then <span class="math display">\[c_{\mathrm{raw}}^{\mathrm{rep}}(W_n)\le
+\chi(C_{n-1})=
+\begin{cases}
+2,&amp; n \text{ odd},\\
+3,&amp; n \text{ even}.
+\end{cases}\]</span> In particular every wheel has <span class="math inline">\(c_{\mathrm{raw}}^{\mathrm{rep}}\le3\)</span>, and
+the same construction uses witnesses of weight at most four: <span class="math display">\[c_{\rm raw}^{\rm
+rep,\le4}(W_n)\le\chi(C_{n-1}).\]</span> Hence also <span class="math inline">\(c_{\mathrm{targ}}^{\mathrm{edge}}\le3\)</span>.</p>
+</blockquote>
+<div class="proof">
+<p><em>Proof.</em> Let <span class="math inline">\(R\)</span> be the rim
+vertex set. It is edge-separating. Every spoke contains its rim
+endpoint, and every rim edge has both endpoints in <span class="math inline">\(R\)</span>, so every edge meets <span class="math inline">\(R\)</span>. If two spokes differ, their symmetric
+difference consists of two distinct rim vertices. If a spoke and a rim
+edge differ, either the rim edge is not incident to the spoke endpoint,
+in which case the spoke endpoint separates them, or it is incident, in
+which case the other rim endpoint separates them. Finally, two distinct
+rim edges differ on at least one rim vertex. Therefore Theorem <a href="#thm:edgecover">6.2</a> applies with <span class="math inline">\(G[R]=C_{n-1}\)</span>, whose chromatic number is
+<span class="math inline">\(2\)</span> for even rim length and <span class="math inline">\(3\)</span> for odd rim length. ◻</p>
+</div>
+<blockquote>
+<p><strong>Lemma 7.2 (One-setting obstruction).</strong> <span id="lem:repairprofile"></span> Fix a product-Pauli setting <span class="math inline">\(\beta\)</span> with <span class="math inline">\(Z\)</span>-set <span class="math inline">\(S=\beta^{-1}(Z)\)</span>, let <span class="math inline">\(H=G-S\)</span>, and let <span class="math inline">\(\bar\beta\)</span> be the induced <span class="math inline">\(X/Y\)</span> setting on <span class="math inline">\(H\)</span>. Write <span class="math display">\[M=\Gamma_H+D_{\bar\beta},\qquad C=\ker
+M,\]</span> where <span class="math inline">\(D_{\bar\beta}\)</span> has
+diagonal entry <span class="math inline">\(1\)</span> exactly on the
+<span class="math inline">\(Y\)</span> sites of <span class="math inline">\(\bar\beta\)</span>. For <span class="math inline">\(v\in V(H)\)</span> let <span class="math inline">\(\varphi_v\in C^*\)</span> be the coordinate
+functional, and set <span class="math inline">\(\varphi_v=0\)</span> for
+<span class="math inline">\(v\in S\)</span>. If the single setting <span class="math inline">\(\beta\)</span> distinguishes <span class="math inline">\(C_e\)</span> from <span class="math inline">\(D_e\)</span> for an edge <span class="math inline">\(e=uv\)</span>, then:</p>
+<ol>
+<li><p>if <span class="math inline">\(u,v\notin S\)</span>, then <span class="math display">\[\varphi_u=0,\qquad
+\varphi_v=0,\qquad\text{or}\qquad \varphi_u=\varphi_v;\]</span></p></li>
+<li><p>if <span class="math inline">\(u\in S\)</span> and <span class="math inline">\(v\notin S\)</span>, mechanism identification is
+possible if and only if <span class="math inline">\(\varphi_v\neq0\)</span>;</p></li>
+<li><p>if <span class="math inline">\(u,v\in S\)</span>, mechanism
+identification is impossible.</p></li>
+</ol>
+</blockquote>
+<div class="proof">
+<p><em>Proof.</em> Compatibility forces the generator label to vanish on
+the <span class="math inline">\(Z\)</span>-set <span class="math inline">\(S\)</span>; on <span class="math inline">\(H\)</span>, the remaining <span class="math inline">\(X/Y\)</span> constraints are <span class="math inline">\(Ma=0\)</span>, so the compatible target labels are
+exactly <span class="math inline">\(C=\ker M\)</span>. Because <span class="math inline">\(M\)</span> is symmetric, <span class="math display">\[\operatorname{im}M=\operatorname{row}M=C^\perp.\]</span>
+Suppose first that <span class="math inline">\(u,v\notin S\)</span>. A
+compatible failed-graph stabilizer indexed by <span class="math inline">\(a\in\mathbb{F}_2^{V(H)}\)</span> obeys <span class="math display">\[(M+E_{uv})a=0,\]</span> where <span class="math inline">\(E_{uv}\)</span> toggles the <span class="math inline">\(uv\)</span> and <span class="math inline">\(vu\)</span> entries. By Theorem <a href="#thm:minimality">3.3</a>, it distinguishes the two failure
+mechanisms precisely when it is not a target stabilizer, equivalently
+when <span class="math inline">\(E_{uv}a\neq0\)</span>. Hence <span class="math display">\[Ma=E_{uv}a\in\{e_u,e_v,e_u+e_v\}\cap
+C^\perp.\]</span> Membership of <span class="math inline">\(e_u\)</span>, <span class="math inline">\(e_v\)</span>, or <span class="math inline">\(e_u+e_v\)</span> in <span class="math inline">\(C^\perp\)</span> implies respectively <span class="math inline">\(\varphi_u=0\)</span>, <span class="math inline">\(\varphi_v=0\)</span>, or <span class="math inline">\(\varphi_u=\varphi_v\)</span>, proving the
+necessary condition (i).</p>
+<p>Now let <span class="math inline">\(u\in S\)</span>, <span class="math inline">\(v\notin S\)</span>. Deleting <span class="math inline">\(e\)</span> does not change the reduced graph <span class="math inline">\(H=(G-e)-S\)</span>, so the compatible support code
+is still <span class="math inline">\(C\)</span>. Since every support has
+<span class="math inline">\(a_u=0\)</span>, the failed-graph Pauli label
+differs from the target label exactly when <span class="math inline">\(a_v=1\)</span>. Such a codeword exists exactly
+when <span class="math inline">\(\varphi_v\neq0\)</span>, proving (ii).
+If both endpoints lie in <span class="math inline">\(S\)</span>, every
+compatible support has <span class="math inline">\(a_u=a_v=0\)</span>,
+so deleting <span class="math inline">\(e\)</span> changes no compatible
+failed-graph stabilizer; (iii) follows. ◻</p>
+</div>
+<blockquote>
+<p><strong>Theorem 7.3 (One-setting bond repair).</strong> <span id="thm:repairone"></span> Let <span class="math inline">\(G\)</span> be
+connected and contain at least one edge. Then <span class="math display">\[\boxed{c_{\mathrm{raw}}^{\mathrm{rep}}(G)=1\quad\Longleftrightarrow\quad
+G\text{ is a star}.}\]</span> Here <span class="math inline">\(K_2=K_{1,1}\)</span> is included as the two-vertex
+star.</p>
+</blockquote>
+<div class="proof">
+<p><em>Proof.</em> The star direction uses one setting with <span class="math inline">\(Z\)</span> on the center and <span class="math inline">\(X\)</span> on every leaf. The target leaf
+generators localize the failed edge, while after deletion of <span class="math inline">\((c,i)\)</span> the isolated-leaf stabilizer <span class="math inline">\(X_i\in S(G-(c,i))\setminus S(G)\)</span>
+distinguishes <span class="math inline">\(C_{ci}\)</span> from <span class="math inline">\(D_{ci}\)</span> by Corollary <a href="#cor:rawcriterion">3.4</a>.</p>
+<p>Conversely, suppose a single setting <span class="math inline">\(\beta\)</span> identifies every state in the
+bond-repair family. Use the notation of Lemma <a href="#lem:repairprofile">7.2</a>, and let <span class="math display">\[N=\{v:\varphi_v\neq0\},\qquad W=V\setminus
+N.\]</span> Because one-setting repair implies one-setting
+target-stabilizer edge localization by Eq. <a href="#eq:settinghierarchy">(2)</a>, the edge-label subspaces <span class="math display">\[S_{uv}=\operatorname{span}\{\varphi_u,\varphi_v\},\qquad
+uv\in E,\]</span> are all nonzero and pairwise distinct (Lemma <a href="#lem:span">5.1</a>). Thus <span class="math inline">\(W\)</span>
+is independent: an edge inside <span class="math inline">\(W\)</span>
+would have zero edge label.</p>
+<p>Take <span class="math inline">\(x\in N\)</span> and any incident
+edge <span class="math inline">\(xy\)</span>. If <span class="math inline">\(y\in S\)</span>, then <span class="math inline">\(S_{xy}=\langle\varphi_x\rangle\)</span>. Otherwise
+<span class="math inline">\(x,y\notin S\)</span>, and Lemma <a href="#lem:repairprofile">7.2</a>(i), together with <span class="math inline">\(\varphi_x\neq0\)</span>, forces <span class="math inline">\(\varphi_y=0\)</span> or <span class="math inline">\(\varphi_y=\varphi_x\)</span>. Again <span class="math display">\[S_{xy}=\langle\varphi_x\rangle.\]</span> Hence
+every edge incident to <span class="math inline">\(x\)</span> carries
+the same target edge label. Pairwise distinctness of edge labels forces
+<span class="math inline">\(\deg(x)\le1\)</span> for every <span class="math inline">\(x\in N\)</span>.</p>
+<p>If <span class="math inline">\(W=\varnothing\)</span>, connectedness
+and the existence of an edge imply <span class="math inline">\(G=K_2\)</span>. If <span class="math inline">\(|W|\ge2\)</span>, two vertices of <span class="math inline">\(W\)</span> cannot be joined by an edge and cannot
+be connected through a vertex of <span class="math inline">\(N\)</span>,
+because every vertex of <span class="math inline">\(N\)</span> has
+degree at most one; this contradicts connectedness. Therefore <span class="math inline">\(W=\{c\}\)</span>. If two vertices of <span class="math inline">\(N\)</span> were adjacent, both would already have
+degree one, so that edge would form a connected component by itself;
+connectedness would then force <span class="math inline">\(G=K_2\)</span>, contrary to <span class="math inline">\(W=\{c\}\)</span>. Hence no edge joins two vertices
+of <span class="math inline">\(N\)</span>. Every vertex of <span class="math inline">\(N\)</span> must therefore be adjacent to the
+unique vertex <span class="math inline">\(c\)</span>, and <span class="math inline">\(G\)</span> is a star. ◻</p>
+</div>
+<blockquote>
+<p><strong>Theorem 7.4 (Complete graphs need exactly two repair
+settings).</strong> <span id="thm:repaircomplete"></span> For every
+<span class="math inline">\(n\ge4\)</span>, <span class="math display">\[c_{\mathrm{raw}}^{\mathrm{rep}}(K_n)=2.\]</span></p>
+</blockquote>
+<div class="proof">
+<p><em>Proof.</em> For the upper bound, use the all-<span class="math inline">\(X\)</span> and all-<span class="math inline">\(Y\)</span> settings. If <span class="math inline">\(e=\{u,v\}\)</span> is deleted from <span class="math inline">\(K_n\)</span>, then <span class="math inline">\(X_uX_v\in S(K_n-e)\)</span>, whereas <span class="math inline">\(X_uX_v\)</span> has zero expectation on the intact
+graph, on every <span class="math inline">\(D_f\)</span>, and on every
+other single-edge deletion <span class="math inline">\(C_f\)</span>.
+Thus the all-<span class="math inline">\(X\)</span> record identifies
+the missing edge. In <span class="math inline">\(K_n\)</span>, every
+even subset <span class="math inline">\(A\)</span> gives the target
+stabilizer <span class="math inline">\(Y^A\)</span> (up to its
+stabilizer sign), so the all-<span class="math inline">\(Y\)</span>
+setting exposes the full even-weight support code. They also distinguish
+the null hypothesis and all endpoint-dephasing locations: for distinct
+edges <span class="math inline">\(e,f\)</span>, choose an even
+two-vertex set that meets <span class="math inline">\(e\)</span> and
+misses <span class="math inline">\(f\)</span> (possible for <span class="math inline">\(n\ge4\)</span>). Together the two settings
+separate the repair family.</p>
+<p>For the lower bound, <span class="math inline">\(K_n\)</span> is not
+a star for <span class="math inline">\(n\ge4\)</span>, so Theorem <a href="#thm:repairone">7.3</a> rules out a one-setting raw-repair
+protocol. ◻</p>
+</div>
+<p>Thus <span class="math inline">\(c_{\mathrm{targ}}^{\mathrm{edge}}(K_n)=1&lt;2=c_{\mathrm{raw}}^{\mathrm{rep}}(K_n)\)</span>
+for <span class="math inline">\(n\ge4\)</span>. Likewise, Theorems <a href="#thm:edgecover">6.2</a> and <a href="#thm:repairone">7.3</a> give
+<span class="math inline">\(c_{\mathrm{raw}}^{\mathrm{rep}}(T)=1\)</span> for
+stars and <span class="math inline">\(2\)</span> for every other
+connected tree.</p>
+<h3 id="exact-raw-setting-census-through-eight-vertices">7.1 Exact
+raw-setting census through eight vertices</h3>
+<div id="sec:census8">
+
+</div>
+<p>Exact set-cover enumeration over all <span class="math inline">\(12{,}112\)</span> connected graph isomorphism
+classes on <span class="math inline">\(2\le n\le8\)</span> gives the
+following distributions at the two largest sizes: <span class="math display">\[\begin{array}{c|rrrr}
+&amp; 1\text{ setting}&amp;2\text{ settings}&amp;3\text{
+settings}&amp;&gt;3\\ \hline
+c_{\rm raw}^{\rm edge},\ n=7&amp;435&amp;418&amp;0&amp;0\\
+c_{\rm raw}^{\rm rep},\ n=7&amp;1&amp;617&amp;235&amp;0\\
+c_{\rm raw}^{\rm edge},\ n=8&amp;3623&amp;7494&amp;0&amp;0\\
+c_{\rm raw}^{\rm rep},\ n=8&amp;1&amp;5413&amp;5703&amp;0
+\end{array}\]</span> Thus exact enumeration finds no connected graph
+through eight vertices with <span class="math inline">\(c_{\mathrm{raw}}^{\mathrm{edge}}&gt;2\)</span> and
+none with <span class="math inline">\(c_{\mathrm{raw}}^{\mathrm{rep}}&gt;3\)</span>. The
+unique one-setting repair graph at each order is the star, consistent
+with Theorem <a href="#thm:repairone">7.3</a>. The <span class="math inline">\(n\le7\)</span> cases use the standard graph atlas
+and <span class="math inline">\(n=8\)</span> uses McKay’s canonical
+list [<a href="#ref-McKayData">13</a>].</p>
+<h2 id="finite-shot-guarantees">8. Finite-shot guarantees</h2>
+<div id="sec:finite">
+
+</div>
+<p>For a finite family <span class="math inline">\(\{\rho_h\}_{h\in\mathcal{H}}\)</span> and Pauli
+set <span class="math inline">\(\mathcal{O}\)</span>, define <span class="math display">\[\Delta(\mathcal{H},\mathcal{O}):=\min_{h\ne
+h'}\max_{O\in\mathcal{O}}|\operatorname{Tr}(O\rho_h)-\operatorname{Tr}(O\rho_{h'})|.\]</span></p>
+<blockquote>
+<p><strong>Theorem 8.1 (Finite-shot classification for fixed
+settings).</strong> <span id="thm:classifier"></span> Let <span class="math inline">\(\mathcal{H}\)</span> be a finite promise family
+and let <span class="math inline">\(\beta_1,\ldots,\beta_k\)</span> be
+fixed measurement settings. Choose a finite set of compatible Pauli
+observables <span class="math display">\[\mathcal{O}\subseteq\bigcup_{i=1}^k\mathcal
+P(\beta_i)\]</span> whose expectation vectors are distinct on the states
+in <span class="math inline">\(\mathcal{H}\)</span>, and let <span class="math inline">\(\Delta=\Delta(\mathcal{H},\mathcal{O})&gt;0\)</span>
+be the smallest pairwise expectation gap. Run each setting <span class="math inline">\(m\)</span> times and estimate every selected Pauli
+compatible with that setting. If <span class="math display">\[m\ge
+\frac{32}{\Delta^2}\log\frac{2|\mathcal{O}|}{\delta},\]</span> then
+choosing the state whose predicted expectation vector is closest in
+<span class="math inline">\(\ell_\infty\)</span> norm succeeds with
+probability at least <span class="math inline">\(1-\delta\)</span>. The
+total number of state copies is at most <span class="math inline">\(km\)</span>.</p>
+</blockquote>
+<div class="proof">
+<p><em>Proof.</em> For any assigned observable <span class="math inline">\(O\)</span>, its <span class="math inline">\(m\)</span> parity samples are independent across
+repetitions of its assigned setting, take values in <span class="math inline">\(\{\pm1\}\)</span>, and have mean <span class="math inline">\(\operatorname{Tr}(O\rho_h)\)</span>. Hoeffding’s
+inequality gives <span class="math display">\[\Pr\{|\widehat\mu_h(O)-\mu_h(O)|&gt;\Delta/4\}
+\le 2e^{-m\Delta^2/32}.\]</span> The estimates of different observables
+extracted from the same raw shot may be correlated, but independence
+across observables is unnecessary: a union bound over <span class="math inline">\(|\mathcal{O}|\)</span> correlators gives
+simultaneous error at most <span class="math inline">\(\Delta/4\)</span>
+with probability at least <span class="math inline">\(1-\delta\)</span>.
+On that event the true hypothesis has empirical <span class="math inline">\(\ell_\infty\)</span> distance at most <span class="math inline">\(\Delta/4\)</span>, while every other hypothesis
+has distance at least <span class="math inline">\(3\Delta/4\)</span>. ◻</p>
+</div>
+<h5 id="noisy-measurements.">Noisy measurements.</h5>
+<p>If a Pauli-diagonal background channel obeys <span class="math inline">\(\Lambda^\dagger(O)=\eta(O)O\)</span>, define <span class="math display">\[\Delta_\Lambda
+=\min_{h\ne h'}\max_{O\in\mathcal{O}}
+\left|\eta(O)\big(\mu_h(O)-\mu_{h'}(O)\big)\right|,
+\qquad \mu_h(O)=\operatorname{Tr}(O\rho_h).\]</span> The measurements
+remain identifying exactly when <span class="math inline">\(\Delta_\Lambda&gt;0\)</span>, and Theorem <a href="#thm:classifier">8.1</a> applies with <span class="math inline">\(\Delta_\Lambda\)</span>. Thus setting count and
+copy count are distinct: a low-setting scheme can still require many
+repetitions if its separating gaps are small.</p>
+<h5 id="witness-weight-and-local-attenuation.">Witness weight and local
+attenuation.</h5>
+<p>The bounded-weight setting counts above make the setting–sampling
+tradeoff explicit. If a homogeneous local Pauli attenuation model gives
+<span class="math inline">\(|\eta(O)|\ge f^{\mathrm{wt}(O)}\)</span> for
+some <span class="math inline">\(0&lt;f\le1\)</span>, then a
+full-strength collection of settings whose selected witnesses all have
+weight at most <span class="math inline">\(w\)</span> has post-channel
+gap at least <span class="math inline">\(f^w\)</span> and therefore
+needs <span class="math display">\[m=O\!\left(f^{-2w}\log\frac{|\mathcal{O}|}{\delta}\right)\]</span>
+shots per setting. The wheel theorem shows that weight three already
+gives a finite full-outcome missing-edge scheme for every <span class="math inline">\(W_n\)</span>, <span class="math inline">\(n\ge8\)</span>, while target-stabilizer
+missing-edge diagnosis is impossible at that cap. By contrast
+Proposition <a href="#prop:Knweight">4.3</a> shows that complete graphs
+already realize their unrestricted profile at weight two.</p>
+<blockquote>
+<p><strong>Proposition 8.2 (Failed-graph weight is the depolarizing
+sampling exponent).</strong> <span id="prop:failweightexponent"></span>
+Fix a graph <span class="math inline">\(G\)</span>, an edge <span class="math inline">\(e\)</span>, and put <span class="math inline">\(d=d_e^{\rm fail}(G)\)</span>. Let <span class="math inline">\(\Lambda_f=\mathcal D_f^{\otimes n}\)</span> be the
+local depolarizing channel defined in the Heisenberg picture by <span class="math display">\[\mathcal D_f^\dagger(X)=fX,\qquad
+\mathcal D_f^\dagger(Y)=fY,\qquad
+\mathcal D_f^\dagger(Z)=fZ,\]</span> so an <span class="math inline">\(n\)</span>-qubit Pauli of weight <span class="math inline">\(w\)</span> is attenuated by <span class="math inline">\(f^w\)</span>. For <span class="math inline">\(0&lt;f\le\tfrac12\)</span> and <span class="math inline">\(0&lt;\delta&lt;\tfrac14\)</span>, let <span class="math inline">\(N^*(f,\delta)\)</span> be the minimum number of
+copies needed to distinguish <span class="math inline">\(\Lambda_f(C_e)\)</span> from <span class="math inline">\(\Lambda_f(D_e)\)</span> with both errors at most
+<span class="math inline">\(\delta\)</span>, allowing arbitrary
+collective measurements. Then <span class="math display">\[4^{-n}
+f^{-2d}\log\frac1{4\delta}
+\;\le\;
+N^*(f,\delta)
+\;\le\;
+8 f^{-2d}\log\frac2\delta.\]</span> In particular, for fixed <span class="math inline">\(G,e\)</span>, <span class="math display">\[N^*(f,\delta)=\Theta_G\!\left(f^{-2d_e^{\rm
+fail}}\log\frac1\delta\right)
+\quad\text{as }f\to0.\]</span> Here <span class="math inline">\(\Theta_G\)</span> is tight in the exponent of
+<span class="math inline">\(f\)</span> for fixed graph and edge; the
+displayed converse has a graph-dependent prefactor as small as <span class="math inline">\(4^{-n}\)</span>, so this statement does not claim
+matching constants uniformly in system size.</p>
+</blockquote>
+<div class="proof">
+<p><em>Proof.</em> Choose a minimum-weight <span class="math inline">\(P\in\pm S(G-e)\setminus\pm S(G)\)</span>. By
+Theorem <a href="#thm:minimality">3.3</a>, its full-strength
+expectations under <span class="math inline">\(C_e,D_e\)</span> differ
+by one; after <span class="math inline">\(\Lambda_f\)</span> their gap
+is <span class="math inline">\(f^d\)</span>. Measuring <span class="math inline">\(P\)</span> and thresholding halfway gives the
+upper bound by Hoeffding.</p>
+<p>For the converse write <span class="math inline">\(D=2^n\)</span>,
+<span class="math inline">\(\rho_f=\Lambda_f(C_e)\)</span>, and <span class="math inline">\(\sigma_f=\Lambda_f(D_e)\)</span>. Theorem <a href="#thm:minimality">3.3</a> and target blindness imply that the Pauli
+expansion of <span class="math inline">\(\rho_f-\sigma_f\)</span> is
+supported entirely on failed-graph-only stabilizers, all of weight at
+least <span class="math inline">\(d\)</span>, with coefficients of
+magnitude <span class="math inline">\(D^{-1}f^{\mathrm{wt}(P)}\)</span>.
+Pauli orthogonality therefore gives <span class="math display">\[\|\rho_f-\sigma_f\|_2^2
+=D^{-1}\sum_{P\in\mathcal D_e}f^{2\mathrm{wt}(P)}
+\le f^{2d},\]</span> where <span class="math inline">\(|\mathcal D_e|\le
+D\)</span>. The tensor depolarizing channel contains the fully
+depolarizing branch with weight <span class="math inline">\((1-f)^n\)</span>, hence <span class="math display">\[\sigma_f\succeq (1-f)^n\frac{I}{D}.\]</span>
+Using monotonicity of the Petz Rényi divergence in its order, <span class="math display">\[D(\rho_f\|\sigma_f)
+\le \log\operatorname{Tr}(\rho_f^2\sigma_f^{-1}).\]</span> To make the
+next step explicit, put <span class="math inline">\(\Delta=\rho_f-\sigma_f\)</span>. Since <span class="math inline">\(\rho_f=\sigma_f+\Delta\)</span> and <span class="math inline">\(\operatorname{Tr}\Delta=0\)</span>, cyclicity
+gives <span class="math display">\[\operatorname{Tr}(\rho_f^2\sigma_f^{-1})
+=1+\operatorname{Tr}(\Delta^2\sigma_f^{-1}),\]</span> because both cross
+terms vanish. Hence <span class="math inline">\(\log(1+x)\le x\)</span>
+implies <span class="math display">\[D(\rho_f\|\sigma_f)
+\le \operatorname{Tr}\!\big[\Delta^2\sigma_f^{-1}\big].\]</span>
+Therefore the spectral bound above gives <span class="math display">\[D(\rho_f\|\sigma_f)
+\le \|\sigma_f^{-1}\|_\infty\|\rho_f-\sigma_f\|_2^2
+\le \frac{D}{(1-f)^n}f^{2d}
+\le 4^n f^{2d}\]</span> for <span class="math inline">\(f\le\tfrac12\)</span>. For any test on <span class="math inline">\(N\)</span> copies, data processing bounds the
+classical relative entropy of its outcomes by <span class="math inline">\(N D(\rho_f\|\sigma_f)\)</span>. Bretagnolle–Huber
+then gives the sum of testing errors at least <span class="math inline">\(\tfrac12\exp[-N D(\rho_f\|\sigma_f)]\)</span>.
+Requiring both errors to be at most <span class="math inline">\(\delta\)</span> yields the lower bound. ◻</p>
+</div>
+<p>Thus, in the bond repair family, the hardest same-edge mechanism pair
+has high-noise sampling exponent <span class="math inline">\(d_{\rm
+fail}(G)=\max_e d_e^{\rm fail}(G)\)</span>.</p>
+<h2 id="scope-and-limitations">9. Scope and limitations</h2>
+<div id="sec:discussion">
+
+</div>
+<p>The main family is conditional on a suspected bond: the alternatives
+are a missing bond and dephasing of its endpoint memories. A broader
+model allows one- or two-memory dephasing anywhere: <span class="math display">\[\mathcal H_{\le2Z}(G)=\{|G\rangle\}\cup\{C_e:e\in
+E\}\cup
+\{\Delta_{Z_S}(|G\rangle\langle G|):1\le |S|\le2\},\]</span> where <span class="math inline">\(S\)</span> is any vertex subset, adjacent or not.
+Then the one-setting star theorem disappears completely.</p>
+<blockquote>
+<p><strong>Proposition 9.1 (No one-setting solution for arbitrary
+one-/two-memory dephasing).</strong> <span id="prop:honestcatalogue"></span> If <span class="math inline">\(G\)</span> contains an edge, no single
+product-Pauli setting diagnoses <span class="math inline">\(\mathcal
+H_{\le2Z}(G)\)</span> from its full outcome distribution.</p>
+</blockquote>
+<div class="proof">
+<p><em>Proof.</em> Suppose a setting <span class="math inline">\(\beta\)</span> separated the null state from every
+one-memory dephasing fault and every two-memory dephasing fault. Every
+such memory-fault hypothesis is obtained by deleting coefficients from
+the target stabilizer expansion, so its Pauli support is contained in
+<span class="math inline">\(\pm S(G)\)</span>; a non-target Pauli
+therefore cannot distinguish any two of these hypotheses. Let <span class="math inline">\(C_\beta\)</span> be the compatible
+target-stabilizer support code. Separation of <span class="math inline">\(|G\rangle\)</span> from <span class="math inline">\(\Delta_{Z_v}(|G\rangle\langle G|)\)</span>
+consequently requires a target stabilizer with support bit <span class="math inline">\(a_v=1\)</span>, so the coordinate functional <span class="math inline">\(\varphi_v\)</span> is nonzero. Equivalently, <span class="math display">\[e_v\notin C_\beta^\perp\qquad\text{for every
+}v.\]</span> Separation of the one-memory faults at <span class="math inline">\(u\)</span> and <span class="math inline">\(v\)</span> requires distinct coordinate
+functionals, equivalently <span class="math display">\[e_u+e_v\notin
+C_\beta^\perp\qquad\text{for every }u\ne v.\]</span> Thus the binary
+code <span class="math inline">\(C_\beta^\perp\)</span> has no nonzero
+word of weight one or two: its minimum distance is at least three. In
+particular <span class="math inline">\(\beta\)</span> cannot contain a
+<span class="math inline">\(Z\)</span> site, because a <span class="math inline">\(Z\)</span> row would put <span class="math inline">\(e_v\)</span> in <span class="math inline">\(C_\beta^\perp\)</span>.</p>
+<p>Hence <span class="math inline">\(\beta\)</span> is <span class="math inline">\(X/Y\)</span>-only and its setting matrix has the
+symmetric form <span class="math inline">\(M=\Gamma_G+D_\beta\)</span>,
+with <span class="math inline">\(C_\beta=\ker M\)</span> and <span class="math inline">\(\operatorname{im}M=C_\beta^\perp\)</span>. If the
+same setting typed <span class="math inline">\(C_{uv}\)</span> versus
+<span class="math inline">\(D_{uv}\)</span> for any edge <span class="math inline">\(uv\)</span>, a compatible failed-graph stabilizer
+would satisfy <span class="math inline">\((M+E_{uv})a=0\)</span> and
+<span class="math inline">\(E_{uv}a\ne0\)</span>. Therefore <span class="math display">\[Ma=E_{uv}a\in\{e_u,e_v,e_u+e_v\}\setminus\{0\}\subseteq
+C_\beta^\perp,\]</span> a nonzero word of weight at most two,
+contradicting the minimum-distance condition. ◻</p>
+</div>
+<p>Arbitrary memory faults require distinguishing vertex coordinates and
+pairs, rather than only the edge-indexed alternatives of the
+edge-indexed promise family. At <span class="math inline">\(n=6\)</span>, exact enumeration gives no
+one-setting graph for the broader model, compared with one for the
+edge-indexed promise family.</p>
+<p>The results concern the specified state-level measurement record.
+Heralds, calibration telemetry, time stamps, or richer local
+measurements may supply additional information.</p>
+<h2 id="open-questions">10. Open questions</h2>
+<div id="sec:open">
+
+</div>
+<p>Exact enumeration finds <span class="math inline">\(c_{\mathrm{raw}}^{\mathrm{edge}}(G)\le2\)</span>
+and <span class="math inline">\(c_{\mathrm{raw}}^{\mathrm{rep}}(G)\le3\)</span>
+for every connected graph through eight vertices. It remains open
+whether these bounds hold universally and which graphs attain equality.
+For wheels, we conjecture <span class="math inline">\(c_{\mathrm{raw}}^{\mathrm{rep}}(W_n)=3\)</span>
+for every even <span class="math inline">\(n\ge6\)</span>; this is
+proved here for <span class="math inline">\(n=6,8,10,12,14\)</span>. A
+second direction is to determine optimal setting–copy tradeoffs under
+local noise and for promise families with multiple simultaneous
+faults.</p>
+<h2 id="a.-low-weight-wheel-stabilizers">A. Low-weight wheel
+stabilizers</h2>
+<div id="app:wheelweightproof">
+
+</div>
+<p>Indices on rim vertices are modulo <span class="math inline">\(m=n-1\)</span>.</p>
+<blockquote>
+<p><strong>Lemma A.1 (Target stabilizer weight on wheels).</strong>
+<span id="lem:wheeltargetweight"></span> For every <span class="math inline">\(n\ge8\)</span>, <span class="math inline">\(d_{\rm
+targ}(W_n)=4\)</span>.</p>
+</blockquote>
+<div class="proof">
+<p><em>Proof.</em> For a generator-support set <span class="math inline">\(A\)</span>, the Pauli support of <span class="math inline">\(K_A\)</span> is <span class="math inline">\(A\cup\operatorname{Odd}(A)\)</span>. If <span class="math inline">\(|A|=1\)</span>, a rim generator has weight four
+and the hub generator has weight <span class="math inline">\(n\)</span>.
+If <span class="math inline">\(|A|=2\)</span> and both vertices lie on
+the rim, their two cycle-neighborhoods have at least two vertices in
+their symmetric difference outside <span class="math inline">\(A\)</span> when <span class="math inline">\(m\ge7\)</span>, so the stabilizer has weight at
+least four. If one selected vertex is the hub, at least <span class="math inline">\(m-3\ge4\)</span> unselected rim vertices remain
+odd. If <span class="math inline">\(|A|=3\)</span> and all selected
+vertices lie on the rim, the hub is odd. Finally suppose the hub and two
+rim vertices are selected. Weight at most three would force every other
+rim vertex to be adjacent to exactly one of those two selected rim
+vertices. Two rim vertices have at most four cycle neighbors, but <span class="math inline">\(m-2\ge5\)</span> rim vertices lie outside the
+selected pair, a contradiction. Since weight at most three also forces
+<span class="math inline">\(|A|\le3\)</span>, there are no other cases.
+A rim generator attains weight four. ◻</p>
+</div>
+<blockquote>
+<p><strong>Lemma A.2 (Unique weight-three spoke witness).</strong> <span id="lem:spokeweight3"></span> Let <span class="math inline">\(n\ge9\)</span> and delete the spoke <span class="math inline">\(e_i=(h,i)\)</span> from <span class="math inline">\(W_n\)</span>. The only element of <span class="math display">\[\pm S(W_n-e_i)\setminus\pm S(W_n)\]</span> of
+weight at most three is, up to its overall sign, <span class="math display">\[K_i^{W_n-e_i}=X_iZ_{i-1}Z_{i+1}.\]</span></p>
+</blockquote>
+<div class="proof">
+<p><em>Proof.</em> Let <span class="math inline">\(A\)</span> be the
+generator-support label of a weight-at-most-three stabilizer of <span class="math inline">\(W_n-e_i\)</span>. Non-target membership forces
+<span class="math inline">\(A\cap\{h,i\}\ne\emptyset\)</span>, because
+deleting the spoke changes the stabilizer label only through those two
+generator coordinates. Also <span class="math inline">\(|A|\le3\)</span>.</p>
+<p>If <span class="math inline">\(|A|=1\)</span>, only <span class="math inline">\(A=\{i\}\)</span> has weight three: the failed rim
+vertex has degree two, every other rim vertex has degree three, and the
+hub has degree <span class="math inline">\(m-1\ge7\)</span>.</p>
+<p>For <span class="math inline">\(|A|=2\)</span>, a set <span class="math inline">\(\{h,j\}\)</span> leaves every rim vertex outside
+<span class="math inline">\(\{i,j,j-1,j+1\}\)</span> odd, so its weight
+exceeds three. For <span class="math inline">\(A=\{i,j\}\)</span> with
+<span class="math inline">\(j\ne h,i\)</span>, the hub is odd (only
+<span class="math inline">\(j\)</span> remains adjacent to it among the
+selected vertices), and the two cycle-neighborhoods of <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> differ at an additional rim vertex
+outside <span class="math inline">\(A\)</span>, giving weight at least
+four.</p>
+<p>It remains to exclude <span class="math inline">\(|A|=3\)</span>. If
+<span class="math inline">\(i\in A\)</span> and <span class="math inline">\(h\notin A\)</span>, three rim vertices are
+selected. To avoid an odd vertex outside <span class="math inline">\(A\)</span>, every zero-run between selected rim
+vertices would have to have length at most one: the endpoint of any run
+of length at least two has exactly one selected cycle neighbor. But
+<span class="math inline">\(m-3\ge5\)</span> zeros are distributed among
+three cyclic gaps, so some gap has length at least two. If <span class="math inline">\(h\in A\)</span> and <span class="math inline">\(i\notin A\)</span>, then away from the exceptional
+vertex <span class="math inline">\(i\)</span> every unselected rim
+vertex would need to be adjacent to exactly one of the two selected rim
+vertices. Two selected rim vertices influence at most four rim
+positions, whereas there are <span class="math inline">\(m-3\ge5\)</span> relevant unselected positions. If
+both <span class="math inline">\(h,i\in A\)</span>, the same condition
+must hold on all <span class="math inline">\(m-2\ge6\)</span> remaining
+rim vertices, again impossible. Thus only <span class="math inline">\(A=\{i\}\)</span> survives. ◻</p>
+</div>
+<h2 id="b.-reproducibility">B. Reproducibility</h2>
+<div id="app:repro">
+
+</div>
+<p>All computer-assisted claims are reproducible from the public code
+repository</p>
+<div class="center">
+<p><a href="https://github.com/ayushnadiger/repair-identifiability" class="uri">https://github.com/ayushnadiger/repair-identifiability</a>.</p>
+</div>
+<p>The archive contains independent checks for the endpoint-tomography
+criterion, the <span class="math inline">\(W_8\)</span> bounded-weight
+calculation, the connected-graph raw-setting censuses through eight
+vertices, and the broader one-/two-memory dephasing model. For <span class="math inline">\(W_{10}\)</span>, enumeration of all <span class="math inline">\(3^{10}=59{,}049\)</span> settings yields <span class="math inline">\(23{,}698\)</span> distinct nonzero separation
+masks and no two-setting cover. For <span class="math inline">\(W_{14}\)</span>, the included C++17/OpenMP code
+enumerates all <span class="math inline">\(3^{14}=4{,}782{,}969\)</span>
+settings, deduplicates to <span class="math inline">\(1{,}260{,}824\)</span> collision masks over <span class="math inline">\(1378\)</span> hypothesis pairs, and finds no
+disjoint pair. The README gives exact commands and expected outputs; the
+generated <span class="math inline">\(W_{14}\)</span> collision-mask
+file is not stored in Git.</p>
+<section id="references"><h2>References</h2><ol class="paper-references"><li id="ref-Hein06"><p>M. Hein, W. Dür, J. Eisert, R. Raussendorf, M. Van den Nest, and
+H.-J. Briegel, <em>Entanglement in graph states and its
+applications</em>, arXiv:quant-ph/0602096.</p>
+</li><li id="ref-BGW25"><p>A. Bouland, T. Giurgică-Tiron, and J. Wright, <em>The state hidden
+subgroup problem and an efficient algorithm for locating
+unentanglement</em>, STOC 2025; arXiv:2410.12706.</p>
+</li><li id="ref-HEC26"><p>M. Hinsche, J. Eisert, and J. Carrasco, <em>Abelian State Hidden
+Subgroup Problem: Learning Stabilizer Groups and Beyond</em>, PRX
+Quantum <strong>7</strong>, 020337 (2026); arXiv:2505.15770.</p>
+</li><li id="ref-OT22"><p>Y. Ouyang and M. Tomamichel, <em>Learning quantum graph states with
+product measurements</em>, Proc. IEEE ISIT 2022, pp. 2963–2968;
+arXiv:2205.06432.</p>
+</li><li id="ref-PLM18"><p>S. Pallister, N. Linden, and A. Montanaro, <em>Optimal verification
+of entangled states with local measurements</em>, Phys. Rev. Lett.
+<strong>120</strong>, 170502 (2018); arXiv:1709.03353.</p>
+</li><li id="ref-ZhuHayashi19"><p>H. Zhu and M. Hayashi, <em>Efficient verification of pure quantum
+states in the adversarial scenario</em>, Phys. Rev. Lett.
+<strong>123</strong>, 260504 (2019).</p>
+</li><li id="ref-DHZ20"><p>N. Dangniam, Y.-G. Han, and H. Zhu, <em>Optimal verification of
+stabilizer states</em>, Phys. Rev. Research <strong>2</strong>, 043323
+(2020); arXiv:2007.09713.</p>
+</li><li id="ref-Theis25"><p>D. O. Theis, <em>Verifying a stabilizer state with few observables
+but many shots</em>, arXiv:2412.16690.</p>
+</li><li id="ref-ChenTopology23"><p>D. T. Chen, B. Doolittle, J. M. Larson, Z. H. Saleem, and
+E. Chitambar, <em>Inferring quantum network topology using local
+measurements</em>, PRX Quantum <strong>4</strong>, 040347 (2023);
+arXiv:2212.07987.</p>
+</li><li id="ref-ParkSunJeong25"><p>G. Park, J. Sun, and H. Jeong, <em>Low-overhead tailoring and
+learning of noise in graph states</em>, arXiv:2503.12870.</p>
+</li><li id="ref-WangEtAl25"><p>Z. J. Wang, J. C. A. Casapao, N. Benchasattabuse, A. G. Maity,
+J. Tura, A. Soeda, M. Hajdusek, R. Van Meter, and D. Elkouss,
+<em>Efficient graph-diagonal characterization of noisy states
+distributed over quantum networks via Bell sampling</em>,
+arXiv:2512.06650.</p>
+</li><li id="ref-SahaOllivier26"><p>A. Saha and H. Ollivier, <em>Noise Inference by Recycling Test Rounds
+in Verification Protocols</em>, arXiv:2603.30015.</p>
+</li><li id="ref-McKayData"><p>B. D. McKay, “Combinatorial Data: Graphs,” connected graph
+catalogues, Australian National University, accessed August 2026, <a
+href="https://users.cecs.anu.edu.au/~bdm/data/graphs.html"
+class="uri">https://users.cecs.anu.edu.au/~bdm/data/graphs.html</a>.</p>
+</li></ol></section>
+</article>
+</main></body></html>
