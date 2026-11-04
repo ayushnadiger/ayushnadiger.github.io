@@ -1,57 +1,23 @@
 <!doctype html>
-<html lang="en">
-<head>
+<html lang="en"><head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hybrid Quantum Repeaters | Ayush Nadiger</title>
-  <meta name="description" content="Ayush Nadiger's research on heterogeneous quantum repeater networks with sparse high-quality, error-corrected nodes.">
+  <title>Scalable Entanglement Generation with Encoded Hybrid Repeaters in 2D Networks | Ayush Nadiger</title>
+  <meta name="description" content="Encoded hybrid repeaters, placement, and routing for scalable entanglement generation in two-dimensional quantum networks.">
   <link rel="canonical" href="https://ayushnadiger.github.io/projects/hybrid-quantum-repeaters.html">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml" sizes="any">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../css/style.css">
-</head>
-<body>
-<header class="site-header">
-  <p class="site-title"><a href="../index.html">Ayush Nadiger</a></p>
-  <nav class="site-nav" aria-label="Main navigation">
-    <a href="../research.html" aria-current="page">Research</a><span aria-hidden="true">·</span>
-    <a href="../assets/Ayush_Nadiger_CV.pdf">CV (PDF)</a><span aria-hidden="true">·</span>
-    <a href="mailto:anadiger@umass.edu">Email</a>
-  </nav>
-</header>
 
-<main class="container">
-  <header class="paper-header">
-    <h1>Hybrid quantum repeaters</h1>
-    <p class="meta">Quantum networks · with Filip Rozpędek and Stav Haldar · <span class="status">ongoing research</span></p>
-  </header>
-
-  <section class="paper-abstract">
-    <p><span class="label">Overview.</span> How much high-quality hardware does a quantum network need? With Filip Rozpędek and Stav Haldar, I study how sparse deployment of better memories and local error correction affects the performance of hybrid repeater networks. The design problem couples hardware quality and placement to routing, waiting, and coordination.</p>
+</head><body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header"><p class="site-title"><a href="../index.html">Ayush Nadiger</a></p></header>
+<main class="container" id="main">
+  <p class="back-link"><a href="../index.html#projects">← Projects</a></p>
+  <section class="project-overview" aria-labelledby="project-title">
+    <h1 id="project-title">Scalable Entanglement Generation with Encoded Hybrid Repeaters in 2D Networks</h1>
+    <p class="project-date">March 2026 – Present</p>
+    <p class="project-context">Graduate research with Filip Rozpędek and Stav Haldar</p>
+    <p>Encoded hybrid repeaters, placement, and routing for scalable entanglement generation in two-dimensional quantum networks.</p>
   </section>
-
-  <section class="paper-section">
-    <h2><span class="section-number">1.</span>Physical model</h2>
-    <p>The network is modeled using repeater chains and two-dimensional lattices with stochastic elementary-link generation, memory decoherence, entanglement swapping, and a distinguished class of hybrid nodes with better local hardware. The analysis keeps hardware quality, path choice, waiting, and local correction explicit rather than collapsing them into a single effective edge weight.</p>
-  </section>
-
-  <section class="paper-section">
-    <h2><span class="section-number">2.</span>Questions</h2>
-    <p>How do the useful spacing and density of hybrid nodes depend on link success, memory coherence, and gate errors? When should a route detour through a hybrid node or skip its correction operation? How much of the gain comes from better hardware, coding, or scheduling? I compare fidelity, secret-key rate, completion time, and hardware requirements, and study the classical information needed to track swap outcomes and qubit age.</p>
-  </section>
-
-  <section class="paper-section">
-    <h2><span class="section-number">3.</span>Benchmark and validation</h2>
-    <p>I reproduced the supplied one-dimensional chain benchmark and developed analytical spacing estimates as functions of memory coherence and gate errors. The chain is the validation baseline for extensions to two-dimensional networks with multiple paths. These extensions must preserve link identity, endpoint memory ages, and correction histories through entanglement swapping before their fidelity and rate comparisons are accepted.</p>
-    <p>This is an ongoing collaborative project. It motivates my work on <a href="asynchronous-qec.html">asynchronous quantum error correction</a>: designing correction protocols around the timing and noise of network operations.</p>
-  </section>
-
-  <section class="paper-section">
-    <h2><span class="section-number">4.</span>Comparison protocol</h2>
-    <p>Comparisons vary hybrid-node density and placement while tracking fidelity, secret-key rate, completion time, and hardware use. Routing and correction policies must receive the same link-generation, memory, and local-operation budgets. The two-dimensional validation checks memory-age bookkeeping and correction records before interpreting any routing advantage.</p>
-    <p class="meta">Baseline framework: <a href="https://arxiv.org/abs/2609.19783">Haldar, Guha, Towsley, and Rozpędek, encoded hybrid repeater chains</a>.</p>
-  </section>
-
-  <p class="small"><a href="../research.html">← research</a></p>
-</main>
-</body>
-</html>
+<section class="ongoing-project" aria-label="Project status"><p>Ongoing</p></section>
+</main></body></html>
