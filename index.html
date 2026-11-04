@@ -82,41 +82,53 @@
   </script>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 
 <header class="site-header">
   <h1 class="site-title"><a href="index.html">Ayush Nadiger</a></h1>
-  <nav class="site-nav" aria-label="Main navigation">
-    <a href="research.html">Research</a><span aria-hidden="true">·</span>
-    <a href="assets/Ayush_Nadiger_CV.pdf">CV (PDF)</a><span aria-hidden="true">·</span>
-    <a href="mailto:anadiger@umass.edu">Email</a>
-  </nav>
-</header>
+  </header>
 
-<main class="container home">
+<main class="container home" id="main">
   <section class="abstract" aria-label="About">
-    <p>
-    I am an ECE master's student and graduate research assistant at UMass Amherst. I work with
-    <a href="https://www.cics.umass.edu/about/directory/filip-rozpedek">Filip Rozpędek</a> (UMass Amherst) in the
-    <a href="https://quail.cs.umass.edu/">Quantum Information Lab (QuaIL)</a> and
-    <a href="https://www.uta.edu/academics/faculty/profile?user=stav.haldar">Stav Haldar</a> (UT Arlington).
-    My thesis is chaired by <a href="https://www.cics.umass.edu/about/directory/don-towsley">Don Towsley</a> in the
+    <p>I am an ECE master's student at UMass Amherst and a graduate research assistant under
+    <a href="https://www.cics.umass.edu/about/directory/filip-rozpedek">Filip Rozpędek</a> in the
+    <a href="https://quail.cs.umass.edu/">Quantum Information Lab (QuaIL)</a>. I work on quantum repeaters and distributed quantum error correction, including collaborative work with
+    <a href="https://www.uta.edu/academics/faculty/profile?user=stav.haldar">Stav Haldar</a> at UT Arlington.
+    My thesis is currently chaired by <a href="https://www.cics.umass.edu/about/directory/don-towsley">Don Towsley</a> in the
     <a href="https://www.cics.umass.edu/organizations/acquire">ACQuIRE lab</a>.</p>
   </section>
-  <section class="paper-section" aria-labelledby="research-heading">
-    <h2 id="research-heading">Research directions</h2>
-    <div class="research-brief">
-      <h3><a href="research.html#qec">Asynchronous quantum error correction</a></h3>
-      <p>What remains correctable while a distributed logical gate is only partly complete?</p>
-    </div>
-    <div class="research-brief">
-      <h3><a href="research.html#networks">Hybrid quantum repeater architectures</a></h3>
-      <p>How much high-quality hardware does a quantum network need, and where should it go?</p>
-    </div>
-    <div class="research-brief">
-      <h3><a href="research.html#ions">Device geometry and correlated noise</a></h3>
-      <p>How does electrode geometry shape electric-field noise and its correlations in ion traps?</p>
-    </div>
-    <p class="small"><a href="research.html">Research results and preprints</a></p>
+  <section class="paper-section" id="projects" aria-labelledby="projects-heading">
+    <h2 id="projects-heading">Projects</h2>
+    <article class="project-entry">
+      <h3><a href="projects/hybrid-quantum-repeaters.html">Scalable Entanglement Generation with Encoded Hybrid Repeaters in 2D Networks</a></h3>
+      <p class="project-date">March 2026 – Present</p>
+      <p>Encoded hybrid repeaters, placement, and routing for scalable entanglement generation in two-dimensional quantum networks.</p>
+    </article>
+    <article class="project-entry">
+      <h3><a href="projects/asynchronous-qec.html">Asynchronous Quantum Error Correction</a></h3>
+      <p class="project-date">September 2026 – Present</p>
+      <p>Error correction and syndrome information when distributed operations depend on entanglement arriving at different times.</p>
+    </article>
+    <article class="project-entry">
+      <h3><a href="projects/trapped-ion-diagnostics.html">Geometry-Controlled Noise in Trapped-Ion Systems</a></h3>
+      <p class="project-date">May 2025 – August 2026</p>
+      <p>How electrode geometry shapes electric-field noise and spatial correlations in trapped-ion systems.</p>
+    </article>
+    <article class="project-entry">
+      <h3><a href="projects/covariance-geometry-qec.html">Differential Geometry of Quantum Erasure Correction</a></h3>
+      <p class="project-date">Spring–Summer 2025</p>
+      <p>The geometry of exact erasure-correcting code subspaces, their perturbations, and information leakage.</p>
+    </article>
+    <article class="project-entry">
+      <h3><a href="projects/predictive-rank-qec.html">Statistical Memory Tests for Quantum Error-Correction Records</a></h3>
+      <p class="project-date">Fall 2025 – Winter 2026</p>
+      <p>Predictive-rank tests for temporal structure in syndrome records, with an application to public Google data.</p>
+    </article>
+    <article class="project-entry">
+      <h3><a href="projects/graph-state-repair-diagnosis.html">The Bond Repair Problem in Graph States</a></h3>
+      <p class="project-date">2026</p>
+      <p>Distinguishing a missing entangling gate from endpoint-memory dephasing using product measurements.</p>
+    </article>
   </section>
   <p class="front-links">
     <a href="https://scholar.google.com/citations?user=pOxwKVIAAAAJ&amp;hl=en">Scholar</a><span class="sep">·</span>

@@ -1,56 +1,23 @@
 <!doctype html>
-<html lang="en">
-<head>
+<html lang="en"><head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Asynchronous Quantum Error Correction | Ayush Nadiger</title>
-  <meta name="description" content="Ongoing research by Ayush Nadiger on codes, measurement schedules, and decoding for quantum networks with probabilistic entanglement and finite memory coherence.">
+  <meta name="description" content="Error correction and syndrome information when distributed operations depend on entanglement arriving at different times.">
   <link rel="canonical" href="https://ayushnadiger.github.io/projects/asynchronous-qec.html">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml" sizes="any">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../css/style.css">
-</head>
-<body>
-<header class="site-header">
-  <p class="site-title"><a href="../index.html">Ayush Nadiger</a></p>
-  <nav class="site-nav" aria-label="Main navigation">
-    <a href="../research.html" aria-current="page">Research</a><span aria-hidden="true">·</span>
-    <a href="../assets/Ayush_Nadiger_CV.pdf">CV (PDF)</a><span aria-hidden="true">·</span>
-    <a href="mailto:anadiger@umass.edu">Email</a>
-  </nav>
-</header>
 
-<main class="container">
-  <header class="paper-header">
-    <h1>Asynchronous transversal gates and syndrome access</h1>
-    <p class="meta">Ayush Nadiger · manuscript in preparation</p>
-  </header>
-  <section class="paper-abstract">
-    <p><span class="label">Setting.</span> Two encoded modules implement a logical transversal CNOT using one heralded Bell resource per physical coordinate. The encoded data already exist; a missing Bell pair is a pending gate resource. The question is how partial execution changes local syndrome access and the information needed for eventual recovery.</p>
+</head><body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header"><p class="site-title"><a href="../index.html">Ayush Nadiger</a></p></header>
+<main class="container" id="main">
+  <p class="back-link"><a href="../index.html#projects">← Projects</a></p>
+  <section class="project-overview" aria-labelledby="project-title">
+    <h1 id="project-title">Asynchronous Quantum Error Correction</h1>
+    <p class="project-date">September 2026 – Present</p>
+    <p class="project-context">CS 648 course project</p>
+    <p>Error correction and syndrome information when distributed operations depend on entanglement arriving at different times.</p>
   </section>
-  <section class="paper-section">
-    <h2>Arbitrary order and deferred recovery</h2>
-    <p>The physical CNOTs act on disjoint coordinate pairs, so they commute. Executing each coordinate once in any arrival order gives the same ideal completed gate. Under coordinate-confined Pauli faults, one faulty coordinate produces at most one physical error in each block. A distance-d code therefore corrects up to floor((d−1)/2) such faulty coordinates after completion, assuming an appropriate final recovery.</p>
-    <p>This statement does not require every local stabilizer to remain measurable during assembly. It also does not cover leakage or faults that spread across coordinates, and it assumes the final extraction and recovery preserve the stated error-correcting guarantee.</p>
-  </section>
-  <section class="paper-section">
-    <h2>Exact syndrome-locality deficit</h2>
-    <p>Let S be the set of completed CNOT coordinates, and let C<sub>X</sub> and C<sub>Z</sub> be the CSS check row spaces. The exact number of independent stabilizer constraints unavailable from purely intramodule stabilizer measurements is</p>
-    <p class="result-equation">δ<sub>Q</sub>(S) = λ<sub>C<sub>X</sub></sub>(S) + λ<sub>C<sub>Z</sub></sub>(S),</p>
-    <p>where λ<sub>C</sub>(S) = rank(H<sub>S</sub>) + rank(H<sub>Sᶜ</sub>) − rank(H) for a full-rank check-space generator H. The quantity is independent of the chosen generator basis. It counts the additional independent nonlocal parities needed for complete instantaneous syndrome access.</p>
-    <p>For every coordinate order of a binary CSS [[n,k,d]] code, the sum of these deficits over intermediate prefixes is at least k(d<sub>X</sub> + d<sub>Z</sub> − 2). Consequently, the peak is at least k(d<sub>X</sub> + d<sub>Z</sub> − 2)/(n−1). Linear-rate, linear-distance CSS families must pass through a deficit proportional to n, regardless of coordinate ordering.</p>
-    <p>This is a bound on instantaneous local syndrome access. Deferred decoding can still recover correctable errors after the completed gate.</p>
-  </section>
-  <section class="paper-section">
-    <h2>Why a safe pause is not a safe schedule</h2>
-    <p>The current exact tests track Pauli ambiguity over complete gate-and-measurement histories. At a fixed pause, let G be the span of differences between allowed errors with the same local syndrome, and let S be the instantaneous stabilizer. Deferred recovery succeeds for all finite histories in the declared ideal model precisely when every element of G that commutes with S is itself a stabilizer.</p>
-    <p>That certificate must be propagated across later gates and measurements. A tested concatenated-Steane schedule passed every isolated pause test but left two hidden logical Pauli directions after final recovery. Completing whole protected inner blocks survived the corresponding history test. The counterexample shows why scheduling from only the current ready-link mask can miss accumulated uncertainty.</p>
-    <p>The tests use ideal checks and at most one physical Pauli per waiting interval. They do not include noisy extraction circuits, transition faults, or communication deadlines.</p>
-  </section>
-  <section class="paper-section">
-    <h2>Status and next validation</h2>
-    <p>The current work contains analytic syndrome-rank and deferred-recovery results, exact binary-stabilizer tests, and explicit history counterexamples. Fault-tolerant extraction circuits and comparisons against adaptive scheduling with joint history decoding remain under development. A threshold improvement or noisy performance advantage at matched resources has not been established.</p>
-  </section>
-  <p class="small"><a href="../research.html#qec">← Research results</a></p>
-</main>
-</body>
-</html>
+<section class="ongoing-project" aria-label="Project status"><p>Ongoing</p></section>
+</main></body></html>

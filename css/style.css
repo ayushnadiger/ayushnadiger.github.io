@@ -391,3 +391,15 @@ a { overflow-wrap: anywhere; }
 .compact-preprints[start="2"] { counter-reset: bib 1; }
 .result-equation { text-align: center; font-style: italic; }
 .research-entry, #preprints { scroll-margin-top: 1.5rem; }
+
+/* Project index; retain the existing journal-like homepage. */
+.project-entry { margin: 0 0 1.65rem; }
+.project-entry h3 { margin: 0 0 .25rem; font-size: 1.03rem; }
+.project-entry p { margin: .25rem 0 0; }
+.project-date { color: var(--muted); font-size: .87rem; }
+.back-link { font-size: .9rem; margin-bottom: 1.8rem; }
+.project-overview h1 { text-align: left; font-size: 1.5rem; margin: 0 0 .65rem; }
+.project-context { color: var(--muted); font-size: .93rem; }
+.ongoing-project { margin-top: 3rem; color: var(--muted); font-style: italic; }
+.skip-link { position: absolute; left: 1rem; top: -5rem; padding: .5rem; background: var(--paper); }
+.skip-link:focus { top: 1rem; }

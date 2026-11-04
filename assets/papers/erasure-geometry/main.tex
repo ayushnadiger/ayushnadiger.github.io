@@ -1,0 +1,1322 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,bm}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage[nameinlink,noabbrev]{cleveref}
+
+\hypersetup{colorlinks=true,linkcolor=blue!55!black,citecolor=blue!55!black,urlcolor=blue!55!black}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{remark}[theorem]{Remark}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+
+\newcommand{\cH}{\mathcal H}
+\newcommand{\cC}{\mathcal C}
+\newcommand{\cM}{\mathcal M}
+\newcommand{\cS}{\mathcal S}
+\newcommand{\cL}{\mathcal L}
+\newcommand{\cE}{\mathcal E}
+\newcommand{\cR}{\mathcal R}
+\newcommand{\Gr}{\operatorname{Gr}}
+\newcommand{\Herm}{\operatorname{Herm}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\tf}{\operatorname{tf}}
+\newcommand{\Cov}{\operatorname{Cov}}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\id}{\mathrm{id}}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Pj}{\mathbb P}
+\newcommand{\CP}{\mathbb{CP}}
+\newcommand{\1}{\mathbf 1}
+\newcommand{\ket}[1]{\lvert #1\rangle}
+\newcommand{\bra}[1]{\langle #1\rvert}
+\newcommand{\braket}[2]{\langle #1\mid #2\rangle}
+\newcommand{\norm}[1]{\left\lVert #1\right\rVert}
+\newcommand{\inner}[2]{\left\langle #1,#2\right\rangle}
+
+\title{\textbf{Normal Geometry of Exact Quantum Erasure Codes:\\ Covariance, Leakage, and Infinitesimal Rigidity}}
+\author{Ayush Nadiger\\
+Department of Electrical and Computer Engineering\\
+University of Massachusetts Amherst\\
+\texttt{anadiger@umass.edu}}
+\date{Draft --- August 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Let $A$ and $B$ be finite-dimensional quantum systems with $\dim A=a$ and $\dim B=b$, and let a $K$-dimensional quantum code ($K\ge2$ unless stated otherwise) be regarded as a point of the Grassmannian $\Gr(K,A\otimes B)$.  We study the locus of codes that exactly correct erasure of $A$.  The Knill--Laflamme equations define a canonical smooth section of a real vector bundle of rank $(a^2-1)(K^2-1)$ over the Grassmannian.  Its zero set is precisely the exact $A$-erasure locus.  The familiar no-hiding structure yields a rank stratification by the constant erased marginal $\sigma_A$ and, on the full-rank stratum, a smooth manifold of the expected codimension.
+
+Our main result identifies the complete first-order normal geometry.  With natural Hilbert--Schmidt metrics, the linearized Knill--Laflamme section satisfies
+\[
+D s_A\,D s_A^{*}
+=4\,\mathsf{Cov}_{\sigma_A}\otimes I_{\Herm_0(\C^K)},
+\]
+where $\mathsf{Cov}_{\sigma_A}$ is the symmetrized covariance operator of the erased marginal.  We also introduce a canonical mean-square leakage functional and prove the exact identity
+\[
+\cL_A(\cC)
+=\frac{\norm{s_A(\cC)}^2}{K(K+1)}.
+\]
+Consequently, at every full-rank exact code, $\cL_A$ is Morse--Bott and its normal Hessian spectrum is determined entirely by the covariance spectrum of $\sigma_A$.
+
+For a qubit erasure, every logical codeword has the same qubit-versus-rest concurrence $C_A=2\sqrt{\det\sigma_A}$, and the nonzero singular values of $D s_A$ are $\sqrt2,\sqrt2,\sqrt2 C_A$, each repeated $K^2-1$ times.  Thus the normal condition number is exactly $1/C_A$.  Equivalently, the projective code lies on a constant Fubini--Study tube around the qubit--rest Segre variety, while the reciprocal concurrence controls the anisotropy with which exact correctability is lost under perturbations.  We conclude with a multi-erasure deformation framework, derive an exact cross-Gram formula for overlapping erasure constraints, and give exact symbolic rigidity calculations for the $[[4,2,2]]$ and $[[5,1,3]]$ codes.
+\end{abstract}
+
+\section{Introduction}
+
+Quantum error correction is fundamentally a problem about constrained subspaces.  A $K$-dimensional code in an $N$-dimensional physical Hilbert space is naturally a point of $\Gr(K,N)$, and the Knill--Laflamme (KL) conditions impose nonlinear compression constraints on that point \cite{KnillLaflamme1997}.  This geometric viewpoint has appeared in several forms.  Higher-rank numerical ranges encode compression conditions motivated by quantum error correction \cite{ChoiKribsZyczkowski2005}; exact codes generate families of isoclinic error-image subspaces \cite{KribsMammarellaPereira2019}; recent numerical searches parameterize code subspaces on Stiefel manifolds to explore continuous nonadditive code families and transversal gates \cite{DuZhangPoonZeng2024,ZhangWuHuangZeng2025}, and very recent work studies global ``variance geometry'' of exact Pauli-detecting compression landscapes \cite{GuptaSunHeZeng2026}.
+
+Erasure noise is especially rigid.  If subsystem $A$ is erased, exact correction is equivalent to the statement that $A$ contains no logical information.  In complementary-channel language, the channel from the logical system to $A$ is constant \cite{KretschmannKribsSpekkens2007,BenyOreshkov2009}.  Equivalently, every encoded pure state has the same reduced density operator $\sigma_A$.  This is the one-sided no-hiding structure behind erasure correction and is closely related to quantum masking \cite{BraunsteinPati2006,HanEtAl2020}.  Highly entangled subspaces and quantum codes are correspondingly intertwined \cite{GourWallach2007}.
+
+The purpose of this paper is not to rederive those structural facts under a new name.  Instead, we ask a differential question:
+
+\begin{quote}
+\emph{If an exact erasure-correcting code is perturbed inside the Grassmannian, which infinitesimal directions preserve correctability, and how rapidly does logical information leak into the erased subsystem in the normal directions?}
+\end{quote}
+
+There is a canonical answer.  The KL equations define a vector-bundle section $s_A$ over $\Gr(K,A\otimes B)$.  At an exact code, its differential has a normal operator determined only by $\sigma_A$: it is the covariance operator of observables on the erased subsystem, tensored with the identity on traceless logical observables.  This yields a complete singular-value decomposition of the KL linearization once the covariance spectrum of $\sigma_A$ is known.
+
+The same section has an exact information-theoretic norm.  We define the mean-square leakage
+\[
+\cL_A(\cC)
+:=\mathbb E_{\psi\in \Pj(\cC)}
+\norm{\rho_A(\psi)-\sigma_A(\cC)}_2^2,
+\]
+where $\psi$ is Haar-random in the code subspace.  We prove that $\cL_A=\norm{s_A}^2/[K(K+1)]$.  At a full-rank exact code, the zero locus is smooth, $\cL_A$ is Morse--Bott, and its Hessian gives a canonical local susceptibility of the code to coherent subspace perturbations.  This average Hilbert--Schmidt leakage should be distinguished from worst-case environment-leakage distances used in approximate QEC \cite{ElimelechAlbertBarg2026}; its role here is that it is exactly quadratic in the defining KL section and therefore exposes the differential geometry without an optimization over recovery maps.
+
+For qubit erasure the result connects directly to the projective geometry of bipartite entanglement.  The separable qubit--rest states form the Segre variety
+\[
+\operatorname{Seg}(\CP^1\times\CP^{b-1})\subset \CP^{2b-1}.
+\]
+Every codeword of an exact erasure code has the same Schmidt spectrum, hence the same Fubini--Study distance to this Segre variety and the same concurrence $C_A$.  We find that $C_A$ is not merely an entanglement label: it is the reciprocal condition number of the linearized KL constraints.
+
+\paragraph{Main contributions.}
+The paper establishes the following results.
+\begin{enumerate}[label=(\roman*)]
+    \item A canonical KL section $s_A$ over $\Gr(K,A\otimes B)$ whose zero set is exactly the $A$-erasure-correcting locus.
+    \item A rank stratification by the fixed erased marginal $\sigma_A$, including an explicit dimension formula and the full-rank codimension $(a^2-1)(K^2-1)$.
+    \item An exact leakage identity $\cL_A=\norm{s_A}^2/[K(K+1)]$, equivalently a Frobenius/Choi distance formula for the complementary channel from the constant deletion channel.
+    \item The normal-operator identity $D s_A D s_A^*=4\mathsf{Cov}_{\sigma_A}\otimes I$, its extension to scalar compressions of finite-dimensional $*$-algebras, and explicit covariance trace/determinant formulas.
+    \item A Morse--Bott theorem for the leakage functional at full-rank exact codes.
+    \item For qubit erasure, an exact concurrence formula for the singular values and condition number of the KL linearization.
+    \item A stacked-section deformation formalism with an exact cross-Gram formula, exact symbolic rigidity calculations for the $[[4,2,2]]$ and $[[5,1,3]]$ codes, and a contrasting numerical first-order analysis of the Steane code.
+\end{enumerate}
+
+The algebraic structure of exact QEC and its relation to complementary channels are classical; the claimed novelty is the differential-geometric package in items (iii)--(vi), together with the deformation viewpoint in (vii).  A targeted literature audit is discussed in \cref{sec:related}.
+
+\section{Preliminaries and notation}
+
+Let $A\cong\C^a$, $B\cong\C^b$, and $L\cong\C^K$.  The physical Hilbert space is
+\[
+\cH=A\otimes B.
+\]
+A code is a $K$-dimensional subspace $\cC\subset\cH$, with orthogonal projector $P=P_{\cC}$.  An encoding isometry is a map
+\[
+V:L\longrightarrow A\otimes B,
+\qquad V^\dagger V=I_L,
+\qquad VV^\dagger=P.
+\]
+Two isometries $V$ and $VU$, $U\in U(K)$, define the same code.
+
+For a finite-dimensional Hilbert space $X$, let
+\[
+\Herm_0(X)=\{T=T^\dagger:\Tr T=0\}
+\]
+be the real Hilbert space of traceless Hermitian operators, with Hilbert--Schmidt inner product
+\[
+\inner{S}{T}_{\mathrm{HS}}=\Tr(ST).
+\]
+For $Y\in\Herm(L)$ define
+\[
+\tf(Y):=Y-\frac{\Tr Y}{K}I_L.
+\]
+
+The real tangent space of the complex Grassmannian has the standard identification
+\[
+T_{\cC}\Gr(K,\cH)\cong\operatorname{Hom}_{\C}(\cC,\cC^\perp).
+\]
+Using an encoding frame $V$, we represent a tangent vector by a matrix
+\[
+X:L\to \cC^\perp\subset\cH,
+\qquad V^\dagger X=0,
+\]
+with Riemannian metric
+\[
+g(X,Y)=\Re\Tr(X^\dagger Y).
+\]
+This normalization fixes the numerical constants in the singular-value formulas below.
+
+\subsection{Erasure correction and complementary channels}
+
+Erasure of $A$ is correctable when arbitrary operators on $A$ satisfy the KL compression condition.  Equivalently,
+\begin{equation}
+P(T\otimes I_B)P=\alpha_T P
+\qquad\text{for every }T\in\operatorname{End}(A).
+\label{eq:KL-erasure}
+\end{equation}
+In an encoding frame,
+\[
+V^\dagger(T\otimes I_B)V=\alpha_T I_L.
+\]
+Define the channel to the erased subsystem by
+\[
+\cE_A^V(\rho)=\Tr_B(V\rho V^\dagger).
+\]
+Then \eqref{eq:KL-erasure} is equivalent to
+\begin{equation}
+\cE_A^V(\rho)=\Tr(\rho)\,\sigma_A
+\label{eq:constant-complement}
+\end{equation}
+for a fixed density operator $\sigma_A$, namely
+\begin{equation}
+\sigma_A=\cE_A^V(I_L/K)=\frac1K\Tr_B P.
+\label{eq:sigma-def}
+\end{equation}
+This is the familiar privacy/correctability complementarity \cite{KretschmannKribsSpekkens2007}.
+
+\section{The Knill--Laflamme section}
+
+Let $\cS\to\Gr(K,\cH)$ denote the tautological rank-$K$ complex vector bundle.  Its fiber at $\cC$ is $\cC$ itself.  Consider the real vector bundle
+\[
+\cE_A
+:=\Herm_0(A)^*\otimes \Herm_0(\cS).
+\]
+Its real rank is
+\[
+\rank_{\R}\cE_A=(a^2-1)(K^2-1).
+\]
+
+\begin{definition}[KL section]
+For $\cC\in\Gr(K,\cH)$ define
+\begin{equation}
+s_A(\cC):\Herm_0(A)\to\Herm_0(\cC),
+\qquad
+s_A(\cC)(T)=\tf_{\cC}\!\left(P(T\otimes I_B)P\big|_{\cC}\right).
+\label{eq:section-def}
+\end{equation}
+This is a smooth section of $\cE_A$.
+\end{definition}
+
+\begin{proposition}[Exact erasure codes are the zero locus]
+A code $\cC$ exactly corrects erasure of $A$ if and only if
+\[
+s_A(\cC)=0.
+\]
+Thus the exact erasure locus is
+\[
+\cM_A:=s_A^{-1}(0)\subset\Gr(K,ab).
+\]
+\end{proposition}
+
+\begin{proof}
+If $s_A(\cC)=0$, then for every traceless Hermitian $T$ the compression $P(T\otimes I)P$ is scalar on $\cC$.  The same is trivially true for $T=I_A$, and complex linear combinations of Hermitian operators span $\operatorname{End}(A)$.  Hence the full erasure KL conditions \eqref{eq:KL-erasure} hold.  The converse is immediate.
+\end{proof}
+
+\subsection{Canonical structure and rank strata}
+
+The next result is a convenient formulation of the standard no-hiding structure.  It is included because it supplies global coordinates for the zero locus and because its rank parameter will control the differential geometry later.
+
+\begin{theorem}[Canonical form of a one-subsystem erasure code]
+\label{thm:canonical}
+Let $V:L\to A\otimes B$ encode an exact $A$-erasure code, and let $\sigma_A$ be the constant erased marginal of rank $r$.  Choose an eigenbasis
+\[
+\sigma_A=\sum_{i=1}^r\lambda_i\ket{i}\bra{i},
+\qquad \lambda_i>0.
+\]
+Then there exist isometries $W_i:L\to B$ with pairwise orthogonal ranges,
+\[
+W_i^\dagger W_j=\delta_{ij}I_L,
+\]
+such that, up to a logical change of basis,
+\begin{equation}
+V\ket{\psi}
+=\sum_{i=1}^r\sqrt{\lambda_i}\,
+\ket{i}_A\otimes W_i\ket{\psi}.
+\label{eq:canonical-form}
+\end{equation}
+Conversely, every map of the form \eqref{eq:canonical-form} is an exact $A$-erasure encoding with erased marginal $\sigma_A$.
+In particular, a rank-$r$ exact erasure code exists if and only if
+\begin{equation}
+rK\le b.
+\label{eq:existence-rank}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Write
+\[
+V=\sum_{i=1}^a\ket{i}_A\otimes A_i,
+\qquad A_i:L\to B.
+\]
+The matrix elements of \eqref{eq:constant-complement} give
+\[
+A_i^\dagger A_j=(\sigma_A)_{ji}I_L.
+\]
+After diagonalizing $\sigma_A$, this becomes
+\[
+A_i^\dagger A_j=\lambda_i\delta_{ij}I_L.
+\]
+For $i\le r$, set $W_i=A_i/\sqrt{\lambda_i}$.  Then $W_i^\dagger W_j=\delta_{ij}I_L$, proving \eqref{eq:canonical-form}.  The orthogonal images $W_i(L)$ have total dimension $rK$, so $rK\le b$ is necessary.  It is sufficient by choosing any $r$ mutually orthogonal $K$-dimensional subspaces of $B$ and defining \eqref{eq:canonical-form}.  The converse follows by tracing out $B$.
+\end{proof}
+
+Let $\cM_A^{(r)}$ denote the locus of exact codes for which $\rank\sigma_A=r$.
+
+\begin{proposition}[Rank-stratum dimension]
+\label{prop:rank-stratum}
+Whenever $rK\le b$, $\cM_A^{(r)}$ is a smooth manifold of real dimension
+\begin{equation}
+\dim_{\R}\cM_A^{(r)}
+=
+(2ar-r^2-1)
++
+\bigl(2brK-r^2K^2-K^2\bigr).
+\label{eq:rank-stratum-dim}
+\end{equation}
+For the full-rank stratum $r=a$ this simplifies to
+\begin{equation}
+\dim_{\R}\cM_A^{(a)}
+=2K(ab-K)-(a^2-1)(K^2-1).
+\label{eq:full-rank-dim}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Rank-$r$ density operators on $A$ form a smooth manifold of real dimension $2ar-r^2-1$.  For fixed $\sigma_A$ with rank-$r$ support, \cref{thm:canonical} identifies the remaining data with an isometry from an $rK$-dimensional syndrome--logical space into $B$, modulo a right action of $U(K)$ that changes only the logical basis.  The complex Stiefel manifold of $rK$ orthonormal vectors in $\C^b$ has real dimension $2brK-r^2K^2$, and the free $U(K)$ quotient subtracts $K^2$.  Adding the two contributions gives \eqref{eq:rank-stratum-dim}.  Setting $r=a$ and simplifying gives \eqref{eq:full-rank-dim}.
+\end{proof}
+
+\begin{remark}
+For a full-rank erased marginal, the canonical form forces $aK\le b$.  This is a condition for the full-rank stratum, not a general erasure Singleton bound: lower-rank exact codes may exist whenever $rK\le b$, including the trivial case in which the erased subsystem is fixed in a pure state.
+\end{remark}
+
+\section{A canonical information-leakage functional}
+
+For an arbitrary code $\cC$, not assumed exact, define
+\[
+\sigma_A(\cC):=\frac1K\Tr_B P_{\cC}.
+\]
+If $\ket{\psi}$ is Haar-random in the unit sphere of $\cC$, write
+\[
+\rho_A(\psi)=\Tr_B\ket{\psi}\bra{\psi}.
+\]
+
+\begin{definition}[Mean-square erased-subsystem leakage]
+\begin{equation}
+\cL_A(\cC)
+:=
+\mathbb E_{\psi}
+\norm{\rho_A(\psi)-\sigma_A(\cC)}_2^2.
+\label{eq:leakage-def}
+\end{equation}
+Equivalently,
+\begin{equation}
+\cL_A(\cC)
+=
+\mathbb E_{\psi}\Tr\rho_A(\psi)^2
+-\Tr\sigma_A(\cC)^2.
+\label{eq:purity-variance}
+\end{equation}
+\end{definition}
+
+The functional vanishes exactly when the erased subsystem is independent of the logical pure state, hence exactly on $\cM_A$.
+
+Equip the section fiber with the Hilbert--Schmidt norm
+\begin{equation}
+\norm{s_A(\cC)}^2
+:=\sum_{\mu=1}^{a^2-1}
+\norm{s_A(\cC)(T_\mu)}_2^2,
+\label{eq:section-norm}
+\end{equation}
+where $\{T_\mu\}$ is any Hilbert--Schmidt orthonormal basis of $\Herm_0(A)$.
+
+\begin{theorem}[Exact leakage identity]
+\label{thm:leakage}
+For every $K$-dimensional code $\cC\subset A\otimes B$,
+\begin{equation}
+\boxed{
+\cL_A(\cC)
+=
+\frac{\norm{s_A(\cC)}^2}{K(K+1)}.
+}
+\label{eq:leakage-identity}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Choose an encoding isometry $V:L\to A\otimes B$ and an orthonormal basis $\{T_\mu\}$ of $\Herm_0(A)$.  Define
+\[
+B_\mu
+:=\tf\!\left(V^\dagger(T_\mu\otimes I)V\right)
+\in\Herm_0(L).
+\]
+Because $\sigma_A=\cE_A^V(I/K)$,
+\[
+\Tr\bigl[T_\mu(\rho_A(\psi)-\sigma_A)\bigr]
+=\bra{\psi}B_\mu\ket{\psi}.
+\]
+The difference $\rho_A(\psi)-\sigma_A$ is traceless, so Parseval's identity gives
+\[
+\norm{\rho_A(\psi)-\sigma_A}_2^2
+=\sum_\mu\bra{\psi}B_\mu\ket{\psi}^2.
+\]
+For a Haar-random pure state in $\C^K$,
+\[
+\mathbb E_{\psi}\bigl(\ket{\psi}\bra{\psi}^{\otimes 2}\bigr)
+=\frac{I+F}{K(K+1)},
+\]
+where $F$ swaps the two copies of $L$.  Since $\Tr B_\mu=0$,
+\[
+\mathbb E_{\psi}\bra{\psi}B_\mu\ket{\psi}^2
+=\frac{\Tr(B_\mu^2)}{K(K+1)}.
+\]
+Summing over $\mu$ yields \eqref{eq:leakage-identity}.
+\end{proof}
+
+
+\begin{proposition}[Complementary-channel and Choi form of the leakage]
+\label{prop:choi-leakage}
+Let
+\[
+\Delta_A^{\cC}
+:=\cE_A^V-\cR_{\sigma_A},
+\qquad
+\cR_{\sigma_A}(\rho):=\Tr(\rho)\sigma_A,
+\]
+where $\cE_A^V(\rho)=\Tr_B(V\rho V^\dagger)$ is the complementary channel to erasure of $A$ restricted to the code.  Let
+\[
+J(\Delta_A^{\cC})
+=\sum_{i,j=1}^K
+\ket{i}\bra{j}\otimes
+\Delta_A^{\cC}(\ket{i}\bra{j})
+\]
+be its unnormalized Choi matrix.  Then
+\begin{equation}
+\boxed{
+\norm{s_A(\cC)}^2
+=
+\norm{\Delta_A^{\cC}}_{\mathrm{HS}}^2
+=
+\norm{J(\Delta_A^{\cC})}_2^2,
+}
+\label{eq:choi-section}
+\end{equation}
+where the middle norm is the Frobenius norm of the superoperator with respect to Hilbert--Schmidt orthonormal operator bases.  Consequently,
+\begin{equation}
+\boxed{
+\cL_A(\cC)
+=
+\frac{\norm{J(\Delta_A^{\cC})}_2^2}{K(K+1)}.
+}
+\label{eq:choi-leakage}
+\end{equation}
+Moreover,
+\begin{equation}
+\sqrt{\frac{K+1}{K}\,\cL_A(\cC)}
+\;\le\;
+\norm{\Delta_A^{\cC}}_\diamond
+\;\le\;
+K\sqrt{a(K+1)\,\cL_A(\cC)}.
+\label{eq:diamond-sandwich}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The adjoint of the replacement channel is
+\[
+\cR_{\sigma_A}^{*}(T)=\Tr(\sigma_A T)I_L.
+\]
+For $T\in\Herm_0(A)$,
+\[
+(\Delta_A^{\cC})^*(T)
+=
+V^\dagger(T\otimes I)V-\Tr(\sigma_AT)I_L
+=
+s_A(\cC)(T).
+\]
+Also $(\Delta_A^{\cC})^*(I_A)=0$.  Completing an orthonormal basis of $\Herm_0(A)$ by $I_A/\sqrt a$ therefore gives
+\[
+\norm{\Delta_A^{\cC}}_{\mathrm{HS}}^2
+=
+\norm{(\Delta_A^{\cC})^*}_{\mathrm{HS}}^2
+=
+\sum_\mu\norm{s_A(\cC)(T_\mu)}_2^2.
+\]
+Reshuffling a superoperator matrix into its Choi matrix preserves the Frobenius norm, proving \eqref{eq:choi-section}; \eqref{eq:choi-leakage} follows from \cref{thm:leakage}.
+
+For the lower bound, evaluate the diamond norm on a normalized maximally entangled input:
+\[
+\norm{\Delta_A^{\cC}}_\diamond
+\ge \frac1K\norm{J(\Delta_A^{\cC})}_1
+\ge \frac1K\norm{J(\Delta_A^{\cC})}_2.
+\]
+For the upper bound, the standard Choi/diamond-norm estimate
+$\norm{\Delta}_\diamond\le\norm{J(\Delta)}_1$ \cite{Watrous2009} and
+$\norm{J}_1\le\sqrt{aK}\norm{J}_2$ give
+\[
+\norm{\Delta_A^{\cC}}_\diamond
+\le\sqrt{aK}\norm{J(\Delta_A^{\cC})}_2.
+\]
+Substitution of \eqref{eq:choi-leakage} yields \eqref{eq:diamond-sandwich}.
+\end{proof}
+
+\begin{remark}[Relation to approximate QEC]
+The quantity $\cL_A$ is an average Hilbert--Schmidt fluctuation of the complementary output.  It is not the worst-case diamond/Bures environment-leakage distance used in modern approximate-QEC criteria \cite{BenyOreshkov2009,ElimelechAlbertBarg2026}, nor does \cref{thm:leakage} by itself determine optimal recovery fidelity.  Its advantage for the present purpose is exactness and differentiability: $\cL_A$ is precisely the squared norm of the KL section up to a universal factor.  The dimension factors in \eqref{eq:diamond-sandwich} also make clear why $\cL_A$ should not be advertised as a dimension-independent substitute for worst-case approximate-correctability metrics.
+\end{remark}
+
+\section{Linearized Knill--Laflamme geometry}
+\label{sec:linearized}
+
+Let $\cC\in\cM_A$ be an exact code with encoding isometry $V$ and erased marginal $\sigma_A$.  For $T\in\Herm_0(A)$ set
+\[
+M_T=T\otimes I_B,
+\qquad
+\tau(T)=\Tr(\sigma_A T).
+\]
+Exactness gives
+\[
+V^\dagger M_T V=\tau(T)I_L.
+\]
+
+A tangent vector $X\in T_{\cC}\Gr(K,\cH)$ is represented in horizontal gauge by $V^\dagger X=0$.  Differentiating the compression yields the following.
+
+\begin{lemma}[Differential of the KL section]
+\label{lem:ds}
+At an exact code,
+\begin{equation}
+(Ds_A)_{\cC}[X](T)
+=
+\tf\!\left(X^\dagger M_TV+V^\dagger M_TX\right).
+\label{eq:ds-formula}
+\end{equation}
+Under the Hilbert--Schmidt identification
+\[
+\operatorname{Hom}_{\R}(\Herm_0(A),\Herm_0(L))
+\cong \Herm_0(A)\otimes_{\R}\Herm_0(L),
+\]
+the adjoint acts on a simple tensor $T\otimes L_0$ as
+\begin{equation}
+(Ds_A)_{\cC}^{*}(T\otimes L_0)
+=2P^\perp M_T V L_0,
+\label{eq:ds-adjoint}
+\end{equation}
+where $P^\perp=I-P$.
+\end{lemma}
+
+\begin{proof}
+Choose a smooth horizontal lift $V(t)$ with $V(0)=V$ and $\dot V(0)=X$.  Differentiating $\tf(V(t)^\dagger M_TV(t))$ gives \eqref{eq:ds-formula}.  For $L_0\in\Herm_0(L)$,
+\begin{align*}
+\inner{(Ds_A)[X]}{T\otimes L_0}
+&=\Tr\left[L_0\left(X^\dagger M_TV+V^\dagger M_TX\right)\right]\\
+&=2\Re\Tr\left[X^\dagger M_TVL_0\right].
+\end{align*}
+Only the $\cC^\perp$ component pairs with $X$.  Since $P M_T V=V\tau(T)$ and $\Tr L_0=0$, projecting to $P^\perp$ gives \eqref{eq:ds-adjoint}.
+\end{proof}
+
+Define the symmetrized covariance bilinear form on $\Herm_0(A)$ by
+\begin{equation}
+\Cov_{\sigma_A}(S,T)
+:=
+\frac12\Tr\bigl(\sigma_A\{S,T\}\bigr)
+-\Tr(\sigma_A S)\Tr(\sigma_A T).
+\label{eq:covariance}
+\end{equation}
+Let $\mathsf{Cov}_{\sigma_A}$ denote the corresponding positive semidefinite self-adjoint operator with respect to the Hilbert--Schmidt metric.
+
+\begin{theorem}[Covariance normal-operator theorem]
+\label{thm:covariance}
+At every exact $A$-erasure code,
+\begin{equation}
+\boxed{
+(Ds_A)_{\cC}(Ds_A)_{\cC}^{*}
+=
+4\,\mathsf{Cov}_{\sigma_A}
+\otimes I_{\Herm_0(L)}.
+}
+\label{eq:covariance-normal}
+\end{equation}
+Consequently, if $\nu_1,\ldots,\nu_{a^2-1}$ are the eigenvalues of $\mathsf{Cov}_{\sigma_A}$, then the nonzero singular values of $(Ds_A)_{\cC}$ are
+\begin{equation}
+2\sqrt{\nu_j},
+\label{eq:singular-general}
+\end{equation}
+with each covariance eigenvalue repeated $K^2-1$ times.
+\end{theorem}
+
+\begin{proof}
+It is enough to apply the operator to a simple tensor $T\otimes L_0$.  By \cref{lem:ds}, set
+\[
+X=2P^\perp M_TVL_0.
+\]
+For $S\in\Herm_0(A)$,
+\begin{align*}
+(Ds_A)[X](S)
+&=2\tf\!\left[
+L_0 V^\dagger M_TP^\perp M_SV
++V^\dagger M_SP^\perp M_TV L_0
+\right].
+\end{align*}
+Because the code is exact for every operator on $A$,
+\[
+V^\dagger M_TM_SV=\Tr(\sigma_A TS)I_L,
+\]
+and
+\[
+V^\dagger M_TPM_SV=\tau(T)\tau(S)I_L.
+\]
+Hence
+\[
+V^\dagger M_TP^\perp M_SV
+=
+\left[\Tr(\sigma_A TS)-\tau(T)\tau(S)\right]I_L.
+\]
+The second term is its complex conjugate.  Since $L_0$ is traceless Hermitian,
+\[
+(Ds_A)[X](S)
+=4\Cov_{\sigma_A}(S,T)L_0.
+\]
+This is exactly \eqref{eq:covariance-normal} under the tensor-product identification.  The singular-value statement follows because the nonzero spectra of $Ds_A Ds_A^*$ and $Ds_A^*Ds_A$ coincide.
+\end{proof}
+
+
+\subsection{Rank, transversality, and the full-rank locus}
+
+\begin{lemma}[Kernel of the covariance operator]
+\label{lem:cov-kernel}
+If $r=\rank\sigma_A$, then
+\begin{equation}
+\dim_{\R}\ker\mathsf{Cov}_{\sigma_A}=(a-r)^2.
+\label{eq:cov-kernel-dim}
+\end{equation}
+Equivalently,
+\begin{equation}
+\rank_{\R}\mathsf{Cov}_{\sigma_A}=2ar-r^2-1.
+\label{eq:cov-rank}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+For traceless Hermitian $T$, let $m=\Tr(\sigma_AT)$.  Then
+\[
+\Cov_{\sigma_A}(T,T)=\Tr\left[\sigma_A(T-mI)^2\right].
+\]
+Let $S=\supp\sigma_A$.  Since $\sigma_A$ is strictly positive on $S$, the covariance vanishes exactly when
+\[
+(T-mI)|_S=0.
+\]
+Hermiticity then forces the off-diagonal blocks between $S$ and $S^\perp$ to vanish.  Thus
+\[
+T=mI_S\oplus D,
+\qquad D\in\Herm(S^\perp),
+\]
+subject only to the global trace constraint $rm+\Tr D=0$.  The free real dimension is therefore $(a-r)^2$.
+\end{proof}
+
+\begin{corollary}[Rank of the linearized KL equations]
+\label{cor:ds-rank}
+At an exact code with $\rank\sigma_A=r$,
+\begin{equation}
+\boxed{
+\rank_{\R}(Ds_A)
+=(2ar-r^2-1)(K^2-1).
+}
+\label{eq:ds-rank}
+\end{equation}
+In particular, $Ds_A$ is surjective if and only if $\sigma_A$ has full rank.
+\end{corollary}
+
+\begin{corollary}[Smooth full-rank erasure-code manifold]
+\label{cor:smooth}
+If $\sigma_A$ is full rank, then $s_A$ is transverse to the zero section at $\cC$.  Hence $\cM_A^{(a)}$ is locally a smooth submanifold of codimension
+\[
+(a^2-1)(K^2-1),
+\]
+in agreement with \eqref{eq:full-rank-dim}.
+\end{corollary}
+
+
+\subsection{Explicit covariance invariants}
+
+The normal spectrum can be made fully explicit from the eigenvalues of the erased marginal.  This also identifies the maximally mixed marginal as the unique normally isotropic point.
+
+\begin{proposition}[Spectrum, trace, and determinant of the covariance operator]
+\label{prop:cov-spectrum}
+Let $\sigma_A>0$ have eigenvalues $\lambda_1,\ldots,\lambda_a$.  In an eigenbasis of $\sigma_A$, for every $i<j$ the two Hilbert--Schmidt normalized off-diagonal Hermitian generators supported on $\operatorname{span}\{\ket i,\ket j\}$ are covariance eigenvectors with eigenvalue
+\begin{equation}
+\frac{\lambda_i+\lambda_j}{2}.
+\label{eq:offdiag-cov}
+\end{equation}
+On the diagonal traceless subspace, the covariance operator is the restriction of
+\[
+\operatorname{diag}(\lambda)-\lambda\lambda^{\mathsf T}
+\]
+to $\mathbf 1^\perp$.  In particular,
+\begin{align}
+\Tr\mathsf{Cov}_{\sigma_A}
+&=a-\Tr\sigma_A^2,
+\label{eq:cov-trace}\\
+\det\mathsf{Cov}_{\sigma_A}
+&=
+a\left(\prod_{i=1}^a\lambda_i\right)
+\prod_{i<j}
+\left(\frac{\lambda_i+\lambda_j}{2}\right)^2.
+\label{eq:cov-det}
+\end{align}
+The covariance operator is a scalar multiple of the identity on $\Herm_0(A)$ if and only if
+\begin{equation}
+\sigma_A=\frac{I_A}{a},
+\end{equation}
+in which case
+\begin{equation}
+\mathsf{Cov}_{I/a}=\frac1a I_{\Herm_0(A)}.
+\label{eq:maxmix-cov}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+For
+\[
+X_{ij}=\frac{E_{ij}+E_{ji}}{\sqrt2},
+\qquad
+Y_{ij}=\frac{-iE_{ij}+iE_{ji}}{\sqrt2},
+\]
+the expectation vanishes and
+$\Tr(\sigma_A X_{ij}^2)=\Tr(\sigma_A Y_{ij}^2)
+=(\lambda_i+\lambda_j)/2$, proving \eqref{eq:offdiag-cov}.  For a diagonal observable $D_x=\operatorname{diag}(x_1,\ldots,x_a)$ with $\sum_i x_i=0$,
+\[
+\Cov_{\sigma_A}(D_x,D_x)
+=
+x^{\mathsf T}
+\bigl(\operatorname{diag}(\lambda)-\lambda\lambda^{\mathsf T}\bigr)x.
+\]
+The matrix in parentheses has kernel $\operatorname{span}\{\mathbf1\}$.  Any principal $(a-1)\times(a-1)$ minor has determinant $\prod_i\lambda_i$ by the matrix determinant lemma; hence the determinant on $\mathbf1^\perp$ is $a\prod_i\lambda_i$.  Multiplying by the two off-diagonal eigenvalues for every pair gives \eqref{eq:cov-det}.  The trace of the diagonal block is $1-\Tr\sigma_A^2$, while the off-diagonal contribution is $a-1$, yielding \eqref{eq:cov-trace}.
+
+If the covariance is isotropic, all pair sums $\lambda_i+\lambda_j$ are equal.  For $a\ge3$ this forces all eigenvalues equal.  For $a=2$, equality of the off-diagonal and diagonal covariance eigenvalues forces $\lambda_1=\lambda_2=1/2$.  The converse follows directly.
+\end{proof}
+
+\begin{corollary}[Normal isotropy]
+\label{cor:normal-isotropy}
+On the full-rank exact-erasure locus, the KL normal operator is isotropic if and only if the erased marginal is maximally mixed.  At such a code,
+\[
+Ds_A Ds_A^*=\frac4a I,
+\]
+so every normal singular value of $Ds_A$ equals $2/\sqrt a$.
+\end{corollary}
+
+\section{Morse--Bott leakage geometry}
+
+The leakage identity and covariance theorem combine into a local normal form for the information loss caused by a coherent perturbation of the code subspace.
+
+\begin{theorem}[Morse--Bott theorem for mean-square leakage]
+\label{thm:morse-bott}
+Let $\cC\in\cM_A$ be an exact erasure code with full-rank $\sigma_A$.  Then $\cL_A$ is Morse--Bott at $\cC$, with critical manifold $\cM_A^{(a)}$.  More precisely, for tangent vectors $X,Y\in T_{\cC}\Gr(K,ab)$,
+\begin{equation}
+\operatorname{Hess}_{\cC}\cL_A(X,Y)
+=
+\frac{2}{K(K+1)}
+\inner{(Ds_A)X}{(Ds_A)Y}.
+\label{eq:hessian}
+\end{equation}
+Its kernel is exactly $T_{\cC}\cM_A^{(a)}$, and its nonzero eigenvalues are
+\begin{equation}
+\boxed{
+\frac{8\nu_j}{K(K+1)},
+}
+\label{eq:hessian-spectrum}
+\end{equation}
+where $\nu_j$ runs over the covariance eigenvalues of $\sigma_A$, each repeated $K^2-1$ times.
+\end{theorem}
+
+\begin{proof}
+By \cref{thm:leakage},
+\[
+\cL_A=\frac{1}{K(K+1)}\norm{s_A}^2.
+\]
+At an exact code $s_A(\cC)=0$, so the first derivative vanishes and
+\[
+\operatorname{Hess}\cL_A(X,Y)
+=\frac{2}{K(K+1)}\inner{(Ds_A)X}{(Ds_A)Y},
+\]
+which proves \eqref{eq:hessian}.  Full rank implies that $Ds_A$ is surjective by \cref{cor:ds-rank}, and therefore $\ker Ds_A=T_{\cC}\cM_A^{(a)}$ by the regular-level-set theorem.  Surjectivity is open, so in a sufficiently small neighborhood of $\cC$ the adjoint $Ds_A^*$ remains injective.  Since $\nabla\norm{s_A}^2=2Ds_A^*s_A$, every nearby critical point therefore satisfies $s_A=0$; hence the local critical set is exactly the smooth zero locus.  The nonzero eigenvalues of $Ds_A^*Ds_A$ are the same as those of $Ds_A Ds_A^*$; \cref{thm:covariance} gives $4\nu_j$.  Multiplying by $2/[K(K+1)]$ yields \eqref{eq:hessian-spectrum}.
+\end{proof}
+
+\begin{corollary}[Quadratic leakage susceptibility]
+Let $\cC(t)$ be a smooth Grassmannian curve with $\cC(0)=\cC\in\cM_A^{(a)}$ and velocity $X$.  Then
+\begin{equation}
+\cL_A(\cC(t))
+=
+\frac{t^2}{K(K+1)}\norm{(Ds_A)X}^2+O(t^3).
+\label{eq:quadratic-leakage}
+\end{equation}
+Thus only the normal component of $X$ contributes at second order, and the covariance spectrum gives its directional stiffness.
+\end{corollary}
+
+\section{Qubit erasure: concurrence and Fubini--Study distance}
+\label{sec:qubit}
+
+Now set $a=2$ and assume the erased marginal is full rank.  Write
+\[
+\sigma_A=\frac12(I+\bm r\cdot\bm\sigma),
+\qquad 0\le \norm{\bm r}<1.
+\]
+Define the common qubit-versus-rest concurrence of the codewords by
+\begin{equation}
+C_A:=2\sqrt{\det\sigma_A}=\sqrt{1-\norm{\bm r}^2}.
+\label{eq:concurrence}
+\end{equation}
+For a pure state in $\C^2\otimes\C^b$, this is the usual qubit-versus-rest pure-state concurrence (equivalently the $I$-concurrence in the qubit case).
+
+\subsection{Constant-distance tubes around the Segre variety}
+
+The product states form the Segre variety
+\[
+\Sigma_{2,b}
+=\operatorname{Seg}(\CP^1\times\CP^{b-1})
+\subset\CP^{2b-1}.
+\]
+If $\lambda_+\ge\lambda_-$ are the eigenvalues of $\sigma_A$, then every normalized codeword has Schmidt coefficients $\sqrt{\lambda_+},\sqrt{\lambda_-}$.  The maximum product-state overlap is $\sqrt{\lambda_+}$, so the Fubini--Study distance to $\Sigma_{2,b}$ is
+\begin{equation}
+r=d_{\mathrm{FS}}([\psi],\Sigma_{2,b})
+=\arccos\sqrt{\lambda_+}.
+\label{eq:fs-distance}
+\end{equation}
+Therefore
+\begin{equation}
+\boxed{
+C_A=\sin(2r),
+\qquad
+r=\frac12\arcsin C_A.
+}
+\label{eq:concurrence-distance}
+\end{equation}
+Thus the whole projective code $\Pj(\cC)$ lies in one fixed-concurrence tube around the Segre variety.  Exact erasure correction is stronger than merely lying in that tube: it fixes the entire reduced density matrix $\sigma_A$, not only its eigenvalues.
+
+\subsection{Concurrence controls normal conditioning}
+
+Choose a Pauli frame with $\bm r$ along $z$ and let
+\[
+T_x=\frac{\sigma_x}{\sqrt2},\qquad
+T_y=\frac{\sigma_y}{\sqrt2},\qquad
+T_z=\frac{\sigma_z}{\sqrt2}.
+\]
+A direct computation gives
+\begin{equation}
+\mathsf{Cov}_{\sigma_A}
+=\operatorname{diag}\left(
+\frac12,\frac12,\frac{C_A^2}{2}
+\right)
+\label{eq:qubit-covariance}
+\end{equation}
+in this Hilbert--Schmidt orthonormal basis.
+
+\begin{corollary}[Concurrence condition number]
+\label{cor:concurrence}
+For an exact code correcting a full-rank qubit erasure, the nonzero singular values of $Ds_A$ are
+\begin{equation}
+\boxed{
+\sqrt2,\qquad \sqrt2,\qquad \sqrt2\,C_A,
+}
+\label{eq:qubit-singular}
+\end{equation}
+each repeated $K^2-1$ times.  Hence
+\begin{equation}
+\boxed{
+\kappa(Ds_A)=\frac1{C_A}.
+}
+\label{eq:condition-number}
+\end{equation}
+The normal Hessian eigenvalues of $\cL_A$ are
+\begin{equation}
+\frac{4}{K(K+1)},\qquad
+\frac{4}{K(K+1)},\qquad
+\frac{4C_A^2}{K(K+1)},
+\label{eq:qubit-hessian}
+\end{equation}
+again with multiplicity $K^2-1$, so
+\begin{equation}
+\kappa\!\left(\operatorname{Hess}^{\perp}\cL_A\right)=\frac1{C_A^2}.
+\end{equation}
+\end{corollary}
+
+\begin{remark}
+At $\sigma_A=I/2$, every codeword is maximally entangled across the erased-qubit cut and $C_A=1$.  The KL section is then normally isotropic: all three Pauli sectors have the same singular value $\sqrt2$.  As $C_A\to0$, one singular sector softens and the full-rank stratum approaches the rank-deficient boundary.
+\end{remark}
+
+\section{Rank-deficient nontransversality}
+\label{sec:rank-deficient}
+
+The covariance theorem also explains what changes when the erased marginal loses rank.  By \cref{lem:cov-kernel,cor:ds-rank}, a rank-$r$ exact code has
+\begin{equation}
+\dim\ker Ds_A
+=
+2K(ab-K)-(2ar-r^2-1)(K^2-1).
+\label{eq:kernel-dim-r}
+\end{equation}
+Comparing this with the dimension of the fixed-rank stratum in \cref{prop:rank-stratum} gives
+\begin{equation}
+\boxed{
+\dim\ker Ds_A-\dim\cM_A^{(r)}
+=2K(a-r)(b-rK).
+}
+\label{eq:excess-linearized}
+\end{equation}
+Thus lower-rank points are nonregular for the defining section and can possess infinitesimal KL-preserving directions beyond the tangent directions of their fixed-rank stratum.  Depending on the ambient dimensions, such directions may point toward higher-rank branches of exact codes or may be obstructed at higher order.  We do not attempt a complete singularity/deformation theory here.
+
+For qubit erasure, the rank-one limit has $C_A=0$ and \eqref{eq:qubit-singular} shows exactly which normal sector becomes invisible to the first derivative.  This is the QEC analogue of approaching the product-state Segre boundary in bipartite entanglement geometry.
+
+\section{Several erasures and infinitesimal code moduli}
+\label{sec:multi}
+
+Suppose a family $\mathcal A$ of erased subsystems must all be correctable.  For each $R\in\mathcal A$ define the corresponding KL section $s_R$, and stack them:
+\begin{equation}
+S_{\mathcal A}:=\bigoplus_{R\in\mathcal A}s_R.
+\label{eq:stacked-section}
+\end{equation}
+The simultaneous exact-code locus is $S_{\mathcal A}^{-1}(0)$, and its space of first-order KL-preserving deformations at a code $\cC$ is
+\begin{equation}
+\mathcal Z^1_{\cC}(\mathcal A):=\ker (DS_{\mathcal A})_{\cC}.
+\label{eq:z1}
+\end{equation}
+Local physical unitaries that map the prescribed erasure family to itself generate a distinguished subspace of \eqref{eq:z1}.  The quotient by these trivial orbit directions is a natural infinitesimal moduli space.
+
+
+\subsection{Cross-Gram blocks and compatibility of erasure constraints}
+
+For a single region, \cref{thm:covariance} completely determines the diagonal block of the normal Gram operator.  For several regions, the off-diagonal blocks contain additional information: they measure compressed correlations between observables supported on different erased regions.
+
+Let $R,S$ be two correctable regions for the same code.  For Hermitian observables $A$ on $R$ and $B$ on $S$ (embedded into the full physical algebra), write
+\[
+V^\dagger A V=\omega_R(A)I_L,
+\qquad
+V^\dagger B V=\omega_S(B)I_L
+\]
+and define
+\begin{equation}
+C_{AB}
+:=
+V^\dagger ABV-\omega_R(A)\omega_S(B)I_L.
+\label{eq:cab}
+\end{equation}
+
+\begin{theorem}[Cross-Gram formula]
+\label{thm:cross-gram}
+At a code that corrects $R$ and $S$ separately, the off-diagonal block of the stacked normal operator is
+\begin{equation}
+\boxed{
+\bigl(Ds_S\,Ds_R^*\bigr)(A\otimes L)(B)
+=
+2\,\tf\!\left(
+L C_{AB}+C_{BA}L
+\right),
+}
+\label{eq:cross-gram}
+\end{equation}
+for every $L\in\Herm_0(L)$.  In particular, if the union $R\cup S$ is itself correctable, then
+\begin{equation}
+\boxed{
+\bigl(Ds_S\,Ds_R^*\bigr)(A\otimes L)(B)
+=
+4\,\Cov_{\sigma_{R\cup S}}(A,B)\,L,
+}
+\label{eq:cross-cov}
+\end{equation}
+where the observables are extended by identities inside $R\cup S$ and the covariance is computed in the fixed union marginal.
+\end{theorem}
+
+\begin{proof}
+By the adjoint formula,
+\[
+(Ds_R)^*(A\otimes L)=2P^\perp AVL.
+\]
+Substitution into $Ds_S$ gives
+\begin{align*}
+(Ds_S Ds_R^*)(A\otimes L)(B)
+&=
+2\tf\!\left[
+L V^\dagger A P^\perp BV
++
+V^\dagger B P^\perp AV L
+\right]\\
+&=
+2\tf\!\left[
+L\!\left(V^\dagger ABV-\omega_R(A)\omega_S(B)I\right)
++
+\left(V^\dagger BAV-\omega_S(B)\omega_R(A)I\right)L
+\right],
+\end{align*}
+which is \eqref{eq:cross-gram}.  If $R\cup S$ is correctable, then both $AB$ and $BA$ compress to scalars determined by the fixed union marginal.  Since $L$ is traceless, the two scalar terms combine to
+\[
+4\left(
+\frac12\Tr[\sigma_{R\cup S}(AB+BA)]
+-\Tr(\sigma_R A)\Tr(\sigma_S B)
+\right)L,
+\]
+which is \eqref{eq:cross-cov}.
+\end{proof}
+
+\begin{remark}
+Equation \eqref{eq:cross-gram} separates two regimes.  If the union is correctable, linearized compatibility of the two erasure constraints is governed entirely by ordinary physical covariances in the fixed union marginal.  If the union is not correctable, the non-scalar part of $C_{AB}$ survives and carries genuinely logical information.  Thus the stacked Jacobian detects the boundary between locally compatible erasure constraints and products of local observables that act nontrivially on the logical subsystem.
+\end{remark}
+
+\subsection{The four-qubit distance-two code}
+
+Consider the standard $[[4,2,2]]$ stabilizer code with stabilizers $XXXX$ and $ZZZZ$, and impose correction of erasure of any one of the four physical qubits.  The Grassmannian is $\Gr(4,16)$, with real tangent dimension
+\[
+2\cdot4(16-4)=96.
+\]
+The stacked Jacobian contains $4\times 3\times 15=180$ scalar KL equations before linear dependencies are removed.
+
+\begin{proposition}[Computer-assisted exact infinitesimal rigidity of the four-qubit code]
+\label{prop:422}
+For the standard $[[4,2,2]]$ code,
+\[
+\rank_{\R}DS_{\mathcal A}=84,
+\qquad
+\dim_{\R}\ker DS_{\mathcal A}=12.
+\]
+The tangent orbit generated by local $SU(2)^4$ has dimension $12$ and lies in the kernel.  Hence
+\begin{equation}
+\ker DS_{\mathcal A}
+=
+T_{\cC}(SU(2)^4\cdot\cC),
+\label{eq:422-rigid}
+\end{equation}
+so the code is infinitesimally rigid modulo local unitaries.
+\end{proposition}
+
+\begin{proof}[Exact symbolic verification]
+Choose the orthonormal code basis
+\begin{align*}
+&\frac{\ket{0000}+\ket{1111}}{\sqrt2},\quad
+\frac{\ket{0011}+\ket{1100}}{\sqrt2},\\
+&\frac{\ket{0101}+\ket{1010}}{\sqrt2},\quad
+\frac{\ket{0110}+\ket{1001}}{\sqrt2},
+\end{align*}
+and complete it by the complementary even-parity minus states and the symmetric and antisymmetric complement-pairs of odd parity.  In this basis, construct the real $180\times96$ Jacobian from the twelve one-qubit Pauli observables and fifteen traceless Hermitian logical coordinates using \eqref{eq:ds-formula}.  Exact algebraic row reduction gives rank $84$.  The twelve tangent vectors generated by the single-qubit Pauli Hamiltonians are linearly independent and are annihilated by this Jacobian.  Therefore the $12$-dimensional local orbit equals the full kernel.  The accompanying script \texttt{verify\_erasure\_geometry.py} performs this calculation with exact SymPy arithmetic.
+\end{proof}
+
+This local result is compatible with the known rigidity/classification of four-qubit pure codes \cite{Tan2025}; we therefore present it primarily as a validation of the stacked-section deformation formalism, not as a new global classification theorem.
+
+
+\subsection{The perfect five-qubit code and the Steane contrast}
+
+The same exact calculation can be performed for the $[[5,1,3]]$ perfect code while imposing correction of every two-qubit erasure.  The Grassmannian $\Gr(2,32)$ has real tangent dimension $120$.
+
+\begin{proposition}[Computer-assisted exact infinitesimal rigidity of the five-qubit code]
+\label{prop:513}
+For the standard $[[5,1,3]]$ code and the family of all ten two-qubit erasures,
+\[
+\rank_{\R}DS_{\mathcal A}=105,
+\qquad
+\dim_{\R}\ker DS_{\mathcal A}=15.
+\]
+The local $SU(2)^5$ orbit has dimension $15$ and equals the kernel.  Hence the perfect five-qubit code is infinitesimally rigid modulo local unitaries for the full family of two-qubit erasure constraints.
+\end{proposition}
+
+\begin{proof}[Exact symbolic verification]
+Use the standard codeword
+\begin{align*}
+\ket{0_L}=\frac14(&
+\ket{00000}+\ket{10010}+\ket{01001}+\ket{10100}
++\ket{01010}+\ket{00101}\\
+&-\ket{11011}-\ket{00110}-\ket{11000}-\ket{11101}
+-\ket{00011}-\ket{11110}\\
+&-\ket{01111}-\ket{10001}-\ket{01100}-\ket{10111}),
+\end{align*}
+with $\ket{1_L}=X^{\otimes5}\ket{0_L}$.  The thirty states obtained by applying the fifteen nonidentity single-qubit Pauli errors to the two logical basis states form an exact orthonormal basis of $\cC^\perp$.  In these coordinates the stacked two-erasure KL Jacobian is a $450\times120$ matrix over the Gaussian rationals.  Exact row reduction gives rank $105$.  The fifteen horizontal tangent vectors generated by the physical single-qubit Pauli Hamiltonians are independent and are annihilated by the Jacobian.  The verification script reproduces these statements without floating-point rank decisions.
+\end{proof}
+
+The rigidity of the five-qubit code is again consistent with its well-known exceptional status and with modern classification results \cite{Tan2025}; the purpose of \cref{prop:513} is to test the deformation formalism on a second nontrivial perfect code.
+
+For contrast, a numerical SVD calculation for the standard Steane $[[7,1,3]]$ code, imposing all twenty-one two-qubit erasure constraints, gives
+\[
+\dim_{\R}T\Gr(2,128)=504,\qquad
+\rank DS_{\mathcal A}=294,\qquad
+\dim\ker DS_{\mathcal A}=210.
+\]
+The local $SU(2)^7$ orbit has dimension only $21$, leaving $189$ additional first-order KL-preserving directions.  We do \emph{not} identify this $189$-dimensional quotient with a moduli space of exact codes: most first-order directions may be obstructed at second or higher order.  Its large size is nevertheless consistent with the existence of nontrivial continuous exact-code families in the seven-qubit landscape \cite{DuZhangPoonZeng2024}.  We report the Steane numbers as a numerical diagnostic, not as a theorem.
+
+\begin{table}[t]
+\centering
+\caption{Stacked-Jacobian deformation diagnostics.  The first two rows are exact symbolic calculations; the Steane row uses numerical SVD.}
+\label{tab:rigidity}
+\begin{tabular}{lccccc}
+\toprule
+Code & erasures & $\dim T\Gr$ & $\rank DS$ & $\dim\ker DS$ & local orbit\\
+\midrule
+$[[4,2,2]]$ & all $1$-qubit & $96$ & $84$ & $12$ & $12$\\
+$[[5,1,3]]$ & all $2$-qubit & $120$ & $105$ & $15$ & $15$\\
+Steane $[[7,1,3]]$ & all $2$-qubit & $504$ & $294$ & $210$ & $21$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+The same framework can be applied to codes with richer continuous moduli.  Recent work has exhibited continuous families of exact nonadditive codes and paths through the Steane-code landscape \cite{DuZhangPoonZeng2024}.  There the kernel of a stacked KL Jacobian can contain many more directions than local-unitary orbits, and a genuine deformation theory must distinguish first-order solutions from higher-order integrable code families.  We leave that analysis for future work.
+
+\section{Operator-algebra extension}
+\label{sec:algebra}
+
+The covariance normal form is not specific to tensor-factor erasure.  Let $\mathfrak A\subseteq\operatorname{End}(\cH)$ be a finite-dimensional unital $*$-subalgebra, and let
+\[
+\mathfrak A_{\rm sa,0}:=\{A\in\mathfrak A:A=A^\dagger,\ \Tr A=0\}
+\]
+with the Hilbert--Schmidt metric inherited from $\operatorname{End}(\cH)$.  A rank-$K$ projector $P$ is a scalar compression (or quantum anticlique) for $\mathfrak A$ when
+\[
+PAP=\omega(A)P,\qquad A\in\mathfrak A,
+\]
+for a state $\omega$ on $\mathfrak A$.  Scalar-compression and quantum-anticlique formulations of QEC are established in the operator-system and higher-rank numerical-range literature \cite{Weaver2018,LiPoon2008,KribsEtAl2005}; the point here is the local normal geometry of their solution set.
+
+Define the section
+\[
+s_{\mathfrak A}(\cC)(A)=\tf\!\left(PAP|_{\cC}\right),
+\qquad A\in\mathfrak A_{\rm sa,0}.
+\]
+For a scalar-compressing code define the symmetrized covariance form
+\[
+\Cov_\omega(A,B)
+=\frac12\omega(AB+BA)-\omega(A)\omega(B).
+\]
+
+\begin{theorem}[Covariance normal form for a scalar-compressed observable algebra]
+\label{thm:algebra-covariance}
+At every scalar-compressing code for $\mathfrak A$,
+\begin{equation}
+\boxed{
+D s_{\mathfrak A}\,D s_{\mathfrak A}^{*}
+=4\,\mathsf{Cov}_{\omega}\otimes I_{\Herm_0(\C^K)}.
+}
+\label{eq:algebra-covariance}
+\end{equation}
+If $\omega$ is faithful on $\mathfrak A$, then the covariance form is positive definite on $\mathfrak A_{\rm sa,0}$ and the scalar-compression locus is smooth at $\cC$ of real codimension
+\begin{equation}
+\bigl(\dim_{\C}\mathfrak A-1\bigr)(K^2-1).
+\label{eq:algebra-codim}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+The differential and adjoint are the same as in \cref{lem:ds}, with $M_T$ replaced by $A\in\mathfrak A$:
+\[
+(Ds_{\mathfrak A})[X](A)
+=\tf(X^\dagger AV+V^\dagger AX),
+\qquad
+(Ds_{\mathfrak A})^*(B\otimes L_0)
+=2P^\perp BVL_0.
+\]
+Applying the first expression to the second produces compressions of $AB$ and $BA$.  Since $\mathfrak A$ is an algebra, both products lie in $\mathfrak A$, and scalar compression gives
+\[
+V^\dagger ABV=\omega(AB)I_L,
+\qquad
+V^\dagger BAV=\omega(BA)I_L.
+\]
+The same calculation as in \cref{thm:covariance} therefore yields
+\[
+(Ds_{\mathfrak A}Ds_{\mathfrak A}^*)(B\otimes L_0)(A)
+=4\Cov_\omega(A,B)L_0.
+\]
+If $\omega$ is faithful, $\Cov_\omega(A,A)=0$ implies $A-\omega(A)I=0$ in $\mathfrak A$; because $A$ lies in the Hilbert--Schmidt trace-zero complement of the identity, this forces $A=0$.  Hence $Ds_{\mathfrak A}$ is surjective and the codimension follows from the regular-level-set theorem.
+\end{proof}
+
+\begin{remark}[Erasure as the matrix-algebra case]
+For $\mathfrak A=\operatorname{End}(A)\otimes I_B$, the induced state is
+$\omega(T\otimes I)=\Tr(\sigma_A T)$, faithfulness is equivalent to $\sigma_A>0$, and \cref{eq:algebra-covariance} reduces exactly to \cref{eq:covariance-normal}.  Thus the erased marginal is not an auxiliary parameter: it is the state on the correctable observable algebra whose covariance controls the full normal response.
+\end{remark}
+
+
+\section{Relation to prior work and novelty boundary}
+\label{sec:related}
+
+The statements in this paper sit next to several established geometric and information-theoretic viewpoints.
+
+\paragraph{KL compression geometry and operator systems.}
+The KL conditions themselves are classical \cite{KnillLaflamme1997}.  Higher-rank numerical ranges formalize scalar compressions $PAP=\lambda P$ and were developed in part for quantum error correction \cite{ChoiKribsZyczkowski2005}.  Kribs, Mammarella, and Pereira showed that exact QEC produces families of isoclinic error-image subspaces, linking KL structure to principal angles \cite{KribsMammarellaPereira2019}.  Scalar compression of operator systems is also the language of quantum anticliques/noncommutative graphs \cite{Weaver2018}, while operator-algebra QEC gives a broader algebraic framework \cite{KribsEtAl2005}.  Our sections $s_{\mathfrak A}$ and $s_A$ do not introduce scalar compression as a new coding condition; the new content claimed here is the local covariance normal form, the explicit normal-operator identity \eqref{eq:covariance-normal}, and their leakage and conditioning consequences.
+
+\paragraph{No-hiding, privacy, and masking.}
+The equivalence between erasure correction and constancy of the complementary output is standard \cite{KretschmannKribsSpekkens2007,BenyOreshkov2009}.  The canonical decomposition in \cref{thm:canonical} is a one-sided no-hiding statement and is closely related to structural expressions used in the masking literature \cite{BraunsteinPati2006,HanEtAl2020}.  We do not claim this decomposition as novel.
+
+\paragraph{Entangled subspaces.}
+The connection between highly/maximally entangled subspaces and QEC is established \cite{GourWallach2007}.  Our qubit result uses the stronger fact that exact erasure fixes the entire reduced density matrix.  This produces a fixed Fubini--Study distance to the Segre variety and lets the same concurrence parameter enter the differential conditioning of KL constraints.
+
+\paragraph{Code landscapes.}
+Du et al. parameterize codes on Stiefel manifolds and study continuous KL-coefficient landscapes \cite{DuZhangPoonZeng2024}; Zhang et al. similarly optimize KL and transversal-gate losses on Stiefel manifolds \cite{ZhangWuHuangZeng2025}.  Gupta et al. subsequently introduced a global variance-based geometry for exact Pauli-detecting codes, organized by attainable scalar compression data \cite{GuptaSunHeZeng2026}.  Those works establish that exact-code spaces can have rich continuous global structure.  Our use of the word ``geometry'' is different and deliberately local: we compute the Jacobian of the exact-KL defining equations, its normal Gram operator, and the Hessian of an information-leakage functional at the zero locus.  None of our novelty claims rely on the existence of a manifold parametrization or on variance profiles of the maximally mixed code state.
+
+\paragraph{Approximate QEC.}
+B\'eny and Oreshkov characterize approximate correctability through the closeness of complementary channels to constant channels \cite{BenyOreshkov2009}.  Zheng et al. derive optimization-free near-optimal performance estimates from KL data \cite{ZhengHeLeeJiang2024}.  Very recent work by Elimelech, Albert, and Barg develops an approximate error-set model with a worst-case environment-leakage distance and a KL Hellinger distance \cite{ElimelechAlbertBarg2026}.  Our $\cL_A$ is intentionally more elementary: an average Hilbert--Schmidt variance.  Its significance here is not that it supersedes AQEC performance metrics, but that it is exactly the squared norm of the Grassmannian KL section and therefore has a closed-form Hessian at exact codes.
+
+A targeted search of these literatures did not reveal the identity $Ds_A Ds_A^*=4\mathsf{Cov}_{\sigma_A}\otimes I$, the resulting Morse--Bott theorem, the complementary-channel Choi/Frobenius identity in \cref{prop:choi-leakage} used as the local defining norm, the reciprocal-concurrence condition number, or the cross-Gram formula \eqref{eq:cross-gram} as a deformation-theoretic description of simultaneous erasure constraints.  This is evidence of novelty, not a substitute for expert prior-art review.
+
+\section{Discussion}
+
+The main result can be summarized in one line:
+\[
+\boxed{
+\text{normal stiffness of exact erasure correction}
+\;=\;
+\text{covariance geometry of the erased marginal}.
+}
+\]
+The statement is exact and dimension-independent.  The code dimension enters only through the multiplicity $K^2-1$ and the universal Haar factor $K(K+1)$; all anisotropy comes from $\sigma_A$.
+
+For qubit erasure this produces a particularly transparent bridge between differential geometry, entanglement, and QEC.  Exact correctability forces every logical state onto a common constant-concurrence tube around the Segre variety, while the same concurrence controls the condition number of the KL normal response.  Maximally mixed erased marginals are exactly the normally isotropic points.  Rank-deficient marginals sit at nontransverse boundaries where first-order KL constraints lose rank.
+
+Several extensions appear natural.
+\begin{enumerate}[label=(\arabic*)]
+    \item \textbf{Higher-order deformation theory.}  At multi-erasure codes with a large kernel of the stacked Jacobian, determine which infinitesimal directions integrate to genuine exact-code families.  The second-order obstruction is obtained by differentiating the stacked KL section again.
+    \item \textbf{Operator systems beyond algebras.}  The covariance normal form extends here to scalar-compressed $*$-algebras.  For a general operator system not closed under products, \cref{thm:cross-gram} suggests that the obstruction is precisely the non-scalar compression of products outside the system; characterizing when a closed normal form survives is open.
+    \item \textbf{Approximate recovery bounds.}  Relate $\cL_A$ and the normal Hessian quantitatively to worst-case complementary-channel distances and optimal recovery fidelity near the exact locus.
+    \item \textbf{Network QEC.}  In heralded-erasure settings, different erasure patterns select different KL zero loci.  Angles between the corresponding tangent/normal spaces may provide a geometric measure of how sharply the admissible code family changes as erasure information arrives asynchronously.
+\end{enumerate}
+
+The last direction is especially relevant to network architectures in which losses are heralded and local processing is triggered asynchronously.  The present paper supplies the single-pattern local geometry needed before such a dynamical theory can be formulated cleanly.
+
+\appendix
+
+\appendix
+
+\section{Haar second moment}
+
+For completeness, let $\ket{\psi}$ be Haar-random in $\C^K$.  Schur--Weyl symmetry gives
+\[
+\mathbb E\left(\ket{\psi}\bra{\psi}^{\otimes2}\right)
+=\frac{\Pi_{\mathrm{sym}}}{\dim\operatorname{Sym}^2\C^K}
+=\frac{I+F}{K(K+1)}.
+\]
+Hence for Hermitian $B,C$,
+\[
+\mathbb E\bigl[\bra{\psi}B\ket{\psi}\bra{\psi}C\ket{\psi}\bigr]
+=\frac{\Tr(BC)+\Tr B\Tr C}{K(K+1)}.
+\]
+The traceless specialization is the identity used in \cref{thm:leakage}.
+
+\section{Dimension check from the full-rank parametrization}
+
+For $r=a$, the canonical form is specified by a full-rank density matrix $\sigma_A$ and an isometry
+\[
+W:\C^a\otimes\C^K\to\C^b
+\]
+modulo the logical right action $I_a\otimes U(K)$.  Thus
+\begin{align*}
+\dim\cM_A^{(a)}
+&=(a^2-1)+\bigl[2abK-a^2K^2\bigr]-K^2\\
+&=2abK-a^2K^2-K^2+a^2-1\\
+&=2K(ab-K)-(a^2-1)(K^2-1),
+\end{align*}
+which agrees exactly with the regular-zero-set codimension obtained from \cref{thm:covariance}.
+
+\section{Reproducibility note}
+
+The accompanying Python script \texttt{verify\_erasure\_geometry.py} performs three independent checks:
+\begin{enumerate}
+    \item numerical singular-value comparisons for the covariance theorem at canonical $2\times b$ and $3\times b$ exact erasure codes;
+    \item Monte Carlo verification of the Haar-average leakage identity for generic non-code subspaces;
+    \item exact symbolic rank and local-orbit calculations for the $[[4,2,2]]$ stacked one-erasure Jacobian.
+\end{enumerate}
+These checks are supplementary; the main single-erasure results are proved analytically in the text.
+
+\begin{thebibliography}{99}
+
+\bibitem{KnillLaflamme1997}
+E. Knill and R. Laflamme,
+\newblock A theory of quantum error-correcting codes,
+\newblock \emph{Phys. Rev. A} \textbf{55}, 900 (1997), arXiv:quant-ph/9604034.
+
+
+\bibitem{Weaver2018}
+N. Weaver,
+\newblock The ``quantum'' Turan problem for operator systems,
+\newblock arXiv:1802.07394 (2018).
+
+\bibitem{LiPoon2008}
+C.-K. Li and Y.-T. Poon,
+\newblock Quantum error correction and generalized numerical ranges,
+\newblock arXiv:0812.4772 (2008).
+
+\bibitem{KribsEtAl2005}
+D. W. Kribs, R. Laflamme, D. Poulin, and M. Lesosky,
+\newblock Operator quantum error correction,
+\newblock arXiv:quant-ph/0504189 (2005).
+
+\bibitem{ChoiKribsZyczkowski2005}
+M.-D. Choi, D. W. Kribs, and K. Zyczkowski,
+\newblock Higher-rank numerical ranges and compression problems,
+\newblock arXiv:math/0511278 (2005).
+
+\bibitem{KribsMammarellaPereira2019}
+D. W. Kribs, D. Mammarella, and R. Pereira,
+\newblock Isoclinic subspaces and quantum error correction,
+\newblock arXiv:1912.10100 (2019).
+
+\bibitem{KretschmannKribsSpekkens2007}
+D. Kretschmann, D. W. Kribs, and R. W. Spekkens,
+\newblock Complementarity of private and correctable subsystems in quantum cryptography and error correction,
+\newblock arXiv:0711.3438 (2007).
+
+\bibitem{BenyOreshkov2009}
+C. B\'eny and O. Oreshkov,
+\newblock General conditions for approximate quantum error correction and near-optimal recovery channels,
+\newblock arXiv:0907.5391 (2009).
+
+\bibitem{BraunsteinPati2006}
+S. L. Braunstein and A. K. Pati,
+\newblock Quantum information cannot be completely hidden in correlations: implications for the black-hole information paradox,
+\newblock arXiv:gr-qc/0603046 (2006).
+
+\bibitem{HanEtAl2020}
+K. Han, Z. Guo, H. Cao, Y. Du, and C. Yang,
+\newblock Quantum multipartite maskers vs quantum error-correcting codes,
+\newblock arXiv:2005.11169 (2020).
+
+\bibitem{GourWallach2007}
+G. Gour and N. R. Wallach,
+\newblock Entanglement of subspaces and error correcting codes,
+\newblock arXiv:0704.0251 (2007).
+
+\bibitem{DuZhangPoonZeng2024}
+M. Du, C. Zhang, Y.-T. Poon, and B. Zeng,
+\newblock Characterizing quantum codes via the coefficients in Knill--Laflamme conditions,
+\newblock arXiv:2410.07983 (2024).
+
+\bibitem{ZhangWuHuangZeng2025}
+C. Zhang, Z. Wu, S. Huang, and B. Zeng,
+\newblock Transversal gates in nonadditive quantum codes,
+\newblock arXiv:2504.20847 (2025).
+
+
+\bibitem{GuptaSunHeZeng2026}
+A. Gupta, B. Sun, X. He, and B. Zeng,
+\newblock Variance geometry of exact Pauli-detecting codes: continuous landscapes beyond stabilizers,
+\newblock arXiv:2604.21800 (2026).
+
+\bibitem{ZhengHeLeeJiang2024}
+G. Zheng, W. He, G. Lee, and L. Jiang,
+\newblock The near-optimal performance of quantum error correction codes,
+\newblock arXiv:2401.02022 (2024).
+
+\bibitem{ElimelechAlbertBarg2026}
+D. Elimelech, V. V. Albert, and A. Barg,
+\newblock Theory of approximate quantum error correction and the error-set model,
+\newblock arXiv:2607.22995 (2026).
+
+\bibitem{Watrous2009}
+J. Watrous,
+\newblock Semidefinite programs for completely bounded norms,
+\newblock arXiv:0901.4709 (2009).
+
+\bibitem{Tan2025}
+I. Tan,
+\newblock Classification of four-qubit pure codes and five-qubit absolutely maximally entangled states,
+\newblock arXiv:2507.02185 (2025).
+
+\end{thebibliography}
+
+\end{document}
