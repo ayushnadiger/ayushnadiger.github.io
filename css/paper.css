@@ -25,6 +25,20 @@
 .paper-references li { padding-left: .3rem; margin-bottom: 1rem; }
 .paper-references p { margin: 0; text-align: left; }
 .paper-references li::marker { content: '[' counter(list-item) ']  '; }
+.work-in-progress { border-left: 2px solid #b7b7ae; padding: .55rem 0 .55rem 1rem; margin: 0 0 1.8rem; font-size: .88rem; color: var(--muted); }
+.work-in-progress p { margin: 0; }
+.project-research { padding-top: .5rem; }
+.project-research > section:first-child h2 { margin-top: 1.5rem; }
+.project-research figure img { display: block; width: 100%; max-height: none; margin: 0 auto; }
+.project-research figcaption { font-size: .86rem; color: var(--muted); margin-top: .8rem; text-align: left; }
+.project-research .model-note { font-size: .88rem; color: var(--muted); text-align: left; }
+.project-research .research-result { border-left: 2px solid #b7b7ae; padding: .1rem 0 .1rem 1rem; margin: 1.5rem 0; }
+.project-research .research-result p { text-align: left; margin-bottom: 0; }
+.project-research .paper-references { overflow-wrap: anywhere; }
+.project-research .paper-references p { font-size: .88rem; }
+.project-research .math.display { margin: 1.3rem 0; text-align: center; }
+.figure-zoom { margin-left: .5rem; white-space: nowrap; }
+.course-note { margin-top: 2.5rem; }
 .paper-toc { margin: 0 0 2.5rem; font-size: .82rem; line-height: 1.45; }
 .paper-toc summary { cursor: pointer; font-weight: bold; margin-bottom: .7rem; }
 .paper-toc ol { list-style: none; padding-left: 0; margin: 0; }
