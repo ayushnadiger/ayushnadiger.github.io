@@ -2,14 +2,8 @@
 
 Personal academic website: https://ayushnadiger.github.io/
 
-Static HTML and CSS, preserving the original Latin Modern typography and paper-like layout.
+The published site contains the homepage and six project pages, with the original Latin Modern typography and paper-like layout. Active projects are marked Ongoing; the other project pages contain full HTML manuscripts. There are no PDFs or legacy redirect pages.
 
-- `index.html`: affiliation and six projects in the requested order.
-- `projects/`: project overviews followed by the full HTML manuscripts; active work is marked Ongoing.
-- `assets/papers/`: retained TeX sources and browser-native figures.
-- `css/paper.css`: responsive manuscript typography and contents navigation.
-- `tools/build_projects.py`: rebuilds the homepage and project pages. Requires Python, lxml, and Pandoc.
+`tools/build_projects.py` rebuilds the homepage and six project pages using Python, lxml, and Pandoc. Retained TeX sources and browser-native figures live under `assets/papers/`.
 
-Run `python tools/build_projects.py` after changing project metadata or manuscript text. GitHub Pages serves the generated HTML directly. Readers include linked references, numbered equations, original figures, and MathJax mathematics. The site contains no PDFs.
-
-Old Research, Projects, Papers, and CV URLs redirect to Projects. Existing note and other project URLs remain available. The site header contains only the name/home link.
+Only the pages, styles, figures, favicon, search metadata, and ownership-verification file are published. `_config.yml` excludes the build tool, this README, and manuscript source files from the public site.

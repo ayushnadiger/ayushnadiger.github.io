@@ -1,0 +1,9 @@
+# Keep build inputs and repository documentation off the published website.
+exclude:
+  - README.md
+  - tools
+  - assets/papers/bond-repair/main.tex
+  - assets/papers/erasure-geometry/main.tex
+  - assets/papers/predictive-rank/main.tex
+  - assets/papers/predictive-rank/references.bib
+  - assets/papers/trapped-ion/main.tex
