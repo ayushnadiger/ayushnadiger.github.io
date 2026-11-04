@@ -398,6 +398,7 @@ a { overflow-wrap: anywhere; }
 .project-entry p { margin: .25rem 0 0; }
 .project-date { color: var(--muted); font-size: .87rem; }
 .back-link { font-size: .9rem; margin-bottom: 1.8rem; }
+.project-page main.container { padding-top: 2.6rem; }
 .project-overview h1 { text-align: left; font-size: 1.5rem; margin: 0 0 .65rem; }
 .project-context { color: var(--muted); font-size: .93rem; }
 .ongoing-project { margin-top: 3rem; color: var(--muted); font-style: italic; }
