@@ -1,0 +1,39 @@
+<section id="question">
+  <h2>1. The network design question</h2>
+  <p>Hybrid repeaters combine memories suited to fast, multiplexed entanglement generation with memories suited to long storage and accurate local operations. Encoded hybrid repeater chains provide the starting architecture <a href="#ref-haldar" aria-label="Reference 1">[1]</a>. This project asks how to extend that architecture to two-dimensional networks: where should the more capable hybrid nodes go, which paths should supply them, and which error-correcting codes should they use?</p>
+  <p>Extra paths create more opportunities to generate entanglement, but they also compete for memory and introduce additional swaps. An encoded block must assemble several physical pairs, so its completion time and accumulated noise depend on how those arrivals fit together. The goal is to optimize <strong>placement, routing, memory resources, and code choice jointly</strong>.</p>
+  <figure id="network-geometry">
+    <img src="../assets/research/hybrid/shared-junction.svg" width="1000" height="440" alt="Two hybrid endpoints A and B connected by a three-hop route and an optional four-hop detour. The paths merge at a simple repeater and share the final link." loading="eager">
+    <figcaption><strong>Figure 1. A minimal shared-resource example.</strong> The three-hop route A–1–4–B and four-hop detour A–2–3–4–B compete at node 4 and the final link. The detour adds three active links to the original three. Its effect depends on both delivery timing and noise.</figcaption>
+  </figure>
+</section>
+<section id="boundary-model">
+  <h2>2. Reducing the network to its hybrid boundaries</h2>
+  <p>The analytical goal is an exact stochastic description of a region of simple Type-1 repeaters as seen by its boundary hybrids. Existing work gives exact waiting-time and noise analyses for repeater chains <a href="#ref-shchukin" aria-label="Reference 2">[2]</a>, <a href="#ref-goodenough" aria-label="Reference 3">[3]</a>. Here, branching paths can share physical resources, so their outputs must retain the resulting correlations.</p>
+  <p>The current construction uses a finite-state boundary kernel: a state records which physical memory ports are occupied, while Pauli-Fourier moments retain the joint phase-error distribution. Boundary actions can consume a completed pair or transfer it into an encoded register. Under the specified model, this preserves the joint law of delivery timing and phase errors without retaining a growing list of arrival histories.</p>
+  <div class="research-result"><p><strong>Current theoretical result.</strong> For a finite directed acyclic region with one memory slot per link endpoint, local random swap-ASAP, and independent Markovian phase noise, the controlled boundary description has a state dimension independent of the number of elapsed rounds. The construction also includes the correlated phase errors and storage noise of a partially assembled encoded block.</p></div>
+  <p class="model-note">The hidden state still retains physical port configurations. Its size can grow rapidly with network size; independence from the time horizon does not imply efficient computation for arbitrary networks. Controllers that act on individual pair ages require that information to remain in the state.</p>
+</section>
+<section id="routing-result">
+  <h2>3. Code choice can reverse the preferred route</h2>
+  <p>An exact calculation on the graph above compares the shortest route with the same route plus the detour. Both designs use the same seven-round deadline and a phase-adjusted delivery objective. The detour slightly reduces the unencoded objective, but increases the objective for a three-rail phase-repetition block by about 2.22 times.</p>
+  <figure id="code-route-reversal">
+    <img src="../assets/research/hybrid/code-route-reversal.svg" width="1000" height="600" alt="Ratio of the phase-adjusted delivery objective with a detour to shortest-only routing: 0.959 for an unencoded pair and 2.223 for a three-rail phase repetition block. A ratio above one favors the detour." loading="lazy">
+    <figcaption><strong>Figure 2. Exact code-dependent routing reversal.</strong> Each bar compares the detour design with the shortest-only design for the same encoding policy. The horizontal line marks equal performance. Values come from finite-state calculations in the simplified phase-only model; this is a testbed example of the interaction between routing and encoding.</figcaption>
+  </figure>
+  <p>The extra path adds noisy ancestry to individual pairs, but gives the encoded controller more chances to collect all three rails before the deadline. Its value therefore depends on the code's resource requirement. The illustrative objective is</p>
+  <div class="math display">\[R_{\mathrm{phase}}=\frac{\Pr(T\leq D)}{\mathbb{E}[\min(T,D)]}\left[1-h_2\!\left(p_Z^{\mathrm{cond}}\right)\right],\qquad D=7.\]</div>
+  <p class="model-note">Here T is block completion time, p<sub>Z</sub><sup>cond</sup> is the output phase-error probability conditional on completion by the deadline, and h<sub>2</sub> is binary entropy. The example uses link-success probability 0.5, swap-success probability 0.9, Type-1 and Type-2 one-round phase characters 0.99, and swap phase character 0.9. Trials reset immediately at completion or the deadline. The encoded decoder is ideal phase-majority correction; the calculation omits bit-flip errors, full syndrome-extraction faults, classical latency, and hardware cost. The ratio compares routing choices within a code, rather than encoded and unencoded throughput.</p>
+</section>
+<section id="next-steps">
+  <h2>4. Current scope and next steps</h2>
+  <p>The exact result currently covers branching directed regions between two boundary hybrids and a simplified phase-only encoded controller. The broader two-dimensional study includes reconvergence at hybrid checkpoints, local swapping, routing, and finite-memory effects. The next step is to connect the boundary model to the full encoded-repeater noise model and use it to guide larger-network placement and routing decisions.</p>
+</section>
+<section id="references">
+  <h2>References</h2>
+  <ol class="paper-references">
+    <li id="ref-haldar"><p>S. Haldar, S. Guha, D. Towsley, and F. Rozpędek. <cite>Scalable entanglement distribution using encoded hybrid repeater chains.</cite> Preprint (2026). <a href="https://arxiv.org/abs/2609.19783">arXiv:2609.19783</a>.</p></li>
+    <li id="ref-shchukin"><p>E. Shchukin, F. Schmidt, and P. van Loock. <cite>Waiting time in quantum repeaters with probabilistic entanglement swapping.</cite> Physical Review A 100, 032322 (2019). <a href="https://doi.org/10.1103/PhysRevA.100.032322">DOI</a>.</p></li>
+    <li id="ref-goodenough"><p>K. Goodenough, T. Coopmans, and D. Towsley. <cite>On noise in swap ASAP repeater chains: exact analytics, distributions and tight approximations.</cite> Quantum 9, 1744 (2025). <a href="https://doi.org/10.22331/q-2025-05-15-1744">DOI</a>.</p></li>
+  </ol>
+</section>

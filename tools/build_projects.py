@@ -313,7 +313,7 @@ def build():
       <p>{summary_html}</p>
     </article>''')
         path='projects/'+p['slug']+'.html'
-        result=page_head(p['title'],p['summary'],path,reader=not p.get('ongoing'))
+        result=page_head(p['title'],p['summary'],path,reader=True)
         result+=f'''<main class="container" id="main">
   <p class="back-link"><a href="../index.html#projects">← Projects</a></p>
   <section class="project-overview" aria-labelledby="project-title">
@@ -326,7 +326,20 @@ def build():
         if p.get('links'):
             result+='<p class="project-links">'+'<span aria-hidden="true"> · </span>'.join('<a href="'+esc(url)+'">'+esc(label)+'</a>' for label,url in p['links'])+'</p>\n'
         if p.get('ongoing'):
-            result+='<section class="ongoing-project" aria-label="Project status"><p>Ongoing</p></section>\n'
+            notice='<aside class="work-in-progress" aria-label="Research status"><p><strong>Ongoing work.</strong> This page summarizes research in progress. Results, methods, and conclusions may change as the work develops.</p></aside>\n'
+            result=result.replace('  <section class="project-overview"',notice+'  <section class="project-overview"',1)
+            content=(ROOT/'tools'/'project_content'/(p['slug']+'.html')).read_text()
+            fragment=lh.fragment_fromstring('<div>'+content+'</div>')
+            for figure in fragment.xpath('.//figure'):
+                image=figure.find('img')
+                link=lh.Element('a',href=image.get('src'),**{'aria-label':'Enlarge figure'})
+                figure.replace(image,link)
+                link.append(image)
+                zoom=lh.Element('a',href=image.get('src'),**{'class':'figure-zoom'})
+                zoom.text='Enlarge figure'
+                figure.find('figcaption').append(zoom)
+            content=''.join(etree.tostring(x,encoding='unicode',method='html') for x in fragment)
+            result+='<article class="manuscript project-research" aria-label="Research overview">\n'+content+'\n</article>\n'
             if p.get('course_note'):
                 result+='<p class="small muted course-note">'+esc(p['course_note'])+'</p>\n'
         else:
