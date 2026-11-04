@@ -116,7 +116,7 @@ h1, h2, h3 {
   color: var(--ink);
   font-weight: 700;
   line-height: 1.28;
-  text-wrap: balance;
+  text-wrap: pretty;
 }
 
 main.container > h1:first-child,
