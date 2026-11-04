@@ -26,8 +26,8 @@ PROJECTS = [
 
 PROJECT_PRIORITY = [
     'hybrid-quantum-repeaters', 'asynchronous-qec',
-    'covariance-geometry-qec', 'predictive-rank-qec',
-    'trapped-ion-diagnostics', 'graph-state-repair-diagnosis',
+    'graph-state-repair-diagnosis', 'trapped-ion-diagnostics',
+    'predictive-rank-qec', 'covariance-geometry-qec',
 ]
 PROJECTS.sort(key=lambda project: PROJECT_PRIORITY.index(project['slug']))
 
