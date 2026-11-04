@@ -1,58 +1,1584 @@
 <!doctype html>
-<html lang="en">
-<head>
+<html lang="en"><head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Geometry-Controlled Correlated Electric-Field Noise in Enclosed Ion Traps | Ayush Nadiger</title>
-  <meta name="description" content="Ayush Nadiger's trapped-ion preprint on geometry-controlled correlated electric-field noise in enclosed ion traps, Green-function kernels, enclosure effects, and billiard return spectra.">
+  <title>Geometry-Controlled Noise in Trapped-Ion Systems | Ayush Nadiger</title>
+  <meta name="description" content="How electrode geometry shapes electric-field noise and spatial correlations in trapped-ion systems.">
   <link rel="canonical" href="https://ayushnadiger.github.io/projects/trapped-ion-diagnostics.html">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml" sizes="any">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../css/style.css">
-</head>
-<body>
-<header class="site-header">
-  <p class="site-title"><a href="../index.html">Ayush Nadiger</a></p>
-  <nav class="site-nav" aria-label="Main navigation">
-    <a href="../research.html" aria-current="page">Research</a><span aria-hidden="true">·</span>
-    <a href="../assets/Ayush_Nadiger_CV.pdf">CV (PDF)</a><span aria-hidden="true">·</span>
-    <a href="mailto:anadiger@umass.edu">Email</a>
-  </nav>
-</header>
-
-<main class="container">
-  <header class="paper-header">
-    <h1>Geometry-controlled correlated electric-field noise in enclosed ion traps from billiard return spectra</h1>
-    <p class="meta">A. Nadiger · arXiv:2608.24770 · 2026 · quantum physics / atomic physics</p>
-    <p class="project-links">[<a href="https://arxiv.org/abs/2608.24770">arXiv</a>] [<a href="https://github.com/ayushnadiger/noise_recycling">code and numerical data</a>] [<a href="https://honorspaths.honors.umass.edu/massurc/home/abstract/4634">MassURC abstract</a>]</p>
-  </header>
-
-  <section class="paper-abstract">
-    <p><span class="label">Abstract.</span> In a spatially local patch-potential model, electric-field noise at a trapped ion separates into a material spectrum and a deterministic Green-function geometry factor. I solve the geometry problem for controlled enclosures, derive the spatial correlations, and connect the field-level boundary response to billiard return statistics.</p>
+  <link rel="stylesheet" href="../css/paper.css">
+<script>window.MathJax={loader:{load:["[tex]/html","[tex]/boldsymbol"]},tex:{tags:"none",packages:{"[+]": ["ams","html","boldsymbol"]}},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]},chtml:{displayOverflow:"scroll"}};</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head><body class="reader-page">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header"><p class="site-title"><a href="../index.html">Ayush Nadiger</a></p></header>
+<main class="container" id="main">
+  <p class="back-link"><a href="../index.html#projects">← Projects</a></p>
+  <section class="project-overview" aria-labelledby="project-title">
+    <h1 id="project-title">Geometry-Controlled Noise in Trapped-Ion Systems</h1>
+    <p class="project-date">May 2025 – August 2026</p>
+    <p class="project-context">Undergraduate honors thesis · Supervised by Christopher Cox and Robert Niffenegger</p>
+    <p>How electrode geometry shapes electric-field noise and spatial correlations in trapped-ion systems.</p>
   </section>
+<aside class="paper-toc" aria-label="Paper contents"><details><summary>Contents</summary><ol><li class="toc-h2"><a href="#introduction">1. Introduction</a></li><li class="toc-h2"><a href="#surface-covariance-and-the-measured-heating-rate">2. Surface covariance and the measured heating rate</a></li><li class="toc-h2"><a href="#many-ion-covariance-and-open-system-generator">3. Many-ion covariance and open-system generator</a></li><li class="toc-h2"><a href="#parallel-slab-exact-billiard-return-measures">4. Parallel slab: exact billiard return measures</a></li><li class="toc-h2"><a href="#anomalous-heating-as-a-return-pair-functional">5. Anomalous heating as a return-pair functional</a></li><li class="toc-h3"><a href="#exact-h2d-identities">5.1 Exact \(h=2d\) identities</a></li><li class="toc-h3"><a href="#mode-selective-enclosure-theorem">5.2 Mode-selective enclosure theorem</a></li><li class="toc-h2"><a href="#spatial-transfer-absolute-response-versus-fractional-contrast">6. Spatial transfer: absolute response versus fractional contrast</a></li><li class="toc-h2"><a href="#sharp-fine-scale-asymptotics-and-the-close-cover-crossover">7. Sharp fine-scale asymptotics and the close-cover crossover</a></li><li class="toc-h2"><a href="#finite-patch-correlations-and-distance-scaling">8. Finite patch correlations and distance scaling</a></li><li class="toc-h2"><a href="#many-ion-covariance-ordering-and-collective-channels">9. Many-ion covariance ordering and collective channels</a></li><li class="toc-h3"><a href="#gate-level-heating-exposure">9.1 Gate-level heating exposure</a></li><li class="toc-h2"><a href="#beyond-unfolding-specular-saddles-of-the-screened-green-operator">10. Beyond unfolding: specular saddles of the screened Green operator</a></li><li class="toc-h3"><a href="#curved-cover-numerical-test">10.1 Curved-cover numerical test</a></li><li class="toc-h3"><a href="#shape-derivative-focusing-and-multiple-saddles">10.2 Shape derivative, focusing, and multiple saddles</a></li><li class="toc-h3"><a href="#curved-geometry-reshapes-a-collective-noise-channel">10.3 Curved geometry reshapes a collective noise channel</a></li><li class="toc-h2"><a href="#experimental-interpretation-and-scope">11. Experimental interpretation and scope</a></li><li class="toc-h2"><a href="#discussion">12. Discussion</a></li><li class="toc-h2"><a href="#conclusion">13. Conclusion</a></li><li class="toc-h2"><a href="#acknowledgments">Acknowledgments</a></li><li class="toc-h2"><a href="#data-and-code-availability">Data and code availability</a></li><li class="toc-h2"><a href="#a.-sharp-d2-asymptotics">A. Sharp \(D=2\) asymptotics</a></li><li class="toc-h2"><a href="#b.-tangential-signed-return-measure">B. Tangential signed return measure</a></li><li class="toc-h2"><a href="#c.-ray-reconstruction-identity">C. Ray reconstruction identity</a></li><li class="toc-h2"><a href="#d.-constructive-billiard-reconstruction-in-the-strip">D. Constructive billiard reconstruction in the strip</a></li><li class="toc-h2"><a href="#e.-curved-cover-screened-bem-details">E. Curved-cover screened-BEM details</a></li><li class="toc-h2"><a href="#f.-primitive-gate-channel-simulation">F. Primitive gate-channel simulation</a></li><li><a href="#references">References</a></li></ol></details></aside>
+<article class="manuscript" id="paper" aria-label="Full paper">
+<section class="manuscript-abstract" id="abstract"><h3>Abstract</h3><p>We ask how passive conducting geometry determines the spatial
+structure of electric-field noise seen by trapped ions. From a
+boundary-potential covariance and the Dirichlet Green function we
+construct the <span class="math inline">\(N\)</span>-ion electric-field
+cross-spectral matrix and its blockwise motional Kossakowski generator.
+In a parallel slab, billiard unfolding turns the electrostatic response
+into a return-depth measure and yields an exact return-pair functional
+for arbitrary stationary surface spectra. For every finite equal-height
+ion array, a passive cover obeys the matrix inequalities <span
+class="math inline">\(C^{(y)}_h-C^{(y)}_\infty\succeq0\)</span> and
+<span class="math inline">\(C^{(x)}_\infty-C^{(x)}_h\succeq0\)</span>:
+all collective normal-field coordinates acquire more absolute noise,
+while all collective tangential coordinates acquire less. At <span
+class="math inline">\(h=2d\)</span> the local-noise single-ion ratios
+are exactly <span class="math inline">\(\zeta(3)\)</span> and <span
+class="math inline">\(\eta(3)\)</span>.</p>
+<p>Diagonalizing the equal-frequency covariance identifies collective
+environmental noise eigenchannels and a geometry-dependent noise rank;
+within a degenerate frequency block these become the Lindblad jump
+channels. In a ten-ion example, closing the cover to <span
+class="math inline">\(h=2d\)</span> lowers the participation rank from
+<span class="math inline">\(5.61\)</span> to <span
+class="math inline">\(5.11\)</span> while increasing the leading
+channel’s share from <span class="math inline">\(23.7\%\)</span> to
+<span class="math inline">\(28.6\%\)</span>; a primitive Mølmer–Sørensen
+calculation shows how the projected covariance sets the weak-heating
+gate exposure. Beyond parallel walls, specular paths emerge as
+large-<span class="math inline">\(q_z\)</span> saddles of the screened
+boundary operator. Across 16 curved covers, the fitted electrostatic
+decay exponent correlates at <span class="math inline">\(0.9991\)</span>
+with the independently computed shortest specular excess length, while
+separate tests resolve focusing and competing saddles.</p>
+</section>
+<h2 id="introduction">1. Introduction</h2>
+<p>Electric-field noise near conducting surfaces limits motional
+coherence and entangling-gate performance in trapped-ion processors [<a href="#ref-Turchette2000">1</a>, <a href="#ref-Deslauriers2006">2</a>,
+<a href="#ref-Brownnutt2015">3</a>, <a href="#ref-Sedlacek2018">4</a>,
+<a href="#ref-Webb2018">18</a>, <a href="#ref-Sutherland2022">19</a>].
+The usual anomalous-heating observable is a single diagonal element of a
+larger object: the spatial electric-field cross spectrum seen by all
+ions in the device. Multi-ion probes and collective motional modes are
+already known to reveal the spatial correlation length and orientation
+of surface fluctuators [<a href="#ref-Brownnutt2015">3</a>, <a href="#ref-Galve2017">17</a>], while scanning-ion measurements can
+spatially map surface fields and noise [<a href="#ref-Sagesser2024">15</a>]. The question here is different. We
+hold the stochastic source statistics fixed and ask how a passive
+conducting boundary reshapes that complete spatial noise operator.</p>
+<p>Patch-potential models naturally separate source statistics from
+electrostatic propagation through a Green function [<a href="#ref-Dubessy2009">5</a>, <a href="#ref-Low2011">6</a>, <a href="#ref-Lin2016">7</a>]; geometry-resolved calculations have also
+been used to identify heating hot spots in realistic electrode layouts
+[<a href="#ref-Chu2025">16</a>]. General surface-induced quantum master
+equations for charged particles near material interfaces are established
+[<a href="#ref-Martinetz2022">14</a>]. Our contribution is not the
+existence of a Green-function heating law or a Lindblad description. We
+isolate a geometry-explicit return spectrum and show that it controls
+the full ion-array covariance, obeys a matrix ordering theorem, and
+continues beyond the strip through specular saddles of the screened
+boundary operator.</p>
+<p>The parallel slab is the analytically controlled case. Its image
+construction is exactly the unfolding of a parallel-wall billiard [<a href="#ref-Tabachnikov2005">8</a>]. The unfolded normal depths form a
+discrete return measure whose Laplace transform is the electric-field
+response. Pairing that measure with the surface spatial spectrum gives
+the electric-field covariance. The same construction yields exact
+special-function heating ratios and a Loewner ordering of the entire
+many-ion covariance matrix. Diagonalizing that covariance gives
+collective environmental noise eigenchannels and an effective noise
+rank; within a degenerate motional frequency block the corresponding
+rate matrix yields Lindblad jump operators. This recasts anomalous
+heating as one observable of a geometry-dependent correlated bosonic
+environment.</p>
+<p>To distinguish the return picture from a relabeling of the method of
+images, we test it beyond parallel walls. Multiple-reflection expansions
+and stationary-path descriptions of Green functions are classical tools
+[<a href="#ref-BalianBloch1970">9</a>, <a href="#ref-BalianBloch1972">10</a>, <a href="#ref-BalianDuplantier1977">11</a>, <a href="#ref-Bordag2001">12</a>, <a href="#ref-Zelditch2004">13</a>];
+specular stationary paths themselves are not our novelty. We use a
+screened boundary formulation to test whether those paths quantitatively
+organize the non-flat electrostatic response. They do: Euclidean path
+action fixes the exponential decay, boundary curvature fixes the
+focusing prefactor, and competing saddles add with the expected Laplace
+weights.</p>
+<p>The main results are: (i) an exact return-pair representation of
+surface-induced electric-field noise; (ii) an <span class="math inline">\(N\)</span>-ion covariance theorem showing opposite
+Loewner ordering for normal and tangential fields under a passive cover;
+(iii) collective covariance eigenchannels, their blockwise Kossakowski
+interpretation, and a geometry-dependent effective noise rank; (iv)
+exact <span class="math inline">\(\zeta(3)\)</span> and <span class="math inline">\(\eta(3)\)</span> single-ion limits,
+finite-correlation and mode-heating consequences, plus a
+control-mediated gate-exposure example; and (v) a non-flat screened-BEM
+test in which billiard saddles predict the electrostatic correction
+across a controlled geometry family. The conceptual chain is</p>
+<p><span class="math display">\[\begin{aligned}
+\text{surface statistics}&amp;\to\text{Green operator}\\
+&amp;\to\text{return spectrum}\to C_{ij}(\omega)\\
+&amp;\to\text{collective noise channel}.
+\end{aligned}
+\tag{1}\]</span></p>
+<h2 id="surface-covariance-and-the-measured-heating-rate">2. Surface
+covariance and the measured heating rate</h2>
+<div id="sec:source">
 
-  <section class="paper-section">
-    <h2><span class="section-number">1.</span>Exact enclosure law</h2>
-    <p>For a two-dimensional grounded strip and three-dimensional parallel plates, the vertical geometry functional decomposes exactly into the open-boundary contribution plus a strictly positive image-pair remainder. The remainder decreases as the enclosure opens, giving a precise version of the &quot;noise recycling&quot; picture rather than only a geometric analogy.</p>
-    <p>The three-dimensional result can be inverted into engineering rules: limiting the added vertical coupling to 5% or 1% requires cover clearance h/d of at least 2.870 or 4.372, respectively.</p>
-  </section>
+</div>
+<p>Let <span class="math inline">\(G(\boldsymbol{r},\boldsymbol{r}')\)</span> be
+the Dirichlet Green function of the vacuum region <span class="math inline">\(\Omega\)</span>, and let <span class="math inline">\(\Gamma_e\subset\partial\Omega\)</span> be the
+fluctuating electrode surface. Define the sensitivity of field component
+<span class="math inline">\(j\)</span> at the ion position <span class="math inline">\(\boldsymbol{r}_0\)</span> to a boundary potential
+at <span class="math inline">\(\boldsymbol{r}'\)</span> by</p>
+<div id="eq:Kdef">
 
-  <section class="paper-section">
-    <h2><span class="section-number">2.</span>Correlations</h2>
-    <p>Convergent spectral representations give exact open-boundary decorrelation distances of 2d/√3 in two dimensions and 2d√(2/3) in three dimensions. In the strip, h ≤ 2d is a sufficient exact condition for nonnegative vertical correlation at every separation. The spectral form also avoids spurious far-field zero crossings caused by naively truncating image sums.</p>
-  </section>
+</div>
+<p><span class="math display">\[K_j(\boldsymbol{r}';\boldsymbol{r}_0)=\nabla_{\boldsymbol{r}_0}^{(j)}
+\frac{\partial G}{\partial
+n'}(\boldsymbol{r}_0,\boldsymbol{r}').
 
-  <section class="paper-section">
-    <h2><span class="section-number">3.</span>Billiard return spectra</h2>
-    <p>Direction-resolved circular-gate passage counts, split by arrival direction and centrally differenced in ion height, reconstruct the field-level boundary kernel in the ideal strip. The simulations separate sampling variance from deterministic error through independent sweeps in gate radius, height step, ray count, and bounce depth, and test where the identity degrades on non-flat boundaries.</p>
-    <p class="small muted">The ray identity is structural for the controlled geometry; it is not claimed as a general-domain replacement for an electrostatic solver.</p>
-  </section>
+\tag{2}\]</span></p>
+<p>For <span class="math inline">\(\omega&gt;0\)</span> we use the
+one-sided spectral-density convention standard in ion-heating
+experiments. With Fourier components defined on the full time axis, we
+absorb the conventional factor of two into the positive-frequency cross
+spectrum and write</p>
+<div id="eq:covdef">
 
-  <section class="paper-section">
-    <h2><span class="section-number">4.</span>Thesis lineage</h2>
-    <p>This preprint grew out of my 2026 Commonwealth Honors Thesis on geometry-dependent anomalous heating, carried out at UMass Amherst with Christopher Cox and Robert Niffenegger. The broader thesis used finite-element Green-function kernels and billiard/TDA diagnostics across slot, trench, covered, and blade-like geometries.</p>
-  </section>
+</div>
+<p><span class="math display">\[\begin{align*}
+&amp;\langle\delta V(\boldsymbol{r},\omega)\delta
+V^*(\boldsymbol{r}',\omega')\rangle\nonumber\\
+&amp;\qquad=\pi\delta(\omega-\omega')C_V(\boldsymbol{r},\boldsymbol{r}';\omega),
+\qquad \omega,\omega'&gt;0.
 
-  <p class="small"><a href="../research.html">← research</a></p>
-</main>
-</body>
-</html>
+\tag{3}
+\end{align*}\]</span></p>
+<p>Then</p>
+<div id="eq:generalPSD">
+
+</div>
+<p><span class="math display">\[S_{E_j}(\omega)=\iint_{\Gamma_e}
+K_j(\boldsymbol{r})K_j^*(\boldsymbol{r}')
+C_V(\boldsymbol{r},\boldsymbol{r}';\omega)\,\mathrm dA\,\mathrm
+dA'.
+
+\tag{4}\]</span></p>
+<p>The spatially local model used below is the deliberate source
+model</p>
+<div id="eq:localcov">
+
+</div>
+<p><span class="math display">\[C_V(\boldsymbol{r},\boldsymbol{r}';\omega)=S_{\rm
+loc}(\boldsymbol{r},\omega)
+\delta_{\Gamma_e}(\boldsymbol{r}-\boldsymbol{r}'),
+
+\tag{5}\]</span></p>
+<p>where <span class="math inline">\(\delta_{\Gamma_e}\)</span> is the
+surface delta function. On a physical two-dimensional electrode surface,
+<span class="math inline">\(S_{\rm loc}\)</span> has units of
+voltage-noise PSD times area. Equation <a href="#eq:generalPSD">(4)</a>
+then reduces to the single-surface integral</p>
+<div id="eq:localforward">
+
+</div>
+<p><span class="math display">\[S_{E_j}(\omega)=\int_{\Gamma_e}|K_j(\boldsymbol{r})|^2
+S_{\rm loc}(\boldsymbol{r},\omega)\,\mathrm dA.
+
+\tag{6}\]</span></p>
+<p>A finite patch correlation length instead leaves the double integral
+in Eq. <a href="#eq:generalPSD">(4)</a>; we return to that case in
+Sec. <a href="#sec:correlated">8</a>.</p>
+<p>For a secular mode of frequency <span class="math inline">\(\omega_j\)</span>, neglecting micromotion
+sidebands, the heating rate in the same one-sided convention is [<a href="#ref-Turchette2000">1</a>, <a href="#ref-Brownnutt2015">3</a>]</p>
+<div id="eq:heatingrate">
+
+</div>
+<p><span class="math display">\[\boxed{\displaystyle
+\dot{\bar n}_j=\frac{e^2}{4m\hbar\omega_j}S_{E_j}(\omega_j).}
+
+\tag{7}\]</span></p>
+<p>Thus every geometric result for <span class="math inline">\(S_{E_j}\)</span> is directly a result for
+anomalous motional heating.</p>
+<h2 id="many-ion-covariance-and-open-system-generator">3. Many-ion
+covariance and open-system generator</h2>
+<div id="sec:opensystem">
+
+</div>
+<p>For <span class="math inline">\(N\)</span> ions at positions <span class="math inline">\(\boldsymbol{r}_i\)</span> and a chosen motional
+polarization <span class="math inline">\(u\)</span>, define the field
+cross-spectral matrix</p>
+<div id="eq:Cijgeneral">
+
+</div>
+<p><span class="math display">\[\begin{align*}
+C^{(u)}_{ij}(\omega)=\iint_{\Gamma_e}&amp;K_u(\boldsymbol{r};\boldsymbol{r}_i)K_u^*(\boldsymbol{r}';\boldsymbol{r}_j)\nonumber\\
+&amp;\times C_V(\boldsymbol{r},\boldsymbol{r}';\omega)\,\mathrm
+dA\,\mathrm dA'.
+
+\tag{8}
+\end{align*}\]</span></p>
+<p>For every complex vector <span class="math inline">\(\boldsymbol{c}\)</span>, <span class="math inline">\(\boldsymbol{c}^\dagger
+C^{(u)}\boldsymbol{c}\)</span> is the spectral density of the collective
+field <span class="math inline">\(\sum_i
+c_iE_u(\boldsymbol{r}_i)\)</span> and is nonnegative. Thus <span class="math inline">\(C^{(u)}(\omega)\)</span> is Hermitian positive
+semidefinite. Equation <a href="#eq:heatingrate">(7)</a> is its <span class="math inline">\(N=1\)</span> diagonal limit; for a normalized
+mechanical mode vector <span class="math inline">\(\boldsymbol{b}_\nu\)</span>, the corresponding
+field spectrum is</p>
+<div id="eq:modeheatingmatrix">
+
+</div>
+<p><span class="math display">\[S_{E,\nu}(\omega)=\boldsymbol{b}_\nu^\dagger
+C^{(u)}(\omega)\boldsymbol{b}_\nu,
+\qquad
+\dot{\bar n}_\nu=\frac{e^2}{4m\hbar\omega_\nu}S_{E,\nu}(\omega_\nu).
+
+\tag{9}\]</span></p>
+<p>This is the standard common/stretch-mode statement generalized to an
+arbitrary ion array [<a href="#ref-Brownnutt2015">3</a>, <a href="#ref-Galve2017">17</a>].</p>
+<p>The Green-function-to-master-equation step is established in
+surface-induced decoherence theory [<a href="#ref-Martinetz2022">14</a>]; we use it here to expose the operator
+consequence of the return geometry. To make the signed-frequency
+structure explicit, let</p>
+<p><span class="math display">\[\mathcal
+S_{ij}(\omega)=\int_{-\infty}^{\infty}\mathrm dt\,e^{i\omega t}
+\langle E_u(\boldsymbol{r}_i,t)E_u(\boldsymbol{r}_j,0)\rangle
+\tag{10}\]</span></p>
+<p>be the two-sided unsymmetrized quantum spectrum. For nearly
+degenerate local oscillators of frequency <span class="math inline">\(\omega_m\)</span>, with <span class="math inline">\(H_I=-e x_{\rm
+zpf}\sum_i(a_i+a_i^\dagger)E_u(\boldsymbol{r}_i)\)</span> and <span class="math inline">\(x_{\rm zpf}=\sqrt{\hbar/(2m\omega_m)}\)</span>,
+the Born–Markov secular generator contains</p>
+<div id="eq:kossakowski">
+
+</div>
+<p><span class="math display">\[\begin{align*}
+\dot\rho={}&amp;-i[H_{\rm eff},\rho]
++\sum_{ij}\Gamma^\downarrow_{ij}\left(a_j\rho
+a_i^\dagger-\frac12\{a_i^\dagger a_j,\rho\}\right)\nonumber\\
+&amp;+\sum_{ij}\Gamma^\uparrow_{ij}\left(a_j^\dagger\rho
+a_i-\frac12\{a_i a_j^\dagger,\rho\}\right),
+
+\tag{11}
+\end{align*}\]</span></p>
+<p>where</p>
+<div id="eq:ratesigned">
+
+</div>
+<p><span class="math display">\[\Gamma^\downarrow_{ij}=\frac{e^2}{2m\hbar\omega_m}\mathcal
+S_{ij}(+\omega_m),
+\qquad
+\Gamma^\uparrow_{ij}=\frac{e^2}{2m\hbar\omega_m}\mathcal
+S_{ij}(-\omega_m).
+
+\tag{12}\]</span></p>
+<p>For classical noise, the one-sided positive-frequency matrix used
+elsewhere in this paper is twice the corresponding two-sided spectrum,
+recovering Eq. <a href="#eq:modeheatingmatrix">(9)</a>. For quantum
+surface fluctuations the unsymmetrized spectra at <span class="math inline">\(+\omega\)</span> and <span class="math inline">\(-\omega\)</span> need not coincide; the same
+geometric construction applies separately to each positive-semidefinite
+signed-frequency matrix, so upward and downward channel spectra can
+differ. For nondegenerate mechanical frequencies the secular
+approximation is made in the normal-mode basis and Eq. <a href="#eq:kossakowski">(11)</a> applies within each frequency block; we
+do not assume that widely separated modes share one Kossakowski
+matrix.</p>
+<p>Within one degenerate or nearly degenerate frequency block,
+diagonalizing the heating matrix,</p>
+<div id="eq:jumps">
+
+</div>
+<p><span class="math display">\[\Gamma^\uparrow=V\Lambda V^\dagger,
+\qquad
+L_\mu^\uparrow=\sqrt{\lambda_\mu}\sum_iV^*_{i\mu}a_i^\dagger,
+
+\tag{13}\]</span></p>
+<p>identifies the collective Lindblad jump operators. More generally,
+diagonalizing <span class="math inline">\(C^{(u)}(\omega)\)</span>
+identifies equal-frequency environmental covariance eigenchannels even
+when distinct mechanical frequencies must be secularized separately. A
+scale-independent measure of the number of appreciably populated
+covariance channels is the participation rank</p>
+<div id="eq:reffC">
+
+</div>
+<p><span class="math display">\[r_{\rm
+eff}(C)=\frac{(\operatorname{Tr}C)^2}{\operatorname{Tr}(C^2)},
+\qquad 1\le r_{\rm eff}\le N.
+
+\tag{14}\]</span></p>
+<p>The return geometry below determines both the eigenvalues and the
+spatial profiles of these channels.</p>
+<h2 id="parallel-slab-exact-billiard-return-measures">4. Parallel slab:
+exact billiard return measures</h2>
+<div id="sec:slab">
+
+</div>
+<p>Consider a noisy plane at <span class="math inline">\(y=0\)</span>,
+an ion at <span class="math inline">\(y=d\)</span>, and a passive
+grounded plane at <span class="math inline">\(y=h&gt;d\)</span>. Let
+<span class="math inline">\(D\)</span> denote the tangential dimension
+of the noisy boundary: <span class="math inline">\(D=1\)</span> for a
+two-dimensional strip cross-section and <span class="math inline">\(D=2\)</span> for a physical three-dimensional
+slab.</p>
+<p>For the normal field, separation parallel to the planes gives</p>
+<div id="eq:Kperpclosed">
+
+</div>
+<p><span class="math display">\[\widehat
+K_{\perp,h}(k)=k\frac{\cosh[(h-d)k]}{\sinh(hk)},
+\qquad k=|\boldsymbol{k}|,
+
+\tag{15}\]</span></p>
+<p>while the open half-space has <span class="math inline">\(\widehat
+K_{\perp,\infty}=ke^{-dk}\)</span>. The parallel-plate image series
+itself is standard in trapped-ion patch-noise theory [<a href="#ref-Dubessy2009">5</a>, <a href="#ref-Brownnutt2015">3</a>]; here
+we reorganize it as a geometric return measure. Unfolding the two
+parallel boundaries produces the normal depths</p>
+<div id="eq:alpha">
+
+</div>
+<p><span class="math display">\[\alpha_n=|d-2nh|,\qquad n\in\mathbb Z.
+
+\tag{16}\]</span></p>
+<blockquote>
+<p><strong>Theorem 1 (Normal return-depth representation).</strong> For
+every <span class="math inline">\(h&gt;d\)</span> and <span class="math inline">\(k&gt;0\)</span>,</p>
+<div id="eq:pathlaplace">
+
+</div>
+<p><span class="math display">\[\boxed{\displaystyle
+\widehat K_{\perp,h}(k)=k\sum_{n\in\mathbb Z}e^{-\alpha_n k}.}
+
+\tag{17}\]</span></p>
+<p>If <span class="math inline">\(\mu_h^\perp=\sum_n\delta_{\alpha_n}\)</span>, then
+<span class="math inline">\(\widehat K_{\perp,h}(k)/k=\mathcal
+L\{\mu_h^\perp\}(k)\)</span>.</p>
+</blockquote>
+<p>The proof is the geometric series obtained from Eq. <a href="#eq:Kperpclosed">(15)</a>. Figure <a href="#fig:unfolding">1</a>
+shows the same object as reflected trajectories, unfolded straight
+paths, and a return-depth spectrum. The exact transform is in
+<em>unfolded normal depth</em>; it is not the Euclidean length of a
+laterally displaced physical trajectory. Euclidean path length appears
+later as the natural saddle action after the boundary is curved.</p>
+
+<figure id="fig:unfolding"><img src="../assets/papers/trapped-ion/fig_unfolding_schematic.svg" alt="Figure 1; full description in the caption below." loading="lazy"><figcaption><strong>Figure 1.</strong> Parallel-wall geometry in three equivalent forms. Left: direct and
+reflected billiard paths from a point on the noisy plane to the ion.
+Center: unfolding turns the reflections into straight paths to image
+ions. Right: the corresponding normal-depth measure <span class="math inline">\(\mu_h^\perp=\sum_n\delta_{\alpha_n}\)</span>.
+Spatial wavenumber Laplace-weights the returns by <span class="math inline">\(e^{-k\alpha_n}\)</span>.</figcaption></figure>
+
+<p>Tangential fields carry a different reflection parity. The potential
+multiplier at the ion is</p>
+<div id="eq:tangentmeasure">
+
+</div>
+<p><span class="math display">\[\begin{align*}
+P_h(k)&amp;=\frac{\sinh[(h-d)k]}{\sinh(hk)}\nonumber\\
+&amp;=\sum_{r\ge0}e^{-(d+2rh)k}
+-\sum_{r\ge0}e^{-(2h-d+2rh)k},
+
+\tag{18}
+\end{align*}\]</span></p>
+<p>and <span class="math inline">\(\widehat K_x=i k_xP_h\)</span>. The
+two image families therefore enter the tangential response with opposite
+signs. Billiard paths are the same geometrically; the field component
+attaches a parity weight to them.</p>
+<h2 id="anomalous-heating-as-a-return-pair-functional">5. Anomalous
+heating as a return-pair functional</h2>
+<div id="sec:heatingzeta">
+
+</div>
+<p>Assume a translationally stationary and isotropic source with
+tangential spectrum <span class="math inline">\(P(k,\omega)\)</span>.
+Writing <span class="math inline">\(\delta
+V_{\boldsymbol{k}}(\omega)\)</span> for the tangential Fourier
+component,</p>
+<p><span class="math display">\[\begin{align*}
+\langle \delta V_{\boldsymbol{k}}(\omega)\delta
+V_{\boldsymbol{k}'}^*(\omega')\rangle
+&amp;=\pi(2\pi)^D\delta^{(D)}(\boldsymbol{k}-\boldsymbol{k}')\nonumber\\
+&amp;\quad\times\delta(\omega-\omega')P(k,\omega),
+\qquad \omega,\omega'&gt;0.
+\tag{19}
+\end{align*}\]</span></p>
+<p>For the normal mode, Eqs. <a href="#eq:pathlaplace">(17)</a> and <a href="#eq:generalPSD">(4)</a> give</p>
+<div id="eq:SEk">
+
+</div>
+<p><span class="math display">\[S_{E_\perp}(\omega)=\int\frac{\mathrm
+d^Dk}{(2\pi)^D}
+k^2\left(\sum_ne^{-\alpha_n k}\right)^2P(k,\omega).
+
+\tag{20}\]</span></p>
+<p>Define</p>
+<div id="eq:Phi">
+
+</div>
+<p><span class="math display">\[\Phi_\omega(s)=\frac{\Omega_{D-1}}{(2\pi)^D}
+\int_0^\infty k^{D+1}P(k,\omega)e^{-sk}\,\mathrm dk.
+
+\tag{21}\]</span></p>
+<blockquote>
+<p><strong>Proposition 1 (Return-pair heating functional).</strong> For
+an isotropic stationary source in the slab,</p>
+<div id="eq:returnpairfunctional">
+
+</div>
+<p><span class="math display">\[\boxed{\displaystyle
+S_{E_\perp}(\omega)=\sum_{m,n\in\mathbb Z}
+\Phi_\omega(\alpha_m+\alpha_n).}
+
+\tag{22}\]</span></p>
+</blockquote>
+<p>The microscopic source mechanism and the enclosure geometry are
+cleanly separated: <span class="math inline">\(P(k,\omega)\)</span>
+determines the scalar transform <span class="math inline">\(\Phi_\omega\)</span>, while the billiard supplies
+the pair-depth set <span class="math inline">\(\alpha_m+\alpha_n\)</span>. This formulation
+includes finite correlation length without changing the geometric
+object.</p>
+<p>For the local source model, <span class="math inline">\(P(k,\omega)=S_0(\omega)\)</span>, and</p>
+<div id="eq:returnzeta">
+
+</div>
+<p><span class="math display">\[\begin{align*}
+S_{E_\perp}&amp;=S_0
+C_D\sum_{m,n}(\alpha_m+\alpha_n)^{-(D+2)},\nonumber\\
+C_D&amp;=\frac{\Omega_{D-1}\Gamma(D+2)}{(2\pi)^D}.
+
+\tag{23}
+\end{align*}\]</span></p>
+<p>Thus local anomalous heating is an inverse-power moment of the
+billiard pair spectrum. In the physical <span class="math inline">\(D=2\)</span> slab,</p>
+<div id="eq:physicalzeta">
+
+</div>
+<p><span class="math display">\[\boxed{\displaystyle
+S_{E_y}=S_0\frac{3}{\pi}\sum_{m,n}(\alpha_m+\alpha_n)^{-4}.}
+
+\tag{24}\]</span></p>
+<p>For the open half-space this gives</p>
+<div id="eq:openprefactors">
+
+</div>
+<p><span class="math display">\[S_{E_y,\infty}=\frac{3S_0}{16\pi
+d^4},\qquad
+S_{E_x,\infty}=\frac{3S_0}{32\pi d^4},
+
+\tag{25}\]</span></p>
+<p>for either tangential component. This explicitly recovers the
+standard local-patch <span class="math inline">\(d^{-4}\)</span> law and
+the planar normal-to-tangential factor of two [<a href="#ref-Dubessy2009">5</a>, <a href="#ref-Low2011">6</a>]. The
+absolute prefactor is tied to the one-sided surface-PSD normalization in
+Sec. <a href="#sec:source">2</a>; all enclosure ratios below are
+convention independent.</p>
+<h3 id="exact-h2d-identities">5.1 Exact <span class="math inline">\(h=2d\)</span> identities</h3>
+<p>At <span class="math inline">\(h=2d\)</span>, the positive normal
+depths are exactly <span class="math inline">\((2r+1)d\)</span>, each
+once. The number of ordered odd-positive pairs summing to <span class="math inline">\(2md\)</span> is <span class="math inline">\(m\)</span>. Therefore</p>
+<p><span class="math display">\[\sum_{m,n}(\alpha_m+\alpha_n)^{-z}
+=(2d)^{-z}\zeta(z-1).
+\tag{26}\]</span></p>
+<p>For the tangential field, the same depths alternate in sign, so the
+pair multiplicity is <span class="math inline">\(m(-1)^{m-1}\)</span>
+and the corresponding sum is proportional to the Dirichlet eta function
+<span class="math inline">\(\eta(s)=(1-2^{1-s})\zeta(s)\)</span>.</p>
+<blockquote>
+<p><strong>Corollary 1 (Zeta/eta heating point).</strong> For local
+noise at <span class="math inline">\(h=2d\)</span>,</p>
+<div id="eq:zetageneral">
+
+</div>
+<div id="eq:etageneral">
+
+</div>
+<p><span class="math display">\[\begin{align*}
+\frac{S_{E_\perp}(2d)}{S_{E_\perp}(\infty)}&amp;=\zeta(D+1),\tag{27}\\
+\frac{S_{E_x}(2d)}{S_{E_x}(\infty)}&amp;=\eta(D+1).
+
+\tag{28}
+\end{align*}\]</span></p>
+<p>For the physical <span class="math inline">\(D=2\)</span>
+boundary,</p>
+<div id="eq:zetaeta3">
+
+</div>
+<p><span class="math display">\[\begin{align*}
+\frac{S_{E_y}(2d)}{S_{E_y}(\infty)}&amp;=\zeta(3)=1.2020569\ldots,\nonumber\\
+\frac{S_{E_x}(2d)}{S_{E_x}(\infty)}&amp;=\eta(3)=0.9015427\ldots.
+
+\tag{29}
+\end{align*}\]</span></p>
+<p>At a common analysis frequency, consequently <span class="math inline">\(S_{E_y}/S_{E_x}=8/3\)</span>, compared with the
+open local-patch value <span class="math inline">\(2\)</span>. The two
+enclosure/open ratios in Eq. <a href="#eq:zetaeta3">(29)</a> remain
+valid separately when the normal and tangential secular frequencies
+differ, provided each frequency is held fixed between the two
+geometries.</p>
+</blockquote>
+<p>The numerical values <span class="math inline">\(1.2021\)</span> and
+<span class="math inline">\(0.9015\)</span> are therefore exact
+special-function values, not fitted enclosure gains. In heating-rate
+language, Eq. <a href="#eq:heatingrate">(7)</a> gives the same ratios
+when the compared mode frequency is held fixed.</p>
+<h3 id="mode-selective-enclosure-theorem">5.2 Mode-selective enclosure
+theorem</h3>
+<p>The zeta/eta point is a special case of a stronger pointwise result.
+Relative to the open half-space,</p>
+<div id="eq:Aperp">
+
+</div>
+<div id="eq:Aparallel">
+
+</div>
+<p><span class="math display">\[\begin{align*}
+A_\perp(k)&amp;=\frac{1+e^{-2(h-d)k}}{1-e^{-2hk}}&gt;1,\tag{30}\\
+A_\parallel(k)&amp;=\frac{1-e^{-2(h-d)k}}{1-e^{-2hk}}&lt;1.
+
+\tag{31}
+\end{align*}\]</span></p>
+<blockquote>
+<p><strong>Theorem 2 (Mode-selective passive enclosure).</strong> If the
+stationary source spectrum <span class="math inline">\(P(\boldsymbol{k},\omega)\ge0\)</span> is unchanged
+when the passive parallel cover is introduced, then for every <span class="math inline">\(h&gt;d\)</span>,</p>
+<div id="eq:modeselective">
+
+</div>
+<p><span class="math display">\[S_{E_y,h}(\omega)&gt;S_{E_y,\infty}(\omega),\qquad
+S_{E_x,h}(\omega)&lt;S_{E_x,\infty}(\omega),
+
+\tag{32}\]</span></p>
+<p>for either tangential component <span class="math inline">\(x\)</span> (or <span class="math inline">\(z\)</span>) whenever that component has nonzero
+source weight.</p>
+</blockquote>
+<p>The result does not require spatially white patches. It follows by
+inserting Eqs. <a href="#eq:Aperp">(30)</a>–<a href="#eq:Aparallel">(31)</a> under the nonnegative spectral integral.
+Reflection parity therefore turns a passive cover into a mode-selective
+filter: same-sign returns reinforce the normal field, while
+alternating-sign returns cancel the tangential field. Figure <a href="#fig:anisotropy">2</a> shows the local-source ratios.</p>
+
+<figure id="fig:anisotropy"><img src="../assets/papers/trapped-ion/fig_mode_anisotropy.svg" alt="Figure 2; full description in the caption below." loading="lazy"><figcaption><strong>Figure 2.</strong> Mode-selective anomalous heating for a local source in the physical
+slab. A passive cover increases normal heating while suppressing
+tangential heating. At <span class="math inline">\(h/d=2\)</span> the
+exact ratios are <span class="math inline">\(\zeta(3)\)</span> and <span class="math inline">\(\eta(3)\)</span>.</figcaption></figure>
+
+<h2 id="spatial-transfer-absolute-response-versus-fractional-contrast">6.
+Spatial transfer: absolute response versus fractional contrast</h2>
+<div id="sec:transfer">
+
+</div>
+<p>Now let the local surface-noise PSD density itself vary in space,
+<span class="math inline">\(s(\boldsymbol{x})\)</span>. Translational
+invariance gives</p>
+<div id="eq:conv">
+
+</div>
+<p><span class="math display">\[S(\boldsymbol{x}_0)=\int_{\mathbb
+R^D}H_h(\boldsymbol{x}-\boldsymbol{x}_0)s(\boldsymbol{x})\,\mathrm d^D
+x,
+\qquad H_h=K_{\perp,h}^2.
+
+\tag{33}\]</span></p>
+<p>With the Fourier convention <span class="math inline">\(\widehat
+f(\boldsymbol{k})=\int
+e^{-i\boldsymbol{k}\cdot\boldsymbol{x}}f(\boldsymbol{x})\mathrm
+d^Dx\)</span>,</p>
+<div id="eq:Hconv">
+
+</div>
+<p><span class="math display">\[\widehat
+H_h(\boldsymbol{q})=\frac{1}{(2\pi)^D}\int
+\widehat K_h(\boldsymbol{p})\widehat
+K_h(\boldsymbol{q}-\boldsymbol{p})\,\mathrm d^Dp.
+
+\tag{34}\]</span></p>
+<p>Define the total local-source coupling <span class="math inline">\(\mathcal G_h=\widehat H_h(0)\)</span> and
+normalized modulation transfer <span class="math inline">\(M_h(q)=\widehat H_h(q)/\mathcal G_h\)</span>.</p>
+<p>Substituting the return measure gives</p>
+<p><span class="math display">\[\widehat
+H_h(\boldsymbol{q})=\sum_{m,n}W^{(D)}_{\alpha_m,\alpha_n}(\boldsymbol{q}),
+\tag{35}\]</span></p>
+<p>where</p>
+<div id="eq:W">
+
+</div>
+<p><span class="math display">\[W^{(D)}_{a,b}(\boldsymbol{q})=\frac{1}{(2\pi)^D}\int
+|\boldsymbol{p}|\,|\boldsymbol{q}-\boldsymbol{p}|e^{-a|\boldsymbol{p}|-b|\boldsymbol{q}-\boldsymbol{p}|}\,\mathrm
+d^Dp.
+
+\tag{36}\]</span></p>
+<p>Every <span class="math inline">\(W^{(D)}_{a,b}\)</span> has a
+strictly nonnegative integrand.</p>
+<blockquote>
+<p><strong>Proposition 2 (Absolute modulation response).</strong> For
+every finite <span class="math inline">\(h&gt;d\)</span> and every
+finite <span class="math inline">\(q\)</span>,</p>
+<div id="eq:absoluteineq">
+
+</div>
+<p><span class="math display">\[\boxed{\displaystyle
+\widehat H_h(q)&gt;\widehat H_\infty(q)&gt;0.}
+
+\tag{37}\]</span></p>
+</blockquote>
+<p>The direct pair <span class="math inline">\((m,n)=(0,0)\)</span> is
+exactly the open response, and all other path pairs add positively. This
+point changes the physical language. A passive cover does <em>not</em>
+attenuate the absolute modulation amplitude of a local-PSD perturbation.
+It adds response, with most of the added weight at coarse spatial
+scales. The “filtering” effect concerns fractional contrast after
+division by the increased mean signal.</p>
+<p>For</p>
+<p><span class="math display">\[s(\boldsymbol{x})=s_0[1+\epsilon\cos(\boldsymbol{q}\cdot\boldsymbol{x})],
+\tag{38}\]</span></p>
+<p>we have</p>
+<div id="eq:responseabs">
+
+</div>
+<p><span class="math display">\[S(\boldsymbol{x}_0)=s_0\mathcal
+G_h+s_0\epsilon\widehat H_h(q)\cos(\boldsymbol{q}\cdot\boldsymbol{x}_0).
+
+\tag{39}\]</span></p>
+<p>Thus a detector with fixed additive readout noise benefits from the
+larger absolute <span class="math inline">\(\widehat H_h\)</span>. The
+normalized <span class="math inline">\(M_h\)</span> is the appropriate
+contrast metric when uncertainty or dynamic range scales with the mean
+response, or when comparing fractional modulation independently of total
+gain. Without a metrology noise model, we therefore describe a
+<em>gain–contrast redistribution</em>, not a universal sensitivity
+tradeoff.</p>
+<p>Figure <a href="#fig:gaincontrast">3</a> makes the distinction
+explicit for the physical <span class="math inline">\(D=2\)</span> slab
+at <span class="math inline">\(h/d=2\)</span>. At <span class="math inline">\(qd=3\)</span>, the absolute response is <span class="math inline">\(13.23\%\)</span> larger than open while the
+fractional contrast is <span class="math inline">\(5.80\%\)</span>
+smaller. At <span class="math inline">\(qd=4\)</span>, the corresponding
+numbers are <span class="math inline">\(9.62\%\)</span> and <span class="math inline">\(8.80\%\)</span>. The asymptotic normalized ratio
+<span class="math inline">\(1/\zeta(3)=0.8319\ldots\)</span> is reached
+only at substantially larger wavenumber.</p>
+
+<figure id="fig:gaincontrast"><img src="../assets/papers/trapped-ion/fig_gain_vs_contrast.svg" alt="Figure 3; full description in the caption below." loading="lazy"><figcaption><strong>Figure 3.</strong> Absolute response and fractional contrast at <span class="math inline">\(h/d=2\)</span> for the physical <span class="math inline">\(D=2\)</span> slab. The enclosure increases <span class="math inline">\(\widehat H\)</span> at every wavenumber, while the
+normalized response <span class="math inline">\(M_h/M_\infty\)</span>
+falls below unity over the moderate- and high-<span class="math inline">\(q\)</span> regime and tends to <span class="math inline">\(1/\zeta(3)\)</span>.</figcaption></figure>
+
+<p>Because Eq. <a href="#eq:absoluteineq">(37)</a> gives <span class="math inline">\(\widehat H_h&gt;0\)</span>, <span class="math inline">\(M_h(q)&gt;0\)</span> in this geometry. There is no
+<span class="math inline">\(\pi\)</span> phase reversal of the local-PSD
+modulation transfer.</p>
+<h2 id="sharp-fine-scale-asymptotics-and-the-close-cover-crossover">7.
+Sharp fine-scale asymptotics and the close-cover crossover</h2>
+<div id="sec:highq">
+
+</div>
+<p>The field-level reflected correction is exponentially small for fixed
+<span class="math inline">\(h&gt;d\)</span>:</p>
+<div id="eq:fieldcrossover">
+
+</div>
+<p><span class="math display">\[A_\perp(k)-1=\frac{e^{-2(h-d)k}+e^{-2hk}}{1-e^{-2hk}}
+\sim e^{-2(h-d)k}.
+
+\tag{40}\]</span></p>
+<p>The characteristic field crossover is therefore</p>
+<div id="eq:qstar">
+
+</div>
+<p><span class="math display">\[q_\ast\sim\frac{1}{2(h-d)},\qquad
+q_\ast d\sim\frac{1}{2(h/d-1)}.
+
+\tag{41}\]</span></p>
+<p>For example, demanding the leading reflected field factor be below
+<span class="math inline">\(0.1\)</span> requires <span class="math inline">\(qd\gtrsim\ln(10)/[2(h/d-1)]\)</span>. This is
+<span class="math inline">\(qd\gtrsim2.30\)</span> at <span class="math inline">\(h/d=1.5\)</span> but <span class="math inline">\(qd\gtrsim11.5\)</span> at <span class="math inline">\(h/d=1.1\)</span>. The high-<span class="math inline">\(q\)</span> limit is therefore strongly nonuniform
+as the cover approaches the ion. At the formal endpoint <span class="math inline">\(h=d\)</span>, where the ion would lie on the
+grounded boundary and the physical setup ceases to apply, <span class="math inline">\(A_\perp(k)=2/(1-e^{-2dk})\to2\)</span> rather than
+<span class="math inline">\(1\)</span>.</p>
+<p>For the heating-transfer convolution in the physical <span class="math inline">\(D=2\)</span> boundary plane, the leading
+correction is algebraic relative to the direct/direct term. Let <span class="math inline">\(d=1\)</span> temporarily,</p>
+<p><span class="math display">\[f(\boldsymbol{k})=|\boldsymbol{k}|e^{-|\boldsymbol{k}|},\qquad
+r_h=\widehat K_h-f&gt;0.
+\tag{42}\]</span></p>
+<p>The open transform has the exact Bessel form</p>
+<div id="eq:Mopen">
+
+</div>
+<p><span class="math display">\[M_\infty^{(2)}(Q)=\left(\frac{Q^2}{2}+\frac{Q^4}{16}\right)K_0(Q)
++\left(Q+\frac{Q^3}{6}\right)K_1(Q),
+
+\tag{43}\]</span></p>
+<p>so <span class="math inline">\(f*f\sim c_0Q^{7/2}e^{-Q}\)</span>
+with</p>
+<p><span class="math display">\[c_0=\frac{3\pi}{64}\sqrt{\frac{\pi}{2}}.
+\tag{44}\]</span></p>
+<p>On the other hand, after writing <span class="math inline">\(\boldsymbol{q}=(Q,0)\)</span> and translating the
+convolution endpoint,</p>
+<div id="eq:crosslimit">
+
+</div>
+<p><span class="math display">\[\frac{(f*r_h)(\boldsymbol{q})}{Qe^{-Q}}
+\longrightarrow C_h\equiv\int_{\mathbb
+R^2}e^{p_x}r_h(\boldsymbol{p})\,\mathrm d^2p&gt;0.
+
+\tag{45}\]</span></p>
+<p>The positivity of <span class="math inline">\(r_h\)</span> makes the
+leading coefficient nonzero.</p>
+<blockquote>
+<p><strong>Theorem 3 (Sharp physical-slab direct-path
+asymptotics).</strong> For every fixed <span class="math inline">\(d&gt;0\)</span> and <span class="math inline">\(h&gt;d\)</span>,</p>
+<div id="eq:sharpasym">
+
+</div>
+<p><span class="math display">\[\boxed{\displaystyle
+\frac{\widehat H_h^{(D=2)}(Q)}{\widehat H_\infty^{(D=2)}(Q)}
+=1+c(h/d)(dQ)^{-5/2}+o[(dQ)^{-5/2}],}
+
+\tag{46}\]</span></p>
+<p>where <span class="math inline">\(c(\lambda)&gt;0\)</span>. In
+dimensionless variables,</p>
+<div id="eq:ccoef">
+
+</div>
+<p><span class="math display">\[c(\lambda)=\frac{128}{3\pi\sqrt{\pi/2}}
+\int_{\mathbb R^2}e^{p_x}r_\lambda(\boldsymbol{p})\,\mathrm d^2p.
+
+\tag{47}\]</span></p>
+<p>The expansion is uniform on every family <span class="math inline">\(h/d\ge1+\delta\)</span> with fixed <span class="math inline">\(\delta&gt;0\)</span>, but not as <span class="math inline">\(\delta\downarrow0\)</span>.</p>
+</blockquote>
+<p>A proof is given in Appendix <a href="#app:sharp">A</a>. Numerically
+<span class="math inline">\(c(2)=9.3352\)</span>. The nonuniformity can
+be quantified: if <span class="math inline">\(h/d=1+\varepsilon\)</span>
+with <span class="math inline">\(\varepsilon\downarrow0\)</span>,
+then</p>
+<div id="eq:cclose">
+
+</div>
+<p><span class="math display">\[c(1+\varepsilon)\sim
+8\sqrt{\frac{2}{\pi}}\,\varepsilon^{-5/2}.
+
+\tag{48}\]</span></p>
+<p>Thus the asymptotic coefficient diverges precisely as the field
+crossover in Eq. <a href="#eq:qstar">(41)</a> is pushed to larger <span class="math inline">\(qd\)</span>. The theorem sharpens the earlier
+<span class="math inline">\(O[(qd)^{-5/2}]\)</span> estimate: the
+exponent is attained, and the correction approaches zero from above,
+consistent with Proposition 1.</p>
+<h2 id="finite-patch-correlations-and-distance-scaling">8. Finite patch
+correlations and distance scaling</h2>
+<div id="sec:correlated">
+
+</div>
+<p>Equation <a href="#eq:returnpairfunctional">(22)</a> already contains
+a finite correlation length through <span class="math inline">\(P(k,\omega)\)</span>. As an illustrative
+finite-correlation model, take the Gaussian spatial spectrum</p>
+<div id="eq:gaussianP">
+
+</div>
+<p><span class="math display">\[P(k,\omega)=A(\omega)e^{-\xi^2k^2/2},
+
+\tag{49}\]</span></p>
+<p>we define a local distance exponent while scaling the geometry at
+fixed <span class="math inline">\(h/d\)</span>,</p>
+<p><span class="math display">\[\beta_j(d)=-\frac{\partial\ln
+S_{E_j}}{\partial\ln d}.
+\tag{50}\]</span></p>
+<p>At <span class="math inline">\(h/d=2\)</span>, the normal component
+crosses from <span class="math inline">\(\beta_y\to2\)</span> for <span class="math inline">\(d\ll\xi\)</span> to <span class="math inline">\(\beta_y\to4\)</span> for <span class="math inline">\(d\gg\xi\)</span>, reproducing the familiar
+large-patch to local-patch crossover [<a href="#ref-Dubessy2009">5</a>,
+<a href="#ref-Brownnutt2015">3</a>]. The tangential mode behaves
+differently: <span class="math inline">\(\beta_x\to0\)</span> in the
+large-patch limit because a nearly uniform lower-plane potential
+produces a capacitor-like normal field but no tangential field. Both
+components recover <span class="math inline">\(\beta\to4\)</span> for
+short-range patches. Figure <a href="#fig:beta">4</a> shows the
+crossover.</p>
+
+<figure id="fig:beta"><img src="../assets/papers/trapped-ion/fig_distance_exponent.svg" alt="Figure 4; full description in the caption below." loading="lazy"><figcaption><strong>Figure 4.</strong> Local distance exponents for a Gaussian surface covariance at fixed
+<span class="math inline">\(h/d=2\)</span>. The normal mode crosses from
+the capacitor-like <span class="math inline">\(d^{-2}\)</span> regime to
+the local-patch <span class="math inline">\(d^{-4}\)</span> regime,
+while the tangential component approaches <span class="math inline">\(d^0\)</span> for very large patches before
+recovering <span class="math inline">\(d^{-4}\)</span>.</figcaption></figure>
+
+<p>The enclosure can also diagnose spatiotemporal source structure.
+If</p>
+<p><span class="math display">\[P(k,\omega)=A(\omega)B(k),
+\tag{51}\]</span></p>
+<p>then the heating-rate ratio between two geometries at matched secular
+frequency is independent of <span class="math inline">\(\omega\)</span>.
+Frequency dependence of that geometry ratio therefore signals a
+nonseparable source spectrum, for example a correlation length that
+changes with frequency. In this sense the enclosure acts as a controlled
+spatial filter for anomalous-heating mechanism tests.</p>
+<h2 id="many-ion-covariance-ordering-and-collective-channels">9.
+Many-ion covariance ordering and collective channels</h2>
+<div id="sec:manyion">
+
+</div>
+<p>For ions at equal height <span class="math inline">\(d\)</span> with
+in-plane positions <span class="math inline">\(\boldsymbol{R}_i\)</span>, the physical-<span class="math inline">\(D=2\)</span> normal-field matrix is</p>
+<div id="eq:Cijslab">
+
+</div>
+<p><span class="math display">\[C^{(y)}_{ij,h}(\omega)=\int\frac{\mathrm
+d^2k}{(2\pi)^2}\,
+P(\boldsymbol{k},\omega)\,|\widehat K_{y,h}(\boldsymbol{k})|^2
+e^{i\boldsymbol{k}\cdot(\boldsymbol{R}_i-\boldsymbol{R}_j)}.
+
+\tag{52}\]</span></p>
+<p>The corresponding tangential matrix is obtained by replacing <span class="math inline">\(\widehat K_y\)</span> with the chosen tangential
+component. Because the slab multipliers in Eqs. <a href="#eq:Aperp">(30)</a>–<a href="#eq:Aparallel">(31)</a> order the
+spatial spectrum pointwise, the single-ion theorem upgrades directly to
+an operator theorem.</p>
+<blockquote>
+<p><strong>Theorem 4 (Collective covariance ordering).</strong> For any
+finite equal-height ion configuration and any unchanged stationary
+source spectrum <span class="math inline">\(P(\boldsymbol{k},\omega)\ge0\)</span>,</p>
+<div id="eq:loewner">
+
+</div>
+<p><span class="math display">\[\boxed{C^{(y)}_h(\omega)-C^{(y)}_\infty(\omega)\succeq0,\qquad
+C^{(x)}_\infty(\omega)-C^{(x)}_h(\omega)\succeq0.}
+
+\tag{53}\]</span></p>
+<p>The same tangential statement holds for any in-plane polarization
+after rotating the coordinates.</p>
+</blockquote>
+<p>For example, for the normal component and arbitrary <span class="math inline">\(\boldsymbol{c}\)</span>,</p>
+<p><span class="math display">\[\begin{align*}
+\boldsymbol{c}^\dagger(C_h-C_\infty)\boldsymbol{c}
+=\int\frac{\mathrm d^2k}{(2\pi)^2}&amp;P(\boldsymbol{k},\omega)|\widehat
+K_{y,\infty}|^2
+[A_\perp(k)^2-1]\nonumber\\
+&amp;\times\left|\sum_i c_i
+e^{i\boldsymbol{k}\cdot\boldsymbol{R}_i}\right|^2\ge0.
+\tag{54}
+\end{align*}\]</span></p>
+<p>The tangential proof is identical with <span class="math inline">\(1-A_\parallel^2&gt;0\)</span>. Thus every
+collective normal-field coordinate becomes noisier in absolute terms,
+even though normalization by the increased diagonal response can make
+the correlation pattern more concentrated. Conversely every collective
+tangential coordinate receives no more absolute noise. For a stationary
+quantum source, the same argument applies separately to the
+positive-semidefinite unsymmetrized spectra <span class="math inline">\(P(\boldsymbol{k},+\omega)\)</span> and <span class="math inline">\(P(\boldsymbol{k},-\omega)\)</span>, ordering the
+downward and upward secular rate blocks independently when the
+underlying source statistics are unchanged.</p>
+<p>For an isotropic source the normal covariance depends only on <span class="math inline">\(R_{ij}=|\boldsymbol{R}_i-\boldsymbol{R}_j|\)</span>,</p>
+<div id="eq:CijJ0">
+
+</div>
+<p><span class="math display">\[C^{(y)}_{ij,h}=\frac{1}{2\pi}\int_0^\infty
+\mathrm dk\,k^3P(k,\omega)
+\left(\sum_ne^{-\alpha_n k}\right)^2J_0(kR_{ij}).
+
+\tag{55}\]</span></p>
+<p>Equation <a href="#eq:CijJ0">(55)</a> is the <span class="math inline">\(N\)</span>-ion return-pair covariance matrix. The
+two-ion result follows by setting <span class="math inline">\(N=2\)</span>. For local noise,</p>
+<div id="eq:twoion">
+
+</div>
+<p><span class="math display">\[S_{12}=\frac{3S_0}{2\pi}\sum_{m,n}
+\frac{s_{mn}(2s_{mn}^2-3R^2)}{(s_{mn}^2+R^2)^{7/2}},
+\qquad s_{mn}=\alpha_m+\alpha_n.
+
+\tag{56}\]</span></p>
+<p>At <span class="math inline">\(R=2d\)</span>, <span class="math inline">\(S_{12}/S_{11}\)</span> changes from <span class="math inline">\(-0.04419\)</span> in the open half-space to <span class="math inline">\(+0.03833\)</span> at <span class="math inline">\(h=2d\)</span>. The spatial common/differential
+eigenvalue ordering therefore reverses at a common analysis frequency; a
+reversal of measured COM/stretch heating is not automatic when the two
+mechanical modes sample different temporal frequencies.</p>
+<p>Figure <a href="#fig:manyion">5</a> shows a ten-ion example with
+spacing <span class="math inline">\(0.6d\)</span>. For local noise,
+closing the normal-field cover from the open half-space to <span class="math inline">\(h=2d\)</span> changes <span class="math inline">\(r_{\rm eff}\)</span> from <span class="math inline">\(5.610\)</span> to <span class="math inline">\(5.106\)</span>, while the largest normalized
+eigenvalue increases from <span class="math inline">\(0.2366\)</span> to
+<span class="math inline">\(0.2863\)</span>. A finite source correlation
+length concentrates the channel spectrum further: at <span class="math inline">\(\xi=d\)</span> the same ranks are <span class="math inline">\(3.480\)</span> and <span class="math inline">\(3.027\)</span>. The Loewner theorem and the rank
+reduction are not contradictory: the former orders absolute quadratic
+forms, whereas the latter describes how the increased total noise is
+distributed after normalization.</p>
+
+<figure id="fig:manyion"><img src="../assets/papers/trapped-ion/fig_many_ion_quantum_noise.svg" alt="Figure 5; full description in the caption below." loading="lazy"><figcaption><strong>Figure 5.</strong> Collective normal-field noise for <span class="math inline">\(N=10\)</span> equally spaced probes with spacing
+<span class="math inline">\(0.6d\)</span>. (a,b) Normalized spatial
+covariance in the open half-space and at <span class="math inline">\(h/d=2\)</span>. (c) Eigenvalues of the
+equal-frequency covariance/heating matrix normalized by their sum; the
+inset shows the leading covariance-eigenchannel profile. (d)
+Participation-ratio noise rank versus cover height for local and
+finite-correlation Gaussian surface spectra. The cover raises every
+absolute normal-field quadratic form while concentrating a larger
+fraction of the total noise into the leading collective channels.</figcaption></figure>
+
+<p>For a uniform microtrap chain the mechanical transverse-mode matrix
+and the covariance matrix are both nearly translation invariant away
+from the ends, so their eigenvectors are close to spatial Fourier/cosine
+modes. In a ten-site <span class="math inline">\(1/r^3\)</span>
+transverse-coupling model used only as an illustration, the mean squared
+overlap between the mechanical normal modes and the environmental
+eigenvectors is <span class="math inline">\(0.872\)</span> in the open
+geometry and <span class="math inline">\(0.918\)</span> at <span class="math inline">\(h=2d\)</span>; the common-mode share of the total
+normal-field heating rises from <span class="math inline">\(0.223\)</span> to <span class="math inline">\(0.275\)</span>. For an actual nonuniform Coulomb
+crystal one should instead project Eq. <a href="#eq:Cijslab">(52)</a>
+onto the measured normal-mode eigenvectors using Eq. <a href="#eq:modeheatingmatrix">(9)</a>.</p>
+<h3 id="gate-level-heating-exposure">9.1 Gate-level heating
+exposure</h3>
+<div id="sec:gate">
+
+</div>
+<p>Motional heating is an established error mechanism for
+Mølmer–Sørensen-type entangling gates, with analytic error models and
+robust-control strategies already available [<a href="#ref-Webb2018">18</a>, <a href="#ref-Sutherland2022">19</a>, <a href="#ref-Kang2023">20</a>]. Our purpose here is narrower: to connect
+the geometry-derived covariance to that established gate-error machinery
+through the bus-mode projection. For a gate dominantly using normalized
+motional vector <span class="math inline">\(\boldsymbol{b}\)</span>,</p>
+<div id="eq:busheat">
+
+</div>
+<p><span class="math display">\[\dot{\bar n}_{\rm
+bus}=\frac{e^2}{4m\hbar\omega_{\rm bus}}
+\boldsymbol{b}^\dagger C^{(u)}(\omega_{\rm bus})\boldsymbol{b}.
+
+\tag{57}\]</span></p>
+<p>Any fixed control protocol whose weak-heating error is linear in
+<span class="math inline">\(\dot{\bar n}_{\rm bus}\)</span> therefore
+inherits the same enclosed/open ratio.</p>
+<p>To make that statement operational, we numerically integrate a
+primitive single-loop two-ion MS gate with Hamiltonian</p>
+<p><span class="math display">\[H(t)=\hbar
+g(\sigma_x^{(1)}+\sigma_x^{(2)})
+(ae^{-i\delta t}+a^\dagger e^{i\delta t}),
+\tag{58}\]</span></p>
+<p>using <span class="math inline">\(g/\delta=1/4\)</span>, <span class="math inline">\(t_g=2\pi/\delta\)</span>, and an initially
+ground-state bus. For the approximately classical electric-field noise
+modeled elsewhere in this paper, the motional diffusion term is</p>
+<p><span class="math display">\[\mathcal L_{\rm diff}\rho=\dot{\bar
+n}_{\rm bus}
+\left(\mathcal D[a]\rho+\mathcal D[a^\dagger]\rho\right),
+\tag{59}\]</span></p>
+<p>so that <span class="math inline">\(\mathrm d\langle n\rangle/\mathrm
+dt=\dot{\bar n}_{\rm bus}\)</span> in the untruncated oscillator.
+Process reconstruction after tracing out the bus gives, for <span class="math inline">\(\dot{\bar n}_{\rm bus}t_g\ll1\)</span>,</p>
+<div id="eq:MSheat">
+
+</div>
+<p><span class="math display">\[\boxed{\Delta(1-F_{\rm
+avg})=0.400\,\dot{\bar n}_{\rm bus}t_g
++O[(\dot{\bar n}_{\rm bus}t_g)^2].}
+
+\tag{60}\]</span></p>
+<p>A Fock-space convergence test gives slopes <span class="math inline">\(0.39984\)</span>–<span class="math inline">\(0.39989\)</span> for truncations of seven through
+ten oscillator levels; details are given in Appendix <a href="#app:gate">F</a>. The coefficient is specific to this primitive
+gate, whereas the enclosed/open geometry ratio enters only through
+Eq. <a href="#eq:busheat">(57)</a>. At ion separation <span class="math inline">\(R=0.6d\)</span>, the <span class="math inline">\(h=2d\)</span> slab multiplies the normal common-
+and differential-bus heating exposures by <span class="math inline">\(1.237\)</span> and <span class="math inline">\(1.044\)</span>, respectively, while tangential
+exposures are multiplied by <span class="math inline">\(0.878\)</span>
+and <span class="math inline">\(0.967\)</span>. This is a physically
+derived bridge from the surface covariance to an established qubit-gate
+heating budget, not a claim that motional noise is itself a Pauli
+channel. The four geometry ratios are summarized compactly as</p>
+<div class="center">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">field component</th>
+<th style="text-align: center;">common bus</th>
+<th style="text-align: center;">differential bus</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">normal <span class="math inline">\(E_y\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1.237\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1.044\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">tangential <span class="math inline">\(E_x\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0.878\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0.967\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>for enclosed/open weak-heating exposure at <span class="math inline">\(R=0.6d\)</span> and <span class="math inline">\(h=2d\)</span>.</p>
+<h2 id="beyond-unfolding-specular-saddles-of-the-screened-green-operator">10.
+Beyond unfolding: specular saddles of the screened Green operator</h2>
+<div id="sec:saddles">
+
+</div>
+<p>Exact unfolding is special to integrable parallel walls. A more
+general billiard connection emerges after Fourier transforming a
+direction <span class="math inline">\(z\)</span> along which the
+enclosure is invariant. Write the conserved invariant-direction
+wavenumber as <span class="math inline">\(q_z\)</span>, distinct from
+the two-dimensional modulation vector <span class="math inline">\(\boldsymbol{q}\)</span> used in Sec. <a href="#sec:transfer">6</a>. The cross-sectional Green function obeys</p>
+<p><span class="math display">\[(\nabla_\perp^2-q_z^2)G_{q_z}=-\delta,
+\tag{61}\]</span></p>
+<p>with free kernel</p>
+<div id="eq:K0asym">
+
+</div>
+<p><span class="math display">\[G_{q_z}^{(0)}(R)=\frac{1}{2\pi}K_0(q_zR)
+\sim\frac{e^{-q_zR}}{\sqrt{8\pi q_zR}}.
+
+\tag{62}\]</span></p>
+<p>A multiple-reflection expansion expresses boundary corrections as
+integrals over successive reflection points [<a href="#ref-BalianBloch1970">9</a>, <a href="#ref-Bordag2001">12</a>].
+The first reflected contribution has the asymptotic form</p>
+<div id="eq:I1">
+
+</div>
+<p><span class="math display">\[\begin{align*}
+I_1(q_z)&amp;=\int_\Gamma A(s,q_z)e^{-q_z\Phi(s)}\,\mathrm
+ds,\nonumber\\
+\Phi(s)&amp;=|\boldsymbol{r}_s-s|+|s-\boldsymbol{r}_0|.
+
+\tag{63}
+\end{align*}\]</span></p>
+<p>up to algebraic factors absorbed into <span class="math inline">\(A\)</span>.</p>
+<blockquote>
+<p><strong>Proposition 3 (Specular first-reflection saddle).</strong>
+Let <span class="math inline">\(s_\star\)</span> be an isolated
+nondegenerate interior minimum of <span class="math inline">\(\Phi\)</span> on a smooth reflecting boundary, and
+suppose the reflection amplitude has a regular large-<span class="math inline">\(q_z\)</span> expansion with nonzero leading
+coefficient at <span class="math inline">\(s_\star\)</span>. Then <span class="math inline">\(s_\star\)</span> satisfies the specular reflection
+condition, and Laplace’s method gives</p>
+<div id="eq:saddle">
+
+</div>
+<p><span class="math display">\[I_1(q_z)\sim
+A(s_\star,q_z)e^{-q_zL_\star}
+\sqrt{\frac{2\pi}{q_z\Phi''(s_\star)}},
+\qquad L_\star=\Phi(s_\star),
+
+\tag{64}\]</span></p>
+<p>up to the algebraic <span class="math inline">\(q_z\)</span>
+dependence already contained in <span class="math inline">\(A\)</span>.</p>
+</blockquote>
+<p>Indeed, differentiating <span class="math inline">\(\Phi\)</span>
+along the boundary tangent sets the tangential components of the
+incoming and outgoing unit vectors equal, which is the mirror-reflection
+law. Normal derivatives needed for the electric-field kernel alter the
+prefactor but not the exponential action. This is the standard
+multiple-scattering-to-ray mechanism [<a href="#ref-BalianBloch1972">10</a>, <a href="#ref-BalianDuplantier1977">11</a>, <a href="#ref-Zelditch2004">13</a>], here applied to the screened
+electrostatic Fourier operator relevant to surface-noise transfer.</p>
+<h3 id="curved-cover-numerical-test">10.1 Curved-cover numerical
+test</h3>
+<p>We solve the modified-Helmholtz Dirichlet problem with a
+constant-panel single-layer boundary-element method (BEM) using <span class="math inline">\(K_0(q_zR)/(2\pi)\)</span> as the kernel.
+Off-diagonal panel integrals use eight-point Gauss quadrature; the
+logarithmically singular self-panel integral is evaluated separately by
+an adaptive change of variables. The source point is on the noisy lower
+boundary directly below the ion, and a far cover at <span class="math inline">\(7d\)</span> supplies a numerical direct-response
+reference. In the exactly flat <span class="math inline">\(h/d=2\)</span> case, the resulting
+reflected-response amplitude agrees with the independently integrated
+strip solution to better than <span class="math inline">\(0.26\%\)</span> over <span class="math inline">\(q_zd=2.5\)</span>–<span class="math inline">\(6\)</span>.</p>
+<p>We fit <span class="math inline">\(\log|K_h/K_{\rm far}-1|\)</span>
+over the upper half of the sampled range <span class="math inline">\(q_zd=2.5\)</span>–<span class="math inline">\(6\)</span> and compare the finite-<span class="math inline">\(q_z\)</span> effective exponent with the
+independently minimized one-bounce excess length <span class="math inline">\(\Delta L=L_\star-d\)</span>. The production family
+contains 16 explicitly scripted flat, sinusoidal, phase-shifted, and
+localized-bump covers. The Pearson and Spearman correlations between
+<span class="math inline">\(\Delta L/d\)</span> and the fitted exponent
+are <span class="math inline">\(0.9991\)</span> and <span class="math inline">\(0.9934\)</span>, respectively; the mean absolute
+error is <span class="math inline">\(0.0204d\)</span> and the median
+relative error is <span class="math inline">\(0.98\%\)</span>.
+Restricting to the seven geometries whose saddle is displaced by more
+than <span class="math inline">\(0.05d\)</span> from the symmetry axis
+still gives Pearson correlation <span class="math inline">\(0.993\)</span>, so the agreement is not supplied
+only by changing flat-cover height. After fixing the source collocation
+point at <span class="math inline">\(x=0\)</span> for every mesh,
+representative panel-length and finite-difference sweeps give an
+exponent spread of <span class="math inline">\(4.3\times10^{-5}\)</span>
+for the flat case and <span class="math inline">\(1.4\times10^{-3}\)</span> for the off-axis
+depression across target panel lengths <span class="math inline">\(0.14d\)</span>–<span class="math inline">\(0.085d\)</span>; at fixed <span class="math inline">\(0.11d\)</span> panel length, varying the
+finite-difference step from <span class="math inline">\(0.007d\)</span>
+to <span class="math inline">\(0.015d\)</span> changes the off-axis
+exponent by <span class="math inline">\(2.3\times10^{-4}\)</span>. A
+separate side-wall sweep over <span class="math inline">\(W/d=4,5,7\)</span> changes the difficult off-axis
+exponent by only <span class="math inline">\(0.35\%\)</span> and the
+displaced-wave exponent by <span class="math inline">\(0.012\%\)</span>,
+so the quoted saddle trends are not set by the artificial lateral
+closure.</p>
+<p>An off-axis depression separates the competing geometric hypotheses.
+Its shortest specular excess length is <span class="math inline">\(\Delta L/d=2.5184\)</span>, while a naive
+vertical-depth candidate is only <span class="math inline">\(1.7115\)</span>. The screened-BEM effective
+exponent is <span class="math inline">\(2.5658\)</span>, selecting
+Euclidean saddle length rather than projected normal depth by a margin
+far larger than the discretization spread. Figure <a href="#fig:curved">6</a> shows both this geometry and the 16-shape
+comparison.</p>
+
+<figure id="fig:curved"><img src="../assets/papers/trapped-ion/fig_curved_billiard_bridge_v2.svg" alt="Figure 6; full description in the caption below." loading="lazy"><figcaption><strong>Figure 6.</strong> Non-flat billiard bridge. (a) An off-axis cover depression separates
+Euclidean specular path length from a vertical-depth surrogate; the
+screened-BEM exponent follows the former. (b) Across 16 scripted flat
+and curved covers, the high-<span class="math inline">\(q_z\)</span>
+reflected-response exponent tracks the independently computed shortest
+specular excess length with Pearson correlation <span class="math inline">\(0.9991\)</span>.</figcaption></figure>
+
+<h3 id="shape-derivative-focusing-and-multiple-saddles">10.2 Shape
+derivative, focusing, and multiple saddles</h3>
+<p>For a centered perturbation <span class="math inline">\(h(x)=h_0+\epsilon\cos(kx)\)</span>, the shortest
+path remains centered for small <span class="math inline">\(\epsilon\)</span> and <span class="math inline">\(\partial_\epsilon\Delta L=2\)</span>. Equation <a href="#eq:saddle">(64)</a> therefore predicts</p>
+<div id="eq:shapepred">
+
+</div>
+<p><span class="math display">\[\partial_\epsilon\log|\Delta
+K(q_z)|=-2q_z+O(1)
+
+\tag{65}\]</span></p>
+<p>as <span class="math inline">\(q_z\to\infty\)</span>. A centered BEM
+difference at <span class="math inline">\(\epsilon/d=\pm0.015\)</span>
+agrees with the <span class="math inline">\(-2q_z\)</span> coefficient
+to within <span class="math inline">\(1.50\%\)</span> over <span class="math inline">\(q_zd=2.5\)</span>–<span class="math inline">\(6.5\)</span>; Fig. <a href="#fig:shape">7</a>
+shows the comparison. This is the numerical first-order bridge between a
+boundary deformation and its billiard action.</p>
+
+<figure id="fig:shape"><img src="../assets/papers/trapped-ion/fig_billiard_shape_derivative.svg" alt="Figure 7; full description in the caption below." loading="lazy"><figcaption><strong>Figure 7.</strong> Shape derivative of the reflected screened response for a weak
+sinusoidal cover deformation. The measured derivative approaches the
+parameter-free saddle prediction <span class="math inline">\(-2q_z\)</span>.</figcaption></figure>
+
+<p>Path length alone does not determine the amplitude. We next hold the
+shortest excess length fixed at <span class="math inline">\(\Delta
+L=2d\)</span> while varying cover curvature. At <span class="math inline">\(q_zd=5\)</span>, the scaled reflected amplitude
+<span class="math inline">\(e^{q_z\Delta L}|\Delta K/K_0|\)</span> has
+correlation <span class="math inline">\(0.9997\)</span> with the Laplace
+focusing factor <span class="math inline">\([\Phi''(s_\star)]^{-1/2}\)</span>. After
+fitting only one overall amplitude scale, the focusing law has a <span class="math inline">\(2.0\%\)</span> rms relative residual and <span class="math inline">\(3.2\%\)</span> maximum residual across the family.
+A separate phase sweep creates two competing one-bounce saddles; the
+scaled BEM amplitude has correlation <span class="math inline">\(0.987\)</span> with the two-saddle predictor <span class="math inline">\(\sum_\gamma
+e^{-q_z(L_\gamma-L_{\min})}/\sqrt{\Phi''_\gamma}\)</span>, with
+an <span class="math inline">\(8.6\%\)</span> rms relative residual
+after one overall scale factor. A two-reflection Laplace test is given
+in Appendix <a href="#app:saddlenum">E</a>.</p>
+
+<figure id="fig:prefactors"><img src="../assets/papers/trapped-ion/fig_billiard_prefactors.svg" alt="Figure 8; full description in the caption below." loading="lazy"><figcaption><strong>Figure 8.</strong> Prefactor tests beyond path length alone. (a) Equal-length focusing
+test at <span class="math inline">\(q_zd=5\)</span>: the shortest path
+length is held fixed while cover curvature changes, and the scaled BEM
+amplitude follows the Laplace focusing factor with correlation <span class="math inline">\(0.9997\)</span>. (b) Two-saddle phase sweep:
+splitting a pair of short one-bounce saddles changes the BEM amplitude
+in the direction predicted by the summed exponential/focusing weights,
+with correlation <span class="math inline">\(0.987\)</span>; one-scale
+residuals are quantified in the text.</figcaption></figure>
+
+<p>The numerical tests support the asymptotic structure</p>
+<p><span class="math display">\[\begin{aligned}
+\text{boundary reflections}\quad&amp;\longrightarrow\\[-2pt]
+&amp;\text{specular saddles at large }q_z.
+\end{aligned}
+\tag{66}\]</span></p>
+<p>with exponential action set by path length and amplitude set by
+focusing and multiplicity.</p>
+<h3 id="curved-geometry-reshapes-a-collective-noise-channel">10.3 Curved
+geometry reshapes a collective noise channel</h3>
+<div id="sec:curvedmulti">
+
+</div>
+<p>The non-flat saddle calculation and the many-ion channel calculation
+can be combined without invoking a full three-dimensional trap model. As
+a cross-sectional test, we place five equal-height probes at <span class="math inline">\(x/d=(-1.2,-0.6,0,0.6,1.2)\)</span> below a cover
+with an off-axis depression and form the local-source covariance of the
+screened <span class="math inline">\(q_zd=0.8\)</span> slice by
+integrating products of the BEM field kernels over the noisy lower
+plate. For the flat cover the leading channel is symmetric and has zero
+spatial centroid. The depression shifts its squared-amplitude centroid
+to <span class="math inline">\(x/d=0.421\)</span> and lowers the
+participation rank from <span class="math inline">\(2.732\)</span> to
+<span class="math inline">\(2.578\)</span>. This is not a full physical
+heating matrix because it is one invariant-direction Fourier slice of a
+two-dimensional cross-section; its role is to demonstrate that the same
+curved boundary that selects a specular saddle also reshapes a
+collective environmental mode.</p>
+
+<figure id="fig:curvedmulti"><img src="../assets/papers/trapped-ion/fig_curved_multi_ion_noise.svg" alt="Figure 9; full description in the caption below." loading="lazy"><figcaption><strong>Figure 9.</strong> Five-probe screened covariance at <span class="math inline">\(q_zd=0.8\)</span> in a cross-sectional model. An
+off-axis cover depression breaks the flat-cover symmetry and pulls the
+leading collective environmental channel toward the depressed side. This
+slice test connects the curved-boundary billiard calculation to a
+correlated multi-probe noise operator.</figcaption></figure>
+
+<h2 id="experimental-interpretation-and-scope">11. Experimental
+interpretation and scope</h2>
+<div id="sec:experiment">
+
+</div>
+<p>A direct test should compare electric-field spectra with and without
+a passive cover while holding the ion positions, secular frequencies,
+and mode polarizations fixed by compensating the static trap electrodes.
+Three-dimensional scanning-ion measurements already demonstrate the
+relevant spatial field/noise mapping capability near metallic surfaces
+[<a href="#ref-Sagesser2024">15</a>]. A simple local-source signature is
+the exact <span class="math inline">\(h=2d\)</span> anisotropy: normal
+heating increases by <span class="math inline">\(20.21\%\)</span>,
+tangential heating decreases by <span class="math inline">\(9.85\%\)</span>, and at a common analysis
+frequency the normal-to-tangential spectral ratio increases by <span class="math inline">\(33.3\%\)</span>. A recessed cover, a slotted or
+transparent electrode pattern, or an imaging axis that does not pass
+through the cover is required for optical access.</p>
+<p>As an illustrative benchmark rather than a device prescription, take
+<span class="math inline">\(d=50~\mu\mathrm m\)</span>, <span class="math inline">\(h=100~\mu\mathrm m\)</span>, ion spacing <span class="math inline">\(30~\mu\mathrm m\)</span>, and compensated motional
+frequencies near <span class="math inline">\(2\pi\times1.5~\mathrm{MHz}\)</span>. If the open
+normal-mode heating is <span class="math inline">\(100\)</span> quanta/s
+at the matched frequency, the local-source prediction is <span class="math inline">\(120.2\)</span> quanta/s after closing the passive
+cover. Under the same source amplitude the open tangential component is
+half the normal component for the ideal plane and changes from <span class="math inline">\(50\)</span> to <span class="math inline">\(45.1\)</span> quanta/s. These absolute rates are
+only a scale choice; the quoted ratios are the geometry predictions.</p>
+<p>The added conductor must also be quiet. At <span class="math inline">\(h=2d\)</span>, if it carries independent local
+noise with PSD density <span class="math inline">\(\chi\)</span> times
+that on the lower plane, symmetry gives</p>
+<p><span class="math display">\[\frac{S_{E_y}}{S_{E_y,\infty}}=(1+\chi)\zeta(3),\qquad
+\frac{S_{E_x}}{S_{E_x,\infty}}=(1+\chi)\eta(3),
+\tag{67}\]</span></p>
+<p>so tangential suppression survives only for <span class="math inline">\(\chi&lt;\eta(3)^{-1}-1=0.1092\ldots\)</span>.
+“Passive” is therefore a source-noise requirement as well as an
+electrostatic boundary condition.</p>
+<p>For a simple statistical scale, if one heating-rate estimate has
+independent <span class="math inline">\(10\%\)</span> relative
+uncertainty and repeated measurements average as <span class="math inline">\(N^{-1/2}\)</span>, five determinations per
+geometry give roughly <span class="math inline">\(3\sigma\)</span>
+resolution of the <span class="math inline">\(20.21\%\)</span> normal
+increase, while about nineteen per geometry are needed for <span class="math inline">\(3\sigma\)</span> resolution of the <span class="math inline">\(9.85\%\)</span> tangential decrease. Paired
+interleaving of cover configurations and a ratio measurement can reduce
+slow drift, but systematic changes in ion position, frequency,
+polarization, temperature, or surface state are likely to dominate
+before this ideal counting limit.</p>
+<p>The source-side assumption is equally important: the cover changes
+the transfer operator but not the stochastic process on the original
+noisy surface. If it changes adsorbate dynamics, temperature, or patch
+statistics, geometry and source physics no longer factorize. The
+proposed experiment should therefore measure the static trap solution
+and the heating spectrum at several frequencies in both configurations.
+A frequency-dependent geometry ratio would itself be evidence for a
+nonseparable <span class="math inline">\(P(k,\omega)\)</span> rather
+than failure of the Green-function framework.</p>
+<h2 id="discussion">12. Discussion</h2>
+<p>The many-ion formulation changes the interpretation of the slab
+calculation. The primary object is not a heating rate but a positive
+semidefinite spatial noise matrix. Billiard returns determine its
+geometric kernel; microscopic surface physics populates spatial
+wavenumbers through <span class="math inline">\(P(k,\omega)\)</span>;
+and its equal-frequency eigenvectors define collective environmental
+covariance channels. Within a degenerate mechanical frequency block,
+diagonalizing the corresponding Kossakowski matrix gives the physical
+Lindblad jumps. Single-ion anomalous heating is one diagonal observable
+of that channel, while normal-mode heating and gate exposure are
+quadratic-form projections of the same object.</p>
+<p>The Loewner ordering in Eq. <a href="#eq:loewner">(53)</a> is
+stronger than a statement about mean heating. For unchanged source
+statistics, no collective normal-field coordinate can evade the extra
+absolute response introduced by a passive parallel cover, whereas every
+collective tangential coordinate is suppressed. Yet the normalized
+channel spectrum can become more concentrated. The ten-ion example shows
+exactly this combination: all normal-field quadratic forms increase,
+while <span class="math inline">\(r_{\rm eff}\)</span> decreases and the
+leading covariance eigenchannel carries a larger fraction of the trace.
+Lower rank should not be equated automatically with easier quantum error
+correction; it is an experimentally defined property of the motional
+environment, and a qubit-level error model requires the control-mediated
+map exemplified by Sec. <a href="#sec:gate">9.1</a>.</p>
+<p>The finite-correlation calculation supplies a second control knob.
+Increasing the surface correlation length already concentrates the
+environmental spectrum before the enclosure is added, and the cover
+shifts it further toward long-wavelength collective coordinates. This
+makes geometry a potential diagnostic of spatiotemporal source
+structure. If <span class="math inline">\(P(k,\omega)=A(\omega)B(k)\)</span>, enclosed/open
+ratios are frequency independent at matched mode frequency; frequency
+dependence signals coupled spatial and temporal source structure.</p>
+<p>The billiard description also clarifies why the exact slab and the
+curved-boundary calculations look different. In the slab, unfolding
+labels the Green-function terms by normal depths and makes the
+return-pair heating functional exact. For a smooth non-flat boundary,
+the partially Fourier-transformed Green function is a screened boundary
+problem; specular paths emerge as its large-<span class="math inline">\(q_z\)</span> saddles. Their Euclidean lengths set
+exponential actions, their curvatures set focusing determinants, and
+multiple saddles add coherently at the field-response level. Integrating
+and pairing those amplitudes against a source spectrum is what converts
+pathwise exponential structure into anomalous-heating power laws.</p>
+<p>The scope is limited in four ways. The exact covariance ordering uses
+an infinite parallel slab and an unchanged stationary source. The
+non-flat BEM calculations are cross-sectional models with one invariant
+direction, not full three-dimensional trap simulations. The open-system
+generator assumes the usual Born–Markov/secular regime and must be
+block-diagonalized in the actual normal-mode basis when mode frequencies
+are well separated. The primitive MS calculation is an operational
+bridge, not a universal gate-error coefficient. These limitations keep
+the claims tied to quantities derived from the electrostatics rather
+than attaching generic QEC language to motional heating.</p>
+<h2 id="conclusion">13. Conclusion</h2>
+<p>Passive conducting geometry can reshape not only the magnitude but
+the collective structure of electric-field noise seen by trapped ions.
+The field cross spectrum <span class="math inline">\(C_{ij}(\omega)\)</span> determines motional
+heating directly and, within each secular frequency block, the
+corresponding Kossakowski matrix. In the parallel slab, its kernel is
+generated by a billiard return-depth measure, and the same return-pair
+construction yields exact <span class="math inline">\(\zeta(3)\)</span>
+and <span class="math inline">\(\eta(3)\)</span> heating factors,
+finite-correlation scaling, and the full spatial covariance of an ion
+array.</p>
+<p>The collective ordering theorem states that for unchanged source
+statistics, introducing the passive parallel cover increases the entire
+normal-field covariance in the Loewner order and decreases the entire
+tangential-field covariance. Diagonalization identifies collective
+equal-frequency noise eigenchannels; in a degenerate block the same
+construction gives Lindblad jump operators. In the ten-ion example the
+cover concentrates a larger fraction of normal noise into the leading
+channel and lowers the effective rank, while an explicit primitive
+entangling-gate simulation shows how the projected covariance enters a
+qubit-gate heating budget.</p>
+<p>The billiard connection is not restricted to the integrable strip.
+After Fourier transforming an invariant direction, reflected
+contributions to a smooth non-flat Green operator are controlled at
+large <span class="math inline">\(q_z\)</span> by specular saddles.
+Corrected boundary-element calculations distinguish Euclidean saddle
+length from projected depth, resolve the focusing prefactor, and track
+competing paths across a controlled curved-cover family. A five-probe
+curved example shows that the same boundary deformation also shifts a
+collective noise eigenvector.</p>
+<p>The resulting chain is</p>
+<p><span class="math display">\[\begin{aligned}
+\text{surface physics}&amp;\to\text{billiard geometry}\\
+&amp;\to C_{ij}(\omega)\to\text{noise eigenchannels}\\
+&amp;\to\text{motional/gate exposure}.
+\end{aligned}
+\tag{68}\]</span></p>
+<p>It provides a route for using passive geometry both as a diagnostic
+of anomalous surface noise and as a controlled way to reshape the
+correlated bosonic environment of trapped-ion quantum hardware.</p>
+<h2 class="unnumbered" id="acknowledgments">Acknowledgments</h2>
+<p>We thank Prof. Chris Cox and Prof. Robert Niffenegger for supervision
+and helpful discussions during the honors-thesis project from which this
+work developed. We also thank Chris Caron and Zhenyu Wei for regular
+project discussions.</p>
+<h2 id="data-and-code-availability">Data and code availability</h2>
+<p>Scripts and recorded numerical data for the slab, many-ion covariance
+matrices, primitive gate simulation, ray reconstruction, screened
+boundary-element calculations, and billiard-saddle tests are provided
+with the reproducibility repository at <a href="https://github.com/lostree9/noise_recycling" class="uri">https://github.com/lostree9/noise_recycling</a>.</p>
+<h2 id="a.-sharp-d2-asymptotics">A. Sharp <span class="math inline">\(D=2\)</span> asymptotics</h2>
+<div id="app:sharp">
+
+</div>
+<p>Set <span class="math inline">\(d=1\)</span> and <span class="math inline">\(\boldsymbol{q}=(Q,0)\)</span>. Write <span class="math inline">\(\widehat K_h=f+r_h\)</span> with <span class="math inline">\(f(k)=ke^{-k}\)</span> and <span class="math inline">\(r_h&gt;0\)</span>. From Eq. <a href="#eq:Aperp">(30)</a>,</p>
+<p><span class="math display">\[r_h(k)=ke^{-k}\frac{e^{-2(h-1)k}+e^{-2hk}}{1-e^{-2hk}}.
+\tag{69}\]</span></p>
+<p>For fixed <span class="math inline">\(h&gt;1\)</span>, <span class="math inline">\(e^k r_h\in L^1\cap L^\infty\)</span> with the
+first radial moment integrable. Translating the endpoint in the cross
+convolution gives</p>
+<p><span class="math display">\[\begin{align*}
+(f*r_h)(Q\hat x)
+&amp;=\int f(Q\hat x-\boldsymbol{p})r_h(\boldsymbol{p})\,\mathrm
+d^2p\nonumber\\
+&amp;=Qe^{-Q}\left[\int e^{p_x}r_h(\boldsymbol{p})\mathrm
+d^2p+o(1)\right],
+\tag{70}
+\end{align*}\]</span></p>
+<p>by dominated convergence. The integral is strictly positive.</p>
+<p>The exact open transfer, Eq. <a href="#eq:Mopen">(43)</a>, and <span class="math inline">\(K_\nu(Q)\sim\sqrt{\pi/(2Q)}e^{-Q}\)</span>
+give</p>
+<p><span class="math display">\[(f*f)(Q\hat x)\sim
+\frac{3\pi}{64}\sqrt{\frac{\pi}{2}}Q^{7/2}e^{-Q}.
+\tag{71}\]</span></p>
+<p>The reflected/reflected term is <span class="math inline">\(O(e^{-Q})\)</span> after the same exponential
+weighting. Hence</p>
+<p><span class="math display">\[\frac{(f+r_h)*(f+r_h)}{f*f}
+=1+\frac{2C_h}{c_0}Q^{-5/2}+o(Q^{-5/2}),
+\tag{72}\]</span></p>
+<p>which proves Theorem 3. If <span class="math inline">\(h/d\ge1+\delta\)</span>, the weighted norms of
+<span class="math inline">\(r_h\)</span> are bounded uniformly for fixed
+<span class="math inline">\(\delta&gt;0\)</span>, giving uniformity on
+that family. As <span class="math inline">\(\delta\downarrow0\)</span>,
+the bound diverges and the limit is nonuniform. More precisely, for
+<span class="math inline">\(h=1+\varepsilon\)</span> radial symmetry
+gives</p>
+<p><span class="math display">\[C_h=2\pi\int_0^\infty k^2 I_0(k)
+e^{-k}\frac{e^{-2\varepsilon
+k}+e^{-2(1+\varepsilon)k}}{1-e^{-2(1+\varepsilon)k}}\,\mathrm dk.
+\tag{73}\]</span></p>
+<p>Using <span class="math inline">\(I_0(k)\sim e^k/\sqrt{2\pi
+k}\)</span> and scaling <span class="math inline">\(k=u/\varepsilon\)</span> yields</p>
+<p><span class="math display">\[C_{1+\varepsilon}\sim\frac{3\pi}{16}\varepsilon^{-5/2},
+\tag{74}\]</span></p>
+<p>which inserted into Eq. <a href="#eq:ccoef">(47)</a> gives Eq. <a href="#eq:cclose">(48)</a>. The earlier elementary direct/direct
+lower-bound proof may use <span class="math inline">\(|\boldsymbol{p}|+|\boldsymbol{q}-\boldsymbol{p}|\le
+Q+4\)</span> on <span class="math inline">\(Q/4\le p_x\le3Q/4\)</span>,
+<span class="math inline">\(|p_y|\le\sqrt Q\)</span>; the constant is
+<span class="math inline">\(4\)</span>, not <span class="math inline">\(3\)</span>.</p>
+<h2 id="b.-tangential-signed-return-measure">B. Tangential signed return
+measure</h2>
+<p>Equation <a href="#eq:tangentmeasure">(18)</a> defines a signed depth
+measure</p>
+<p><span class="math display">\[\mu_h^\parallel=\sum_{r\ge0}\delta_{d+2rh}-
+\sum_{r\ge0}\delta_{2h-d+2rh}.
+\tag{75}\]</span></p>
+<p>For isotropic <span class="math inline">\(P(k,\omega)\)</span>,
+angular averaging gives one tangential component</p>
+<p><span class="math display">\[S_{E_x}=\frac{1}{D}\iint\Phi_\omega(a+b)\,
+\mathrm d\mu_h^\parallel(a)\mathrm d\mu_h^\parallel(b).
+\tag{76}\]</span></p>
+<p>At <span class="math inline">\(h=2d\)</span>, <span class="math inline">\(\mu^\parallel=\sum_{r\ge0}(-1)^r\delta_{(2r+1)d}\)</span>,
+and the ordered-pair coefficient at total depth <span class="math inline">\(2md\)</span> is <span class="math inline">\(m(-1)^{m-1}\)</span>, which gives Eq. <a href="#eq:etageneral">(28)</a>. The open local-source anisotropy is
+<span class="math inline">\(S_{E_y}/S_{E_x}=D\)</span>; at <span class="math inline">\(h=2d\)</span> it becomes</p>
+<p><span class="math display">\[\frac{S_{E_y}}{S_{E_x}}=
+D\frac{\zeta(D+1)}{\eta(D+1)}=
+\frac{D}{1-2^{-D}}.
+\tag{77}\]</span></p>
+<h2 id="c.-ray-reconstruction-identity">C. Ray reconstruction
+identity</h2>
+<div id="app:ray">
+
+</div>
+<p>Let <span class="math inline">\(P_a(x)=a/(x^2+a^2)\)</span> and <span class="math inline">\(\sigma_n=\operatorname{sgn}(d-2nh)=\partial_d\alpha_n\)</span>.
+For a circular gate of radius <span class="math inline">\(\rho\)</span>
+around the unfolded image at depth <span class="math inline">\(a\)</span>, the cosine-measure crossing
+probability is <span class="math inline">\(\rho P_a(x)\)</span>.
+Splitting the expected crossing counts by <span class="math inline">\(\sigma_n\)</span> and differentiating in <span class="math inline">\(d\)</span> yields</p>
+<p><span class="math display">\[\frac{1}{\rho}\left(\partial_dg^\uparrow-\partial_dg^\downarrow\right)
+=\sum_n\frac{x^2-\alpha_n^2}{(x^2+\alpha_n^2)^2}
+=-\pi K_h(x).
+\tag{78}\]</span></p>
+<p>A centered height difference produces the Monte Carlo estimator used
+in Sec. <a href="#sec:ray">D</a>. Common random numbers at <span class="math inline">\(d\pm\delta\)</span> reduce finite-difference
+variance.</p>
+<h2 id="d.-constructive-billiard-reconstruction-in-the-strip">D.
+Constructive billiard reconstruction in the strip</h2>
+<div id="sec:ray">
+
+</div>
+<p>In the parallel strip, unfolding also provides a constructive
+estimator for the real-space field kernel. Launch rays from a boundary
+point <span class="math inline">\(x\)</span> under the cosine angular
+measure and count crossings of a circular gate centered on the ion,
+keeping upward and downward crossings separate. For one unfolded image
+at depth <span class="math inline">\(a\)</span>, the crossing
+probability is <span class="math inline">\(\rho a/(x^2+a^2)\)</span>.
+Differentiating the signed crossing count with respect to ion height
+reconstructs the image derivative and hence <span class="math inline">\(K_h(x)\)</span>. The derivation is recorded in
+Appendix <a href="#app:ray">C</a>.</p>
+<p>This calculation should not be read as an independent validation of
+image electrostatics: the estimator is derived from the same exact
+unfolding identity. Its value is constructive. It shows that the
+spatial-transfer observable can be reconstructed from direction-resolved
+billiard data. At <span class="math inline">\(h/d=2\)</span>, 31 launch
+points spanning <span class="math inline">\(x/d\in[-4,4]\)</span>, 8000
+rays per point, five stratified seeds, gate radius <span class="math inline">\(\rho/d=0.429\)</span>, and centered height step
+<span class="math inline">\(\delta/d=0.10\)</span> give Pearson
+correlation <span class="math inline">\(0.99993\)</span> with the exact
+field kernel. The reconstructed transfer half-power point differs from
+the exact value by <span class="math inline">\(0.78\%\)</span>.</p>
+
+<figure id="fig:ray"><img src="../assets/papers/trapped-ion/fig_ray_transfer.svg" alt="Figure 10; full description in the caption below." loading="lazy"><figcaption><strong>Figure 10.</strong> Exact and direction-resolved ray reconstruction of the strip
+modulation transfer at <span class="math inline">\(h/d=2\)</span>. The
+calculation is a constructive reconstruction from billiard crossings,
+not an independent electrostatic model.</figcaption></figure>
+
+<h2 id="e.-curved-cover-screened-bem-details">E. Curved-cover
+screened-BEM details</h2>
+<div id="app:saddlenum">
+
+</div>
+<p>The cross-section is closed by remote side walls at <span class="math inline">\(|x|=5d\)</span>. Smooth covers are represented by
+piecewise-linear panels. At each longitudinal Fourier wavenumber <span class="math inline">\(q_z\)</span>, the single-layer matrix uses the
+free kernel <span class="math inline">\(K_0(q_zR)/(2\pi)\)</span>.
+Eight-point Gauss quadrature is used off the diagonal, while the
+logarithmically singular self-panel integral is evaluated after the
+substitution <span class="math inline">\(s=(\Delta\ell/2)t^2\)</span>
+with adaptive quadrature. Up to the conventional sign of the
+single-layer representation, the solved boundary density is the boundary
+normal derivative entering the Dirichlet Green function; a centered
+displacement of the ion gives the normal field sensitivity at the source
+point.</p>
+<p>For the 16-geometry production sweep, target panel length is <span class="math inline">\(0.11d\)</span>, the field finite-difference step
+is <span class="math inline">\(0.01d\)</span>, and the exponential fit
+uses the upper half of <span class="math inline">\(q_zd=2.5\)</span>–<span class="math inline">\(6\)</span>. The flat <span class="math inline">\(h/d=2\)</span> geometry predicts <span class="math inline">\(\Delta L/d=2\)</span> and gives finite-<span class="math inline">\(q_z\)</span> fitted exponent <span class="math inline">\(1.9789\)</span>; its full reflected amplitude
+agrees with the exact partially Fourier-transformed strip result to
+within <span class="math inline">\(0.26\%\)</span> over the sampled
+band. A representative displaced wave predicts <span class="math inline">\(\Delta L/d=2.5218\)</span> and gives <span class="math inline">\(2.4981\)</span>. The lower noisy plate is
+panelized with a collocation midpoint fixed exactly at <span class="math inline">\(x=0\)</span> at every resolution. Changing target
+panel length from <span class="math inline">\(0.14d\)</span> to <span class="math inline">\(0.085d\)</span> changes the fitted exponent by
+<span class="math inline">\(4.3\times10^{-5}\)</span> for the flat case
+and <span class="math inline">\(1.4\times10^{-3}\)</span> for the
+deliberately difficult off-axis depression, whose correction reaches
+only <span class="math inline">\(\sim4\times10^{-8}\)</span> at the
+largest sampled <span class="math inline">\(q_z\)</span>. At fixed <span class="math inline">\(0.11d\)</span> panel length, varying the
+finite-difference step from <span class="math inline">\(0.007d\)</span>
+to <span class="math inline">\(0.015d\)</span> changes the off-axis
+exponent by <span class="math inline">\(2.3\times10^{-4}\)</span>. All
+quoted shortest saddles lie well inside the remote side walls. We
+nevertheless repeated two representative calculations at <span class="math inline">\(W/d=4,5,7\)</span>. For the off-axis depression
+the fitted exponents are <span class="math inline">\(2.5630\)</span>,
+<span class="math inline">\(2.5658\)</span>, and <span class="math inline">\(2.5720\)</span>, a total spread of <span class="math inline">\(0.0090\)</span> (<span class="math inline">\(0.35\%\)</span> of the <span class="math inline">\(W=5d\)</span> value). For the displaced wave they
+are <span class="math inline">\(2.49815\)</span>, <span class="math inline">\(2.49807\)</span>, and <span class="math inline">\(2.49786\)</span>, a <span class="math inline">\(0.012\%\)</span> spread.</p>
+<p>To verify the reflection-order Laplace principle directly, we also
+evaluate scalar one- and two-reflection action integrals for a
+representative curved cover. The independently minimized actions are
+<span class="math inline">\(L_1/d=3.180\)</span> and <span class="math inline">\(L_2/d=5.151\)</span>; fits to <span class="math inline">\(\log I_n(q_z)\)</span> over the finite range <span class="math inline">\(q_zd=5.5\)</span>–<span class="math inline">\(8\)</span> give slopes <span class="math inline">\(3.258\)</span> and <span class="math inline">\(5.310\)</span>, approaching the corresponding
+minima from above as expected from the algebraic Laplace prefactors.</p>
+<h2 id="f.-primitive-gate-channel-simulation">F. Primitive gate-channel
+simulation</h2>
+<div id="app:gate">
+
+</div>
+<p>For the calculation in Sec. <a href="#sec:gate">9.1</a>, we propagate
+each of the 16 qubit operator-basis elements tensored with the
+oscillator vacuum under the time-dependent Hamiltonian and the symmetric
+diffusion generator <span class="math inline">\(\dot{\bar n}(\mathcal
+D[a]+\mathcal D[a^\dagger])\)</span>. The ideal target is <span class="math inline">\(U=\exp(i\pi\sigma_x^{(1)}\sigma_x^{(2)}/4)\)</span>,
+up to a global phase. After the gate time <span class="math inline">\(t_g=2\pi/\delta\)</span>, the oscillator is traced
+out and the average gate fidelity is obtained from the reconstructed
+qubit channel.</p>
+<p>The quoted weak-heating coefficient is extracted after subtracting
+the finite-Fock no-noise floor and fitting the three smallest nonzero
+values <span class="math inline">\(\dot{\bar
+n}t_g=10^{-4},2\times10^{-4},5\times10^{-4}\)</span>. The fitted slopes
+for oscillator truncations <span class="math inline">\(n_{\rm
+ph}=5,6,7,8,9,10\)</span> are <span class="math inline">\(0.40873\)</span>, <span class="math inline">\(0.40044\)</span>, <span class="math inline">\(0.39989\)</span>, <span class="math inline">\(0.39984\)</span>, <span class="math inline">\(0.39984\)</span>, and <span class="math inline">\(0.39984\)</span>, respectively. We therefore quote
+<span class="math inline">\(0.400\)</span> rather than attaching
+significance to the fourth decimal place.</p>
+<section id="references"><h2>References</h2><ol class="paper-references"><li id="ref-Turchette2000"><p>Q. A. Turchette <em>et al.</em>, Heating of trapped ions from the
+quantum ground state, Phys. Rev. A <strong>61</strong>, 063418
+(2000).</p>
+</li><li id="ref-Deslauriers2006"><p>L. Deslauriers, S. Olmschenk, D. Stick, W. K. Hensinger, J. Sterk,
+and C. Monroe, Scaling and suppression of anomalous heating in ion
+traps, Phys. Rev. Lett. <strong>97</strong>, 103007 (2006).</p>
+</li><li id="ref-Brownnutt2015"><p>M. Brownnutt, M. Kumph, P. Rabl, and R. Blatt, Ion-trap measurements
+of electric-field noise near surfaces, Rev. Mod. Phys.
+<strong>87</strong>, 1419 (2015).</p>
+</li><li id="ref-Sedlacek2018"><p>J. A. Sedlacek <em>et al.</em>, Distance scaling of electric-field
+noise in a surface-electrode ion trap, Phys. Rev. A <strong>97</strong>,
+020302(R) (2018).</p>
+</li><li id="ref-Dubessy2009"><p>R. Dubessy, T. Coudreau, and L. Guidoni, Electric field noise above
+surfaces: A model for heating-rate scaling law in ion traps, Phys. Rev.
+A <strong>80</strong>, 031402(R) (2009).</p>
+</li><li id="ref-Low2011"><p>G. H. Low, P. F. Herskind, and I. L. Chuang, Finite-geometry models
+of electric field noise from patch potentials in ion traps, Phys. Rev. A
+<strong>84</strong>, 053425 (2011).</p>
+</li><li id="ref-Lin2016"><p>K.-Y. Lin, G. H. Low, and I. L. Chuang, Effects of electrode surface
+roughness on motional heating of trapped ions, Phys. Rev. A
+<strong>94</strong>, 013418 (2016).</p>
+</li><li id="ref-Tabachnikov2005"><p>S. Tabachnikov, <em>Geometry and Billiards</em>, Student Mathematical
+Library Vol. 30 (American Mathematical Society, Providence, 2005).</p>
+</li><li id="ref-BalianBloch1970"><p>R. Balian and C. Bloch, Distribution of eigenfrequencies for the wave
+equation in a finite domain: I. Three-dimensional problem with smooth
+boundary surface, Ann. Phys. <strong>60</strong>, 401–447 (1970).</p>
+</li><li id="ref-BalianBloch1972"><p>R. Balian and C. Bloch, Distribution of eigenfrequencies for the wave
+equation in a finite domain: III. Eigenfrequency density oscillations,
+Ann. Phys. <strong>69</strong>, 76–160 (1972).</p>
+</li><li id="ref-BalianDuplantier1977"><p>R. Balian and B. Duplantier, Electromagnetic waves near perfect
+conductors. I. Multiple scattering expansions. Distribution of modes,
+Ann. Phys. <strong>104</strong>, 300–335 (1977).</p>
+</li><li id="ref-Bordag2001"><p>M. Bordag, D. Vassilevich, H. Falomir, and E. M. Santangelo, Multiple
+reflection expansion and heat kernel coefficients, Phys. Rev. D
+<strong>64</strong>, 045017 (2001).</p>
+</li><li id="ref-Zelditch2004"><p>S. Zelditch, Inverse spectral problem for analytic plane domains I:
+Balian–Bloch trace formula, Commun. Math. Phys. <strong>248</strong>,
+357–407 (2004).</p>
+</li><li id="ref-Martinetz2022"><p>L. Martinetz, K. Hornberger, and B. A. Stickler, Surface-induced
+decoherence and heating of charged particles, PRX Quantum
+<strong>3</strong>, 030327 (2022).</p>
+</li><li id="ref-Sagesser2024"><p>T. Sägesser, S. Jain, P. Hrmo, A. Ferk, M. Simoni, Y. Cui, C.
+Mordini, D. Kienzler, and J. Home, A 3-dimensional scanning trapped-ion
+probe, arXiv:2412.17528 (2024).</p>
+</li><li id="ref-Chu2025"><p>C.-T. B. Chu, H.-C. Chen, T. Hsu, H.-Y. Lo, M.-S. Chang, and G.-D.
+Lin, Reducing ion heating in quantum computing: A novel 3D-printed micro
+ion trap with skeleton structure, arXiv:2510.22725 (2025).</p>
+</li><li id="ref-Galve2017"><p>F. Galve, J. Alonso, and R. Zambrini, Multi-ion sensing of dipolar
+noise sources in ion traps, Phys. Rev. A <strong>96</strong>, 033409
+(2017).</p>
+</li><li id="ref-Webb2018"><p>A. E. Webb, S. C. Webster, S. Collingbourne, D. Bretaud, A. M.
+Lawrence, S. Weidt, F. Mintert, and W. K. Hensinger, Resilient
+entangling gates for trapped ions, Phys. Rev. Lett.
+<strong>121</strong>, 180501 (2018).</p>
+</li><li id="ref-Sutherland2022"><p>R. T. Sutherland, Q. Yu, K. M. Beck, and H. Häffner, One- and
+two-qubit gate infidelities due to motional errors in trapped ions and
+electrons, Phys. Rev. A <strong>105</strong>, 022437 (2022).</p>
+</li><li id="ref-Kang2023"><p>M. Kang, Y. Wang, C. Fang, B. Zhang, O. Khosravani, J. Kim, and K. R.
+Brown, Designing filter functions of frequency-modulated pulses for
+high-fidelity two-qubit gates in ion chains, Phys. Rev. Applied
+<strong>19</strong>, 014014 (2023).</p>
+</li></ol></section>
+</article>
+</main></body></html>
