@@ -19,7 +19,7 @@ PROJECTS = [
     dict(slug='hybrid-quantum-repeaters', title='Scalable Entanglement Generation with Encoded Hybrid Repeaters in 2D Networks', date='March 2026 – Present', context='Graduate research with Filip Rozpędek and Stav Haldar', summary='Encoded hybrid repeaters, placement, and routing for scalable entanglement generation in two-dimensional quantum networks.', ongoing=True),
     dict(slug='asynchronous-qec', title='Asynchronous Quantum Error Correction', date='September 2026 – Present', context='CS 648 course project', summary='Error correction and syndrome information when distributed operations depend on entanglement arriving at different times.', ongoing=True),
     dict(slug='trapped-ion-diagnostics', title='Geometry-Controlled Noise in Trapped-Ion Systems', date='May 2025 – August 2026', context='Undergraduate honors thesis · Supervised by Christopher Cox and Robert Niffenegger', summary='How electrode geometry shapes electric-field noise and spatial correlations in trapped-ion systems.', paper='trapped-ion', paper_title='Geometry-controlled correlated electric-field noise in enclosed ion traps from billiard return spectra', version='Preprint · 2026', links=[('arXiv:2608.24770','https://arxiv.org/abs/2608.24770'),('Code & data','https://github.com/ayushnadiger/noise_recycling')]),
-    dict(slug='covariance-geometry-qec', title='Differential Geometry of Quantum Erasure Correction', date='Spring–Summer 2025', context='Differential geometry project', summary='The geometry of exact erasure-correcting code subspaces, their perturbations, and information leakage.', paper='erasure-geometry', paper_title='Normal Geometry of Exact Quantum Erasure Codes: Covariance, Leakage, and Infinitesimal Rigidity', version='Manuscript · August 2026', links=[('Verification code','https://github.com/ayushnadiger/ayushnadiger.github.io/tree/main/code/covariance-geometry-qec')]),
+    dict(slug='covariance-geometry-qec', title='Differential Geometry of Quantum Erasure Correction', date='Spring–Summer 2025', context='Differential geometry project', summary='The geometry of exact erasure-correcting code subspaces, their perturbations, and information leakage.', paper='erasure-geometry', paper_title='Normal Geometry of Exact Quantum Erasure Codes: Covariance, Leakage, and Infinitesimal Rigidity', version='Manuscript · August 2026', links=[]),
     dict(slug='predictive-rank-qec', title='Statistical Memory Tests for Quantum Error-Correction Records', date='Fall 2025 – Winter 2026', context='STATS 632 course project · Analysis of public Google surface-code data', summary='Predictive-rank tests for temporal structure in syndrome records, with an application to public Google data.', paper='predictive-rank', paper_title='Predictive Rank as a Circuit-Conditioned Memory Witness for Quantum Error-Correction Syndrome Records', version='Manuscript · August 2026', links=[]),
     dict(slug='graph-state-repair-diagnosis', title='The Bond Repair Problem in Graph States', date='2026', context='Independent project', summary='Distinguishing a missing entangling gate from endpoint-memory dephasing using product measurements.', paper='bond-repair', paper_title='The bond repair problem: distinguishing a missing entangling gate from endpoint dephasing in graph states', version='Manuscript · August 2026', links=[('Verification code','https://github.com/ayushnadiger/repair-identifiability')]),
 ]
@@ -344,19 +344,7 @@ def build():
     if 'class="skip-link"' not in index:
         index=index.replace('<body>','<body>\n<a class="skip-link" href="#main">Skip to content</a>')
     (ROOT/'index.html').write_text(index)
-    for path in ('research.html','projects.html','papers.html','cv.html'):
-        (ROOT/path).write_text(f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex,follow"><meta http-equiv="refresh" content="0; url=index.html#projects"><link rel="canonical" href="{BASE}#projects"><title>Projects | Ayush Nadiger</title></head><body><p><a href="index.html#projects">Projects</a></p></body></html>\n''')
-    # Retained older routes continue to work without advertising a removed tab.
-    for path in [ROOT/'notes.html',*(ROOT/'projects').glob('*.html')]:
-        if path.stem in {p['slug'] for p in PROJECTS}: continue
-        content=path.read_text()
-        content=re.sub(r'<nav class="site-nav".*?</nav>\s*','',content,flags=re.S)
-        if path.parent.name=='projects':
-            content=re.sub(r'<header class="site-header">.*?</header>\s*','',content,flags=re.S)
-            content=content.replace('<body>','<body class="project-page">')
-        content=content.replace('../research.html','../index.html#projects').replace('← research','← Projects')
-        (path).write_text(content)
-    urls=['', 'notes.html']+['projects/'+p['slug']+'.html' for p in PROJECTS]
+    urls=['']+['projects/'+p['slug']+'.html' for p in PROJECTS]
     (ROOT/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+''.join('  <url><loc>'+BASE+u+'</loc></url>\n' for u in urls)+'</urlset>\n')
     print('Built homepage and six project pages.')
 
