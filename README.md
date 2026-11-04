@@ -2,10 +2,10 @@
 
 Personal academic website: https://ayushnadiger.github.io/
 
-The published site contains the homepage and six project pages, with the original Latin Modern typography and paper-like layout. The two active projects have provisional research overviews, vector figures, model assumptions, and references; the other project pages contain full HTML manuscripts. There are no PDFs or legacy redirect pages.
+The site has a homepage and six project pages. Four project pages contain full manuscripts rendered in HTML. The two ongoing projects have shorter research overviews with figures and references.
 
-`tools/build_projects.py` rebuilds the homepage and six project pages using Python, lxml, and Pandoc. Retained TeX sources and browser-native figures live under `assets/papers/`.
+`tools/build_projects.py` builds the homepage and project pages with Python, lxml, and Pandoc. The TeX sources and figures for the manuscripts are in `assets/papers/`, and the bodies of the ongoing-project pages are in `tools/project_content/`.
 
-`tools/project_content/` contains the active research-page bodies. `tools/build_research_figures.py` reproduces their four SVG figures with matplotlib and numpy. Its retained inputs in `tools/research_data/` come from the 2 November 2026 exact phase-only routing note and the asynchronous-observability revision-9 fresh matched cohort. The diagrams are explicitly labeled schematics. The BB72 plot uses the complete local measurement record and the early-noise-only ablation from the same 32 herald histories; it does not pool older cohorts.
+`tools/build_research_figures.py` regenerates the four figures on the ongoing-project pages from the data in `tools/research_data/`, using matplotlib and numpy. Two of the figures are schematics. The other two show the hybrid-repeater routing calculation and the BB72 scheduling simulation (32 herald histories, full local measurement record and early-noise ablation).
 
-Only the pages, styles, figures, favicon, search metadata, and ownership-verification file are published. `_config.yml` excludes the build tool, this README, and manuscript source files from the public site.
+`_config.yml` keeps the build tools, this README, and the TeX sources off the published site.

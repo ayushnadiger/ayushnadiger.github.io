@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Build the two active project pages' vector figures from retained inputs.
 
-The network and time-line diagrams are explanatory schematics. The routing
-bars use the exact testbed values in RESULTS_AND_CODE_DESIGN.md (2 Nov 2026).
-The scheduling bars use the fresh matched cohort from async revision 9.
+The network and timeline diagrams are schematics. The routing bars use the
+exact values from the phase-only routing calculation (2 November 2026). The
+scheduling bars use the matched set of 32 BB72 herald histories.
 Requires matplotlib and numpy; no simulation is rerun by this script.
 """
 from pathlib import Path

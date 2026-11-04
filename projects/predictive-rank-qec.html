@@ -20,7 +20,7 @@
     <p class="project-context">Applied Multivariate Statistics course project · Public Google surface-code data</p>
     <p>Predictive-rank tests for temporal structure in syndrome records, with an application to public Google data.</p>
   </section>
-<aside class="paper-toc" aria-label="Paper contents"><details><summary>Contents</summary><ol><li class="toc-h2"><a href="#introduction">1. Introduction</a></li><li class="toc-h2"><a href="#syndrome-processes-and-predictive-rank">2. Syndrome processes and predictive rank</a></li><li class="toc-h3"><a href="#classical-hidden-state-factorization">2.1 Classical hidden-state factorization</a></li><li class="toc-h3"><a href="#circuit-light-cones-and-intrinsic-cut-rank">2.2 Circuit light cones and intrinsic cut rank</a></li><li class="toc-h2"><a href="#property-testing-of-hankel-rank">3. Property testing of Hankel rank</a></li><li class="toc-h3"><a href="#a-finite-sample-upper-bound">3.1 A finite-sample upper bound</a></li><li class="toc-h3"><a href="#matching-lower-bound">3.2 Matching lower bound</a></li><li class="toc-h3"><a href="#one-sided-rank-selection-without-repeated-testing">3.3 One-sided rank selection without repeated testing</a></li><li class="toc-h3"><a href="#a-single-dependent-trajectory">3.4 A single dependent trajectory</a></li><li class="toc-h3"><a href="#adaptive-word-length">3.5 Adaptive word length</a></li><li class="toc-h2"><a href="#practical-calibration-and-conditional-model-checking">4. Practical calibration and conditional model checking</a></li><li class="toc-h3"><a href="#rank-one-calibration">4.1 Rank-one calibration</a></li><li class="toc-h3"><a href="#conditional-comparison-with-a-supplied-circuit-model">4.2 Conditional comparison with a supplied circuit model</a></li><li class="toc-h2"><a href="#experiments">5. Experiments</a></li><li class="toc-h3"><a href="#calibration-power-and-the-predicted-sample-scale">5.1 Calibration, power, and the predicted sample scale</a></li><li class="toc-h3"><a href="#worked-memory-certificate-for-a-repeated-detector">5.2 Worked memory certificate for a repeated detector</a></li><li class="toc-h3"><a href="#leakage-localization-on-a-circuit-noise-background">5.3 Leakage localization on a circuit-noise background</a></li><li class="toc-h3"><a href="#rotated-surface-code-circuit-validation">5.4 Rotated-surface-code circuit validation</a></li><li class="toc-h3"><a href="#nonstationary-drift-is-a-genuine-confound">5.5 Nonstationary drift is a genuine confound</a></li><li class="toc-h3"><a href="#hmm-bic-baseline">5.6 HMM-BIC baseline</a></li><li class="toc-h3"><a href="#arbitrary-r-calibration-and-dependence-misspecification">5.7 Arbitrary-r calibration and dependence misspecification</a></li><li class="toc-h3"><a href="#public-google-distance-5-surface-code-records">5.8 Public Google distance-5 surface-code records</a></li><li class="toc-h2"><a href="#relation-to-qec-diagnostics-and-prior-rank-methods">6. Relation to QEC diagnostics and prior rank methods</a></li><li class="toc-h2"><a href="#limitations-and-open-problems">7. Limitations and open problems</a></li><li class="toc-h2"><a href="#conclusion">8. Conclusion</a></li><li class="toc-h2"><a href="#data-and-code-availability">Data and code availability</a></li><li class="toc-h2"><a href="#a.-proof-details-for-the-lower-bound-embedding">A. Proof details for the lower-bound embedding</a></li><li class="toc-h2"><a href="#b.-repeated-detector-separator-certificate">B. Repeated-detector separator certificate</a></li><li class="toc-h2"><a href="#c.-experiment-parameters">C. Experiment parameters</a></li><li><a href="#references">References</a></li></ol></details></aside>
+<aside class="paper-toc" aria-label="Paper contents"><details><summary>Contents</summary><ol><li class="toc-h2"><a href="#introduction">1. Introduction</a></li><li class="toc-h2"><a href="#syndrome-processes-and-predictive-rank">2. Syndrome processes and predictive rank</a></li><li class="toc-h3"><a href="#classical-hidden-state-factorization">2.1 Classical hidden-state factorization</a></li><li class="toc-h3"><a href="#circuit-light-cones-and-intrinsic-cut-rank">2.2 Circuit light cones and intrinsic cut rank</a></li><li class="toc-h2"><a href="#property-testing-of-hankel-rank">3. Property testing of Hankel rank</a></li><li class="toc-h3"><a href="#a-finite-sample-upper-bound">3.1 A finite-sample upper bound</a></li><li class="toc-h3"><a href="#matching-lower-bound">3.2 Matching lower bound</a></li><li class="toc-h3"><a href="#one-sided-rank-selection-without-repeated-testing">3.3 One-sided rank selection without repeated testing</a></li><li class="toc-h3"><a href="#a-single-dependent-trajectory">3.4 A single dependent trajectory</a></li><li class="toc-h3"><a href="#adaptive-word-length">3.5 Adaptive word length</a></li><li class="toc-h2"><a href="#practical-calibration-and-conditional-model-checking">4. Practical calibration and conditional model checking</a></li><li class="toc-h3"><a href="#rank-one-calibration">4.1 Rank-one calibration</a></li><li class="toc-h3"><a href="#conditional-comparison-with-a-supplied-circuit-model">4.2 Conditional comparison with a supplied circuit model</a></li><li class="toc-h2"><a href="#experiments">5. Experiments</a></li><li class="toc-h3"><a href="#calibration-power-and-the-predicted-sample-scale">5.1 Calibration, power, and the predicted sample scale</a></li><li class="toc-h3"><a href="#worked-memory-certificate-for-a-repeated-detector">5.2 Worked memory certificate for a repeated detector</a></li><li class="toc-h3"><a href="#leakage-localization-on-a-circuit-noise-background">5.3 Leakage localization on a circuit-noise background</a></li><li class="toc-h3"><a href="#rotated-surface-code-circuit-validation">5.4 Rotated-surface-code circuit validation</a></li><li class="toc-h3"><a href="#nonstationary-drift-as-a-confound">5.5 Nonstationary drift as a confound</a></li><li class="toc-h3"><a href="#hmm-bic-baseline">5.6 HMM-BIC baseline</a></li><li class="toc-h3"><a href="#arbitrary-r-calibration-and-dependence-misspecification">5.7 Arbitrary-r calibration and dependence misspecification</a></li><li class="toc-h3"><a href="#public-google-distance-5-surface-code-records">5.8 Public Google distance-5 surface-code records</a></li><li class="toc-h2"><a href="#relation-to-qec-diagnostics-and-prior-rank-methods">6. Relation to QEC diagnostics and prior rank methods</a></li><li class="toc-h2"><a href="#limitations-and-open-problems">7. Limitations and open problems</a></li><li class="toc-h2"><a href="#conclusion">8. Conclusion</a></li><li class="toc-h2"><a href="#data-and-code-availability">Data and code availability</a></li><li class="toc-h2"><a href="#a.-proof-details-for-the-lower-bound-embedding">A. Proof details for the lower-bound embedding</a></li><li class="toc-h2"><a href="#b.-repeated-detector-separator-certificate">B. Repeated-detector separator certificate</a></li><li class="toc-h2"><a href="#c.-experiment-parameters">C. Experiment parameters</a></li><li><a href="#references">References</a></li></ol></details></aside>
 <article class="manuscript" id="paper" aria-label="Full paper">
 <section class="manuscript-abstract" id="abstract"><h3>Abstract</h3><p>Repeated quantum-error-correction (QEC) circuits produce syndrome
 streams with memory from both the known circuit and the unknown noise
@@ -42,13 +42,13 @@ factorization with known circuit separator dimension <span
 class="math inline">\(\kappa_\Gamma\)</span> and crossed noise-process
 bond dimensions <span class="math inline">\(\chi_e\)</span>, then <span
 class="math display">\[\rho_\Gamma\le
-\kappa_\Gamma\prod_{e\in\Gamma_{\rm noise}}\chi_e.\]</span> Thus
-syndrome rank universally lower-bounds process cut complexity, while
-conversion to a latent-noise or environment-memory statement is
-explicitly model-class conditional. For the one-dimensional
-spatiotemporal Pauli-process (SPP) class of Kam <em>et al.</em>, define
-<span class="math inline">\(D_{\min}^{\rm SPP}\)</span> as the smallest
-exact temporal SPP bond among compatible realizations. Then <span
+\kappa_\Gamma\prod_{e\in\Gamma_{\rm noise}}\chi_e.\]</span> Syndrome
+rank therefore lower-bounds process cut complexity in general, while any
+statement about latent noise or environment memory depends on the chosen
+model class. For the one-dimensional spatiotemporal Pauli-process (SPP)
+class of Kam <em>et al.</em>, define <span
+class="math inline">\(D_{\min}^{\rm SPP}\)</span> as the smallest exact
+temporal SPP bond among compatible realizations. Then <span
 class="math inline">\(\operatorname{rank}H^{(\ell)}\le\kappa_\Gamma
 D\)</span> for every such realization, so a valid rank rejection
 lower-bounds <span class="math inline">\(D_{\min}^{\rm SPP}\)</span>;
@@ -63,26 +63,25 @@ records, the conservative test rejects rank at most two and certifies
 <span class="math inline">\(D_{\min}^{\rm SPP}\ge2\)</span> and, within
 that finite-environment class, <span
 class="math inline">\(d_{E,\min}\ge2\)</span>.</p>
-<p>We then develop the finite-sample statistics needed to use this
-witness cautiously. Rejection of any finite block falsifies global
-predictive rank at most <span class="math inline">\(r\)</span>, whereas
-non-rejection at finitely many horizons does not certify the infinite
-process. For <span class="math inline">\(N\)</span> independent windows,
-empirical Frobenius distance to the rank-<span
-class="math inline">\(r\)</span> variety gives a distribution-free
-tester with sample complexity <span
+<p>We then develop the finite-sample statistics needed to apply this
+witness. Rejection of any finite block falsifies global predictive rank
+at most <span class="math inline">\(r\)</span>, whereas non-rejection at
+finitely many horizons does not certify the infinite process. For <span
+class="math inline">\(N\)</span> independent windows, empirical
+Frobenius distance to the rank-<span class="math inline">\(r\)</span>
+variety gives a distribution-free tester with sample complexity <span
 class="math inline">\(\Theta(\epsilon^{-2}\log(1/\delta))\)</span> for
 spectrally separated alternatives; the lower bound already holds for a
 stationary binary Markov trajectory. We also give <span
 class="math inline">\(\beta\)</span>-mixing and reversible
-observed-Markov extensions and show explicitly where those dependence
-assumptions fail.</p>
-<p>The practical analysis is separated into three inferential layers:
-certified but conservative rank tests, empirically calibrated rank-one
-diagnostics, and conditional model checking against a supplied circuit
-model. On two public Google distance-5 surface-code records totaling
-<span class="math inline">\(10^5\)</span> shots, the largest
-circuit-relative discrepancy occurs at detector track <span
+observed-Markov extensions and show where those dependence assumptions
+fail.</p>
+<p>The practical analysis has three inferential layers: certified but
+conservative rank tests, empirically calibrated rank-one diagnostics,
+and conditional model checking against a supplied circuit model. On two
+public Google distance-5 surface-code records totaling <span
+class="math inline">\(10^5\)</span> shots, the largest circuit-relative
+discrepancy occurs at detector track <span
 class="math inline">\(x2\_y5\)</span> in both memory bases. Its reported
 within-basis Benjamini–Hochberg adjusted values remain below <span
 class="math inline">\(0.05\)</span> after the arbitrary-dependence
@@ -90,45 +89,45 @@ Benjamini–Yekutieli factor (<span class="math inline">\(q_{\rm
 BY}\approx0.0082\)</span> and <span
 class="math inline">\(0.0113\)</span>), and the discrepancy persists
 across tested horizons and both acquisition halves. This is a
-finite-horizon mismatch with the supplied noisy circuit model, not
-identification of leakage or any other microscopic mechanism.</p>
+finite-horizon mismatch with the supplied noisy circuit model; it does
+not identify leakage or any other microscopic mechanism.</p>
 </section>
 <h2 id="introduction">1. Introduction</h2>
 <p>Repeated syndrome extraction is both an error-correction primitive
 and a high-bandwidth measurement of a quantum processor. Detector-event
 correlations are used to estimate Pauli noise and detector-error models,
 while hidden-state models and recurrent decoders exploit persistent
-temporal structure [<a href="#ref-wagner2021optimal">1</a>, <a href="#ref-blumekohout2025dem">2</a>, <a href="#ref-varbanov2020leakage">3</a>, <a href="#ref-bultink2020leakage">4</a>, <a href="#ref-bausch2024alphaqubit">5</a>]. These methods are powerful once
-a model class or predictive architecture has been selected. A logically
-prior question is whether the observed record is compatible with a
-stated amount of memory at all.</p>
+temporal structure [<a href="#ref-wagner2021optimal">1</a>, <a href="#ref-blumekohout2025dem">2</a>, <a href="#ref-varbanov2020leakage">3</a>, <a href="#ref-bultink2020leakage">4</a>, <a href="#ref-bausch2024alphaqubit">5</a>]. These methods work well once a
+model class or predictive architecture has been chosen. A more basic
+question is whether the observed record is compatible with a stated
+amount of memory.</p>
 <p>For a discrete syndrome symbol process <span class="math inline">\(Y_t\)</span>, a finite past word <span class="math inline">\(U\)</span> and future word <span class="math inline">\(V\)</span> define the probability matrix <span class="math display">\[H^{(\ell)}_{u,v}=\mathbb{P}(U=u,V=v).\]</span>
 Low-rank Hankel structure is classical in hidden Markov models (HMMs),
 observable-operator models (OOMs), and predictive-state representations
 (PSRs) [<a href="#ref-jaeger2000oom">6</a>, <a href="#ref-littman2001psr">7</a>, <a href="#ref-singh2012psr">8</a>, <a href="#ref-hsu2012spectral">9</a>]. Rank-based HMM order estimation is
 also established; in particular, Lehéricy uses ranks of matrices
 constructed from observation laws, and Du Roy de Chaumaray <em>et
-al.</em> use singular values of an observation operator [<a href="#ref-lehericy2019order">10</a>, <a href="#ref-duroy2022order">11</a>]. Our target is different. We use a
-specified finite block as a one-sided falsification test: rejection
-rules out every process whose corresponding predictive representation is
-too small, but acceptance does not establish HMM membership or determine
-the infinite-process rank.</p>
-<p>The new conceptual step is to connect observable rank first to an
-intrinsic cut complexity of the <em>composed</em> QEC process, and only
-then to a microscopic noise representation. A syndrome stream is not
-emitted by an environment in isolation. The known circuit itself carries
-quantum state and classical schedule information across a past–future
-cut. Treating all observed rank as “environmental memory” would
-therefore be wrong; so would identifying a nonminimal tensor-network
-bond with a unique physical memory. We contract the composed
-circuit–noise process to the causal light cone of the selected detector
-outcomes and define the operator-Schmidt rank <span class="math inline">\(\rho_\Gamma\)</span> across a past–future cut. The
-observable Hankel rank cannot exceed <span class="math inline">\(\rho_\Gamma\)</span>. This statement is gauge
+al.</em> use singular values of an observation operator [<a href="#ref-lehericy2019order">10</a>, <a href="#ref-duroy2022order">11</a>]. We instead use a specified finite
+block as a one-sided falsification test: rejection rules out every
+process whose corresponding predictive representation is too small, but
+acceptance does not establish HMM membership or determine the
+infinite-process rank.</p>
+<p>Our approach connects observable rank first to an intrinsic cut
+complexity of the <em>composed</em> QEC process, and only then to a
+microscopic noise representation. A syndrome stream is not emitted by an
+environment in isolation. The known circuit itself carries quantum state
+and classical schedule information across a past–future cut. It is
+therefore incorrect to treat all observed rank as “environmental
+memory,” or to identify a nonminimal tensor-network bond with a unique
+physical memory. We contract the composed circuit–noise process to the
+causal light cone of the selected detector outcomes and define the
+operator-Schmidt rank <span class="math inline">\(\rho_\Gamma\)</span>
+across a past–future cut. The observable Hankel rank cannot exceed <span class="math inline">\(\rho_\Gamma\)</span>. This statement is gauge
 independent for a fixed composed process tensor. A further factorization
 <span class="math inline">\(\rho_\Gamma\le\kappa_\Gamma D\)</span> is
-useful only after a circuit/noise model class is declared, at which
-point the statistically meaningful target is the <em>minimum
-compatible</em> noise bond within that class.</p>
+useful only once a circuit/noise model class is specified, and the
+relevant quantity is then the <em>minimum compatible</em> noise bond
+within that class.</p>
 <p>The connection is particularly direct for the spatiotemporal Pauli
 processes (SPPs) of Kam <em>et al.</em> [<a href="#ref-kam2026spp">12</a>]. Their Pauli-twirled process tensor is
 represented as a matrix-product state over Pauli trajectories, with
@@ -140,10 +139,9 @@ realization obeys <span class="math inline">\(\operatorname{rank}H^{(\ell)}\le\k
 a statistically certified rank violation lower-bounds <span class="math inline">\(D_{\min}^{\rm SPP}\)</span>, not an arbitrarily
 chosen bond. This follows the general distinction between a chosen
 realization and a minimized memory cost in quantum strategies and
-process-tensor descriptions [<a href="#ref-bisio2011memory">13</a>, <a href="#ref-guo2022memory">14</a>]. The tensor-network cut-rank fact
-itself is standard; the contribution is its QEC light-cone
-specialization and its combination with finite-sample rank
-falsification.</p>
+process-tensor descriptions [<a href="#ref-bisio2011memory">13</a>, <a href="#ref-guo2022memory">14</a>]. The tensor-network cut-rank fact is
+standard; what we add is its specialization to QEC light cones and its
+combination with finite-sample rank falsification.</p>
 <h5 id="contributions.">Contributions.</h5>
 <ol>
 <li><p>We prove a two-level causal-cut bound. If <span class="math inline">\(\rho_\Gamma\)</span> is the operator-Schmidt rank
@@ -159,8 +157,7 @@ SPP}\)</span>; combining this with <span class="math inline">\(D\le
 d_E^2\)</span> from Kam <em>et al.</em> gives a model-class-conditional
 lower bound on the minimum compatible environment Hilbert
 dimension.</p></li>
-<li><p>We compute a nontrivial circuit separator rather than leaving
-<span class="math inline">\(\kappa_\Gamma\)</span> abstract. For one
+<li><p>We compute a nontrivial circuit separator explicitly. For one
 bulk repeated-stabilizer detector track, adjacent-round differencing
 gives <span class="math inline">\(\kappa_\Gamma=2\)</span> exactly for
 the model class. A controlled two-state environment has exact Hankel
@@ -174,12 +171,11 @@ alternatives have matched <span class="math inline">\(\Theta(\epsilon^{-2}\log(1
 sample complexity. We give both <span class="math inline">\(\beta\)</span>-mixing and restrictive reversible
 observed-Markov extensions and a simultaneous finite-horizon
 procedure.</p></li>
-<li><p>We separate the certified theory from the more powerful
-procedures actually useful in QEC data. Rank-one refitted bootstrap is
-reported as an empirically calibrated diagnostic, not a universally
-finite-sample-valid substitute for the general theorem. Circuit-relative
-tests are stated explicitly as conditional model checks against a
-supplied noisy circuit.</p></li>
+<li><p>We separate the certified theory from more powerful procedures
+that are useful on QEC data. The rank-one refitted bootstrap is an
+empirically calibrated diagnostic rather than a finite-sample-valid
+substitute for the general theorem, and circuit-relative tests are
+conditional model checks against a supplied noisy circuit.</p></li>
 <li><p>We analyze two public Google distance-5, 21-round surface-code
 records with 50,000 shots in each memory basis. The broad spatial map is
 treated as exploratory under across-track dependence. The leading <span class="math inline">\(x2\_y5\)</span> site remains significant after the
@@ -187,14 +183,12 @@ arbitrary-dependence Benjamini–Yekutieli correction inferred from its
 reported within-basis adjusted values, and it remains stable across
 tested horizons and retrospective acquisition halves.</p></li>
 </ol>
-<p>The paper therefore has three layers that should not be conflated.
-Section <a href="#sec:memorywitness">2.2</a> gives a structural memory
-bound. Section 3 gives certified but sometimes conservative rank tests.
-Section 4 gives practical calibration and conditional model checking.
-The experiments use the strongest procedure whose assumptions are
-explicit, and every real-device statement is conditional on the supplied
-circuit model rather than a claim of microscopic mechanism
-identification.</p>
+<p>The paper is organized in three layers. Section <a href="#sec:memorywitness">2.2</a> gives a structural memory bound,
+Section 3 gives certified but sometimes conservative rank tests, and
+Section 4 covers practical calibration and conditional model checking.
+Each experiment uses the strongest procedure whose assumptions are
+stated, and every real-device statement is conditional on the supplied
+circuit model.</p>
 <h2 id="syndrome-processes-and-predictive-rank">2. Syndrome processes
 and predictive rank</h2>
 <p>Let <span class="math inline">\(Y_t\in\mathcal{S}\)</span> be a
@@ -228,9 +222,8 @@ many rows and columns cannot increase its rank. The final statement
 follows because an untested finite submatrix may contain an additional
 independent row or column direction. ◻</p>
 </div>
-<p>The distinction in Proposition <a href="#prop:finitehorizon">1</a> is
-the paper’s inferential convention. All null hypotheses below are
-block-specific, <span class="math inline">\(H_{0}^{(\ell)}:\operatorname{rank}(H^{(\ell)})\le
+<p>We keep the distinction in Proposition <a href="#prop:finitehorizon">1</a> throughout. All null hypotheses below
+are block-specific, <span class="math inline">\(H_{0}^{(\ell)}:\operatorname{rank}(H^{(\ell)})\le
 r\)</span>, unless a simultaneous finite set of horizons is written
 explicitly.</p>
 <h3 id="classical-hidden-state-factorization">2.1 Classical hidden-state
@@ -242,7 +235,7 @@ past–future Hankel block has rank at most <span class="math inline">\(r\)</spa
 </blockquote>
 <div class="proof">
 <p><em>Proof.</em> Let <span class="math inline">\(T_y\in\mathbb{R}^{r\times r}\)</span> be the
-observation-labelled transition operator, <span class="math inline">\(T_u\)</span> the product along word <span class="math inline">\(u\)</span>, <span class="math inline">\(\boldsymbol{\pi}\)</span> the initial hidden-state
+observation-labeled transition operator, <span class="math inline">\(T_u\)</span> the product along word <span class="math inline">\(u\)</span>, <span class="math inline">\(\boldsymbol{\pi}\)</span> the initial hidden-state
 distribution, and <span class="math inline">\(\boldsymbol{1}\)</span>
 the all-ones vector. Then <span class="math display">\[H_{u,v}=\boldsymbol{\pi}^\top
 T_uT_v\boldsymbol{1}
@@ -251,8 +244,7 @@ Thus <span class="math inline">\(H=AB\)</span> with inner dimension
 <span class="math inline">\(r\)</span>. ◻</p>
 </div>
 <p>Proposition <a href="#prop:hmmrank">2</a> is standard realization
-theory, not a new theorem; it is included to state the QEC hypothesis
-being tested [<a href="#ref-hsu2012spectral">9</a>, <a href="#ref-huang2016minimal">15</a>]. Its algebraic consequence is that
+theory; we include it to state the QEC hypothesis being tested [<a href="#ref-hsu2012spectral">9</a>, <a href="#ref-huang2016minimal">15</a>]. Its algebraic consequence is that
 every <span class="math inline">\((r+1)\times(r+1)\)</span> minor
 vanishes. In finite data, aggregated singular-value tails are more
 stable than evaluating many determinants.</p>
@@ -369,9 +361,9 @@ factorization of that inner dimension. By minimality of matrix rank,
 <span class="math inline">\(\rho_\Gamma\le\kappa_\Gamma\chi_\Gamma\)</span>. ◻</p>
 </div>
 <blockquote>
-<p><strong>Remark 4 (What is and is not gauge independent).</strong> The
-observable matrix <span class="math inline">\(H^{(\ell)}\)</span> and,
-for a fixed composed process tensor, its cut rank <span class="math inline">\(\rho_\Gamma\)</span> do not depend on a
+<p><strong>Remark 4 (Gauge dependence).</strong> The observable matrix
+<span class="math inline">\(H^{(\ell)}\)</span> and, for a fixed
+composed process tensor, its cut rank <span class="math inline">\(\rho_\Gamma\)</span> do not depend on a
 tensor-network gauge. A particular pair <span class="math inline">\((\kappa_\Gamma,D)\)</span> can depend on how the
 same physics is represented, and nonminimal realizations can inflate
 either factor. Consequently the theorem-level witness is <span class="math inline">\(\rho_\Gamma\)</span>. Physical statements about a
@@ -379,12 +371,12 @@ noise bond or environment dimension are made only after a model class is
 fixed and are stated in terms of the <em>minimum compatible
 realization</em> within that class. This is distinct from the
 operational quantum-memory cost of an arbitrary comb, whose minimization
-can require a global optimization over implementations [<a href="#ref-bisio2011memory">13</a>]; we do not claim these notions
+can require a global optimization over implementations [<a href="#ref-bisio2011memory">13</a>]; the two notions need not
 coincide.</p>
 </blockquote>
 
-<figure id="fig:causalcut"><img src="../assets/papers/predictive-rank/diagram.svg" alt="Figure 1; full description in the caption below." loading="lazy"><figcaption><strong>Figure 1.</strong> Two levels of the cut statement are distinguished. The contracted
-composed process has an intrinsic operator-Schmidt rank <span class="math inline">\(\rho_\Gamma\)</span> across the past–future cut,
+<figure id="fig:causalcut"><img src="../assets/papers/predictive-rank/diagram.svg" alt="Figure 1; full description in the caption below." loading="lazy"><figcaption><strong>Figure 1.</strong> The two levels of the cut statement. The contracted composed process
+has an intrinsic operator-Schmidt rank <span class="math inline">\(\rho_\Gamma\)</span> across the past–future cut,
 and the observed syndrome block satisfies <span class="math inline">\(\operatorname{rank}H^{(\ell)}\le\rho_\Gamma\)</span>.
 A chosen circuit/noise tensor-network realization further bounds <span class="math inline">\(\rho_\Gamma\)</span> by <span class="math inline">\(\kappa_\Gamma\chi_\Gamma\)</span>. The first
 quantity is representation independent for the fixed composed process;
@@ -403,9 +395,8 @@ each conditioned light-cone network has separator bound <span class="math inline
 \tag{9}\]</span></p>
 <p>Thus conditioning on a known periodic phase can remove a purely
 classical mixture factor. It does <em>not</em> remove the physical
-circuit state crossing the cut; that state remains part of <span class="math inline">\(\kappa_\Gamma\)</span>. This distinction corrects
-the tempting but generally false inference that phase conditioning alone
-isolates environmental memory.</p>
+circuit state crossing the cut; that state remains part of <span class="math inline">\(\kappa_\Gamma\)</span>. Phase conditioning alone
+therefore does not isolate environmental memory.</p>
 <blockquote>
 <p><strong>Proposition 5 (A repeated detector has a binary circuit
 separator).</strong> <span id="prop:kappa2"></span> Consider one bulk
@@ -461,13 +452,11 @@ noise-process bond. Thus the past–future factorization may be indexed by
 example in Section <a href="#sec:workedmemory">5.2</a> has exact rank
 two, so a uniform separator factor smaller than two is impossible. ◻</p>
 </div>
-<p>This calculation is deliberately for a <em>single repeated detector
-track</em>. A multi-detector dictionary can carry several reused
-measurement bits and shared circuit variables across the same cut, and
-adaptive/feed-forward circuits require a separate contraction. The point
-is that <span class="math inline">\(\kappa_\Gamma\)</span> is computable
-and can be much smaller than the crude double-layer Hilbert-space
-bound.</p>
+<p>This calculation covers a <em>single repeated detector track</em>. A
+multi-detector dictionary can carry several reused measurement bits and
+shared circuit variables across the same cut, and adaptive/feed-forward
+circuits require a separate contraction. It shows that <span class="math inline">\(\kappa_\Gamma\)</span> is computable and can be
+much smaller than the crude double-layer Hilbert-space bound.</p>
 <blockquote>
 <p><strong>Corollary 6 (Minimum compatible SPP and environment
 dimension).</strong> <span id="cor:spp"></span> Fix the one-dimensional
@@ -512,16 +501,15 @@ class</em>; allowing a different process class can change the physical
 interpretation while leaving the observable rank and intrinsic cut-rank
 bound intact.</p>
 </blockquote>
-<p>The generic statement that a tensor-network bond dimension bounds a
-matrix rank is not claimed as new. Likewise, minimal-memory and
-process-level memory witnesses for quantum generators are established in
-other forms [<a href="#ref-bisio2011memory">13</a>, <a href="#ref-guo2022memory">14</a>, <a href="#ref-zonnios2024memory">16</a>], and the SPP relation <span class="math inline">\(D\le d_E^2\)</span> is due to Kam <em>et al.</em>
-Our contribution is narrower: lower-bound an intrinsic composed-process
-cut rank from a syndrome Hankel block, then factor that cut rank into
-known-circuit and latent-noise contributions only within a declared QEC
-model class, and combine the result with finite-sample falsification. We
-are not aware of a prior publication making this QEC-specific
-syndrome-Hankel/light-cone connection; this is not a priority claim.</p>
+<p>The general statement that a tensor-network bond dimension bounds a
+matrix rank is standard. Minimal-memory and process-level memory
+witnesses for quantum generators are established in other forms [<a href="#ref-bisio2011memory">13</a>, <a href="#ref-guo2022memory">14</a>,
+<a href="#ref-zonnios2024memory">16</a>], and the SPP relation <span class="math inline">\(D\le d_E^2\)</span> is due to Kam <em>et al.</em>
+Our contribution is narrower: we lower-bound an intrinsic
+composed-process cut rank from a syndrome Hankel block, factor that cut
+rank into known-circuit and latent-noise contributions only within a
+declared QEC model class, and combine the result with finite-sample
+falsification.</p>
 <h2 id="property-testing-of-hankel-rank">3. Property testing of Hankel
 rank</h2>
 <p>We first study <span class="math inline">\(N\)</span> independent
@@ -540,24 +528,22 @@ r}\|P-Q\|_F
 \tag{17}\]</span></p>
 <p>where the equality is the Eckart–Young characterization. The
 minimizer <span class="math inline">\(Q\)</span> need not be a
-probability matrix; this is intentional. We test an observable
-linear-rank property, a necessary condition for an <span class="math inline">\(r\)</span>-state HMM, rather than fit a specific
+probability matrix, because we test an observable linear-rank property,
+a necessary condition for an <span class="math inline">\(r\)</span>-state HMM, rather than fit a specific
 HMM parameterization.</p>
 <blockquote>
-<p><strong>Remark 7 (What is generic and what is
-process-specific).</strong> The upper-bound argument below is not unique
-to rank. For any closed set <span class="math inline">\(\mathcal
-C\)</span> in the Euclidean probability simplex, the map <span class="math inline">\(P\mapsto\operatorname{dist}(P,\mathcal C)\)</span>
+<p><strong>Remark 7 (Scope of the upper bound).</strong> The upper-bound
+argument below is not unique to rank. For any closed set <span class="math inline">\(\mathcal C\)</span> in the Euclidean probability
+simplex, the map <span class="math inline">\(P\mapsto\operatorname{dist}(P,\mathcal C)\)</span>
 is 1-Lipschitz, so the same empirical <span class="math inline">\(L_2\)</span> concentration gives a
-separated-property tester. The specialization to predictive rank
-contributes the Hankel interpretation, a matching rank-specific
-lower-bound embedding that survives a stationary trajectory,
-circuit-state conditioning, and the QEC diagnostics. This differs from
-entry-query matrix-rank testing, where the matrix is an arbitrary input
-and distance is measured by the fraction of entries that must be changed
-[<a href="#ref-balcan2019rank">17</a>]; here the unknown object is a
-sampled probability law and separation is Frobenius distance in
-probability mass.</p>
+separated-property tester. What is specific to predictive rank is the
+Hankel interpretation, a matching rank-specific lower bound that also
+holds for a stationary trajectory, circuit-state conditioning, and the
+QEC diagnostics. This differs from entry-query matrix-rank testing,
+where the matrix is an arbitrary input and distance is measured by the
+fraction of entries that must be changed [<a href="#ref-balcan2019rank">17</a>]; here the unknown object is a sampled
+probability law and separation is Frobenius distance in probability
+mass.</p>
 </blockquote>
 <h3 id="a-finite-sample-upper-bound">3.1 A finite-sample upper
 bound</h3>
@@ -615,15 +601,15 @@ alternative, <span class="math inline">\(d_r(\widehat P)\ge
 d_r(P)-b_N&gt;b_N\)</span>. ◻</p>
 </div>
 <p>The guarantee is independent of <span class="math inline">\(m\)</span>, <span class="math inline">\(n\)</span>, and <span class="math inline">\(r\)</span> because <span class="math inline">\(L_2\)</span> estimation of a discrete distribution
-is dimension-free. This should not be read as dimension-free sensitivity
-to every physically meaningful departure. As the alphabet or horizon
-grows, probability mass can spread over many rare cells and the
-Frobenius separation <span class="math inline">\(\epsilon\)</span>
-itself can shrink rapidly. Weighted <span class="math inline">\(L_2\)</span>, chi-square, Hellinger, or
-variance-adaptive rank statistics may be more sensitive to rare syndrome
-patterns, but they do not inherit the same one-line dimension-free
-concentration argument. Computational cost also grows exponentially with
-the explicit Hankel horizon.</p>
+is dimension-free. This does not mean the test is equally sensitive to
+every physically meaningful departure. As the alphabet or horizon grows,
+probability mass can spread over many rare cells and the Frobenius
+separation <span class="math inline">\(\epsilon\)</span> itself can
+shrink rapidly. Weighted <span class="math inline">\(L_2\)</span>,
+chi-square, Hellinger, or variance-adaptive rank statistics may be more
+sensitive to rare syndrome patterns, but they do not inherit the same
+one-line dimension-free concentration argument. Computational cost also
+grows exponentially with the explicit Hankel horizon.</p>
 <h3 id="matching-lower-bound">3.2 Matching lower bound</h3>
 <blockquote>
 <p><strong>Theorem 10 (High-confidence lower bound).</strong> <span id="thm:lower"></span> Let <span class="math inline">\(0&lt;\delta&lt;1/4\)</span>. For <span class="math inline">\(r=1\)</span> and <span class="math inline">\(0&lt;\epsilon\le 1/4\)</span>, any test whose
@@ -702,10 +688,10 @@ least <span class="math inline">\(1-\delta\)</span>.</p>
 <span class="math inline">\(r_0\)</span> is accepted. Every <span class="math inline">\(r&lt;r_0\)</span> has <span class="math inline">\(d_r(P)\ge\sigma_{r_0}(P)&gt;2b_N\)</span> and is
 rejected. ◻</p>
 </div>
-<p>This replaces an accept-first sequence of separately calibrated
-tests. The guarantee is deliberately one-sided when the spectrum is not
-separated: weak modes may be missed, but the procedure does not
-overstate the predictive dimension on the concentration event.</p>
+<p>This replaces a sequence of separately calibrated accept-first tests.
+The guarantee is one-sided when the spectrum is not separated: weak
+modes may be missed, but the procedure does not overstate the predictive
+dimension on the concentration event.</p>
 <h3 id="a-single-dependent-trajectory">3.4 A single dependent
 trajectory</h3>
 <p>Independent windows arise naturally across repeated shots. A
@@ -781,13 +767,13 @@ bounds. ◻</p>
 </div>
 <p>Theorem <a href="#thm:markovdirect">13</a> removes the blocking
 factor in <span class="math inline">\(N\)</span> under stronger
-assumptions. A literal example is an epoch-level diagnostic in which
-each reset epoch is assigned one of finitely many past–future cell
-labels and those labels themselves evolve according to a reversible
-transition matrix. It is not automatically applicable to overlapping
-windows, nor to a syndrome stream obtained by observing a latent Markov
-environment: the observed cell process can retain higher-order memory
-even when the latent state is first-order Markov.</p>
+assumptions. One example is an epoch-level diagnostic in which each
+reset epoch is assigned one of finitely many past–future cell labels and
+those labels themselves evolve according to a reversible transition
+matrix. It does not automatically apply to overlapping windows, nor to a
+syndrome stream obtained by observing a latent Markov environment: the
+observed cell process can retain higher-order memory even when the
+latent state is first-order Markov.</p>
 <p>The dependence constants are nuisance parameters. If the cell
 transition matrix is known from a validated acquisition model, <span class="math inline">\(\gamma_{\rm abs}\)</span> and a valid upper bound
 on <span class="math inline">\(\tau_{\min}\)</span> can be calculated.
@@ -825,11 +811,11 @@ a finite horizon set costs only <span class="math inline">\(\log|\mathcal L|\)</
 This remains a falsification procedure: rejecting any scale refutes
 global rank <span class="math inline">\(r\)</span>, but accepting every
 <span class="math inline">\(\ell\in\mathcal L\)</span> says only that
-the selected blocks were not separated enough to detect. The unresolved
-computational problem is more serious: explicit Hankel blocks grow
-exponentially with <span class="math inline">\(\ell\)</span>. Designing
-sketched or dictionary-adaptive tests that search long or unbounded
-horizons without enumerating all words is a second open problem.</p>
+the selected blocks were not separated enough to detect. A more serious
+open problem is computational: explicit Hankel blocks grow exponentially
+with <span class="math inline">\(\ell\)</span>, and sketched or
+dictionary-adaptive tests that search long or unbounded horizons without
+enumerating all words remain to be developed.</p>
 <h2 id="practical-calibration-and-conditional-model-checking">4.
 Practical calibration and conditional model checking</h2>
 <div id="sec:practical">
@@ -864,12 +850,10 @@ P)\)</span>;</p></li>
 distribution.</p></li>
 </ol>
 <p>Refitting is essential because the null margins are estimated
-nuisance parameters. We do <em>not</em> claim a universal finite-sample
-bootstrap theorem for arbitrary sparse support. The experiments below
-show that this procedure restores near-nominal size in the tested
-sparse-table regimes; the distribution-free procedure of Section 3
-remains the certified arbitrary-<span class="math inline">\(r\)</span>
-test.</p>
+nuisance parameters. We do not have a finite-sample bootstrap theorem
+for arbitrary sparse support. In the sparse-table regimes tested below,
+this procedure restores near-nominal size; the distribution-free
+procedure of Section 3 remains the certified test for arbitrary <span class="math inline">\(r\)</span>.</p>
 <p>Generalized reduced-rank Wald tests can have chi-square limits at
 regular points of exact rank <span class="math inline">\(r\)</span> [<a href="#ref-robin2000rank">24</a>, <a href="#ref-kleibergen2006rank">25</a>]. The composite null <span class="math inline">\(\operatorname{rank}(P)\le r\)</span> is singular
 at lower-rank points, however, and sparse multinomial covariance
@@ -923,10 +907,10 @@ model</em> and treat model/calibration mismatch as a possible
 explanation of any rejection.</p>
 <p>Because track statistics from the same experimental shots can be
 dependent, standard Benjamini–Hochberg (BH) false-discovery control is
-not automatically justified without a positive-dependence condition. The
-original spatial maps used BH and are retained below only as exploratory
-localization. For a formal arbitrary-dependence check on the leading
-site, we use the Benjamini–Yekutieli (BY) step-up factor <span class="math inline">\(H_m=\sum_{j=1}^m1/j\)</span> [<a href="#ref-benjamini2001dependency">26</a>]. With <span class="math inline">\(m=24\)</span>, <span class="math inline">\(H_{24}=3.775958\ldots\)</span>. Hence a
+not automatically justified without a positive-dependence condition. We
+therefore use BH maps only for exploratory localization. For a formal
+arbitrary-dependence check on the leading site, we use the
+Benjamini–Yekutieli (BY) step-up factor <span class="math inline">\(H_m=\sum_{j=1}^m1/j\)</span> [<a href="#ref-benjamini2001dependency">26</a>]. With <span class="math inline">\(m=24\)</span>, <span class="math inline">\(H_{24}=3.775958\ldots\)</span>. Hence a
 non-saturated BH adjusted value <span class="math inline">\(q_{\rm
 BH}\)</span> corresponds to <span class="math inline">\(q_{\rm
 BY}=H_{24}q_{\rm BH}\)</span> for the same ordered family. This
@@ -949,13 +933,13 @@ trials at each sample size.</p>
 test rejects the true rank-one null in 12.6% of trials, while the
 refitted bootstrap rejects in 5.0%. Across <span class="math inline">\(N\in\{500,1000,2500,5000,10000\}\)</span>,
 bootstrap null rejection rates are 5.0%, 4.6%, 4.8%, 5.4%, and 3.2%. The
-strong alternative is detected in every trial at every <span class="math inline">\(N\)</span>. The weak process is genuinely
-difficult: bootstrap power is 10.8% at <span class="math inline">\(N=500\)</span> and 17.8% at <span class="math inline">\(N=10^4\)</span>. Its exact population separation
-is only <span class="math display">\[d_1(P)=2.673\times10^{-3},
+strong alternative is detected in every trial at every <span class="math inline">\(N\)</span>. The weak process is hard to detect:
+bootstrap power is 10.8% at <span class="math inline">\(N=500\)</span>
+and 17.8% at <span class="math inline">\(N=10^4\)</span>. Its exact
+population separation is only <span class="math display">\[d_1(P)=2.673\times10^{-3},
 \qquad N d_1(P)^2=0.0715\ \text{at }N=10^4.\]</span> This is far below
-the empirical transition near <span class="math inline">\(N\epsilon^2\approx8\)</span> in Fig. <a href="#fig:sample">3</a>; the low power is therefore a quantitative
-confirmation of the separation theory, not an unexplained bootstrap
-failure.</p>
+the empirical transition near <span class="math inline">\(N\epsilon^2\approx8\)</span> in Fig. <a href="#fig:sample">3</a>; so the low power is what the separation theory
+predicts rather than a failure of the bootstrap.</p>
 
 <figure id="fig:calibration"><img src="../assets/papers/predictive-rank/figures/fig1_rank_test_calibration.svg" alt="Figure 2; full description in the caption below." loading="lazy"><figcaption><strong>Figure 2.</strong> Rank-one size and power. Sparse word tables make the asymptotic
 Pearson calibration liberal; refitting the composite-null margins in
@@ -972,8 +956,8 @@ approximately one half near <span class="math inline">\(N\epsilon^2=8\)</span> a
 sufficient constant is conservative, but the predicted <span class="math inline">\(\epsilon^{-2}\)</span> dependence is visible.</p>
 
 <figure id="fig:sample"><img src="../assets/papers/predictive-rank/figures/fig2_sample_complexity.svg" alt="Figure 3; full description in the caption below." loading="lazy"><figcaption><strong>Figure 3.</strong> Power of the nonasymptotic Frobenius test for the binary lower-bound
-family. The collapse versus <span class="math inline">\(N\epsilon^2\)</span> is the empirical signature of
-the matched <span class="math inline">\(\Theta(\epsilon^{-2})\)</span>
+family. The collapse versus <span class="math inline">\(N\epsilon^2\)</span> is consistent with the
+matched <span class="math inline">\(\Theta(\epsilon^{-2})\)</span>
 sample complexity. Each point contains 400 trials.</figcaption></figure>
 
 <h3 id="worked-memory-certificate-for-a-repeated-detector">5.2 Worked
@@ -1023,8 +1007,9 @@ gives singular values</p>
 <p>so the exact Hankel rank is four and the population distance to rank
 two is <span class="math inline">\(d_2=0.0131145\)</span>. As a
 circuit-only control, setting the environment bond to <span class="math inline">\(D=1\)</span> while retaining nonzero interval and
-measurement faults gives exact rank two, demonstrating that the <span class="math inline">\(\kappa_\Gamma=2\)</span> factor is not a
-bookkeeping artifact.</p>
+measurement faults gives exact rank two, confirming that the factor
+<span class="math inline">\(\kappa_\Gamma=2\)</span> comes from the
+circuit itself.</p>
 <p>We then draw <span class="math inline">\(N=100{,}000\)</span>
 independent six-event records from the stationary <span class="math inline">\(D=2\)</span> model using fixed seed 20260817. The
 empirical rank-two tail is</p>
@@ -1052,9 +1037,9 @@ finite-environment realization must therefore have</p>
 <p><span class="math display">\[\boxed{d_{E,\min}\ge2.}
 
 \tag{37}\]</span></p>
-<p>A 100-seed robustness audit rejects rank at most two in 100/100
-independent <span class="math inline">\(N=10^5\)</span> multinomial
-draws; that audit is not used to define the nominal certificate. The
+<p>Across 100 additional seeds, the test rejects rank at most two in all
+100 independent <span class="math inline">\(N=10^5\)</span> multinomial
+draws; these repeats are not used to define the nominal certificate. The
 exact matrices, fixed draw, and thresholds are reproduced by
 <code>verify_separator_memory_bound.py</code>.</p>
 <h3 id="leakage-localization-on-a-circuit-noise-background">5.3 Leakage
@@ -1062,19 +1047,17 @@ localization on a circuit-noise background</h3>
 <div id="sec:leak">
 
 </div>
-<p>The earlier phenomenological version of this experiment used iid
-Bernoulli background detectors, making rank one true by construction.
-Here the background is a full Stim repetition-code memory circuit with
-distance 15, 10 rounds, after-Clifford depolarization <span class="math inline">\(0.003\)</span>, measurement flips <span class="math inline">\(0.014\)</span>, and reset flips <span class="math inline">\(0.005\)</span>. The reference and contaminated
+<p>An iid Bernoulli background would make rank one true by construction,
+so here the background is a full Stim repetition-code memory circuit
+with distance 15, 10 rounds, after-Clifford depolarization <span class="math inline">\(0.003\)</span>, measurement flips <span class="math inline">\(0.014\)</span>, and reset flips <span class="math inline">\(0.005\)</span>. The reference and contaminated
 records are independent 140,000-shot circuit samples.</p>
 <p>Stim is a stabilizer simulator and does not natively represent a
 transmon’s <span class="math inline">\(|2\rangle\)</span> level. We
-therefore add a clearly identified <em>leakage-like surrogate</em>: a
-persistent two-state process modulates the target check and its
-neighbors, with geometrically decaying spatial strength. This is not
-claimed as a qutrit leakage simulation. It asks the narrower question
-whether local persistent memory remains visible after circuit-induced
-detector correlations are present.</p>
+therefore add a <em>leakage-like surrogate</em>: a persistent two-state
+process modulates the target check and its neighbors, with geometrically
+decaying spatial strength. This is not a qutrit leakage simulation; it
+tests whether local persistent memory remains visible on top of
+circuit-induced detector correlations.</p>
 <p>The circuit-adjusted baseline rank is selected rather than fixed. We
 run Corollary <a href="#cor:selection">11</a> on each of the 14
 reference checks using familywise confidence <span class="math inline">\(0.05/14\)</span> and take the maximum selected
@@ -1092,8 +1075,8 @@ maximum in 20 of 20 batches; the median target-to-far ratio is 3.93.</p>
 <figure id="fig:leakage"><img src="../assets/papers/predictive-rank/figures/fig3_stim_leakage_map.svg" alt="Figure 4; full description in the caption below." loading="lazy"><figcaption><strong>Figure 4.</strong> Leakage-like localization on an independent circuit-level Stim
 background. The baseline tail begins after the rank selected from the
 reference record; all 14 checks select rank two. Circuit memory reduces
-the artificial two-order-of-magnitude contrast of an iid background to a
-reproducible factor of approximately 12.</figcaption></figure>
+the contrast from about two orders of magnitude on an iid background to
+a reproducible factor of about 12.</figcaption></figure>
 
 <h3 id="rotated-surface-code-circuit-validation">5.4
 Rotated-surface-code circuit validation</h3>
@@ -1106,8 +1089,8 @@ a two-state Markov path within each shot, with transition matrix <span class="ma
 and constructs a round-dependent Stim circuit whose noise scale follows
 that path. The hot circuit uses <span class="math inline">\(p=0.010\)</span>; the dynamic process has
 stationary hot fraction approximately 0.242. Thus the static condition
-tests mixture detection, while the dynamic condition tests genuine
-within-shot memory.</p>
+tests mixture detection, while the dynamic condition tests within-shot
+memory.</p>
 <p>Relative to the stationary circuit, the static mixture raises <span class="math inline">\(\sigma_3/\sigma_1\)</span> by a factor of 6.87.
 Within-shot switching raises <span class="math inline">\(\sigma_2/\sigma_1\)</span> by 1.77 and <span class="math inline">\(\sigma_3/\sigma_1\)</span> by 3.67. In 20 disjoint
 5,000-shot batches, the third singular direction exceeds the stationary
@@ -1118,13 +1101,12 @@ component.</p>
 
 <figure id="fig:surface"><img src="../assets/papers/predictive-rank/figures/fig4_stim_surface_code.svg" alt="Figure 5; full description in the caption below." loading="lazy"><figcaption><strong>Figure 5.</strong> Circuit-level rotated-surface-code validation. Full-record spectra
 and 20 acquisition batches compare stationary circuit memory, a static
-per-shot quiet/hot mixture, and a genuine within-shot Markov-switching
-mode. Both latent constructions lift the third normalized singular
-direction in every batch, with a larger effect for the static
-mixture.</figcaption></figure>
+per-shot quiet/hot mixture, and a within-shot Markov-switching mode.
+Both latent constructions lift the third normalized singular direction
+in every batch, with a larger effect for the static mixture.</figcaption></figure>
 
-<h3 id="nonstationary-drift-is-a-genuine-confound">5.5 Nonstationary
-drift is a genuine confound</h3>
+<h3 id="nonstationary-drift-as-a-confound">5.5 Nonstationary drift as a
+confound</h3>
 <p>A pooled record from a drifting device is a mixture of local
 distributions. Even when every local block is iid and rank one, the
 pooled mixture can have higher rank. We compare ten acquisition blocks
@@ -1134,9 +1116,9 @@ windows.</p>
 <p>The pooled rank-one tails are nearly indistinguishable: 0.0113 for
 drift and 0.0107 for stationary memory, and both pooled records reject
 rank one with bootstrap <span class="math inline">\(p=0.001\)</span>.
-Local testing resolves the degeneracy. All ten stationary-HMM blocks
-reject with <span class="math inline">\(p=0.001\)</span>, while none of
-the ten drift blocks rejects at 5%; their <span class="math inline">\(p\)</span>-values range from 0.171 to 0.830 in
+Local testing separates the two. All ten stationary-HMM blocks reject
+with <span class="math inline">\(p=0.001\)</span>, while none of the ten
+drift blocks rejects at 5%; their <span class="math inline">\(p\)</span>-values range from 0.171 to 0.830 in
 this run. Rank alone therefore does not identify a microscopic cause. A
 practical analysis should report local-in-time spectra, change-point
 sensitivity, and pooled results together.</p>
@@ -1148,7 +1130,7 @@ rank one while the stationary hidden-state process rejects in every
 block.</figcaption></figure>
 
 <h3 id="hmm-bic-baseline">5.6 HMM-BIC baseline</h3>
-<p>The obvious parametric alternative is to fit HMMs with increasing
+<p>A standard parametric alternative is to fit HMMs with increasing
 state count and select by the Bayesian information criterion (BIC). We
 compare the rank-one bootstrap with categorical HMMs of orders 1–3
 fitted by Baum–Welch EM with ten random restarts, a 60-iteration cap,
@@ -1160,18 +1142,17 @@ order selection remains sensitive to specification and optimization [<a href="#r
 bootstrap rejects in 5.0–8.5% of trials across the four sample sizes.
 Under the correctly specified two-state burst model, rank-test power is
 67.0%, 73.0%, 86.0%, and 100% at <span class="math inline">\(N=250,500,1000,2500\)</span>; BIC selects more
-than one state in 57.5%, 98.0%, 100%, and 100%. The small-<span class="math inline">\(N\)</span> rank advantage survives the stronger
-optimizer, while BIC clearly dominates at moderate <span class="math inline">\(N\)</span> when its model family is correct.
+than one state in 57.5%, 98.0%, 100%, and 100%. The rank test has higher
+power at the smallest <span class="math inline">\(N\)</span>, while BIC
+is clearly more powerful at moderate <span class="math inline">\(N\)</span> when its model family is correct.
 Median BIC runtime is approximately 0.08–0.26 seconds per dataset,
-versus 0.001–0.0025 seconds for the rank bootstrap; runtime is secondary
-to the inferential comparison.</p>
-<p>The comparison clarifies the intended use and the distinct
-inferential targets. HMM-BIC chooses an order inside a specified
-parametric family and can exploit its transition/emission structure. The
-rank procedure tests a broader necessary condition on one finite
-observable block. It is fitting-free and meaningful outside the fitted
-HMM family, but non-rejection neither selects an HMM order nor certifies
-model membership.</p>
+versus 0.001–0.0025 seconds for the rank bootstrap.</p>
+<p>The two methods answer different questions. HMM-BIC chooses an order
+inside a specified parametric family and can exploit its
+transition/emission structure. The rank procedure tests a broader
+necessary condition on one finite observable block. It is fitting-free
+and meaningful outside the fitted HMM family, but non-rejection neither
+selects an HMM order nor certifies model membership.</p>
 
 <figure id="fig:bic"><img src="../assets/papers/predictive-rank/figures/fig6_bic_baseline.svg" alt="Figure 7; full description in the caption below." loading="lazy"><figcaption><strong>Figure 7.</strong> Rank-one bootstrap versus HMM-BIC order selection over 200 trials per
 condition and ten EM restarts. BIC is conservative under the iid null
@@ -1190,7 +1171,7 @@ bootstrap in Section 4 is rank-specific. We therefore test rank at most
 two on exact <span class="math inline">\(9\times9\)</span> Hankel
 blocks. The null is generated by a two-state, three-symbol HMM and has
 population <span class="math inline">\(d_2(P)&lt;10^{-16}\)</span>. The
-alternative is a deliberately weak three-state HMM with <span class="math display">\[d_2(P)=4.406\times10^{-3}.\]</span> Each point in
+alternative is a weak three-state HMM with <span class="math display">\[d_2(P)=4.406\times10^{-3}.\]</span> Each point in
 the left panel of Fig. <a href="#fig:stress">8</a> uses 2,000 evaluation
 trials. The distribution-free rule makes no false rejection in 16,000
 null trials, but it has no power through <span class="math inline">\(N=2.5\times10^5\)</span> and reaches 100% only at
@@ -1257,9 +1238,9 @@ table is the additional statistical step required to infer <span class="math inl
 within that model class.</p>
 <p>All 24 tracks in both bases reject raw rank one, as expected because
 the repeated circuit itself produces temporal structure. The exploratory
-circuit-relative BH map contains 14 memory-<span class="math inline">\(X\)</span> and 13 memory-<span class="math inline">\(Z\)</span> rejections. We no longer interpret
-those counts as formal 5% FDR discoveries because the 24 track
-statistics share experimental shots and a PRDS condition has not been
+circuit-relative BH map contains 14 memory-<span class="math inline">\(X\)</span> and 13 memory-<span class="math inline">\(Z\)</span> rejections. We do not interpret those
+counts as formal 5% FDR discoveries, because the 24 track statistics
+share experimental shots and a PRDS condition has not been
 established.</p>
 <p>The strongest and most stable location is <span class="math inline">\(x2\_y5\)</span> in both bases. Its pooled
 normalized tails are <span class="math inline">\(0.05925\)</span> in
@@ -1283,13 +1264,11 @@ only <span class="math inline">\(1.14\)</span> and <span class="math inline">\(1
 rejects in 19 of 20 and 20 of 20 primary acquisition blocks,
 respectively.</p>
 
-<figure id="fig:googlemap"><img src="../assets/papers/predictive-rank/figures/google_spatial_map.svg" alt="Figure 9; full description in the caption below." loading="lazy"><figcaption><strong>Figure 9.</strong> Exploratory spatial map of the original circuit-relative BH-adjusted
-tests for memory-<span class="math inline">\(X\)</span> (left) and
-memory-<span class="math inline">\(Z\)</span> (right). The map is useful
-for localization, but because tracks share shots we do not use the
-displayed BH field as a formal arbitrary-dependence FDR claim. The
-leading <span class="math inline">\(x2\_y5\)</span> site is checked
-separately with the BY adjustment in Eq. <a href="#eq:bygoogle">(38)</a>.</figcaption></figure>
+<figure id="fig:googlemap"><img src="../assets/papers/predictive-rank/figures/google_spatial_map.svg" alt="Figure 9; full description in the caption below." loading="lazy"><figcaption><strong>Figure 9.</strong> Exploratory spatial map of the circuit-relative BH-adjusted tests for
+memory-<span class="math inline">\(X\)</span> (left) and memory-<span class="math inline">\(Z\)</span> (right). The map is useful for
+localization, but because tracks share shots we do not use the displayed
+BH field as a formal arbitrary-dependence FDR claim. The leading <span class="math inline">\(x2\_y5\)</span> site is checked separately with
+the BY adjustment in Eq. <a href="#eq:bygoogle">(38)</a>.</figcaption></figure>
 
 
 <figure id="fig:googlestim"><img src="../assets/papers/predictive-rank/figures/google_real_vs_stim.svg" alt="Figure 10; full description in the caption below." loading="lazy"><figcaption><strong>Figure 10.</strong> Track-matched experimental versus supplied noisy-Stim normalized
@@ -1300,7 +1279,7 @@ experimental record. Formal interpretation uses the conditional Monte
 Carlo test of Eq. <a href="#eq:circuitp">(30)</a>, not distance above the
 diagonal alone.</figcaption></figure>
 
-<p>Sensitivity analyses narrow the claim further. At horizons <span class="math inline">\(\ell=1,2,3\)</span>, the <span class="math inline">\(x2\_y5\)</span> track remains persistent in both
+<p>Sensitivity analyses support this narrower claim. At horizons <span class="math inline">\(\ell=1,2,3\)</span>, the <span class="math inline">\(x2\_y5\)</span> track remains persistent in both
 bases. Changing the number of acquisition blocks changes several other
 candidate classifications, while the leading location remains stable.
 The first and second acquisition halves each retain the <span class="math inline">\(x2\_y5\)</span> discrepancy in both bases. Because
@@ -1315,22 +1294,21 @@ normalized rank-one tail and dashed squares show detector-event rate.
 The two axes are shown only to audit stability and should not be read as
 evidence of a causal mechanism.</figcaption></figure>
 
-<p>The resulting external-data statement is intentionally narrow:
-conditional on the supplied noisy circuit model, the selected
-finite-horizon law at <span class="math inline">\(x2\_y5\)</span> has
-more predictive-rank tail than the model generates, robustly enough to
-survive an arbitrary-dependence multiplicity correction in both bases.
-The discrepancy can arise from unmodelled correlations,
-circuit-parameter mismatch, nonstationarity, finite reference-sample
-uncertainty, leakage, or other mechanisms. The analysis does not select
-among them.</p>
+<p>The resulting claim about the external data is narrow: conditional on
+the supplied noisy circuit model, the selected finite-horizon law at
+<span class="math inline">\(x2\_y5\)</span> has more predictive-rank
+tail than the model generates, strongly enough to survive an
+arbitrary-dependence multiplicity correction in both bases. The
+discrepancy can arise from unmodeled correlations, circuit-parameter
+mismatch, nonstationarity, finite reference-sample uncertainty, leakage,
+or other mechanisms. The analysis does not select among them.</p>
 <h2 id="relation-to-qec-diagnostics-and-prior-rank-methods">6. Relation
 to QEC diagnostics and prior rank methods</h2>
 <h5 id="noise-estimation-and-decoding.">Noise estimation and
 decoding.</h5>
 <p>Syndrome-correlation and detector-error-model methods estimate
 probabilities of specified fault events [<a href="#ref-wagner2021optimal">1</a>, <a href="#ref-blumekohout2025dem">2</a>]. Leakage HMMs compute posterior
-probabilities for a physically motivated leaked state [<a href="#ref-varbanov2020leakage">3</a>, <a href="#ref-bultink2020leakage">4</a>]. The present tests answer neither
+probabilities for a physically motivated leaked state [<a href="#ref-varbanov2020leakage">3</a>, <a href="#ref-bultink2020leakage">4</a>]. Our tests address neither
 parameter question. They ask whether a selected observable record is
 compatible with a stated finite predictive rank, and Theorem <a href="#thm:causalcut">3</a> then relates that rank to a separator
 dimension of the composed circuit–noise model.</p>
@@ -1342,11 +1320,11 @@ Rank-based HMM order procedures are also close prior art. Lehéricy
 constructs observation-distribution matrices whose rank identifies HMM
 order under nonparametric identifiability conditions [<a href="#ref-lehericy2019order">10</a>]; Du Roy de Chaumaray <em>et
 al.</em> estimate order from singular values of an observation-based
-integral operator with a data-driven threshold [<a href="#ref-duroy2022order">11</a>]. Our contribution is not rank-based
-HMM identification. We test a necessary finite-horizon observable
-condition with a one-sided falsification interpretation, explicitly
-permit alternatives outside the HMM family, and connect a rejection to
-QEC circuit/noise separator complexity.</p>
+integral operator with a data-driven threshold [<a href="#ref-duroy2022order">11</a>]. We do not attempt rank-based HMM
+identification. Instead, we test a necessary finite-horizon observable
+condition with a one-sided falsification interpretation, permit
+alternatives outside the HMM family, and connect a rejection to QEC
+circuit/noise separator complexity.</p>
 <h5 id="quantum-process-memory-and-spps.">Quantum process memory and
 SPPs.</h5>
 <p>There is also direct prior work on inferring memory requirements of
@@ -1364,7 +1342,7 @@ factors <span class="math inline">\((\kappa_\Gamma,D)\)</span>. Kam
 <em>et al.</em> introduce spatiotemporal Pauli processes as
 Pauli-twirled process tensors and show that their MPS bond is bounded by
 the process/environment memory dimension [<a href="#ref-kam2026spp">12</a>]. Theorem <a href="#thm:causalcut">3</a>
-does not replace these results. Its QEC-specific content is the
+builds on these results; its QEC-specific content is the
 detector-light-cone contraction, the observable Hankel bound on
 intrinsic cut rank, the subsequent circuit/noise factorization for a
 declared model class, and the finite-sample falsification corollary.</p>
@@ -1378,7 +1356,7 @@ and distance [<a href="#ref-balcan2019rank">17</a>]; structured
 probability-matrix recovery and unseparated rank testing can retain
 ambient-dimension costs [<a href="#ref-huang2018structured">20</a>].
 Vanishing Hankel minors are classical model invariants [<a href="#ref-schoenhuth2009equations">31</a>, <a href="#ref-critch2012binary">32</a>]. The role of <span class="math inline">\(d_r\)</span> here is as a stable aggregate
-relaxation that composes cleanly with the memory-witness theorem and
+relaxation that combines directly with the memory-witness theorem and
 finite-sample concentration.</p>
 <h2 id="limitations-and-open-problems">7. Limitations and open
 problems</h2>
@@ -1394,8 +1372,8 @@ when they reproduce the same observable law. We therefore formulate
 Eq. <a href="#eq:dminlower">(15)</a> in terms of the minimum compatible
 SPP bond within a declared model class. This is still not a
 device-independent count of leaked qubits, fluctuators, or defects, nor
-is it asserted to equal the operational quantum-memory cost of an
-arbitrary comb [<a href="#ref-bisio2011memory">13</a>, <a href="#ref-guo2022memory">14</a>]. Proposition <a href="#prop:kappa2">5</a> solves the known-circuit factor for one
+need it equal the operational quantum-memory cost of an arbitrary comb
+[<a href="#ref-bisio2011memory">13</a>, <a href="#ref-guo2022memory">14</a>]. Proposition <a href="#prop:kappa2">5</a> determines the known-circuit factor for one
 repeated detector track; computing comparably sharp circuit factors for
 multi-detector dictionaries, nonrepeated schedules, and
 adaptive/feed-forward circuits remains open.</p>
@@ -1417,18 +1395,17 @@ require new theory.</p>
 <h5 id="bootstrap-and-circuit-reference-calibration-are-conditional.">Bootstrap
 and circuit-reference calibration are conditional.</h5>
 <p>The refitted rank-one bootstrap has near-nominal size in the reported
-calibration experiments, not a universal finite-sample theorem. The
-Google circuit-relative <span class="math inline">\(p\)</span>-values
-condition on the archive-supplied noisy circuit and use its finite
-simulated word law as a plug-in reference. They do not integrate
-calibration-parameter uncertainty or prove the circuit model
-correct.</p>
+calibration experiments, but this is not a general finite-sample
+guarantee. The Google circuit-relative <span class="math inline">\(p\)</span>-values condition on the
+archive-supplied noisy circuit and use its finite simulated word law as
+a plug-in reference. They do not integrate calibration-parameter
+uncertainty or prove the circuit model correct.</p>
 <h5 id="across-track-dependence.">Across-track dependence.</h5>
-<p>The original 24-track BH maps are exploratory because the track
-statistics share shots and no PRDS condition has been proved. The
-leading-site BY calculation is safe under arbitrary dependence, but a
-stronger next analysis would use joint resampling/max-<span class="math inline">\(T\)</span> calibration across tracks and a
-genuinely held-out selection/confirmation split.</p>
+<p>The 24-track BH maps are exploratory because the track statistics
+share shots and no PRDS condition has been proved. The leading-site BY
+calculation is safe under arbitrary dependence, but a stronger next
+analysis would use joint resampling/max-<span class="math inline">\(T\)</span> calibration across tracks and a
+held-out selection/confirmation split.</p>
 <h5 id="no-spacing-testing-for-hidden-outputs.">No-spacing testing for
 hidden outputs.</h5>
 <p>The direct Markov theorem removes the blocking cost only when the
@@ -1452,10 +1429,10 @@ circuit background; Stim does not represent a transmon <span class="math inline"
 localization in the presence of circuit memory, not qutrit leakage
 physics.</p>
 <h2 id="conclusion">8. Conclusion</h2>
-<p>Finite syndrome rank can be more than a descriptive diagnostic, but
-its strongest representation-independent meaning is a lower bound on the
-intrinsic cut complexity of the composed process. The central structural
-statement is <span class="math display">\[\boxed{\operatorname{rank}H^{(\ell)}\le\rho_\Gamma\le
+<p>Beyond its use as a descriptive diagnostic, finite syndrome rank
+gives a representation-independent lower bound on the intrinsic cut
+complexity of the composed process. The central structural statement is
+<span class="math display">\[\boxed{\operatorname{rank}H^{(\ell)}\le\rho_\Gamma\le
     \kappa_\Gamma
     \prod_{e\in\Gamma_{\rm noise}}\chi_e.}\]</span> The first inequality
 says that the observed syndrome block cannot have more predictive
@@ -1468,32 +1445,31 @@ Kam <em>et al.</em>, a rank rejection therefore lower-bounds the
 known circuit separator dimension is accounted for, and only then gives
 a conditional lower bound on minimum compatible environment
 dimension.</p>
-<p>The statistical results make that structural witness usable without
-overstating what finite data can prove. A finite-horizon rejection
-falsifies low global predictive rank; finite-horizon acceptance does not
-certify the infinite process. The general distribution-free rule is
-rigorous but can be conservative, especially in high-dimensional sparse
-word tables. Practical rank-one bootstrap and circuit-relative Monte
-Carlo tests are therefore presented as separate inferential layers with
-separate guarantees.</p>
+<p>The statistical results make this structural witness usable with
+finite data. A finite-horizon rejection falsifies low global predictive
+rank; finite-horizon acceptance does not certify the infinite process.
+The general distribution-free rule is rigorous but can be conservative,
+especially in high-dimensional sparse word tables. Practical rank-one
+bootstrap and circuit-relative Monte Carlo tests are therefore presented
+as separate inferential layers with separate guarantees.</p>
 <p>The public Google analysis illustrates the distinction. The broad
-spatial rejection field is useful exploratory localization, but shared
-shots make naive BH FDR language too strong. The leading <span class="math inline">\(x2\_y5\)</span> discrepancy survives the
-arbitrary-dependence BY adjustment in both memory bases and is stable
-across the tested horizons and retrospective acquisition halves. For
-this single bulk detector track the circuit factor is no longer unknown:
+spatial rejection field is useful exploratory localization, but because
+tracks share shots, BH-based FDR statements would be too strong. The
+leading <span class="math inline">\(x2\_y5\)</span> discrepancy survives
+the arbitrary-dependence BY adjustment in both memory bases and is
+stable across the tested horizons and retrospective acquisition halves.
+For this single bulk detector track the circuit factor is known:
 Proposition <a href="#prop:kappa2">5</a> gives <span class="math inline">\(\kappa_\Gamma=2\)</span> under the Pauli/SPP model
 class. The existing Google statistic, however, is a conditional rank-one
 model check rather than a rank-two rejection, so we do not convert it
 into an environment-dimension claim.</p>
-<p>The most important next steps are now concrete: perform a rank-two
-real-data test at the already identified Google track; compute sharp
-circuit separators for multi-detector dictionaries and adaptive
-circuits; replace plug-in circuit-reference calibration by joint
-real/reference uncertainty accounting; perform genuinely held-out
-spatial confirmation; and develop longer-horizon tests that exploit
-tensor-network locality instead of constructing exponentially large
-Hankel tables. The worked <span class="math inline">\(\kappa_\Gamma=2\)</span> certificate shows that
+<p>Several next steps follow: perform a rank-two real-data test at the
+already identified Google track; compute sharp circuit separators for
+multi-detector dictionaries and adaptive circuits; replace plug-in
+circuit-reference calibration by joint real/reference uncertainty
+accounting; perform held-out spatial confirmation; and develop
+longer-horizon tests that exploit tensor-network locality instead of
+constructing exponentially large Hankel tables. The worked <span class="math inline">\(\kappa_\Gamma=2\)</span> certificate shows that
 the structural theorem can already yield a quantitative
 environment-memory bound when the statistic and circuit cut are
 matched.</p>
@@ -1501,10 +1477,9 @@ matched.</p>
 <p>The public experimental data are from the Google qec3v5 Zenodo
 archive [<a href="#ref-google2022data">30</a>]. The analysis
 configuration uses the distance-5, 21-round, center-<span class="math inline">\(5\_5\)</span> memory-<span class="math inline">\(X\)</span> and memory-<span class="math inline">\(Z\)</span> records. The accompanying source bundle
-contains the manuscript source, the synthetic-study code and outputs
-from the previous reproducibility package, the exact real-device
-analysis code/configuration used for the v5 results, the
-separator-memory certificate script and output used in Section <a href="#sec:workedmemory">5.2</a>, and the figure assets used here. The
+contains the manuscript source, the synthetic-study code and outputs,
+the real-device analysis code and configuration, the separator-memory
+certificate script and output used in Section <a href="#sec:workedmemory">5.2</a>, and the figure assets used here. The
 real-device analysis code records the conditional circuit-reference
 procedure of Eq. <a href="#eq:circuitp">(30)</a>; the 315-MB upstream
 Zenodo archive itself is not redistributed. The numerical dependencies

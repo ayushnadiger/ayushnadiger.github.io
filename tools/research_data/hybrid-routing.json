@@ -1,5 +1,5 @@
 {
-  "source": "RESULTS_AND_CODE_DESIGN.md, 2 November 2026. Exact simplified phase-only calculation.",
+  "source": "Exact phase-only routing calculation, 2 November 2026.",
   "shortest": {
     "unencoded": 0.13271733,
     "phase_rep3": 0.0098304

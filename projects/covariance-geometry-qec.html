@@ -20,7 +20,7 @@
     <p class="project-context">Differential Geometry course project</p>
     <p>The geometry of exact erasure-correcting code subspaces, their perturbations, and information leakage.</p>
   </section>
-<aside class="paper-toc" aria-label="Paper contents"><details><summary>Contents</summary><ol><li class="toc-h2"><a href="#introduction">1. Introduction</a></li><li class="toc-h2"><a href="#preliminaries-and-notation">2. Preliminaries and notation</a></li><li class="toc-h3"><a href="#erasure-correction-and-complementary-channels">2.1 Erasure correction and complementary channels</a></li><li class="toc-h2"><a href="#the-knilllaflamme-section">3. The Knill–Laflamme section</a></li><li class="toc-h3"><a href="#canonical-structure-and-rank-strata">3.1 Canonical structure and rank strata</a></li><li class="toc-h2"><a href="#a-canonical-information-leakage-functional">4. A canonical information-leakage functional</a></li><li class="toc-h2"><a href="#linearized-knilllaflamme-geometry">5. Linearized Knill–Laflamme geometry</a></li><li class="toc-h3"><a href="#rank-transversality-and-the-full-rank-locus">5.1 Rank, transversality, and the full-rank locus</a></li><li class="toc-h3"><a href="#explicit-covariance-invariants">5.2 Explicit covariance invariants</a></li><li class="toc-h2"><a href="#morsebott-leakage-geometry">6. Morse–Bott leakage geometry</a></li><li class="toc-h2"><a href="#qubit-erasure-concurrence-and-fubinistudy-distance">7. Qubit erasure: concurrence and Fubini–Study distance</a></li><li class="toc-h3"><a href="#constant-distance-tubes-around-the-segre-variety">7.1 Constant-distance tubes around the Segre variety</a></li><li class="toc-h3"><a href="#concurrence-controls-normal-conditioning">7.2 Concurrence controls normal conditioning</a></li><li class="toc-h2"><a href="#rank-deficient-nontransversality">8. Rank-deficient nontransversality</a></li><li class="toc-h2"><a href="#several-erasures-and-infinitesimal-code-moduli">9. Several erasures and infinitesimal code moduli</a></li><li class="toc-h3"><a href="#cross-gram-blocks-and-compatibility-of-erasure-constraints">9.1 Cross-Gram blocks and compatibility of erasure constraints</a></li><li class="toc-h3"><a href="#the-four-qubit-distance-two-code">9.2 The four-qubit distance-two code</a></li><li class="toc-h3"><a href="#the-perfect-five-qubit-code-and-the-steane-contrast">9.3 The perfect five-qubit code and the Steane contrast</a></li><li class="toc-h2"><a href="#operator-algebra-extension">10. Operator-algebra extension</a></li><li class="toc-h2"><a href="#relation-to-prior-work-and-novelty-boundary">11. Relation to prior work and novelty boundary</a></li><li class="toc-h2"><a href="#discussion">12. Discussion</a></li><li class="toc-h2"><a href="#a.-haar-second-moment">A. Haar second moment</a></li><li class="toc-h2"><a href="#b.-dimension-check-from-the-full-rank-parametrization">B. Dimension check from the full-rank parametrization</a></li><li class="toc-h2"><a href="#c.-reproducibility-note">C. Reproducibility note</a></li><li><a href="#references">References</a></li></ol></details></aside>
+<aside class="paper-toc" aria-label="Paper contents"><details><summary>Contents</summary><ol><li class="toc-h2"><a href="#introduction">1. Introduction</a></li><li class="toc-h2"><a href="#preliminaries-and-notation">2. Preliminaries and notation</a></li><li class="toc-h3"><a href="#erasure-correction-and-complementary-channels">2.1 Erasure correction and complementary channels</a></li><li class="toc-h2"><a href="#the-knilllaflamme-section">3. The Knill–Laflamme section</a></li><li class="toc-h3"><a href="#canonical-structure-and-rank-strata">3.1 Canonical structure and rank strata</a></li><li class="toc-h2"><a href="#a-canonical-information-leakage-functional">4. A canonical information-leakage functional</a></li><li class="toc-h2"><a href="#linearized-knilllaflamme-geometry">5. Linearized Knill–Laflamme geometry</a></li><li class="toc-h3"><a href="#rank-transversality-and-the-full-rank-locus">5.1 Rank, transversality, and the full-rank locus</a></li><li class="toc-h3"><a href="#explicit-covariance-invariants">5.2 Explicit covariance invariants</a></li><li class="toc-h2"><a href="#morsebott-leakage-geometry">6. Morse–Bott leakage geometry</a></li><li class="toc-h2"><a href="#qubit-erasure-concurrence-and-fubinistudy-distance">7. Qubit erasure: concurrence and Fubini–Study distance</a></li><li class="toc-h3"><a href="#constant-distance-tubes-around-the-segre-variety">7.1 Constant-distance tubes around the Segre variety</a></li><li class="toc-h3"><a href="#concurrence-controls-normal-conditioning">7.2 Concurrence controls normal conditioning</a></li><li class="toc-h2"><a href="#rank-deficient-nontransversality">8. Rank-deficient nontransversality</a></li><li class="toc-h2"><a href="#several-erasures-and-infinitesimal-code-moduli">9. Several erasures and infinitesimal code moduli</a></li><li class="toc-h3"><a href="#cross-gram-blocks-and-compatibility-of-erasure-constraints">9.1 Cross-Gram blocks and compatibility of erasure constraints</a></li><li class="toc-h3"><a href="#the-four-qubit-distance-two-code">9.2 The four-qubit distance-two code</a></li><li class="toc-h3"><a href="#the-perfect-five-qubit-code-and-the-steane-contrast">9.3 The perfect five-qubit code and the Steane contrast</a></li><li class="toc-h2"><a href="#operator-algebra-extension">10. Operator-algebra extension</a></li><li class="toc-h2"><a href="#relation-to-prior-work">11. Relation to prior work</a></li><li class="toc-h2"><a href="#discussion">12. Discussion</a></li><li class="toc-h2"><a href="#a.-haar-second-moment">A. Haar second moment</a></li><li class="toc-h2"><a href="#b.-dimension-check-from-the-full-rank-parametrization">B. Dimension check from the full-rank parametrization</a></li><li class="toc-h2"><a href="#c.-reproducibility-note">C. Reproducibility note</a></li><li><a href="#references">References</a></li></ol></details></aside>
 <article class="manuscript" id="paper" aria-label="Full paper">
 <section class="manuscript-abstract" id="abstract"><h3>Abstract</h3><p>Let <span class="math inline">\(A\)</span> and <span
 class="math inline">\(B\)</span> be finite-dimensional quantum systems
@@ -91,8 +91,8 @@ state has the same reduced density operator <span class="math inline">\(\sigma_A
 structure behind erasure correction and is closely related to quantum
 masking [<a href="#ref-BraunsteinPati2006">9</a>, <a href="#ref-HanEtAl2020">10</a>]. Highly entangled subspaces and quantum
 codes are correspondingly intertwined [<a href="#ref-GourWallach2007">11</a>].</p>
-<p>The purpose of this paper is not to rederive those structural facts
-under a new name. Instead, we ask a differential question:</p>
+<p>We take these structural facts as given and ask a differential
+question:</p>
 <blockquote>
 <p><em>If an exact erasure-correcting code is perturbed inside the
 Grassmannian, which infinitesimal directions preserve correctability,
@@ -119,18 +119,17 @@ exact code, the zero locus is smooth, <span class="math inline">\(\mathcal L_A\)
 Hessian gives a canonical local susceptibility of the code to coherent
 subspace perturbations. This average Hilbert–Schmidt leakage should be
 distinguished from worst-case environment-leakage distances used in
-approximate QEC [<a href="#ref-ElimelechAlbertBarg2026">16</a>]; its
-role here is that it is exactly quadratic in the defining KL section and
-therefore exposes the differential geometry without an optimization over
+approximate QEC [<a href="#ref-ElimelechAlbertBarg2026">16</a>]; we use
+it because it is exactly quadratic in the defining KL section, which
+gives direct access to the differential geometry without optimizing over
 recovery maps.</p>
 <p>For qubit erasure the result connects directly to the projective
 geometry of bipartite entanglement. The separable qubit–rest states form
 the Segre variety <span class="math display">\[\operatorname{Seg}(\mathbb{CP}^1\times\mathbb{CP}^{b-1})\subset
 \mathbb{CP}^{2b-1}.\]</span> Every codeword of an exact erasure code has
 the same Schmidt spectrum, hence the same Fubini–Study distance to this
-Segre variety and the same concurrence <span class="math inline">\(C_A\)</span>. We find that <span class="math inline">\(C_A\)</span> is not merely an entanglement label:
-it is the reciprocal condition number of the linearized KL
-constraints.</p>
+Segre variety and the same concurrence <span class="math inline">\(C_A\)</span>. We show that <span class="math inline">\(C_A\)</span> is also the reciprocal condition
+number of the linearized KL constraints.</p>
 <h5 id="main-contributions.">Main contributions.</h5>
 <p>The paper establishes the following results.</p>
 <ol>
@@ -156,10 +155,10 @@ formula, exact symbolic rigidity calculations for the <span class="math inline">
 numerical first-order analysis of the Steane code.</p></li>
 </ol>
 <p>The algebraic structure of exact QEC and its relation to
-complementary channels are classical; the claimed novelty is the
-differential-geometric package in items (iii)–(vi), together with the
-deformation viewpoint in (vii). A targeted literature audit is discussed
-in <a href="#sec:related">Section 11</a>.</p>
+complementary channels are classical; the new material is the
+differential geometry in items (iii)–(vi) and the deformation viewpoint
+in (vii). <a href="#sec:related">Section 11</a> compares these results
+with prior work.</p>
 <h2 id="preliminaries-and-notation">2. Preliminaries and notation</h2>
 <p>Let <span class="math inline">\(A\cong\mathbb C^a\)</span>, <span class="math inline">\(B\cong\mathbb C^b\)</span>, and <span class="math inline">\(L\cong\mathbb C^K\)</span>. The physical Hilbert
 space is <span class="math display">\[\mathcal H=A\otimes B.\]</span> A
@@ -258,10 +257,9 @@ converse is immediate. ◻</p>
 </div>
 <h3 id="canonical-structure-and-rank-strata">3.1 Canonical structure and
 rank strata</h3>
-<p>The next result is a convenient formulation of the standard no-hiding
-structure. It is included because it supplies global coordinates for the
-zero locus and because its rank parameter will control the differential
-geometry later.</p>
+<p>The next result restates the standard no-hiding structure in a form
+that gives global coordinates for the zero locus. Its rank parameter
+also controls the differential geometry later.</p>
 <blockquote>
 <p><strong>Theorem 3.3 (Canonical form of a one-subsystem erasure
 code).</strong> <span id="thm:canonical"></span> Let <span class="math inline">\(V:L\to A\otimes B\)</span> encode an exact <span class="math inline">\(A\)</span>-erasure code, and let <span class="math inline">\(\sigma_A\)</span> be the constant erased marginal
@@ -503,12 +501,9 @@ quantity <span class="math inline">\(\mathcal L_A\)</span> is an average
 Hilbert–Schmidt fluctuation of the complementary output. It is not the
 worst-case diamond/Bures environment-leakage distance used in modern
 approximate-QEC criteria [<a href="#ref-BenyOreshkov2009">8</a>, <a href="#ref-ElimelechAlbertBarg2026">16</a>], nor does <a href="#thm:leakage">Theorem 4.2</a> by itself determine optimal recovery
-fidelity. Its advantage for the present purpose is exactness and
-differentiability: <span class="math inline">\(\mathcal L_A\)</span> is
-precisely the squared norm of the KL section up to a universal factor.
-The dimension factors in <a href="#eq:diamond-sandwich">(15)</a> also
-make clear why <span class="math inline">\(\mathcal L_A\)</span> should
-not be advertised as a dimension-independent substitute for worst-case
+fidelity. We use it because it is exact and differentiable: <span class="math inline">\(\mathcal L_A\)</span> is the squared norm of the
+KL section up to a universal factor. The dimension factors in <a href="#eq:diamond-sandwich">(15)</a> also show that <span class="math inline">\(\mathcal L_A\)</span> is not a
+dimension-independent substitute for worst-case
 approximate-correctability metrics.</p>
 </blockquote>
 <h2 id="linearized-knilllaflamme-geometry">5. Linearized Knill–Laflamme
@@ -869,8 +864,8 @@ r=\frac12\arcsin C_A.
 \tag{34}\]</span></p>
 <p>Thus the whole projective code <span class="math inline">\(\mathbb
 P(\mathcal C)\)</span> lies in one fixed-concurrence tube around the
-Segre variety. Exact erasure correction is stronger than merely lying in
-that tube: it fixes the entire reduced density matrix <span class="math inline">\(\sigma_A\)</span>, not only its eigenvalues.</p>
+Segre variety. Exact erasure correction is stronger than lying in that
+tube: it fixes the entire reduced density matrix <span class="math inline">\(\sigma_A\)</span>, not only its eigenvalues.</p>
 <h3 id="concurrence-controls-normal-conditioning">7.2 Concurrence
 controls normal conditioning</h3>
 <p>Choose a Pauli frame with <span class="math inline">\(\boldsymbol{r}\)</span> along <span class="math inline">\(z\)</span> and let <span class="math display">\[T_x=\frac{\sigma_x}{\sqrt2},\qquad
@@ -1072,10 +1067,10 @@ traceless, the two scalar terms combine to <span class="math display">\[4\left(
 <p><strong>Remark 9.2.</strong> Equation <a href="#eq:cross-gram">(45)</a> separates two regimes. If the union is
 correctable, linearized compatibility of the two erasure constraints is
 governed entirely by ordinary physical covariances in the fixed union
-marginal. If the union is not correctable, the non-scalar part of <span class="math inline">\(C_{AB}\)</span> survives and carries genuinely
-logical information. Thus the stacked Jacobian detects the boundary
-between locally compatible erasure constraints and products of local
-observables that act nontrivially on the logical subsystem.</p>
+marginal. If the union is not correctable, the non-scalar part of <span class="math inline">\(C_{AB}\)</span> survives and carries logical
+information. Thus the stacked Jacobian detects the boundary between
+locally compatible erasure constraints and products of local observables
+that act nontrivially on the logical subsystem.</p>
 </blockquote>
 <h3 id="the-four-qubit-distance-two-code">9.2 The four-qubit
 distance-two code</h3>
@@ -1127,9 +1122,9 @@ the full kernel. The accompanying script
 exact SymPy arithmetic. ◻</p>
 </div>
 <p>This local result is compatible with the known
-rigidity/classification of four-qubit pure codes [<a href="#ref-Tan2025">18</a>]; we therefore present it primarily as a
-validation of the stacked-section deformation formalism, not as a new
-global classification theorem.</p>
+rigidity/classification of four-qubit pure codes [<a href="#ref-Tan2025">18</a>]; we present it as a check of the
+stacked-section deformation formalism rather than as a new
+classification result.</p>
 <h3 id="the-perfect-five-qubit-code-and-the-steane-contrast">9.3 The
 perfect five-qubit code and the Steane contrast</h3>
 <p>The same exact calculation can be performed for the <span class="math inline">\([[5,1,3]]\)</span> perfect code while imposing
@@ -1233,7 +1228,7 @@ DS\)</span></th>
 moduli. Recent work has exhibited continuous families of exact
 nonadditive codes and paths through the Steane-code landscape [<a href="#ref-DuZhangPoonZeng2024">12</a>]. There the kernel of a stacked
 KL Jacobian can contain many more directions than local-unitary orbits,
-and a genuine deformation theory must distinguish first-order solutions
+and a full deformation theory must distinguish first-order solutions
 from higher-order integrable code families. We leave that analysis for
 future work.</p>
 <h2 id="operator-algebra-extension">10. Operator-algebra extension</h2>
@@ -1252,7 +1247,7 @@ anticlique) for <span class="math inline">\(\mathfrak A\)</span> when
 A,\]</span> for a state <span class="math inline">\(\omega\)</span> on
 <span class="math inline">\(\mathfrak A\)</span>. Scalar-compression and
 quantum-anticlique formulations of QEC are established in the
-operator-system and higher-rank numerical-range literature [<a href="#ref-Weaver2018">2</a>, <a href="#ref-LiPoon2008">3</a>, <a href="#ref-KribsEtAl2005">4</a>]; the point here is the local normal
+operator-system and higher-rank numerical-range literature [<a href="#ref-Weaver2018">2</a>, <a href="#ref-LiPoon2008">3</a>, <a href="#ref-KribsEtAl2005">4</a>]; here we study the local normal
 geometry of their solution set.</p>
 <p>Define the section <span class="math display">\[s_{\mathfrak
 A}(\mathcal C)(A)=\operatorname{tf}\!\left(PAP|_{\mathcal C}\right),
@@ -1306,18 +1301,16 @@ codimension follows from the regular-level-set theorem. ◻</p>
 <p><strong>Remark 10.2 (Erasure as the matrix-algebra case).</strong>
 For <span class="math inline">\(\mathfrak A=\operatorname{End}(A)\otimes
 I_B\)</span>, the induced state is <span class="math inline">\(\omega(T\otimes I)=\operatorname{Tr}(\sigma_A
-T)\)</span>, faithfulness is equivalent to <span class="math inline">\(\sigma_A&gt;0\)</span>, and <a href="#eq:algebra-covariance">Equation 48</a> reduces exactly to <a href="#eq:covariance-normal">Equation 19</a>. Thus the erased marginal
-is not an auxiliary parameter: it is the state on the correctable
-observable algebra whose covariance controls the full normal
-response.</p>
+T)\)</span>, faithfulness is equivalent to <span class="math inline">\(\sigma_A&gt;0\)</span>, and <a href="#eq:algebra-covariance">Equation 48</a> reduces exactly to <a href="#eq:covariance-normal">Equation 19</a>. The erased marginal is
+therefore the state on the correctable observable algebra, and its
+covariance controls the full normal response.</p>
 </blockquote>
-<h2 id="relation-to-prior-work-and-novelty-boundary">11. Relation to
-prior work and novelty boundary</h2>
+<h2 id="relation-to-prior-work">11. Relation to prior work</h2>
 <div id="sec:related">
 
 </div>
-<p>The statements in this paper sit next to several established
-geometric and information-theoretic viewpoints.</p>
+<p>Our results relate to several established geometric and
+information-theoretic viewpoints.</p>
 <h5 id="kl-compression-geometry-and-operator-systems.">KL compression
 geometry and operator systems.</h5>
 <p>The KL conditions themselves are classical [<a href="#ref-KnillLaflamme1997">1</a>]. Higher-rank numerical ranges
@@ -1327,17 +1320,16 @@ Pereira showed that exact QEC produces families of isoclinic error-image
 subspaces, linking KL structure to principal angles [<a href="#ref-KribsMammarellaPereira2019">6</a>]. Scalar compression of
 operator systems is also the language of quantum
 anticliques/noncommutative graphs [<a href="#ref-Weaver2018">2</a>],
-while operator-algebra QEC gives a broader algebraic framework [<a href="#ref-KribsEtAl2005">4</a>]. Our sections <span class="math inline">\(s_{\mathfrak A}\)</span> and <span class="math inline">\(s_A\)</span> do not introduce scalar compression
-as a new coding condition; the new content claimed here is the local
-covariance normal form, the explicit normal-operator identity <a href="#eq:covariance-normal">(19)</a>, and their leakage and
+while operator-algebra QEC gives a broader algebraic framework [<a href="#ref-KribsEtAl2005">4</a>]. The sections <span class="math inline">\(s_{\mathfrak A}\)</span> and <span class="math inline">\(s_A\)</span> do not introduce scalar compression
+as a new coding condition; our contribution is the local covariance
+normal form, the explicit normal-operator identity <a href="#eq:covariance-normal">(19)</a>, and their leakage and
 conditioning consequences.</p>
 <h5 id="no-hiding-privacy-and-masking.">No-hiding, privacy, and
 masking.</h5>
 <p>The equivalence between erasure correction and constancy of the
 complementary output is standard [<a href="#ref-KretschmannKribsSpekkens2007">7</a>, <a href="#ref-BenyOreshkov2009">8</a>]. The canonical decomposition in <a href="#thm:canonical">Theorem 3.3</a> is a one-sided no-hiding statement
 and is closely related to structural expressions used in the masking
-literature [<a href="#ref-BraunsteinPati2006">9</a>, <a href="#ref-HanEtAl2020">10</a>]. We do not claim this decomposition as
-novel.</p>
+literature [<a href="#ref-BraunsteinPati2006">9</a>, <a href="#ref-HanEtAl2020">10</a>], and we include it for completeness.</p>
 <h5 id="entangled-subspaces.">Entangled subspaces.</h5>
 <p>The connection between highly/maximally entangled subspaces and QEC
 is established [<a href="#ref-GourWallach2007">11</a>]. Our qubit result
@@ -1352,58 +1344,53 @@ KL and transversal-gate losses on Stiefel manifolds [<a href="#ref-ZhangWuHuangZ
 introduced a global variance-based geometry for exact Pauli-detecting
 codes, organized by attainable scalar compression data [<a href="#ref-GuptaSunHeZeng2026">14</a>]. Those works establish that
 exact-code spaces can have rich continuous global structure. Our use of
-the word “geometry” is different and deliberately local: we compute the
-Jacobian of the exact-KL defining equations, its normal Gram operator,
-and the Hessian of an information-leakage functional at the zero locus.
-None of our novelty claims rely on the existence of a manifold
-parametrization or on variance profiles of the maximally mixed code
-state.</p>
+the word “geometry” is local: we compute the Jacobian of the exact-KL
+defining equations, its normal Gram operator, and the Hessian of an
+information-leakage functional at the zero locus. These results do not
+depend on a manifold parametrization or on variance profiles of the
+maximally mixed code state.</p>
 <h5 id="approximate-qec.">Approximate QEC.</h5>
 <p>Bény and Oreshkov characterize approximate correctability through the
 closeness of complementary channels to constant channels [<a href="#ref-BenyOreshkov2009">8</a>]. Zheng et al. derive
 optimization-free near-optimal performance estimates from KL data [<a href="#ref-ZhengHeLeeJiang2024">15</a>]. Very recent work by Elimelech,
 Albert, and Barg develops an approximate error-set model with a
-worst-case environment-leakage distance and a KL Hellinger distance [<a href="#ref-ElimelechAlbertBarg2026">16</a>]. Our <span class="math inline">\(\mathcal L_A\)</span> is intentionally more
-elementary: an average Hilbert–Schmidt variance. Its significance here
-is not that it supersedes AQEC performance metrics, but that it is
-exactly the squared norm of the Grassmannian KL section and therefore
-has a closed-form Hessian at exact codes.</p>
-<p>A targeted search of these literatures did not reveal the identity
-<span class="math inline">\(Ds_A Ds_A^*=4\mathsf{Cov}_{\sigma_A}\otimes
+worst-case environment-leakage distance and a KL Hellinger distance [<a href="#ref-ElimelechAlbertBarg2026">16</a>]. Our <span class="math inline">\(\mathcal L_A\)</span> is simpler, an average
+Hilbert–Schmidt variance. It does not replace AQEC performance metrics;
+we use it because it is exactly the squared norm of the Grassmannian KL
+section and therefore has a closed-form Hessian at exact codes.</p>
+<p>We have not found in these literatures the identity <span class="math inline">\(Ds_A Ds_A^*=4\mathsf{Cov}_{\sigma_A}\otimes
 I\)</span>, the resulting Morse–Bott theorem, the complementary-channel
 Choi/Frobenius identity in <a href="#prop:choi-leakage">Proposition
 4.3</a> used as the local defining norm, the reciprocal-concurrence
 condition number, or the cross-Gram formula <a href="#eq:cross-gram">(45)</a> as a deformation-theoretic description of
-simultaneous erasure constraints. This is evidence of novelty, not a
-substitute for expert prior-art review.</p>
+simultaneous erasure constraints.</p>
 <h2 id="discussion">12. Discussion</h2>
-<p>The main result can be summarized in one line: <span class="math display">\[\boxed{
+<p>The main result is <span class="math display">\[\boxed{
 \text{normal stiffness of exact erasure correction}
 \;=\;
 \text{covariance geometry of the erased marginal}.
-}\]</span> The statement is exact and dimension-independent. The code
+}\]</span> The identity is exact and holds in every dimension. The code
 dimension enters only through the multiplicity <span class="math inline">\(K^2-1\)</span> and the universal Haar factor <span class="math inline">\(K(K+1)\)</span>; all anisotropy comes from <span class="math inline">\(\sigma_A\)</span>.</p>
-<p>For qubit erasure this produces a particularly transparent bridge
-between differential geometry, entanglement, and QEC. Exact
-correctability forces every logical state onto a common
-constant-concurrence tube around the Segre variety, while the same
-concurrence controls the condition number of the KL normal response.
-Maximally mixed erased marginals are exactly the normally isotropic
-points. Rank-deficient marginals sit at nontransverse boundaries where
-first-order KL constraints lose rank.</p>
-<p>Several extensions appear natural.</p>
+<p>For qubit erasure, the result connects differential geometry,
+entanglement, and QEC directly. Exact correctability forces every
+logical state onto a common constant-concurrence tube around the Segre
+variety, while the same concurrence controls the condition number of the
+KL normal response. Maximally mixed erased marginals are exactly the
+normally isotropic points. Rank-deficient marginals sit at nontransverse
+boundaries where first-order KL constraints lose rank.</p>
+<p>Several extensions remain open.</p>
 <ol>
 <li><p><strong>Higher-order deformation theory.</strong> At
 multi-erasure codes with a large kernel of the stacked Jacobian,
-determine which infinitesimal directions integrate to genuine exact-code
+determine which infinitesimal directions integrate to exact-code
 families. The second-order obstruction is obtained by differentiating
 the stacked KL section again.</p></li>
 <li><p><strong>Operator systems beyond algebras.</strong> The covariance
 normal form extends here to scalar-compressed <span class="math inline">\(*\)</span>-algebras. For a general operator system
 not closed under products, <a href="#thm:cross-gram">Theorem 9.1</a>
-suggests that the obstruction is precisely the non-scalar compression of
-products outside the system; characterizing when a closed normal form
-survives is open.</p></li>
+suggests that the obstruction is the non-scalar compression of products
+outside the system; characterizing when a closed normal form survives is
+open.</p></li>
 <li><p><strong>Approximate recovery bounds.</strong> Relate <span class="math inline">\(\mathcal L_A\)</span> and the normal Hessian
 quantitatively to worst-case complementary-channel distances and optimal
 recovery fidelity near the exact locus.</p></li>
@@ -1415,9 +1402,8 @@ arrives asynchronously.</p></li>
 </ol>
 <p>The last direction is especially relevant to network architectures in
 which losses are heralded and local processing is triggered
-asynchronously. The present paper supplies the single-pattern local
-geometry needed before such a dynamical theory can be formulated
-cleanly.</p>
+asynchronously. This paper supplies the local geometry for a single
+erasure pattern, on which such a dynamical theory would build.</p>
 <h2 id="a.-haar-second-moment">A. Haar second moment</h2>
 <p>For completeness, let <span class="math inline">\(\lvert
 \psi\rangle\)</span> be Haar-random in <span class="math inline">\(\mathbb C^K\)</span>. Schur–Weyl symmetry gives

@@ -49,22 +49,16 @@ Diagonalizing the equal-frequency covariance identifies collective environmental
 
 \section{Introduction}
 
-Electric-field noise near conducting surfaces limits motional coherence and entangling-gate performance in trapped-ion processors \cite{Turchette2000,Deslauriers2006,Brownnutt2015,Sedlacek2018,Webb2018,Sutherland2022}.  The usual anomalous-heating observable is a single diagonal element of a larger object: the spatial electric-field cross spectrum seen by all ions in the device.  Multi-ion probes and collective motional modes are already known to reveal the spatial correlation length and orientation of surface fluctuators \cite{Brownnutt2015,Galve2017}, while scanning-ion measurements can spatially map surface fields and noise \cite{Sagesser2024}.  The question here is different.  We hold the stochastic source statistics fixed and ask how a passive conducting boundary reshapes that complete spatial noise operator.
+Electric-field noise near conducting surfaces limits motional coherence and entangling-gate performance in trapped-ion processors \cite{Turchette2000,Deslauriers2006,Brownnutt2015,Sedlacek2018,Webb2018,Sutherland2022}.  The usual anomalous-heating observable is a single diagonal element of a larger object: the spatial electric-field cross spectrum seen by all ions in the device.  Multi-ion probes and collective motional modes are already known to reveal the spatial correlation length and orientation of surface fluctuators \cite{Brownnutt2015,Galve2017}, while scanning-ion measurements can spatially map surface fields and noise \cite{Sagesser2024}.  Here we hold the stochastic source statistics fixed and ask how a passive conducting boundary reshapes the full spatial noise operator.
 
-Patch-potential models naturally separate source statistics from electrostatic propagation through a Green function \cite{Dubessy2009,Low2011,Lin2016}; geometry-resolved calculations have also been used to identify heating hot spots in realistic electrode layouts \cite{Chu2025}.  General surface-induced quantum master equations for charged particles near material interfaces are established \cite{Martinetz2022}.  Our contribution is not the existence of a Green-function heating law or a Lindblad description.  We isolate a geometry-explicit return spectrum and show that it controls the full ion-array covariance, obeys a matrix ordering theorem, and continues beyond the strip through specular saddles of the screened boundary operator.
+Patch-potential models naturally separate source statistics from electrostatic propagation through a Green function \cite{Dubessy2009,Low2011,Lin2016}; geometry-resolved calculations have also been used to identify heating hot spots in realistic electrode layouts \cite{Chu2025}.  Surface-induced quantum master equations for charged particles near material interfaces have also been derived \cite{Martinetz2022}.  Building on these Green-function and Lindblad descriptions, we isolate a geometry-explicit return spectrum and show that it controls the full ion-array covariance, obeys a matrix ordering theorem, and extends beyond the strip through specular saddles of the screened boundary operator.
 
-The parallel slab is the analytically controlled case.  Its image construction is exactly the unfolding of a parallel-wall billiard \cite{Tabachnikov2005}.  The unfolded normal depths form a discrete return measure whose Laplace transform is the electric-field response.  Pairing that measure with the surface spatial spectrum gives the electric-field covariance.  The same construction yields exact special-function heating ratios and a Loewner ordering of the entire many-ion covariance matrix.  Diagonalizing that covariance gives collective environmental noise eigenchannels and an effective noise rank; within a degenerate motional frequency block the corresponding rate matrix yields Lindblad jump operators.  This recasts anomalous heating as one observable of a geometry-dependent correlated bosonic environment.
+The parallel slab is the analytically controlled case.  Its image construction is exactly the unfolding of a parallel-wall billiard \cite{Tabachnikov2005}.  The unfolded normal depths form a discrete return measure whose Laplace transform is the electric-field response.  Pairing that measure with the surface spatial spectrum gives the electric-field covariance.  The same construction yields exact special-function heating ratios and a Loewner ordering of the entire many-ion covariance matrix.  Diagonalizing that covariance gives collective environmental noise eigenchannels and an effective noise rank; within a degenerate motional frequency block the corresponding rate matrix yields Lindblad jump operators.  In this picture, anomalous heating is one observable of a geometry-dependent, correlated bosonic environment.
 
-To distinguish the return picture from a relabeling of the method of images, we test it beyond parallel walls.  Multiple-reflection expansions and stationary-path descriptions of Green functions are classical tools \cite{BalianBloch1970,BalianBloch1972,BalianDuplantier1977,Bordag2001,Zelditch2004}; specular stationary paths themselves are not our novelty.  We use a screened boundary formulation to test whether those paths quantitatively organize the non-flat electrostatic response.  They do: Euclidean path action fixes the exponential decay, boundary curvature fixes the focusing prefactor, and competing saddles add with the expected Laplace weights.
+In the slab, the return picture is equivalent to the method of images, so we also test it beyond parallel walls.  Multiple-reflection expansions and stationary-path descriptions of Green functions are classical tools \cite{BalianBloch1970,BalianBloch1972,BalianDuplantier1977,Bordag2001,Zelditch2004}.  We use a screened boundary formulation to test whether specular paths quantitatively describe the non-flat electrostatic response.  We find that the Euclidean path action sets the exponential decay, boundary curvature sets the focusing prefactor, and competing saddles add with the expected Laplace weights.
 
-The main results are: (i) an exact return-pair representation of surface-induced electric-field noise; (ii) an $N$-ion covariance theorem showing opposite Loewner ordering for normal and tangential fields under a passive cover; (iii) collective covariance eigenchannels, their blockwise Kossakowski interpretation, and a geometry-dependent effective noise rank; (iv) exact $\zeta(3)$ and $\eta(3)$ single-ion limits, finite-correlation and mode-heating consequences, plus a control-mediated gate-exposure example; and (v) a non-flat screened-BEM test in which billiard saddles predict the electrostatic correction across a controlled geometry family.  The conceptual chain is
-\begin{equation}
-\begin{aligned}
-\text{surface statistics}&\to\text{Green operator}\\
-&\to\text{return spectrum}\to C_{ij}(\omega)\\
-&\to\text{collective noise channel}.
-\end{aligned}
-\end{equation}
+The main results are: (i) an exact return-pair representation of surface-induced electric-field noise; (ii) an $N$-ion covariance theorem showing opposite Loewner ordering for normal and tangential fields under a passive cover; (iii) collective covariance eigenchannels, their blockwise Kossakowski interpretation, and a geometry-dependent effective noise rank; (iv) exact $\zeta(3)$ and $\eta(3)$ single-ion limits, finite-correlation and mode-heating consequences, plus a gate-exposure example; and (v) a non-flat screened-BEM test in which billiard saddles predict the electrostatic correction across a family of cover shapes.
+
 \section{Surface covariance and the measured heating rate}
 \label{sec:source}
 
@@ -87,7 +81,7 @@ S_{E_j}(\omega)=\iint_{\Gamma_e} K_j(\bm r)K_j^*(\bm r')
 C_V(\bm r,\bm r';\omega)\,\dd A\,\dd A'.
 \label{eq:generalPSD}
 \end{equation}
-The spatially local model used below is the deliberate source model
+Most of the calculations below use the spatially local source model
 \begin{equation}
 C_V(\bm r,\bm r';\omega)=S_{\rm loc}(\bm r,\omega)
 \delta_{\Gamma_e}(\bm r-\bm r'),
@@ -107,7 +101,7 @@ For a secular mode of frequency $\omega_j$, neglecting micromotion sidebands, th
 \dot{\bar n}_j=\frac{e^2}{4m\hbar\omega_j}S_{E_j}(\omega_j).}
 \label{eq:heatingrate}
 \end{equation}
-Thus every geometric result for $S_{E_j}$ is directly a result for anomalous motional heating.
+Every geometric result for $S_{E_j}$ is therefore also a result for anomalous motional heating.
 
 
 \section{Many-ion covariance and open-system generator}
@@ -128,7 +122,7 @@ S_{E,\nu}(\omega)=\bm b_\nu^\dagger C^{(u)}(\omega)\bm b_\nu,
 \end{equation}
 This is the standard common/stretch-mode statement generalized to an arbitrary ion array \cite{Brownnutt2015,Galve2017}.
 
-The Green-function-to-master-equation step is established in surface-induced decoherence theory \cite{Martinetz2022}; we use it here to expose the operator consequence of the return geometry.  To make the signed-frequency structure explicit, let
+The Green-function-to-master-equation step is established in surface-induced decoherence theory \cite{Martinetz2022}; we use it here to obtain the operator form implied by the return geometry.  To make the signed-frequency structure explicit, let
 \begin{equation}
 \mathcal S_{ij}(\omega)=\int_{-\infty}^{\infty}\dd t\,e^{i\omega t}
 \langle E_u(\bm r_i,t)E_u(\bm r_j,0)\rangle
@@ -191,7 +185,7 @@ For every $h>d$ and $k>0$,
 If $\mu_h^\perp=\sum_n\delta_{\alpha_n}$, then $\Khat_{\perp,h}(k)/k=\mathcal L\{\mu_h^\perp\}(k)$.
 \end{theorem}
 
-The proof is the geometric series obtained from Eq.~\eqref{eq:Kperpclosed}.  Figure~\ref{fig:unfolding} shows the same object as reflected trajectories, unfolded straight paths, and a return-depth spectrum.  The exact transform is in \emph{unfolded normal depth}; it is not the Euclidean length of a laterally displaced physical trajectory.  Euclidean path length appears later as the natural saddle action after the boundary is curved.
+The proof is the geometric series obtained from Eq.~\eqref{eq:Kperpclosed}.  Figure~\ref{fig:unfolding} shows the same object as reflected trajectories, unfolded straight paths, and a return-depth spectrum.  The transform is exact in the \emph{unfolded normal depth}, which differs from the Euclidean length of a laterally displaced physical trajectory.  Euclidean path length enters later, as the saddle action for a curved boundary.
 
 \begin{figure*}[tbp]
 \includegraphics[width=0.94\textwidth]{fig_unfolding_schematic.pdf}
@@ -206,7 +200,7 @@ P_h(k)&=\frac{\sinh[(h-d)k]}{\sinh(hk)}\nonumber\\
 -\sum_{r\ge0}e^{-(2h-d+2rh)k},
 \label{eq:tangentmeasure}
 \end{align}
-and $\Khat_x=i k_xP_h$.  The two image families therefore enter the tangential response with opposite signs.  Billiard paths are the same geometrically; the field component attaches a parity weight to them.
+and $\Khat_x=i k_xP_h$.  The two image families therefore enter the tangential response with opposite signs.  The billiard paths are the same; the field component assigns each one a parity weight.
 
 \section{Anomalous heating as a return-pair functional}
 \label{sec:heatingzeta}
@@ -241,7 +235,7 @@ S_{E_\perp}(\omega)=\sum_{m,n\in\mathbb Z}
 \end{equation}
 \end{proposition}
 
-The microscopic source mechanism and the enclosure geometry are cleanly separated: $P(k,\omega)$ determines the scalar transform $\Phi_\omega$, while the billiard supplies the pair-depth set $\alpha_m+\alpha_n$.  This formulation includes finite correlation length without changing the geometric object.
+This separates the microscopic source mechanism from the enclosure geometry: $P(k,\omega)$ determines the scalar transform $\Phi_\omega$, while the billiard supplies the pair-depth set $\alpha_m+\alpha_n$.  A finite correlation length enters only through $P$ and leaves the geometric part unchanged.
 
 For the local source model, $P(k,\omega)=S_0(\omega)$, and
 \begin{align}
@@ -261,7 +255,7 @@ S_{E_y,\infty}=\frac{3S_0}{16\pi d^4},\qquad
 S_{E_x,\infty}=\frac{3S_0}{32\pi d^4},
 \label{eq:openprefactors}
 \end{equation}
-for either tangential component.  This explicitly recovers the standard local-patch $d^{-4}$ law and the planar normal-to-tangential factor of two \cite{Dubessy2009,Low2011}.  The absolute prefactor is tied to the one-sided surface-PSD normalization in Sec.~\ref{sec:source}; all enclosure ratios below are convention independent.
+for either tangential component.  This recovers the standard local-patch $d^{-4}$ law and the planar normal-to-tangential factor of two \cite{Dubessy2009,Low2011}.  The absolute prefactor is tied to the one-sided surface-PSD normalization in Sec.~\ref{sec:source}; all enclosure ratios below are convention independent.
 
 \subsection{Exact \texorpdfstring{$h=2d$}{h=2d} identities}
 
@@ -288,7 +282,7 @@ For the physical $D=2$ boundary,
 At a common analysis frequency, consequently $S_{E_y}/S_{E_x}=8/3$, compared with the open local-patch value $2$.  The two enclosure/open ratios in Eq.~\eqref{eq:zetaeta3} remain valid separately when the normal and tangential secular frequencies differ, provided each frequency is held fixed between the two geometries.
 \end{corollary}
 
-The numerical values $1.2021$ and $0.9015$ are therefore exact special-function values, not fitted enclosure gains.  In heating-rate language, Eq.~\eqref{eq:heatingrate} gives the same ratios when the compared mode frequency is held fixed.
+The values $1.2021$ and $0.9015$ are exact special-function values rather than fitted enclosure gains.  In heating-rate language, Eq.~\eqref{eq:heatingrate} gives the same ratios when the compared mode frequency is held fixed.
 
 \subsection{Mode-selective enclosure theorem}
 
@@ -347,6 +341,7 @@ W^{(D)}_{a,b}(\qvec)=\frac{1}{(2\pi)^D}\int
 Every $W^{(D)}_{a,b}$ has a strictly nonnegative integrand.
 
 \begin{proposition}[Absolute modulation response]
+\label{prop:absolute}
 For every finite $h>d$ and every finite $q$,
 \begin{equation}
 \boxed{\displaystyle
@@ -355,7 +350,7 @@ For every finite $h>d$ and every finite $q$,
 \end{equation}
 \end{proposition}
 
-The direct pair $(m,n)=(0,0)$ is exactly the open response, and all other path pairs add positively.  This point changes the physical language.  A passive cover does \emph{not} attenuate the absolute modulation amplitude of a local-PSD perturbation.  It adds response, with most of the added weight at coarse spatial scales.  The ``filtering'' effect concerns fractional contrast after division by the increased mean signal.
+The direct pair $(m,n)=(0,0)$ is the open response, and every other path pair adds a positive contribution.  A passive cover therefore does \emph{not} attenuate the absolute modulation amplitude of a local-PSD perturbation; it adds response, mostly at coarse spatial scales.  Any filtering effect concerns the fractional contrast, after division by the larger mean signal.
 
 For
 \begin{equation}
@@ -366,9 +361,9 @@ we have
 S(\bm x_0)=s_0\G_h+s_0\epsilon\Hhat_h(q)\cos(\qvec\cdot\bm x_0).
 \label{eq:responseabs}
 \end{equation}
-Thus a detector with fixed additive readout noise benefits from the larger absolute $\Hhat_h$.  The normalized $M_h$ is the appropriate contrast metric when uncertainty or dynamic range scales with the mean response, or when comparing fractional modulation independently of total gain.  Without a metrology noise model, we therefore describe a \emph{gain--contrast redistribution}, not a universal sensitivity tradeoff.
+Thus a detector with fixed additive readout noise benefits from the larger absolute $\Hhat_h$.  The normalized $M_h$ is the appropriate contrast metric when uncertainty or dynamic range scales with the mean response, or when comparing fractional modulation independently of total gain.  Without a metrology noise model, we describe this as a \emph{gain--contrast redistribution} rather than a general sensitivity tradeoff.
 
-Figure~\ref{fig:gaincontrast} makes the distinction explicit for the physical $D=2$ slab at $h/d=2$.  At $qd=3$, the absolute response is $13.23\%$ larger than open while the fractional contrast is $5.80\%$ smaller.  At $qd=4$, the corresponding numbers are $9.62\%$ and $8.80\%$.  The asymptotic normalized ratio $1/\zeta(3)=0.8319\ldots$ is reached only at substantially larger wavenumber.
+Figure~\ref{fig:gaincontrast} illustrates the distinction for the physical $D=2$ slab at $h/d=2$.  At $qd=3$, the absolute response is $13.23\%$ larger than open while the fractional contrast is $5.80\%$ smaller.  At $qd=4$, the corresponding numbers are $9.62\%$ and $8.80\%$.  The asymptotic normalized ratio $1/\zeta(3)=0.8319\ldots$ is reached only at substantially larger wavenumber.
 
 \begin{figure}[tbp]
 \includegraphics[width=\columnwidth]{fig_gain_vs_contrast.pdf}
@@ -376,7 +371,7 @@ Figure~\ref{fig:gaincontrast} makes the distinction explicit for the physical $D
 \label{fig:gaincontrast}
 \end{figure}
 
-Because Eq.~\eqref{eq:absoluteineq} gives $\Hhat_h>0$, $M_h(q)>0$ in this geometry.  There is no $\pi$ phase reversal of the local-PSD modulation transfer.
+Because Eq.~\eqref{eq:absoluteineq} gives $\Hhat_h>0$, we have $M_h(q)>0$ in this geometry, so the local-PSD modulation transfer has no $\pi$ phase reversal.
 
 \section{Sharp fine-scale asymptotics and the close-cover crossover}
 \label{sec:highq}
@@ -393,9 +388,9 @@ q_\ast\sim\frac{1}{2(h-d)},\qquad
 q_\ast d\sim\frac{1}{2(h/d-1)}.
 \label{eq:qstar}
 \end{equation}
-For example, demanding the leading reflected field factor be below $0.1$ requires $qd\gtrsim\ln(10)/[2(h/d-1)]$.  This is $qd\gtrsim2.30$ at $h/d=1.5$ but $qd\gtrsim11.5$ at $h/d=1.1$.  The high-$q$ limit is therefore strongly nonuniform as the cover approaches the ion.  At the formal endpoint $h=d$, where the ion would lie on the grounded boundary and the physical setup ceases to apply, $A_\perp(k)=2/(1-e^{-2dk})\to2$ rather than $1$.
+For example, requiring the leading reflected field factor to be below $0.1$ gives $qd\gtrsim\ln(10)/[2(h/d-1)]$.  This is $qd\gtrsim2.30$ at $h/d=1.5$ but $qd\gtrsim11.5$ at $h/d=1.1$.  The high-$q$ limit is therefore strongly nonuniform as the cover approaches the ion.  At the formal endpoint $h=d$, where the ion would lie on the grounded boundary and the model no longer applies, $A_\perp(k)=2/(1-e^{-2dk})\to2$ rather than $1$.
 
-For the heating-transfer convolution in the physical $D=2$ boundary plane, the leading correction is algebraic relative to the direct/direct term.  Let $d=1$ temporarily,
+For the heating-transfer convolution in the physical $D=2$ boundary plane, the leading correction is algebraic relative to the direct/direct term.  Set $d=1$ for now and write
 \begin{equation}
 f(\kvec)=|\kvec|e^{-|\kvec|},\qquad r_h=\Khat_h-f>0.
 \end{equation}
@@ -418,6 +413,7 @@ On the other hand, after writing $\qvec=(Q,0)$ and translating the convolution e
 The positivity of $r_h$ makes the leading coefficient nonzero.
 
 \begin{theorem}[Sharp physical-slab direct-path asymptotics]
+\label{thm:sharp}
 For every fixed $d>0$ and $h>d$,
 \begin{equation}
 \boxed{\displaystyle
@@ -439,7 +435,7 @@ A proof is given in Appendix~\ref{app:sharp}.  Numerically $c(2)=9.3352$.  The n
 c(1+\varepsilon)\sim 8\sqrt{\frac{2}{\pi}}\,\varepsilon^{-5/2}.
 \label{eq:cclose}
 \end{equation}
-Thus the asymptotic coefficient diverges precisely as the field crossover in Eq.~\eqref{eq:qstar} is pushed to larger $qd$.  The theorem sharpens the earlier $O[(qd)^{-5/2}]$ estimate: the exponent is attained, and the correction approaches zero from above, consistent with Proposition~1.
+The coefficient therefore diverges as the field crossover in Eq.~\eqref{eq:qstar} moves to larger $qd$.  The theorem shows that the $(qd)^{-5/2}$ rate is attained and that the correction approaches zero from above, consistent with Proposition~\ref{prop:absolute}.
 
 \section{Finite patch correlations and distance scaling}
 \label{sec:correlated}
@@ -449,7 +445,7 @@ Equation~\eqref{eq:returnpairfunctional} already contains a finite correlation l
 P(k,\omega)=A(\omega)e^{-\xi^2k^2/2},
 \label{eq:gaussianP}
 \end{equation}
-we define a local distance exponent while scaling the geometry at fixed $h/d$,
+and define a local distance exponent, scaling the geometry at fixed $h/d$,
 \begin{equation}
 \beta_j(d)=-\frac{\partial\ln S_{E_j}}{\partial\ln d}.
 \end{equation}
@@ -477,7 +473,7 @@ P(\bm k,\omega)\,|\Khat_{y,h}(\bm k)|^2
  e^{i\bm k\cdot(\bm R_i-\bm R_j)}.
 \label{eq:Cijslab}
 \end{equation}
-The corresponding tangential matrix is obtained by replacing $\Khat_y$ with the chosen tangential component.  Because the slab multipliers in Eqs.~\eqref{eq:Aperp}--\eqref{eq:Aparallel} order the spatial spectrum pointwise, the single-ion theorem upgrades directly to an operator theorem.
+The corresponding tangential matrix is obtained by replacing $\Khat_y$ with the chosen tangential component.  Because the slab multipliers in Eqs.~\eqref{eq:Aperp}--\eqref{eq:Aparallel} order the spatial spectrum pointwise, the single-ion theorem extends directly to the full covariance matrix.
 
 \begin{theorem}[Collective covariance ordering]
 For any finite equal-height ion configuration and any unchanged stationary source spectrum $P(\bm k,\omega)\ge0$,
@@ -496,7 +492,7 @@ For example, for the normal component and arbitrary $\bm c$,
 [A_\perp(k)^2-1]\nonumber\\
 &\times\left|\sum_i c_i e^{i\bm k\cdot\bm R_i}\right|^2\ge0.
 \end{align}
-The tangential proof is identical with $1-A_\parallel^2>0$.  Thus every collective normal-field coordinate becomes noisier in absolute terms, even though normalization by the increased diagonal response can make the correlation pattern more concentrated.  Conversely every collective tangential coordinate receives no more absolute noise.  For a stationary quantum source, the same argument applies separately to the positive-semidefinite unsymmetrized spectra $P(\bm k,+\omega)$ and $P(\bm k,-\omega)$, ordering the downward and upward secular rate blocks independently when the underlying source statistics are unchanged.
+The tangential proof is identical with $1-A_\parallel^2>0$.  Thus every collective normal-field coordinate becomes noisier in absolute terms, even though normalization by the increased diagonal response can make the correlation pattern more concentrated.  Conversely, every collective tangential coordinate receives no more absolute noise.  For a stationary quantum source, the same argument applies separately to the positive-semidefinite unsymmetrized spectra $P(\bm k,+\omega)$ and $P(\bm k,-\omega)$, ordering the downward and upward secular rate blocks independently when the underlying source statistics are unchanged.
 
 For an isotropic source the normal covariance depends only on $R_{ij}=|\bm R_i-\bm R_j|$,
 \begin{equation}
@@ -513,7 +509,7 @@ S_{12}=\frac{3S_0}{2\pi}\sum_{m,n}
 \end{equation}
 At $R=2d$, $S_{12}/S_{11}$ changes from $-0.04419$ in the open half-space to $+0.03833$ at $h=2d$.  The spatial common/differential eigenvalue ordering therefore reverses at a common analysis frequency; a reversal of measured COM/stretch heating is not automatic when the two mechanical modes sample different temporal frequencies.
 
-Figure~\ref{fig:manyion} shows a ten-ion example with spacing $0.6d$.  For local noise, closing the normal-field cover from the open half-space to $h=2d$ changes $r_{\rm eff}$ from $5.610$ to $5.106$, while the largest normalized eigenvalue increases from $0.2366$ to $0.2863$.  A finite source correlation length concentrates the channel spectrum further: at $\xi=d$ the same ranks are $3.480$ and $3.027$.  The Loewner theorem and the rank reduction are not contradictory: the former orders absolute quadratic forms, whereas the latter describes how the increased total noise is distributed after normalization.
+Figure~\ref{fig:manyion} shows a ten-ion example with spacing $0.6d$.  For local noise, closing the normal-field cover from the open half-space to $h=2d$ changes $r_{\rm eff}$ from $5.610$ to $5.106$, while the largest normalized eigenvalue increases from $0.2366$ to $0.2863$.  A finite source correlation length concentrates the channel spectrum further: at $\xi=d$ the same ranks are $3.480$ and $3.027$.  These statements are consistent: the Loewner ordering concerns absolute quadratic forms, while the rank reduction describes how the larger total noise is distributed after normalization.
 
 \begin{figure*}[tbp]
 \includegraphics[width=0.96\textwidth]{fig_many_ion_quantum_noise.pdf}
@@ -526,7 +522,7 @@ For a uniform microtrap chain the mechanical transverse-mode matrix and the cova
 \subsection{Gate-level heating exposure}
 \label{sec:gate}
 
-Motional heating is an established error mechanism for M\o lmer--S\o rensen-type entangling gates, with analytic error models and robust-control strategies already available \cite{Webb2018,Sutherland2022,Kang2023}.  Our purpose here is narrower: to connect the geometry-derived covariance to that established gate-error machinery through the bus-mode projection.  For a gate dominantly using normalized motional vector $\bm b$,
+Motional heating is an established error mechanism for M\o lmer--S\o rensen-type entangling gates, with analytic error models and robust-control strategies already available \cite{Webb2018,Sutherland2022,Kang2023}.  Here we only connect the geometry-derived covariance to this gate-error analysis through the bus-mode projection.  For a gate dominantly using normalized motional vector $\bm b$,
 \begin{equation}
 \dot{\bar n}_{\rm bus}=\frac{e^2}{4m\hbar\omega_{\rm bus}}
 \bm b^\dagger C^{(u)}(\omega_{\rm bus})\bm b.
@@ -534,7 +530,7 @@ Motional heating is an established error mechanism for M\o lmer--S\o rensen-type
 \end{equation}
 Any fixed control protocol whose weak-heating error is linear in $\dot{\bar n}_{\rm bus}$ therefore inherits the same enclosed/open ratio.
 
-To make that statement operational, we numerically integrate a primitive single-loop two-ion MS gate with Hamiltonian
+As an example, we numerically integrate a primitive single-loop two-ion MS gate with Hamiltonian
 \begin{equation}
 H(t)=\hbar g(\sigma_x^{(1)}+\sigma_x^{(2)})
 (ae^{-i\delta t}+a^\dagger e^{i\delta t}),
@@ -550,7 +546,7 @@ so that $\dd\langle n\rangle/\dd t=\dot{\bar n}_{\rm bus}$ in the untruncated os
 +O[(\dot{\bar n}_{\rm bus}t_g)^2].}
 \label{eq:MSheat}
 \end{equation}
-A Fock-space convergence test gives slopes $0.39984$--$0.39989$ for truncations of seven through ten oscillator levels; details are given in Appendix~\ref{app:gate}.  The coefficient is specific to this primitive gate, whereas the enclosed/open geometry ratio enters only through Eq.~\eqref{eq:busheat}.  At ion separation $R=0.6d$, the $h=2d$ slab multiplies the normal common- and differential-bus heating exposures by $1.237$ and $1.044$, respectively, while tangential exposures are multiplied by $0.878$ and $0.967$.  This is a physically derived bridge from the surface covariance to an established qubit-gate heating budget, not a claim that motional noise is itself a Pauli channel.  The four geometry ratios are summarized compactly as
+A Fock-space convergence test gives slopes $0.39984$--$0.39989$ for truncations of seven through ten oscillator levels; details are given in Appendix~\ref{app:gate}.  The coefficient is specific to this primitive gate, whereas the enclosed/open geometry ratio enters only through Eq.~\eqref{eq:busheat}.  At ion separation $R=0.6d$, the $h=2d$ slab multiplies the normal common- and differential-bus heating exposures by $1.237$ and $1.044$, respectively, while tangential exposures are multiplied by $0.878$ and $0.967$.  This links the surface covariance to a standard gate heating budget; it does not imply that motional noise acts as a Pauli channel.  The four enclosed/open weak-heating exposure ratios at $R=0.6d$ and $h=2d$ are
 \begin{center}
 \small
 \begin{tabular}{lcc}
@@ -562,12 +558,11 @@ tangential $E_x$ & $0.878$ & $0.967$\\
 \bottomrule
 \end{tabular}
 \end{center}
-for enclosed/open weak-heating exposure at $R=0.6d$ and $h=2d$.
 
 \section{Beyond unfolding: specular saddles of the screened Green operator}
 \label{sec:saddles}
 
-Exact unfolding is special to integrable parallel walls.  A more general billiard connection emerges after Fourier transforming a direction $z$ along which the enclosure is invariant.  Write the conserved invariant-direction wavenumber as $q_z$, distinct from the two-dimensional modulation vector $\qvec$ used in Sec.~\ref{sec:transfer}.  The cross-sectional Green function obeys
+Exact unfolding is special to integrable parallel walls.  A more general billiard connection appears after Fourier transforming a direction $z$ along which the enclosure is invariant.  Write the conserved invariant-direction wavenumber as $q_z$, distinct from the two-dimensional modulation vector $\qvec$ used in Sec.~\ref{sec:transfer}.  The cross-sectional Green function obeys
 \begin{equation}
 (\nabla_\perp^2-q_z^2)G_{q_z}=-\delta,
 \end{equation}
@@ -580,7 +575,7 @@ G_{q_z}^{(0)}(R)=\frac{1}{2\pi}K_0(q_zR)
 A multiple-reflection expansion expresses boundary corrections as integrals over successive reflection points \cite{BalianBloch1970,Bordag2001}.  The first reflected contribution has the asymptotic form
 \begin{align}
 I_1(q_z)&=\int_\Gamma A(s,q_z)e^{-q_z\Phi(s)}\,\dd s,\nonumber\\
-\Phi(s)&=|\bm r_s-s|+|s-\bm r_0|.
+\Phi(s)&=|\bm r_s-s|+|s-\bm r_0|,
 \label{eq:I1}
 \end{align}
 up to algebraic factors absorbed into $A$.
@@ -602,13 +597,13 @@ Indeed, differentiating $\Phi$ along the boundary tangent sets the tangential co
 
 We solve the modified-Helmholtz Dirichlet problem with a constant-panel single-layer boundary-element method (BEM) using $K_0(q_zR)/(2\pi)$ as the kernel.  Off-diagonal panel integrals use eight-point Gauss quadrature; the logarithmically singular self-panel integral is evaluated separately by an adaptive change of variables.  The source point is on the noisy lower boundary directly below the ion, and a far cover at $7d$ supplies a numerical direct-response reference.  In the exactly flat $h/d=2$ case, the resulting reflected-response amplitude agrees with the independently integrated strip solution to better than $0.26\%$ over $q_zd=2.5$--$6$.
 
-We fit $\log|K_h/K_{\rm far}-1|$ over the upper half of the sampled range $q_zd=2.5$--$6$ and compare the finite-$q_z$ effective exponent with the independently minimized one-bounce excess length $\Delta L=L_\star-d$.  The production family contains 16 explicitly scripted flat, sinusoidal, phase-shifted, and localized-bump covers.  The Pearson and Spearman correlations between $\Delta L/d$ and the fitted exponent are $0.9991$ and $0.9934$, respectively; the mean absolute error is $0.0204d$ and the median relative error is $0.98\%$.  Restricting to the seven geometries whose saddle is displaced by more than $0.05d$ from the symmetry axis still gives Pearson correlation $0.993$, so the agreement is not supplied only by changing flat-cover height.  After fixing the source collocation point at $x=0$ for every mesh, representative panel-length and finite-difference sweeps give an exponent spread of $4.3\times10^{-5}$ for the flat case and $1.4\times10^{-3}$ for the off-axis depression across target panel lengths $0.14d$--$0.085d$; at fixed $0.11d$ panel length, varying the finite-difference step from $0.007d$ to $0.015d$ changes the off-axis exponent by $2.3\times10^{-4}$.  A separate side-wall sweep over $W/d=4,5,7$ changes the difficult off-axis exponent by only $0.35\%$ and the displaced-wave exponent by $0.012\%$, so the quoted saddle trends are not set by the artificial lateral closure.
+We fit $\log|K_h/K_{\rm far}-1|$ over the upper half of the sampled range $q_zd=2.5$--$6$ and compare the finite-$q_z$ effective exponent with the independently minimized one-bounce excess length $\Delta L=L_\star-d$.  The test family contains 16 scripted flat, sinusoidal, phase-shifted, and localized-bump covers.  The Pearson and Spearman correlations between $\Delta L/d$ and the fitted exponent are $0.9991$ and $0.9934$, respectively; the mean absolute error is $0.0204d$ and the median relative error is $0.98\%$.  Restricting to the seven geometries whose saddle is displaced by more than $0.05d$ from the symmetry axis still gives Pearson correlation $0.993$, so the agreement does not come only from changes in cover height.  After fixing the source collocation point at $x=0$ for every mesh, representative panel-length and finite-difference sweeps give an exponent spread of $4.3\times10^{-5}$ for the flat case and $1.4\times10^{-3}$ for the off-axis depression across target panel lengths $0.14d$--$0.085d$; at fixed $0.11d$ panel length, varying the finite-difference step from $0.007d$ to $0.015d$ changes the off-axis exponent by $2.3\times10^{-4}$.  A separate side-wall sweep over $W/d=4,5,7$ changes the off-axis-depression exponent by only $0.35\%$ and the displaced-wave exponent by $0.012\%$, so the artificial side walls do not drive the saddle trends.
 
-An off-axis depression separates the competing geometric hypotheses.  Its shortest specular excess length is $\Delta L/d=2.5184$, while a naive vertical-depth candidate is only $1.7115$.  The screened-BEM effective exponent is $2.5658$, selecting Euclidean saddle length rather than projected normal depth by a margin far larger than the discretization spread.  Figure~\ref{fig:curved} shows both this geometry and the 16-shape comparison.
+An off-axis depression distinguishes the two geometric candidates.  Its shortest specular excess length is $\Delta L/d=2.5184$, while a naive vertical-depth estimate is only $1.7115$.  The screened-BEM effective exponent is $2.5658$, which matches the Euclidean saddle length rather than the projected normal depth, by a margin much larger than the discretization spread.  Figure~\ref{fig:curved} shows both this geometry and the 16-shape comparison.
 
 \begin{figure*}[tbp]
-\includegraphics[width=0.88\textwidth]{fig_curved_billiard_bridge_v2.pdf}
-\caption{Non-flat billiard bridge.  (a) An off-axis cover depression separates Euclidean specular path length from a vertical-depth surrogate; the screened-BEM exponent follows the former.  (b) Across 16 scripted flat and curved covers, the high-$q_z$ reflected-response exponent tracks the independently computed shortest specular excess length with Pearson correlation $0.9991$.}
+\includegraphics[width=0.88\textwidth]{fig_curved_billiard_bridge.pdf}
+\caption{Billiard saddles for non-flat covers.  (a) An off-axis cover depression separates Euclidean specular path length from a vertical-depth surrogate; the screened-BEM exponent follows the former.  (b) Across 16 scripted flat and curved covers, the high-$q_z$ reflected-response exponent tracks the independently computed shortest specular excess length with Pearson correlation $0.9991$.}
 \label{fig:curved}
 \end{figure*}
 
@@ -619,7 +614,7 @@ For a centered perturbation $h(x)=h_0+\epsilon\cos(kx)$, the shortest path remai
 \partial_\epsilon\log|\Delta K(q_z)|=-2q_z+O(1)
 \label{eq:shapepred}
 \end{equation}
-as $q_z\to\infty$.  A centered BEM difference at $\epsilon/d=\pm0.015$ agrees with the $-2q_z$ coefficient to within $1.50\%$ over $q_zd=2.5$--$6.5$; Fig.~\ref{fig:shape} shows the comparison.  This is the numerical first-order bridge between a boundary deformation and its billiard action.
+as $q_z\to\infty$.  A centered BEM difference at $\epsilon/d=\pm0.015$ agrees with the $-2q_z$ coefficient to within $1.50\%$ over $q_zd=2.5$--$6.5$; Fig.~\ref{fig:shape} shows the comparison.  This confirms, to first order, the link between a boundary deformation and its billiard action.
 
 \begin{figure}[tbp]
 \includegraphics[width=\columnwidth]{fig_billiard_shape_derivative.pdf}
@@ -635,32 +630,25 @@ Path length alone does not determine the amplitude.  We next hold the shortest e
 \label{fig:prefactors}
 \end{figure*}
 
-The numerical tests support the asymptotic structure
-\begin{equation}
-\begin{aligned}
-\text{boundary reflections}\quad&\longrightarrow\\[-2pt]
-&\text{specular saddles at large }q_z.
-\end{aligned}
-\end{equation}
-with exponential action set by path length and amplitude set by focusing and multiplicity.
+Together, these tests support an asymptotic picture in which boundary reflections reduce to specular saddles at large $q_z$, with the exponential action set by path length and the amplitude set by focusing and multiplicity.
 
 
 
 \subsection{Curved geometry reshapes a collective noise channel}
 \label{sec:curvedmulti}
 
-The non-flat saddle calculation and the many-ion channel calculation can be combined without invoking a full three-dimensional trap model.  As a cross-sectional test, we place five equal-height probes at $x/d=(-1.2,-0.6,0,0.6,1.2)$ below a cover with an off-axis depression and form the local-source covariance of the screened $q_zd=0.8$ slice by integrating products of the BEM field kernels over the noisy lower plate.  For the flat cover the leading channel is symmetric and has zero spatial centroid.  The depression shifts its squared-amplitude centroid to $x/d=0.421$ and lowers the participation rank from $2.732$ to $2.578$.  This is not a full physical heating matrix because it is one invariant-direction Fourier slice of a two-dimensional cross-section; its role is to demonstrate that the same curved boundary that selects a specular saddle also reshapes a collective environmental mode.
+The non-flat saddle calculation and the many-ion channel calculation can be combined in a cross-sectional model, without a full three-dimensional trap model.  As a cross-sectional test, we place five equal-height probes at $x/d=(-1.2,-0.6,0,0.6,1.2)$ below a cover with an off-axis depression and form the local-source covariance of the screened $q_zd=0.8$ slice by integrating products of the BEM field kernels over the noisy lower plate.  For the flat cover the leading channel is symmetric and has zero spatial centroid.  The depression shifts its squared-amplitude centroid to $x/d=0.421$ and lowers the participation rank from $2.732$ to $2.578$.  Because this is a single invariant-direction Fourier slice of a two-dimensional cross-section, it is not a full physical heating matrix.  It shows that the curved boundary that selects a specular saddle also reshapes a collective environmental mode.
 
 \begin{figure}[tbp]
 \includegraphics[width=\columnwidth]{fig_curved_multi_ion_noise.pdf}
-\caption{Five-probe screened covariance at $q_zd=0.8$ in a cross-sectional model.  An off-axis cover depression breaks the flat-cover symmetry and pulls the leading collective environmental channel toward the depressed side.  This slice test connects the curved-boundary billiard calculation to a correlated multi-probe noise operator.}
+\caption{Five-probe screened covariance at $q_zd=0.8$ in a cross-sectional model.  An off-axis cover depression breaks the flat-cover symmetry and pulls the leading collective environmental channel toward the depressed side.  This slice links the curved-boundary billiard calculation to the multi-probe noise covariance.}
 \label{fig:curvedmulti}
 \end{figure}
 
 \section{Experimental interpretation and scope}
 \label{sec:experiment}
 
-A direct test should compare electric-field spectra with and without a passive cover while holding the ion positions, secular frequencies, and mode polarizations fixed by compensating the static trap electrodes.  Three-dimensional scanning-ion measurements already demonstrate the relevant spatial field/noise mapping capability near metallic surfaces \cite{Sagesser2024}.  A simple local-source signature is the exact $h=2d$ anisotropy: normal heating increases by $20.21\%$, tangential heating decreases by $9.85\%$, and at a common analysis frequency the normal-to-tangential spectral ratio increases by $33.3\%$.  A recessed cover, a slotted or transparent electrode pattern, or an imaging axis that does not pass through the cover is required for optical access.
+A direct test should compare electric-field spectra with and without a passive cover while holding the ion positions, secular frequencies, and mode polarizations fixed by compensating the static trap electrodes.  Three-dimensional scanning-ion probes can already map fields and noise near metallic surfaces \cite{Sagesser2024}.  A simple local-source signature is the exact $h=2d$ anisotropy: normal heating increases by $20.21\%$, tangential heating decreases by $9.85\%$, and at a common analysis frequency the normal-to-tangential spectral ratio increases by $33.3\%$.  Optical access would require a recessed cover, a slotted or transparent electrode, or an imaging axis that avoids the cover.
 
 As an illustrative benchmark rather than a device prescription, take $d=50~\mu\mathrm m$, $h=100~\mu\mathrm m$, ion spacing $30~\mu\mathrm m$, and compensated motional frequencies near $2\pi\times1.5~\mathrm{MHz}$.  If the open normal-mode heating is $100$ quanta/s at the matched frequency, the local-source prediction is $120.2$ quanta/s after closing the passive cover.  Under the same source amplitude the open tangential component is half the normal component for the ideal plane and changes from $50$ to $45.1$ quanta/s.  These absolute rates are only a scale choice; the quoted ratios are the geometry predictions.
 
@@ -671,39 +659,31 @@ The added conductor must also be quiet.  At $h=2d$, if it carries independent lo
 \end{equation}
 so tangential suppression survives only for $\chi<\eta(3)^{-1}-1=0.1092\ldots$.  ``Passive'' is therefore a source-noise requirement as well as an electrostatic boundary condition.
 
-For a simple statistical scale, if one heating-rate estimate has independent $10\%$ relative uncertainty and repeated measurements average as $N^{-1/2}$, five determinations per geometry give roughly $3\sigma$ resolution of the $20.21\%$ normal increase, while about nineteen per geometry are needed for $3\sigma$ resolution of the $9.85\%$ tangential decrease.  Paired interleaving of cover configurations and a ratio measurement can reduce slow drift, but systematic changes in ion position, frequency, polarization, temperature, or surface state are likely to dominate before this ideal counting limit.
+As a rough statistical estimate, if one heating-rate measurement has independent $10\%$ relative uncertainty and repeated measurements average as $N^{-1/2}$, five determinations per geometry give roughly $3\sigma$ resolution of the $20.21\%$ normal increase, while about nineteen per geometry are needed for $3\sigma$ resolution of the $9.85\%$ tangential decrease.  Paired interleaving of cover configurations and a ratio measurement can reduce slow drift, but systematic changes in ion position, frequency, polarization, temperature, or surface state are likely to dominate before this ideal counting limit.
 
-The source-side assumption is equally important: the cover changes the transfer operator but not the stochastic process on the original noisy surface.  If it changes adsorbate dynamics, temperature, or patch statistics, geometry and source physics no longer factorize.  The proposed experiment should therefore measure the static trap solution and the heating spectrum at several frequencies in both configurations.  A frequency-dependent geometry ratio would itself be evidence for a nonseparable $P(k,\omega)$ rather than failure of the Green-function framework.
+The analysis also assumes that the cover changes the transfer operator but not the stochastic process on the original noisy surface.  If it changes adsorbate dynamics, temperature, or patch statistics, geometry and source physics no longer factorize.  The proposed experiment should therefore measure the static trap solution and the heating spectrum at several frequencies in both configurations.  A frequency-dependent geometry ratio would itself be evidence for a nonseparable $P(k,\omega)$ rather than failure of the Green-function framework.
 
 \section{Discussion}
 
-The many-ion formulation changes the interpretation of the slab calculation.  The primary object is not a heating rate but a positive semidefinite spatial noise matrix.  Billiard returns determine its geometric kernel; microscopic surface physics populates spatial wavenumbers through $P(k,\omega)$; and its equal-frequency eigenvectors define collective environmental covariance channels.  Within a degenerate mechanical frequency block, diagonalizing the corresponding Kossakowski matrix gives the physical Lindblad jumps.  Single-ion anomalous heating is one diagonal observable of that channel, while normal-mode heating and gate exposure are quadratic-form projections of the same object.
+In the many-ion formulation, the central object is a positive semidefinite spatial noise matrix rather than a single heating rate.  Billiard returns determine its geometric kernel; microscopic surface physics populates spatial wavenumbers through $P(k,\omega)$; and its equal-frequency eigenvectors define collective environmental covariance channels.  Within a degenerate mechanical frequency block, diagonalizing the corresponding Kossakowski matrix gives the physical Lindblad jumps.  Single-ion anomalous heating is one diagonal observable of that channel, while normal-mode heating and gate exposure are quadratic-form projections of the same object.
 
-The Loewner ordering in Eq.~\eqref{eq:loewner} is stronger than a statement about mean heating.  For unchanged source statistics, no collective normal-field coordinate can evade the extra absolute response introduced by a passive parallel cover, whereas every collective tangential coordinate is suppressed.  Yet the normalized channel spectrum can become more concentrated.  The ten-ion example shows exactly this combination: all normal-field quadratic forms increase, while $r_{\rm eff}$ decreases and the leading covariance eigenchannel carries a larger fraction of the trace.  Lower rank should not be equated automatically with easier quantum error correction; it is an experimentally defined property of the motional environment, and a qubit-level error model requires the control-mediated map exemplified by Sec.~\ref{sec:gate}.
+The Loewner ordering in Eq.~\eqref{eq:loewner} is stronger than a statement about mean heating.  For unchanged source statistics, a passive parallel cover adds absolute noise to every collective normal-field coordinate and adds none to any collective tangential coordinate.  The normalized channel spectrum can nevertheless become more concentrated.  In the ten-ion example, all normal-field quadratic forms increase while $r_{\rm eff}$ decreases and the leading covariance eigenchannel carries a larger fraction of the trace.  A lower rank does not by itself imply easier quantum error correction; it is a measurable property of the motional environment, and a qubit-level error model requires a control-dependent map such as the one in Sec.~\ref{sec:gate}.
 
-The finite-correlation calculation supplies a second control knob.  Increasing the surface correlation length already concentrates the environmental spectrum before the enclosure is added, and the cover shifts it further toward long-wavelength collective coordinates.  This makes geometry a potential diagnostic of spatiotemporal source structure.  If $P(k,\omega)=A(\omega)B(k)$, enclosed/open ratios are frequency independent at matched mode frequency; frequency dependence signals coupled spatial and temporal source structure.
+The finite-correlation calculation adds a second parameter.  Increasing the surface correlation length already concentrates the environmental spectrum before the enclosure is added, and the cover shifts it further toward long-wavelength collective coordinates.  This makes geometry a potential diagnostic of spatiotemporal source structure.  If $P(k,\omega)=A(\omega)B(k)$, enclosed/open ratios are frequency independent at matched mode frequency; frequency dependence signals coupled spatial and temporal source structure.
 
-The billiard description also clarifies why the exact slab and the curved-boundary calculations look different.  In the slab, unfolding labels the Green-function terms by normal depths and makes the return-pair heating functional exact.  For a smooth non-flat boundary, the partially Fourier-transformed Green function is a screened boundary problem; specular paths emerge as its large-$q_z$ saddles.  Their Euclidean lengths set exponential actions, their curvatures set focusing determinants, and multiple saddles add coherently at the field-response level.  Integrating and pairing those amplitudes against a source spectrum is what converts pathwise exponential structure into anomalous-heating power laws.
+The billiard description also clarifies why the exact slab and the curved-boundary calculations look different.  In the slab, unfolding labels the Green-function terms by normal depths and makes the return-pair heating functional exact.  For a smooth non-flat boundary, the partially Fourier-transformed Green function is a screened boundary problem; specular paths emerge as its large-$q_z$ saddles.  Their Euclidean lengths set exponential actions, their curvatures set focusing determinants, and multiple saddles add coherently at the field-response level.  Pairing those amplitudes and integrating them against a source spectrum converts the pathwise exponential structure into anomalous-heating power laws.
 
-The scope is limited in four ways.  The exact covariance ordering uses an infinite parallel slab and an unchanged stationary source.  The non-flat BEM calculations are cross-sectional models with one invariant direction, not full three-dimensional trap simulations.  The open-system generator assumes the usual Born--Markov/secular regime and must be block-diagonalized in the actual normal-mode basis when mode frequencies are well separated.  The primitive MS calculation is an operational bridge, not a universal gate-error coefficient.  These limitations keep the claims tied to quantities derived from the electrostatics rather than attaching generic QEC language to motional heating.
+The scope is limited in four ways.  The exact covariance ordering uses an infinite parallel slab and an unchanged stationary source.  The non-flat BEM calculations are cross-sectional models with one invariant direction, not full three-dimensional trap simulations.  The open-system generator assumes the usual Born--Markov/secular regime and must be block-diagonalized in the actual normal-mode basis when mode frequencies are well separated.  Finally, the MS calculation illustrates a single primitive gate and does not give a universal gate-error coefficient.
 
 \section{Conclusion}
 
-Passive conducting geometry can reshape not only the magnitude but the collective structure of electric-field noise seen by trapped ions.  The field cross spectrum $C_{ij}(\omega)$ determines motional heating directly and, within each secular frequency block, the corresponding Kossakowski matrix.  In the parallel slab, its kernel is generated by a billiard return-depth measure, and the same return-pair construction yields exact $\zeta(3)$ and $\eta(3)$ heating factors, finite-correlation scaling, and the full spatial covariance of an ion array.
+Passive conducting geometry can change both the magnitude and the collective structure of the electric-field noise seen by trapped ions.  The field cross spectrum $C_{ij}(\omega)$ determines motional heating directly and, within each secular frequency block, the corresponding Kossakowski matrix.  In the parallel slab, its kernel is generated by a billiard return-depth measure, and the same return-pair construction yields exact $\zeta(3)$ and $\eta(3)$ heating factors, finite-correlation scaling, and the full spatial covariance of an ion array.
 
-The collective ordering theorem states that for unchanged source statistics, introducing the passive parallel cover increases the entire normal-field covariance in the Loewner order and decreases the entire tangential-field covariance.  Diagonalization identifies collective equal-frequency noise eigenchannels; in a degenerate block the same construction gives Lindblad jump operators.  In the ten-ion example the cover concentrates a larger fraction of normal noise into the leading channel and lowers the effective rank, while an explicit primitive entangling-gate simulation shows how the projected covariance enters a qubit-gate heating budget.
+The collective ordering theorem states that for unchanged source statistics, introducing the passive parallel cover increases the entire normal-field covariance in the Loewner order and decreases the entire tangential-field covariance.  Diagonalization identifies collective equal-frequency noise eigenchannels; in a degenerate block the same construction gives Lindblad jump operators.  In the ten-ion example the cover concentrates a larger fraction of normal noise into the leading channel and lowers the effective rank, while a simulation of a primitive entangling gate shows how the projected covariance enters a qubit-gate heating budget.
 
-The billiard connection is not restricted to the integrable strip.  After Fourier transforming an invariant direction, reflected contributions to a smooth non-flat Green operator are controlled at large $q_z$ by specular saddles.  Corrected boundary-element calculations distinguish Euclidean saddle length from projected depth, resolve the focusing prefactor, and track competing paths across a controlled curved-cover family.  A five-probe curved example shows that the same boundary deformation also shifts a collective noise eigenvector.
+The billiard connection is not restricted to the integrable strip.  After Fourier transforming an invariant direction, reflected contributions to a smooth non-flat Green operator are controlled at large $q_z$ by specular saddles.  Boundary-element calculations distinguish Euclidean saddle length from projected depth, resolve the focusing prefactor, and track competing paths across a controlled curved-cover family.  A five-probe curved example shows that the same boundary deformation also shifts a collective noise eigenvector.
 
-The resulting chain is
-\begin{equation}
-\begin{aligned}
-\text{surface physics}&\to\text{billiard geometry}\\
-&\to C_{ij}(\omega)\to\text{noise eigenchannels}\\
-&\to\text{motional/gate exposure}.
-\end{aligned}
-\end{equation}
-It provides a route for using passive geometry both as a diagnostic of anomalous surface noise and as a controlled way to reshape the correlated bosonic environment of trapped-ion quantum hardware.
+These results suggest using passive geometry both to diagnose anomalous surface noise and to shape the correlated bosonic environment of trapped-ion hardware.
 
 \begin{acknowledgments}
 We thank Prof.~Chris Cox and Prof.~Robert Niffenegger for supervision and helpful discussions during the honors-thesis project from which this work developed.  We also thank Chris Caron and Zhenyu Wei for regular project discussions.
@@ -738,7 +718,7 @@ The reflected/reflected term is $O(e^{-Q})$ after the same exponential weighting
 \frac{(f+r_h)*(f+r_h)}{f*f}
 =1+\frac{2C_h}{c_0}Q^{-5/2}+o(Q^{-5/2}),
 \end{equation}
-which proves Theorem~3.  If $h/d\ge1+\delta$, the weighted norms of $r_h$ are bounded uniformly for fixed $\delta>0$, giving uniformity on that family.  As $\delta\downarrow0$, the bound diverges and the limit is nonuniform.  More precisely, for $h=1+\varepsilon$ radial symmetry gives
+which proves Theorem~\ref{thm:sharp}.  If $h/d\ge1+\delta$, the weighted norms of $r_h$ are bounded uniformly for fixed $\delta>0$, giving uniformity on that family.  As $\delta\downarrow0$, the bound diverges and the limit is nonuniform.  More precisely, for $h=1+\varepsilon$ radial symmetry gives
 \begin{equation}
 C_h=2\pi\int_0^\infty k^2 I_0(k)
  e^{-k}\frac{e^{-2\varepsilon k}+e^{-2(1+\varepsilon)k}}{1-e^{-2(1+\varepsilon)k}}\,\dd k.
@@ -747,8 +727,7 @@ Using $I_0(k)\sim e^k/\sqrt{2\pi k}$ and scaling $k=u/\varepsilon$ yields
 \begin{equation}
 C_{1+\varepsilon}\sim\frac{3\pi}{16}\varepsilon^{-5/2},
 \end{equation}
-which inserted into Eq.~\eqref{eq:ccoef} gives Eq.~\eqref{eq:cclose}.  The earlier elementary direct/direct lower-bound proof may use
-$|\bm p|+|\qvec-\bm p|\le Q+4$ on $Q/4\le p_x\le3Q/4$, $|p_y|\le\sqrt Q$; the constant is $4$, not $3$.
+which, inserted into Eq.~\eqref{eq:ccoef}, gives Eq.~\eqref{eq:cclose}.
 
 \section{Tangential signed return measure}
 
@@ -785,12 +764,12 @@ A centered height difference produces the Monte Carlo estimator used in Sec.~\re
 
 In the parallel strip, unfolding also provides a constructive estimator for the real-space field kernel.  Launch rays from a boundary point $x$ under the cosine angular measure and count crossings of a circular gate centered on the ion, keeping upward and downward crossings separate.  For one unfolded image at depth $a$, the crossing probability is $\rho a/(x^2+a^2)$.  Differentiating the signed crossing count with respect to ion height reconstructs the image derivative and hence $K_h(x)$.  The derivation is recorded in Appendix~\ref{app:ray}.
 
-This calculation should not be read as an independent validation of image electrostatics: the estimator is derived from the same exact unfolding identity.  Its value is constructive.  It shows that the spatial-transfer observable can be reconstructed from direction-resolved billiard data.  At $h/d=2$, 31 launch points spanning $x/d\in[-4,4]$, 8000 rays per point, five stratified seeds, gate radius $\rho/d=0.429$, and centered height step $\delta/d=0.10$ give Pearson correlation $0.99993$ with the exact field kernel.  The reconstructed transfer half-power point differs from the exact value by $0.78\%$.
+The estimator is derived from the same unfolding identity, so it is not an independent check of image electrostatics.  Instead, it shows that the spatial-transfer observable can be reconstructed from direction-resolved billiard data.  At $h/d=2$, 31 launch points spanning $x/d\in[-4,4]$, 8000 rays per point, five stratified seeds, gate radius $\rho/d=0.429$, and centered height step $\delta/d=0.10$ give Pearson correlation $0.99993$ with the exact field kernel.  The reconstructed transfer half-power point differs from the exact value by $0.78\%$.
 
 \begin{figure*}[tbp]
 \centering
 \includegraphics[width=0.70\textwidth]{fig_ray_transfer.pdf}
-\caption{Exact and direction-resolved ray reconstruction of the strip modulation transfer at $h/d=2$.  The calculation is a constructive reconstruction from billiard crossings, not an independent electrostatic model.}
+\caption{Exact and direction-resolved ray reconstruction of the strip modulation transfer at $h/d=2$.  The reconstruction uses billiard crossings and is not an independent electrostatic model.}
 \label{fig:ray}
 \end{figure*}
 
@@ -800,7 +779,7 @@ This calculation should not be read as an independent validation of image electr
 
 The cross-section is closed by remote side walls at $|x|=5d$.  Smooth covers are represented by piecewise-linear panels.  At each longitudinal Fourier wavenumber $q_z$, the single-layer matrix uses the free kernel $K_0(q_zR)/(2\pi)$.  Eight-point Gauss quadrature is used off the diagonal, while the logarithmically singular self-panel integral is evaluated after the substitution $s=(\Delta\ell/2)t^2$ with adaptive quadrature.  Up to the conventional sign of the single-layer representation, the solved boundary density is the boundary normal derivative entering the Dirichlet Green function; a centered displacement of the ion gives the normal field sensitivity at the source point.
 
-For the 16-geometry production sweep, target panel length is $0.11d$, the field finite-difference step is $0.01d$, and the exponential fit uses the upper half of $q_zd=2.5$--$6$.  The flat $h/d=2$ geometry predicts $\Delta L/d=2$ and gives finite-$q_z$ fitted exponent $1.9789$; its full reflected amplitude agrees with the exact partially Fourier-transformed strip result to within $0.26\%$ over the sampled band.  A representative displaced wave predicts $\Delta L/d=2.5218$ and gives $2.4981$.  The lower noisy plate is panelized with a collocation midpoint fixed exactly at $x=0$ at every resolution.  Changing target panel length from $0.14d$ to $0.085d$ changes the fitted exponent by $4.3\times10^{-5}$ for the flat case and $1.4\times10^{-3}$ for the deliberately difficult off-axis depression, whose correction reaches only $\sim4\times10^{-8}$ at the largest sampled $q_z$.  At fixed $0.11d$ panel length, varying the finite-difference step from $0.007d$ to $0.015d$ changes the off-axis exponent by $2.3\times10^{-4}$.  All quoted shortest saddles lie well inside the remote side walls.  We nevertheless repeated two representative calculations at $W/d=4,5,7$.  For the off-axis depression the fitted exponents are $2.5630$, $2.5658$, and $2.5720$, a total spread of $0.0090$ ($0.35\%$ of the $W=5d$ value).  For the displaced wave they are $2.49815$, $2.49807$, and $2.49786$, a $0.012\%$ spread.
+For the 16-geometry sweep, target panel length is $0.11d$, the field finite-difference step is $0.01d$, and the exponential fit uses the upper half of $q_zd=2.5$--$6$.  The flat $h/d=2$ geometry predicts $\Delta L/d=2$ and gives finite-$q_z$ fitted exponent $1.9789$; its full reflected amplitude agrees with the exact partially Fourier-transformed strip result to within $0.26\%$ over the sampled band.  A representative displaced wave predicts $\Delta L/d=2.5218$ and gives $2.4981$.  The lower noisy plate is panelized with a collocation midpoint fixed exactly at $x=0$ at every resolution.  Changing target panel length from $0.14d$ to $0.085d$ changes the fitted exponent by $4.3\times10^{-5}$ for the flat case and $1.4\times10^{-3}$ for the off-axis depression, the hardest case, whose correction reaches only $\sim4\times10^{-8}$ at the largest sampled $q_z$.  At fixed $0.11d$ panel length, varying the finite-difference step from $0.007d$ to $0.015d$ changes the off-axis exponent by $2.3\times10^{-4}$.  All quoted shortest saddles lie well inside the remote side walls.  We nevertheless repeated two representative calculations at $W/d=4,5,7$.  For the off-axis depression the fitted exponents are $2.5630$, $2.5658$, and $2.5720$, a total spread of $0.0090$ ($0.35\%$ of the $W=5d$ value).  For the displaced wave they are $2.49815$, $2.49807$, and $2.49786$, a $0.012\%$ spread.
 
 
 

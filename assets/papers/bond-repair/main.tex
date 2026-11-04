@@ -159,7 +159,7 @@ in the high-noise limit, even allowing collective measurements (Proposition~\ref
 
 \subsection{Related work}
 
-The closest problem in spirit is hidden cut~\cite{BGW25}: the state is promised to factor across an unknown bipartition, which must be identified from copies.  Hinsche, Eisert, and Carrasco~\cite{HEC26} place hidden cut and stabilizer-group learning in an abelian StateHSP framework.  Here the graph and suspected edge are known; the unknown is the failure mechanism.  We do not reduce the problem to hidden cut or StateHSP.
+The closest problem in spirit is hidden cut~\cite{BGW25}: the state is promised to factor across an unknown bipartition, which must be identified from copies.  Hinsche, Eisert, and Carrasco~\cite{HEC26} place hidden cut and stabilizer-group learning in an abelian StateHSP framework.  In our setting the graph and suspected edge are known, and the unknown is the failure mechanism.
 
 Other work learns an unknown graph state from product measurements~\cite{OT22}, infers network topology from local measurements~\cite{ChenTopology23}, or verifies a known graph state~\cite{PLM18,ZhuHayashi19,DHZ20,Theis25}.  Graph-diagonal characterization and noise learning~\cite{ParkSunJeong25,WangEtAl25,SahaOllivier26} need not identify the physical failure mechanism.
 
@@ -186,7 +186,7 @@ If the entangling gate at $e=(u,v)\in E$ never acted, the delivered state is $|G
 \[
 \mathcal H(G)=\{\text{missing edge }e:e\in E\}\cup\{\varnothing\},
 \]
-where $\varnothing$ is the no-defect hypothesis.  Target stabilizers represent each edge deletion by which measured supports hit its endpoints.
+where $\varnothing$ is the no-defect hypothesis.  Target stabilizers record an edge deletion through which of their supports meet its endpoints.
 
 \begin{lemma}[Missing-edge signature]\label{lem:sig}
 For every $A\subseteq V$ and every $e=(u,v)\in E$,
@@ -295,7 +295,7 @@ copies suffice. Thus the target-data copy complexity is
 \[
 \Theta\!\left(g^{-2}\log\frac1\delta\right).
 \]
-At $g=0$ the target graph-basis distributions coincide exactly, recovering Theorem~\ref{thm:keystone} as the singular endpoint. The upper bound is an instance-wise statement: the testing rule may depend on $(\lambda_u,\lambda_v)$ (or equivalent calibration information). It is not a uniform finite-sample guarantee over a composite alternative that permits arbitrarily small nonzero coherence.
+At $g=0$ the target graph-basis distributions coincide exactly, recovering Theorem~\ref{thm:keystone} as the limiting case. The upper bound is an instance-wise statement: the testing rule may depend on $(\lambda_u,\lambda_v)$ (or equivalent calibration information). It is not a uniform finite-sample guarantee over a composite alternative that permits arbitrarily small nonzero coherence.
 \end{theorem}
 \begin{proof}
 Independent dephasing multiplies a Pauli expectation by $\lambda_u$ or $\lambda_v$ exactly when its $X/Y$ support contains that endpoint. The $X/Y$ support of $K_A^G$ is $A$, while Lemma~\ref{lem:sig} gives the missing-edge value, proving the formula and the contrast $g$. Measuring $K_u^G$ or $K_v^G$ at the endpoint with larger absolute coherence and thresholding its sample mean halfway between the two expectations gives the stated upper bound by Hoeffding's inequality.
@@ -781,9 +781,9 @@ The main family is conditional on a suspected bond: the alternatives are a missi
 \mathcal H_{\le2Z}(G)=\{|G\rangle\}\cup\{C_e:e\in E\}\cup
 \{\Delta_{Z_S}(|G\rangle\langle G|):1\le |S|\le2\},
 \]
-where $S$ is any vertex subset, adjacent or not. Then the one-setting star theorem disappears completely.
+where $S$ is any vertex subset, adjacent or not.  In this model, even stars lose their one-setting protocol.
 
-\begin{proposition}[No one-setting solution for arbitrary one-/two-memory dephasing]\label{prop:honestcatalogue}
+\begin{proposition}[No one-setting solution for arbitrary one-/two-memory dephasing]\label{prop:nooneset}
 If $G$ contains an edge, no single product-Pauli setting diagnoses $\mathcal H_{\le2Z}(G)$ from its full outcome distribution.
 \end{proposition}
 \begin{proof}
@@ -797,16 +797,17 @@ Separation of the one-memory faults at $u$ and $v$ requires distinct coordinate 
 \]
 Thus the binary code $C_\beta^\perp$ has no nonzero word of weight one or two: its minimum distance is at least three. In particular $\beta$ cannot contain a $Z$ site, because a $Z$ row would put $e_v$ in $C_\beta^\perp$.
 
-Hence $\beta$ is $X/Y$-only and its setting matrix has the symmetric form $M=\Gamma_G+D_\beta$, with $C_\beta=\ker M$ and $\operatorname{im}M=C_\beta^\perp$. If the same setting typed $C_{uv}$ versus $D_{uv}$ for any edge $uv$, a compatible failed-graph stabilizer would satisfy $(M+E_{uv})a=0$ and $E_{uv}a\ne0$. Therefore
+Hence $\beta$ is $X/Y$-only and its setting matrix has the symmetric form $M=\Gamma_G+D_\beta$, with $C_\beta=\ker M$ and $\operatorname{im}M=C_\beta^\perp$. If the same setting distinguished $C_{uv}$ from $D_{uv}$ for some edge $uv$, a compatible failed-graph stabilizer would satisfy $(M+E_{uv})a=0$ and $E_{uv}a\ne0$. Therefore
 \[
  Ma=E_{uv}a\in\{e_u,e_v,e_u+e_v\}\setminus\{0\}\subseteq C_\beta^\perp,
 \]
 a nonzero word of weight at most two, contradicting the minimum-distance condition.
 \end{proof}
 
-Arbitrary memory faults require distinguishing vertex coordinates and pairs, rather than only the edge-indexed alternatives of the edge-indexed promise family.  At $n=6$, exact enumeration gives no one-setting graph for the broader model, compared with one for the edge-indexed promise family.
+Arbitrary memory faults require distinguishing single vertices and vertex pairs, not only the alternatives attached to one suspected edge.  At $n=6$, exact enumeration finds no one-setting graph for the broader model, compared with one (the star) for the edge-indexed promise family.
 
 The results concern the specified state-level measurement record.  Heralds, calibration telemetry, time stamps, or richer local measurements may supply additional information.
+
 \section{Open questions}\label{sec:open}
 Exact enumeration finds $\ccutraw(G)\le2$ and $\crep(G)\le3$ for every connected graph through eight vertices.  It remains open whether these bounds hold universally and which graphs attain equality.  For wheels, we conjecture $\crep(W_n)=3$ for every even $n\ge6$; this is proved here for $n=6,8,10,12,14$.  A second direction is to determine optimal setting--copy tradeoffs under local noise and for promise families with multiple simultaneous faults.
 
