@@ -28,7 +28,7 @@ PROJECTS = [
 HOME_CONTEXT = {
     'hybrid-quantum-repeaters': 'This is graduate research with Filip Rozpędek and Stav Haldar.',
     'asynchronous-qec': 'This is a project for <strong>CS 648 (Quantum Information Systems)</strong>.',
-    'trapped-ion-diagnostics': 'This was my <strong>Undergraduate Honors Thesis</strong>.',
+    'trapped-ion-diagnostics': 'This was my <strong>Undergraduate Honors Thesis</strong>. Submitted to <strong>Physical Review A</strong>.',
     'covariance-geometry-qec': 'This was a project for <strong>MATH 563H (Differential Geometry)</strong>.',
     'predictive-rank-qec': 'This was a project for <strong>STATS 632 (Applied Multivariate Statistics)</strong>.',
     'graph-state-repair-diagnosis': 'This is an independent project.',
