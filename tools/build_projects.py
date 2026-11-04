@@ -24,12 +24,13 @@ PROJECTS = [
     dict(slug='graph-state-repair-diagnosis', title='The Bond Repair Problem in Graph States', date='2026', context='Independent project', summary='Distinguishing a missing entangling gate from endpoint-memory dephasing using product measurements.', paper='bond-repair', paper_title='The bond repair problem: distinguishing a missing entangling gate from endpoint dephasing in graph states', version='Manuscript · August 2026', links=[('Verification code','https://github.com/ayushnadiger/repair-identifiability')]),
 ]
 
+# Author-controlled HTML for brief course and thesis context on the homepage.
 HOME_CONTEXT = {
     'hybrid-quantum-repeaters': 'This is graduate research with Filip Rozpędek and Stav Haldar.',
-    'asynchronous-qec': 'This is a project for CS 648.',
-    'trapped-ion-diagnostics': 'This was my undergraduate honors thesis.',
-    'covariance-geometry-qec': 'This grew out of MATH 563H (Differential Geometry).',
-    'predictive-rank-qec': 'This grew out of a project for STATS 632.',
+    'asynchronous-qec': 'This is a project for <strong>CS 648 (Quantum Information Systems)</strong>.',
+    'trapped-ion-diagnostics': 'This was my <strong>Undergraduate Honors Thesis</strong>.',
+    'covariance-geometry-qec': 'This was a project for <strong>MATH 563H (Differential Geometry)</strong>.',
+    'predictive-rank-qec': 'This was a project for <strong>STATS 632 (Applied Multivariate Statistics)</strong>.',
     'graph-state-repair-diagnosis': 'This is an independent project.',
 }
 
@@ -300,7 +301,7 @@ def build():
         rows.append(f'''    <article class="project-entry">
       <h3><a href="projects/{p['slug']}.html">{esc(p['title'])}</a></h3>
       <p class="project-date">{esc(p['date'])}</p>
-      <p>{esc(p['summary'])} {esc(HOME_CONTEXT[p['slug']])}</p>
+      <p>{esc(p['summary'])} {HOME_CONTEXT[p['slug']]}</p>
     </article>''')
         path='projects/'+p['slug']+'.html'
         result=page_head(p['title'],p['summary'],path,reader=not p.get('ongoing'))
