@@ -16,22 +16,29 @@ ROOT = Path(__file__).resolve().parents[1]
 BASE = 'https://ayushnadiger.github.io/'
 SOURCES = ROOT / 'assets' / 'papers'
 PROJECTS = [
-    dict(slug='hybrid-quantum-repeaters', title='Scalable Entanglement Generation with Encoded Hybrid Repeaters in 2D Networks', date='March 2026 – Present', context='Graduate research with Filip Rozpędek and Stav Haldar', summary='Encoded hybrid repeaters, placement, and routing for scalable entanglement generation in two-dimensional quantum networks.', ongoing=True),
-    dict(slug='asynchronous-qec', title='Asynchronous Quantum Error Correction', date='September 2026 – Present', context='CS 648 course project', summary='Error correction and syndrome information when distributed operations depend on entanglement arriving at different times.', ongoing=True),
-    dict(slug='trapped-ion-diagnostics', title='Geometry-Controlled Noise in Trapped-Ion Systems', date='May 2025 – August 2026', context='Undergraduate honors thesis · Supervised by Christopher Cox and Robert Niffenegger', summary='How electrode geometry shapes electric-field noise and spatial correlations in trapped-ion systems.', paper='trapped-ion', paper_title='Geometry-controlled correlated electric-field noise in enclosed ion traps from billiard return spectra', version='Preprint · 2026', links=[('arXiv:2608.24770','https://arxiv.org/abs/2608.24770'),('Code & data','https://github.com/ayushnadiger/noise_recycling')]),
-    dict(slug='covariance-geometry-qec', title='Differential Geometry of Quantum Erasure Correction', date='Spring–Summer 2025', context='Differential geometry project', summary='The geometry of exact erasure-correcting code subspaces, their perturbations, and information leakage.', paper='erasure-geometry', paper_title='Normal Geometry of Exact Quantum Erasure Codes: Covariance, Leakage, and Infinitesimal Rigidity', version='Manuscript · August 2026', links=[]),
-    dict(slug='predictive-rank-qec', title='Statistical Memory Tests for Quantum Error-Correction Records', date='Fall 2025 – Winter 2026', context='STATS 632 course project · Analysis of public Google surface-code data', summary='Predictive-rank tests for temporal structure in syndrome records, with an application to public Google data.', paper='predictive-rank', paper_title='Predictive Rank as a Circuit-Conditioned Memory Witness for Quantum Error-Correction Syndrome Records', version='Manuscript · August 2026', links=[]),
-    dict(slug='graph-state-repair-diagnosis', title='The Bond Repair Problem in Graph States', date='2026', context='Independent project', summary='Distinguishing a missing entangling gate from endpoint-memory dephasing using product measurements.', paper='bond-repair', paper_title='The bond repair problem: distinguishing a missing entangling gate from endpoint dephasing in graph states', version='Manuscript · August 2026', links=[('Verification code','https://github.com/ayushnadiger/repair-identifiability')]),
+    dict(slug='hybrid-quantum-repeaters', title='Scalable Entanglement Generation with Encoded Hybrid Repeaters in 2D Networks', date='2026 – Present', context='Graduate research with Filip Rozpędek and Stav Haldar', summary='Encoded hybrid repeaters, placement, and routing for scalable entanglement generation in two-dimensional quantum networks.', ongoing=True),
+    dict(slug='asynchronous-qec', title='Asynchronous Quantum Error Correction', date='2026 – Present', context='Ongoing research · Distributed quantum error correction', course_note='Course context: Quantum Information Systems (CS 648).', summary='Error correction and syndrome information when distributed operations depend on entanglement arriving at different times.', ongoing=True),
+    dict(slug='trapped-ion-diagnostics', title='Geometry-Controlled Noise in Trapped-Ion Systems', date='2025 – 2026', context='Undergraduate honors thesis · Submitted to Physical Review A · Supervised by Christopher Cox and Robert Niffenegger', summary='How electrode geometry shapes electric-field noise and spatial correlations in trapped-ion systems.', paper='trapped-ion', paper_title='Geometry-controlled correlated electric-field noise in enclosed ion traps from billiard return spectra', version='Preprint · 2026', links=[('arXiv:2608.24770','https://arxiv.org/abs/2608.24770'),('Code & data','https://github.com/ayushnadiger/noise_recycling')]),
+    dict(slug='covariance-geometry-qec', title='Differential Geometry of Quantum Erasure Correction', date='2025', context='Differential Geometry course project', summary='The geometry of exact erasure-correcting code subspaces, their perturbations, and information leakage.', paper='erasure-geometry', paper_title='Normal Geometry of Exact Quantum Erasure Codes: Covariance, Leakage, and Infinitesimal Rigidity', version='Manuscript · August 2026', links=[]),
+    dict(slug='predictive-rank-qec', title='Statistical Memory Tests for Quantum Error-Correction Records', date='2025 – 2026', context='Applied Multivariate Statistics course project · Public Google surface-code data', summary='Predictive-rank tests for temporal structure in syndrome records, with an application to public Google data.', paper='predictive-rank', paper_title='Predictive Rank as a Circuit-Conditioned Memory Witness for Quantum Error-Correction Syndrome Records', version='Manuscript · August 2026', links=[]),
+    dict(slug='graph-state-repair-diagnosis', title='The Bond Repair Problem in Graph States', date='2026', context='Manuscript · Quantum fault diagnosis', summary='Distinguishing a missing entangling gate from endpoint-memory dephasing using product measurements.', paper='bond-repair', paper_title='The bond repair problem: distinguishing a missing entangling gate from endpoint dephasing in graph states', version='Manuscript · August 2026', links=[('Verification code','https://github.com/ayushnadiger/repair-identifiability')]),
 ]
+
+PROJECT_PRIORITY = [
+    'hybrid-quantum-repeaters', 'asynchronous-qec',
+    'covariance-geometry-qec', 'predictive-rank-qec',
+    'trapped-ion-diagnostics', 'graph-state-repair-diagnosis',
+]
+PROJECTS.sort(key=lambda project: PROJECT_PRIORITY.index(project['slug']))
 
 # Author-controlled HTML for brief course and thesis context on the homepage.
 HOME_CONTEXT = {
     'hybrid-quantum-repeaters': 'This is graduate research with Filip Rozpędek and Stav Haldar.',
-    'asynchronous-qec': 'This is a project for <strong>CS 648 (Quantum Information Systems)</strong>.',
-    'trapped-ion-diagnostics': 'This was my <strong>Undergraduate Honors Thesis</strong>. Submitted to <strong>Physical Review A</strong>.',
-    'covariance-geometry-qec': 'This was a project for <strong>MATH 563H (Differential Geometry)</strong>.',
-    'predictive-rank-qec': 'This was a project for <strong>STATS 632 (Applied Multivariate Statistics)</strong>.',
-    'graph-state-repair-diagnosis': 'This is an independent project.',
+    'asynchronous-qec': '',
+    'trapped-ion-diagnostics': 'This was my <strong>Undergraduate Honors Thesis</strong>. Submitted to <strong>Physical Review A</strong>. <a href="https://arxiv.org/abs/2608.24770">arXiv preprint</a>.',
+    'covariance-geometry-qec': 'A <strong>Differential Geometry</strong> course project.',
+    'predictive-rank-qec': 'An <strong>Applied Multivariate Statistics</strong> course project.',
+    'graph-state-repair-diagnosis': 'Manuscript. <a href="https://github.com/ayushnadiger/repair-identifiability">Code</a>.',
 }
 
 def esc(s):
@@ -298,10 +305,12 @@ def page_head(title,description,path,reader=False):
 def build():
     rows=[]
     for p in PROJECTS:
+        summary_html=esc(p['summary'])
+        if HOME_CONTEXT[p['slug']]: summary_html+=' '+HOME_CONTEXT[p['slug']]
         rows.append(f'''    <article class="project-entry">
       <h3><a href="projects/{p['slug']}.html">{esc(p['title'])}</a></h3>
       <p class="project-date">{esc(p['date'])}</p>
-      <p>{esc(p['summary'])} {HOME_CONTEXT[p['slug']]}</p>
+      <p>{summary_html}</p>
     </article>''')
         path='projects/'+p['slug']+'.html'
         result=page_head(p['title'],p['summary'],path,reader=not p.get('ongoing'))
@@ -314,8 +323,12 @@ def build():
     <p>{esc(p['summary'])}</p>
   </section>
 '''
+        if p.get('links'):
+            result+='<p class="project-links">'+'<span aria-hidden="true"> · </span>'.join('<a href="'+esc(url)+'">'+esc(label)+'</a>' for label,url in p['links'])+'</p>\n'
         if p.get('ongoing'):
             result+='<section class="ongoing-project" aria-label="Project status"><p>Ongoing</p></section>\n'
+            if p.get('course_note'):
+                result+='<p class="small muted course-note">'+esc(p['course_note'])+'</p>\n'
         else:
             abstract,body,toc=read_paper(p)
             result+='<aside class="paper-toc" aria-label="Paper contents"><details><summary>Contents</summary>'+toc+'</details></aside>\n'
@@ -329,12 +342,13 @@ def build():
     begin=index.index('  <section class="abstract"')
     finish=index.index('  <p class="front-links">',begin)
     about='''  <section class="abstract" aria-label="About">
+    <p>I study fault-tolerant quantum computing in distributed systems, focusing on quantum error correction and entanglement generation over noisy links. I am applying to PhD programs for <strong>Fall 2027</strong>.</p>
     <p>I am an ECE master's student at UMass Amherst and a graduate research assistant under
     <a href="https://www.cics.umass.edu/about/directory/filip-rozpedek">Filip Rozpędek</a> in the
-    <a href="https://quail.cs.umass.edu/">Quantum Information Lab (QuaIL)</a>. I work on quantum repeaters and distributed quantum error correction, including collaborative work with
-    <a href="https://www.uta.edu/academics/faculty/profile?user=stav.haldar">Stav Haldar</a> at UT Arlington.
+    <a href="https://quail.cs.umass.edu/">Quantum Information Lab (QuaIL)</a>.
     My thesis is currently chaired by <a href="https://www.cics.umass.edu/about/directory/don-towsley">Don Towsley</a> in the
-    <a href="https://www.cics.umass.edu/organizations/acquire">ACQuIRE lab</a>.</p>
+    <a href="https://www.cics.umass.edu/organizations/acquire">ACQuIRE lab</a>. I work on hybrid repeaters with
+    <a href="https://www.uta.edu/academics/faculty/profile?user=stav.haldar">Stav Haldar</a> at UT Arlington.</p>
   </section>
   <section class="paper-section" id="projects" aria-labelledby="projects-heading">
     <h2 id="projects-heading">Projects</h2>
