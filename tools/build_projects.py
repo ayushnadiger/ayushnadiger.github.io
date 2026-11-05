@@ -19,7 +19,7 @@ PROJECTS = [
     dict(slug='hybrid-quantum-repeaters', title='Error Correction and Routing in 2D Hybrid Repeater Networks', date='2026 – Present', context='Graduate research with Filip Rozpędek and Stav Haldar · Poster, CQN site visit, October 2026', summary='Encoded hybrid repeaters, placement, and routing for scalable entanglement generation in two-dimensional quantum networks.', ongoing=True),
     dict(slug='asynchronous-qec', title='Asynchronous Quantum Error Correction', date='2026 – Present', context='Ongoing research · Distributed quantum error correction', course_note='Course context: Quantum Information Systems (CS 648).', summary='Error correction and syndrome information when distributed operations depend on entanglement arriving at different times.', ongoing=True),
     dict(slug='trapped-ion-diagnostics', title='Geometry-Controlled Noise in Trapped-Ion Systems', date='2025 – 2026', context='Undergraduate honors thesis · Submitted to Physical Review A · Supervised by Christopher Cox and Robert Niffenegger', summary='How electrode geometry shapes electric-field noise and spatial correlations in trapped-ion systems.', paper='trapped-ion', paper_title='Geometry-controlled correlated electric-field noise in enclosed ion traps from billiard return spectra', version='Preprint · 2026', links=[('arXiv:2608.24770','https://arxiv.org/abs/2608.24770'),('Code & data','https://github.com/ayushnadiger/noise_recycling')]),
-    dict(slug='covariance-geometry-qec', title='Differential Geometry of Quantum Erasure Correction', date='2025', context='Differential Geometry course project', summary='The geometry of exact erasure-correcting code subspaces, their perturbations, and information leakage.', paper='erasure-geometry', paper_title='Normal Geometry of Exact Quantum Erasure Codes: Covariance, Leakage, and Infinitesimal Rigidity', version='Manuscript · August 2026', links=[]),
+    dict(slug='covariance-geometry-qec', title='Differential Geometry of Quantum Erasure Correction', date='2025', context='Differential Geometry course project · Talk, mathematics graduate student seminar, 2025', summary='The geometry of exact erasure-correcting code subspaces, their perturbations, and information leakage.', paper='erasure-geometry', paper_title='Normal Geometry of Exact Quantum Erasure Codes: Covariance, Leakage, and Infinitesimal Rigidity', version='Manuscript · August 2026', links=[]),
     dict(slug='predictive-rank-qec', title='Statistical Memory Tests for Quantum Error-Correction Records', date='2025 – 2026', context='Applied Multivariate Statistics course project · Public Google surface-code data', summary='Predictive-rank tests for temporal structure in syndrome records, with an application to public Google data.', paper='predictive-rank', paper_title='Predictive Rank as a Circuit-Conditioned Memory Witness for Quantum Error-Correction Syndrome Records', version='Manuscript · August 2026', links=[]),
     dict(slug='graph-state-repair-diagnosis', title='The Bond Repair Problem in Graph States', date='2025 – 2026', context='Manuscript · Quantum fault diagnosis', summary='Distinguishing a missing entangling gate from endpoint-memory dephasing using product measurements.', paper='bond-repair', paper_title='The bond repair problem: distinguishing a missing entangling gate from endpoint dephasing in graph states', version='Manuscript · August 2026', links=[('Verification code','https://github.com/ayushnadiger/repair-identifiability')]),
 ]
@@ -366,6 +366,17 @@ def build():
   <section class="paper-section" id="projects" aria-labelledby="projects-heading">
     <h2 id="projects-heading">Projects</h2>
 '''
+    talks='''  <section class="paper-section" id="talks" aria-labelledby="talks-heading">
+    <h2 id="talks-heading">Talks and Posters</h2>
+    <ul class="talk-list">
+      <li><a href="projects/hybrid-quantum-repeaters.html"><em>Error Correction and Routing in 2D Hybrid Repeater Networks</em></a>, poster, CQN site visit, October 2026</li>
+      <li><a href="projects/trapped-ion-diagnostics.html"><em>Geometry-Controlled Noise in Trapped-Ion Systems</em></a>, poster, Massachusetts Undergraduate Research Conference (MassURC), 2026</li>
+      <li><a href="projects/trapped-ion-diagnostics.html"><em>Geometry-Controlled Noise in Trapped-Ion Systems</em></a>, poster, UMass ECE thesis session, 2026</li>
+      <li><a href="projects/covariance-geometry-qec.html"><em>Differential Geometry of Quantum Erasure Correction</em></a>, talk, UMass mathematics graduate student seminar, 2025</li>
+      <li><a href="https://arxiv.org/abs/2604.16718"><em>Potential Energy Savings from Quantum Computing-Based Route Optimization</em></a>, talk and poster, New England Energy Conference, 2024</li>
+    </ul>
+  </section>
+'''
     teaching='''  <section class="paper-section" id="teaching" aria-labelledby="teaching-heading">
     <h2 id="teaching-heading">Teaching</h2>
     <article class="project-entry">
@@ -378,7 +389,7 @@ def build():
     </article>
   </section>
 '''
-    index=index[:begin]+about+'\n'.join(rows)+'\n  </section>\n'+teaching+index[finish:]
+    index=index[:begin]+about+'\n'.join(rows)+'\n  </section>\n'+talks+teaching+index[finish:]
     index=index.replace('<main class="container home">','<main class="container home" id="main">')
     if 'class="skip-link"' not in index:
         index=index.replace('<body>','<body>\n<a class="skip-link" href="#main">Skip to content</a>')
