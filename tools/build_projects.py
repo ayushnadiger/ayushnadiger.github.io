@@ -366,7 +366,19 @@ def build():
   <section class="paper-section" id="projects" aria-labelledby="projects-heading">
     <h2 id="projects-heading">Projects</h2>
 '''
-    index=index[:begin]+about+'\n'.join(rows)+'\n  </section>\n'+index[finish:]
+    teaching='''  <section class="paper-section" id="teaching" aria-labelledby="teaching-heading">
+    <h2 id="teaching-heading">Teaching</h2>
+    <article class="project-entry">
+      <h3>ECE 214: Probability and Statistics</h3>
+      <p>Teaching assistant, with Dennis Goeckel.</p>
+    </article>
+    <article class="project-entry">
+      <h3>ECE 315: Signal Processing</h3>
+      <p>Teaching assistant, with Dennis Goeckel.</p>
+    </article>
+  </section>
+'''
+    index=index[:begin]+about+'\n'.join(rows)+'\n  </section>\n'+teaching+index[finish:]
     index=index.replace('<main class="container home">','<main class="container home" id="main">')
     if 'class="skip-link"' not in index:
         index=index.replace('<body>','<body>\n<a class="skip-link" href="#main">Skip to content</a>')
