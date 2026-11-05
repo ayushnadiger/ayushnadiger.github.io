@@ -21,7 +21,7 @@ PROJECTS = [
     dict(slug='trapped-ion-diagnostics', title='Geometry-Controlled Noise in Trapped-Ion Systems', date='2025 – 2026', context='Undergraduate honors thesis · Submitted to Physical Review A · Supervised by Christopher Cox and Robert Niffenegger', summary='How electrode geometry shapes electric-field noise and spatial correlations in trapped-ion systems.', paper='trapped-ion', paper_title='Geometry-controlled correlated electric-field noise in enclosed ion traps from billiard return spectra', version='Preprint · 2026', links=[('arXiv:2608.24770','https://arxiv.org/abs/2608.24770'),('Code & data','https://github.com/ayushnadiger/noise_recycling')]),
     dict(slug='covariance-geometry-qec', title='Differential Geometry of Quantum Erasure Correction', date='2025', context='Differential Geometry course project · Talk, mathematics graduate student seminar, 2025', summary='The geometry of exact erasure-correcting code subspaces, their perturbations, and information leakage.', paper='erasure-geometry', paper_title='Normal Geometry of Exact Quantum Erasure Codes: Covariance, Leakage, and Infinitesimal Rigidity', version='Manuscript · August 2026', links=[]),
     dict(slug='predictive-rank-qec', title='Statistical Memory Tests for Quantum Error-Correction Records', date='2025 – 2026', context='Applied Multivariate Statistics course project · Public Google surface-code data', summary='Predictive-rank tests for temporal structure in syndrome records, with an application to public Google data.', paper='predictive-rank', paper_title='Predictive Rank as a Circuit-Conditioned Memory Witness for Quantum Error-Correction Syndrome Records', version='Manuscript · August 2026', links=[]),
-    dict(slug='graph-state-repair-diagnosis', title='The Bond Repair Problem in Graph States', date='2025 – 2026', context='Manuscript · Quantum fault diagnosis', summary='Distinguishing a missing entangling gate from endpoint-memory dephasing using product measurements.', paper='bond-repair', paper_title='The bond repair problem: distinguishing a missing entangling gate from endpoint dephasing in graph states', version='Manuscript · August 2026', links=[('Verification code','https://github.com/ayushnadiger/repair-identifiability')]),
+    dict(slug='graph-state-repair-diagnosis', title='The Bond Repair Problem in Graph States', date='2025 – 2026', context='Manuscript · Project for the UMass FTQEC seminar', summary='Distinguishing a missing entangling gate from endpoint-memory dephasing using product measurements.', paper='bond-repair', paper_title='The bond repair problem: distinguishing a missing entangling gate from endpoint dephasing in graph states', version='Manuscript · August 2026', links=[('Verification code','https://github.com/ayushnadiger/repair-identifiability')]),
 ]
 
 PROJECT_PRIORITY = [
@@ -369,24 +369,22 @@ def build():
     talks='''  <section class="paper-section" id="talks" aria-labelledby="talks-heading">
     <h2 id="talks-heading">Talks and Posters</h2>
     <ul class="talk-list">
-      <li><a href="projects/hybrid-quantum-repeaters.html"><em>Error Correction and Routing in 2D Hybrid Repeater Networks</em></a>, poster, CQN site visit, October 2026</li>
+      <li><a href="projects/hybrid-quantum-repeaters.html"><em>Role of Error Correction in 2D Quantum Networks</em></a>, poster, CQN site visit, October 2026</li>
       <li><a href="projects/trapped-ion-diagnostics.html"><em>Geometry-Controlled Noise in Trapped-Ion Systems</em></a>, poster, Massachusetts Undergraduate Research Conference (MassURC), 2026</li>
       <li><a href="projects/trapped-ion-diagnostics.html"><em>Geometry-Controlled Noise in Trapped-Ion Systems</em></a>, poster, UMass ECE thesis session, 2026</li>
       <li><a href="projects/covariance-geometry-qec.html"><em>Differential Geometry of Quantum Erasure Correction</em></a>, talk, UMass mathematics graduate student seminar, 2025</li>
-      <li><a href="https://arxiv.org/abs/2604.16718"><em>Potential Energy Savings from Quantum Computing-Based Route Optimization</em></a>, talk and poster, New England Energy Conference, 2024</li>
+      <li><a href="https://arxiv.org/abs/2604.16718"><em>Potential Energy Savings from Quantum Computing-Based Route Optimization</em></a>, talk and poster, New England Energy Symposium, 2024</li>
     </ul>
   </section>
 '''
     teaching='''  <section class="paper-section" id="teaching" aria-labelledby="teaching-heading">
     <h2 id="teaching-heading">Teaching</h2>
-    <article class="project-entry">
-      <h3>ECE 214: Probability and Statistics</h3>
-      <p>Teaching assistant, with Dennis Goeckel.</p>
-    </article>
-    <article class="project-entry">
-      <h3>ECE 315: Signal Processing</h3>
-      <p>Teaching assistant, with Dennis Goeckel.</p>
-    </article>
+    <p>Teaching assistant, UMass Amherst ECE:</p>
+    <ul class="talk-list">
+      <li>ECE 214 Probability and Statistics and ECE 315 Signal Processing Methods, with Prof. Dennis Goeckel</li>
+      <li>ECE 201 Analytical Tools for ECE and ECE 213 Continuous-Time Signals and Systems, with Prof. Bill Leonard</li>
+      <li>ECE 202 Computational Tools for ECE, with Prof. Marco Duarte</li>
+    </ul>
   </section>
 '''
     index=index[:begin]+about+'\n'.join(rows)+'\n  </section>\n'+talks+teaching+index[finish:]
