@@ -31,7 +31,7 @@
 
 \title{Predictive Rank as a Circuit-Conditioned Memory Witness for Quantum Error-Correction Syndrome Records}
 \author{Ayush Nadiger\\University of Massachusetts Amherst\\\texttt{anadiger@umass.edu}}
-\date{August 2026}
+\date{August 2026; revised November 2026}
 
 \begin{document}
 \maketitle
@@ -49,7 +49,7 @@ Syndrome rank therefore lower-bounds process cut complexity in general, while an
 
 We then develop the finite-sample statistics needed to apply this witness. Rejection of any finite block falsifies global predictive rank at most $r$, whereas non-rejection at finitely many horizons does not certify the infinite process. For $N$ independent windows, empirical Frobenius distance to the rank-$r$ variety gives a distribution-free tester with sample complexity $\Theta(\epsilon^{-2}\log(1/\delta))$ for spectrally separated alternatives; the lower bound already holds for a stationary binary Markov trajectory. We also give $\beta$-mixing and reversible observed-Markov extensions and show where those dependence assumptions fail.
 
-The practical analysis has three inferential layers: certified but conservative rank tests, empirically calibrated rank-one diagnostics, and conditional model checking against a supplied circuit model. On two public Google distance-5 surface-code records totaling $10^5$ shots, the largest circuit-relative discrepancy occurs at detector track $x2\_y5$ in both memory bases. Its reported within-basis Benjamini--Hochberg adjusted values remain below $0.05$ after the arbitrary-dependence Benjamini--Yekutieli factor ($q_{\rm BY}\approx0.0082$ and $0.0113$), and the discrepancy persists across tested horizons and both acquisition halves. This is a finite-horizon mismatch with the supplied noisy circuit model; it does not identify leakage or any other microscopic mechanism.
+The practical analysis has three inferential layers: certified but conservative rank tests, empirically calibrated rank-one diagnostics, and conditional model checking against a supplied circuit model. On two public Google distance-5 surface-code records totaling $10^5$ shots, the largest circuit-relative discrepancy occurs at detector track $x2\_y5$ in both memory bases. Its reported within-basis Benjamini--Hochberg adjusted values remain below $0.05$ after the arbitrary-dependence Benjamini--Yekutieli factor ($q_{\rm BY}\approx0.0082$ and $0.0113$), and the discrepancy persists across tested horizons and both acquisition halves. This is a finite-horizon mismatch with the supplied noisy circuit model; it does not identify leakage or any other microscopic mechanism. We then test rank at most two directly on the same experimental tables. The distribution-free rule rejects nowhere, and synthetic controls show that it is underpowered at $5\times10^4$ shots. A sharper simultaneous confidence-box certificate rejects rank at most two at one track, $x2\_y7$ in memory-$Z$, under a conservative allowance for 288 comparisons. Under independent shots from a common law this gives $D_{\min}^{\rm SPP}\ge2$ for that pooled four-event law, and rules out every reweighting of the supplied independent-Pauli error model. Because neither half of the record certifies on its own, it does not separate within-shot memory from shot-to-shot drift.
 \end{abstract}
 
 \section{Introduction}
@@ -77,7 +77,7 @@ The connection is particularly direct for the spatiotemporal Pauli processes (SP
     \item We compute a nontrivial circuit separator explicitly. For one bulk repeated-stabilizer detector track, adjacent-round differencing gives $\kappa_\Gamma=2$ exactly for the model class. A controlled two-state environment has exact Hankel rank four, and a fixed $10^5$-shot experiment rejects rank at most two with the certified distribution-free threshold, yielding $D_{\min}^{\rm SPP}\ge2$ and $d_{E,\min}\ge2$.
     \item We retain a certified finite-sample layer: rejection of one finite block falsifies low global predictive rank, and separated rank alternatives have matched $\Theta(\epsilon^{-2}\log(1/\delta))$ sample complexity. We give both $\beta$-mixing and restrictive reversible observed-Markov extensions and a simultaneous finite-horizon procedure.
     \item We separate the certified theory from more powerful procedures that are useful on QEC data. The rank-one refitted bootstrap is an empirically calibrated diagnostic rather than a finite-sample-valid substitute for the general theorem, and circuit-relative tests are conditional model checks against a supplied noisy circuit.
-    \item We analyze two public Google distance-5, 21-round surface-code records with 50,000 shots in each memory basis. The broad spatial map is treated as exploratory under across-track dependence. The leading $x2\_y5$ site remains significant after the arbitrary-dependence Benjamini--Yekutieli correction inferred from its reported within-basis adjusted values, and it remains stable across tested horizons and retrospective acquisition halves.
+    \item We analyze two public Google distance-5, 21-round surface-code records with 50,000 shots in each memory basis. The broad spatial map is treated as exploratory under across-track dependence. The leading $x2\_y5$ site remains significant after the arbitrary-dependence Benjamini--Yekutieli correction inferred from its reported within-basis adjusted values, and it remains stable across tested horizons and retrospective acquisition halves. A separate certified rank-two analysis of the same tables (Section~\ref{sec:googlerank2}) finds no rejection under the distribution-free rule and a confidence-box certificate of rank at least three at a different track, $x2\_y7$ in memory-$Z$.
 \end{enumerate}
 
 The paper is organized in three layers. Section~\ref{sec:memorywitness} gives a structural memory bound, Section~3 gives certified but sometimes conservative rank tests, and Section~4 covers practical calibration and conditional model checking. Each experiment uses the strongest procedure whose assumptions are stated, and every real-device statement is conditional on the supplied circuit model.
@@ -648,6 +648,7 @@ Relative to the stationary circuit, the static mixture raises $\sigma_3/\sigma_1
 \end{figure}
 
 \subsection{Nonstationary drift as a confound}
+\label{sec:drift}
 
 A pooled record from a drifting device is a mixture of local distributions. Even when every local block is iid and rank one, the pooled mixture can have higher rank. We compare ten acquisition blocks whose Bernoulli error rate drifts from 0.02 to 0.18 with ten blocks from a stationary two-state HMM. Each block contains 20,000 length-six windows.
 
@@ -698,7 +699,7 @@ The right panel isolates the observable-Markov assumption. A two-state latent ch
 
 We analyze the public Google qec3v5 archive \cite{google2023surface,google2022data} under the prespecified surface-code conditions memory-$X$ and memory-$Z$, distance 5, center $5\_5$, and 21 rounds. Each selected condition contains 50,000 experimental shots and 504 detectors. Detectors are grouped into 24 spatial tracks; for every shot and track we use one central four-event word (times 9--12, $\ell=2$). The independent experimental unit is therefore the shot, not an overlapping within-shot window. The primary circuit-relative comparison uses Eq.~\eqref{eq:circuitp} with 999 Monte Carlo replicates and the archive-supplied \texttt{circuit\_noisy.stim}; 20 contiguous 2,500-shot acquisition blocks are used for stability diagnostics.
 
-For the central bulk rounds used here, Google's detectors compare each stabilizer measurement with the corresponding measurement in the preceding cycle \cite{google2023surface}. Therefore Proposition~\ref{prop:kappa2} applies to any single selected bulk track under the Pauli/SPP model class, including $x2\_y5$: after exact adjacent-round cancellation one may take $\kappa_\Gamma=2$. This resolves the circuit-separator factor for the single-track Google observable. It does \emph{not} by itself produce a numerical environment-memory lower bound from the present real-data analysis, because the reported Google statistic is a circuit-relative \emph{rank-one} tail comparison rather than a level-controlled rejection of $H_0:\rank H^{(2)}\le2$. A certified or model-conditional rank-two test on the same four-event word table is the additional statistical step required to infer $D_{\min}^{\rm SPP}\ge2$ from Google data within that model class.
+For the central bulk rounds used here, Google's detectors compare each stabilizer measurement with the corresponding measurement in the preceding cycle \cite{google2023surface}. Therefore Proposition~\ref{prop:kappa2} applies to any single selected bulk track under the Pauli/SPP model class, including $x2\_y5$: after exact adjacent-round cancellation one may take $\kappa_\Gamma=2$. This resolves the circuit-separator factor for the single-track Google observable. It does \emph{not} by itself produce a numerical environment-memory lower bound from the present real-data analysis, because the reported Google statistic is a circuit-relative \emph{rank-one} tail comparison rather than a level-controlled rejection of $H_0:\rank H^{(2)}\le2$. A certified or model-conditional rank-two test on the same four-event word table is the additional statistical step required to infer $D_{\min}^{\rm SPP}\ge2$ from Google data within that model class; Section~\ref{sec:googlerank2} carries it out.
 
 All 24 tracks in both bases reject raw rank one, as expected because the repeated circuit itself produces temporal structure. The exploratory circuit-relative BH map contains 14 memory-$X$ and 13 memory-$Z$ rejections. We do not interpret those counts as formal 5\% FDR discoveries, because the 24 track statistics share experimental shots and a PRDS condition has not been established.
 
@@ -736,6 +737,55 @@ Sensitivity analyses support this narrower claim. At horizons $\ell=1,2,3$, the 
 
 The resulting claim about the external data is narrow: conditional on the supplied noisy circuit model, the selected finite-horizon law at $x2\_y5$ has more predictive-rank tail than the model generates, strongly enough to survive an arbitrary-dependence multiplicity correction in both bases. The discrepancy can arise from unmodeled correlations, circuit-parameter mismatch, nonstationarity, finite reference-sample uncertainty, leakage, or other mechanisms. The analysis does not select among them.
 
+\subsection{Certified rank-two tests on the Google records}
+\label{sec:googlerank2}
+
+The circuit-relative comparison above conditions on the supplied noisy circuit. Here we test $H_0:\rank H^{(2)}\le2$ directly on the same experimental four-event tables, assuming only that shots are independent draws from a common law. For one shot and one track, let $U=(Y_9,Y_{10})$ and $V=(Y_{11},Y_{12})$, and let $\widehat P$ be the $4\times4$ table of joint frequencies, without row normalization, with rows and columns ordered $00,01,10,11$.
+
+\paragraph{Data and circuit checks.} Every archived detector bit in both conditions ($5.04\times10^7$ bits) was reproduced from the 529 raw measurements and 25 sweep bits per shot using the ideal circuits, and the $x2\_y5$ normalized rank-one tails of Section~\ref{sec:google} were reproduced ($0.0592451$ and $0.0671889$). The supplied noisy circuits were converted to detector error models without approximating or decomposing error mechanisms. In every selected track and horizon, every fault mechanism crossing the past--future cut projects onto the same pair of detectors, the last past detector and the first future detector, so the circuit separator is a single parity bit, as in Proposition~\ref{prop:kappa2}. The exact rank-two tails of the circuit-model tables are below $8\times10^{-18}$ in all 144 audited tables. A table of rank at least three is therefore incompatible with the supplied independent-Pauli error support under any reweighting of its error probabilities.
+
+\paragraph{The distribution-free rule.} With $N=50{,}000$, the threshold $b_N$ of Theorem~\ref{thm:upper} is $0.01221$ for a single test at level $0.05$, $0.01619$ for the 48 central tables (24 tracks, two bases), $0.01709$ for three horizons, and $0.01763$ for a conservative allowance of 288 comparisons that reserves both procedures over all 144 track/basis/horizon choices. The horizon scan uses a fixed cut after time 10, with times 10--11, 9--12, and 8--13 for $\ell=1,2,3$. No table rejects, even without multiplicity correction. The largest observed $d_2(\widehat P)=\sqrt{\sigma_3^2+\sigma_4^2}$ is $0.00395$ among central tables ($x2\_y5$, memory-$Z$) and $0.00434$ over the horizon scan.
+
+This non-rejection carries little information about memory. In 2,000 synthetic 50,000-shot tables from the two-state example of Section~\ref{sec:workedmemory} at $\ell=2$ (population $d_2=0.0104$), the rule rejects 50 times as a single test and never after the 48-table correction. Five persistent-state injections into the supplied memory-$X$ reference circuit produced no rejections in 1,000 trials each, even with a large extra flip probability in the bad state. A deliberately strong two-state control with population $d_2=0.0386$ is rejected in all 2,000 trials, and a memoryless control in none.
+
+\paragraph{A confidence-box certificate.} The Frobenius rule controls estimation error in every direction of the table, including directions that do not affect the rank constraint. Cellwise intervals give a sharper certificate.
+
+\begin{proposition}[Confidence-box rank certificate]
+\label{prop:box}
+Let $P$ be an $m\times n$ probability table estimated from $N$ independent draws, and for each cell let $[l_{ij},u_{ij}]$ be a two-sided Clopper--Pearson interval \cite{clopper1934use} with error at most $\alpha/(mn)$. With probability at least $1-\alpha$, $P$ lies in the box $\mathcal B=\prod_{i,j}[l_{ij},u_{ij}]$. On this event, if for some $3\times3$ minor the determinant has the same strict sign at all $2^9$ vertices of the projection of $\mathcal B$ onto that minor's cells, then $\rank P\ge3$.
+\end{proposition}
+
+\begin{proof}
+Each cell count is binomial, so each interval covers its cell probability with probability at least $1-\alpha/(mn)$. A union bound gives simultaneous coverage with no assumption on the dependence between cells. A determinant is affine in each of its entries separately, so over a box its minimum and maximum are attained at vertices. If all vertex values share a strict sign, the minor is nonzero for every table in the box. Every $3\times3$ minor of a matrix of rank at most two vanishes.
+\end{proof}
+
+One simultaneous coverage event covers every minor of a table, so selecting a minor needs no further correction. We use per-cell error $0.05/(288\cdot16)$ for all 48 central tables, so the total coverage error of the 48 box tests is at most $0.05/6$. Together with the 144 distribution-free tests at level $0.05/288$ each, the familywise error stays below $0.05$.
+
+\paragraph{Result.} The box certificate rejects rank at most two at exactly one table: track $x2\_y7$ in memory-$Z$ (detectors 206, 230, 254, and 278 at times 9--12). Neither basis certifies at $x2\_y5$, and $x2\_y7$ does not certify in memory-$X$. Table~\ref{tab:x2y7} gives the counts. For past words $\{00,01,11\}$ and future words $\{00,10,11\}$, the determinant of the corresponding joint-probability minor stays in
+\begin{equation}
+    \bigl[2.7905\times10^{-6},\ 8.7912\times10^{-5}\bigr]
+    \label{eq:boxdet}
+\end{equation}
+over the whole box, with point estimate $4.10\times10^{-5}$. The bounds were computed in exact rational arithmetic after rounding each cell endpoint outward to a denominator of $10^{12}$. An independent audit reconstructed the count table with a different bit-unpacking routine, verified all 32 one-sided binomial-tail inequalities at 70-digit precision, and recomputed every vertex determinant in arbitrary-precision arithmetic.
+
+\begin{table}[H]
+\centering
+\caption{Counts for track $x2\_y7$ in memory-$Z$ ($N=50{,}000$ shots). Rows are past words $U=(Y_9,Y_{10})$, columns are future words $V=(Y_{11},Y_{12})$.}
+\label{tab:x2y7}
+\begin{tabular}{lrrrr}
+\toprule
+Past $\backslash$ future & 00 & 01 & 10 & 11\\
+\midrule
+00 & 31734 & 3509 & 2542 & 1311\\
+01 & 2316 & 457 & 1417 & 346\\
+10 & 3168 & 412 & 432 & 268\\
+11 & 1282 & 265 & 314 & 227\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Interpretation.} Under independent shots from a common law, the pooled four-event table at $x2\_y7$ in memory-$Z$ has rank at least three. With $\kappa_\Gamma=2$, Eq.~\eqref{eq:dminlower} gives $D_{\min}^{\rm SPP}\ge2$ for that pooled law, and no reweighting of the supplied independent-Pauli error rates reproduces it. The certificate concerns the pooled record: neither 25,000-shot half certifies on its own ($d_2=0.00339$ and $0.00377$), and Section~\ref{sec:drift} shows that a mixture of memoryless laws drifting between shots can raise pooled rank. The certificate therefore does not separate within-shot memory from shot-to-shot drift, and it does not identify leakage, a fluctuator, or a physical environment dimension. The circuit-relative leader $x2\_y5$ and the certified track need not coincide: the former compares a normalized rank-one tail with one noise model, while the latter excludes every rank-two table consistent with simultaneous cell uncertainty. The analysis is retrospective, and the certified track has not been tested on independent data.
+
 \FloatBarrier
 \section{Relation to QEC diagnostics and prior rank methods}
 
@@ -768,6 +818,9 @@ The refitted rank-one bootstrap has near-nominal size in the reported calibratio
 \paragraph{Across-track dependence.}
 The 24-track BH maps are exploratory because the track statistics share shots and no PRDS condition has been proved. The leading-site BY calculation is safe under arbitrary dependence, but a stronger next analysis would use joint resampling/max-$T$ calibration across tracks and a held-out selection/confirmation split.
 
+\paragraph{Pooled certificates and drift.}
+The confidence-box certificate of Section~\ref{sec:googlerank2} holds for the pooled law of independent shots. A shot-dependent mixture of memoryless laws can have pooled rank above two, and neither half of the $x2\_y7$ record certifies on its own, so separating within-shot memory from drift needs either more shots per stationary block or a test that models the mixture directly.
+
 \paragraph{No-spacing testing for hidden outputs.}
 The direct Markov theorem removes the blocking cost only when the observed cells themselves are reversible Markov with valid dependence bounds. Figure~\ref{fig:stress} shows that exact agreement of stationary and lag-one observed laws does not make a hidden output Markov. Consecutive-window guarantees for general geometrically mixing hidden outputs with estimable constants remain open.
 
@@ -789,12 +842,12 @@ The first inequality says that the observed syndrome block cannot have more pred
 
 The statistical results make this structural witness usable with finite data. A finite-horizon rejection falsifies low global predictive rank; finite-horizon acceptance does not certify the infinite process. The general distribution-free rule is rigorous but can be conservative, especially in high-dimensional sparse word tables. Practical rank-one bootstrap and circuit-relative Monte Carlo tests are therefore presented as separate inferential layers with separate guarantees.
 
-The public Google analysis illustrates the distinction. The broad spatial rejection field is useful exploratory localization, but because tracks share shots, BH-based FDR statements would be too strong. The leading $x2\_y5$ discrepancy survives the arbitrary-dependence BY adjustment in both memory bases and is stable across the tested horizons and retrospective acquisition halves. For this single bulk detector track the circuit factor is known: Proposition~\ref{prop:kappa2} gives $\kappa_\Gamma=2$ under the Pauli/SPP model class. The existing Google statistic, however, is a conditional rank-one model check rather than a rank-two rejection, so we do not convert it into an environment-dimension claim.
+The public Google analysis illustrates the distinction. The broad spatial rejection field is useful exploratory localization, but because tracks share shots, BH-based FDR statements would be too strong. The leading $x2\_y5$ discrepancy survives the arbitrary-dependence BY adjustment in both memory bases and is stable across the tested horizons and retrospective acquisition halves. For this single bulk detector track the circuit factor is known: Proposition~\ref{prop:kappa2} gives $\kappa_\Gamma=2$ under the Pauli/SPP model class. That circuit-relative statistic is a conditional rank-one model check rather than a rank-two rejection, so we do not convert it into a memory claim. The certified rank-two analysis gives a different picture: the distribution-free rule is underpowered at this sample size, while a simultaneous confidence-box certificate establishes rank at least three, and hence $D_{\min}^{\rm SPP}\ge2$, for the pooled law at $x2\_y7$ in memory-$Z$. That pooled certificate cannot separate within-shot memory from shot-to-shot drift.
 
-Several next steps follow: perform a rank-two real-data test at the already identified Google track; compute sharp circuit separators for multi-detector dictionaries and adaptive circuits; replace plug-in circuit-reference calibration by joint real/reference uncertainty accounting; perform held-out spatial confirmation; and develop longer-horizon tests that exploit tensor-network locality instead of constructing exponentially large Hankel tables. The worked $\kappa_\Gamma=2$ certificate shows that the structural theorem can already yield a quantitative environment-memory bound when the statistic and circuit cut are matched.
+Several next steps follow: confirm the $x2\_y7$ certificate on independent data and with local-in-time tests that can separate memory from drift; compute sharp circuit separators for multi-detector dictionaries and adaptive circuits; replace plug-in circuit-reference calibration by joint real/reference uncertainty accounting; perform held-out spatial confirmation; and develop longer-horizon tests that exploit tensor-network locality instead of constructing exponentially large Hankel tables. The worked $\kappa_\Gamma=2$ certificate shows that the structural theorem can already yield a quantitative environment-memory bound when the statistic and circuit cut are matched.
 
 \section*{Data and code availability}
-The public experimental data are from the Google qec3v5 Zenodo archive \cite{google2022data}. The analysis configuration uses the distance-5, 21-round, center-$5\_5$ memory-$X$ and memory-$Z$ records. The accompanying source bundle contains the manuscript source, the synthetic-study code and outputs, the real-device analysis code and configuration, the separator-memory certificate script and output used in Section~\ref{sec:workedmemory}, and the figure assets used here. The real-device analysis code records the conditional circuit-reference procedure of Eq.~\eqref{eq:circuitp}; the 315-MB upstream Zenodo archive itself is not redistributed. The numerical dependencies are Python 3.11 or later, NumPy, SciPy, pandas, Matplotlib, PyYAML, and Stim 1.16.
+The public experimental data are from the Google qec3v5 Zenodo archive \cite{google2022data}. The analysis configuration uses the distance-5, 21-round, center-$5\_5$ memory-$X$ and memory-$Z$ records. The accompanying source bundle contains the manuscript source, the synthetic-study code and outputs, the real-device analysis code and configuration, the separator-memory certificate script and output used in Section~\ref{sec:workedmemory}, the rank-two scripts, count tables, exact certificate, and audit used in Section~\ref{sec:googlerank2}, and the figure assets used here. The real-device analysis code records the conditional circuit-reference procedure of Eq.~\eqref{eq:circuitp}; the 315-MB upstream Zenodo archive itself is not redistributed. The numerical dependencies are Python 3.11 or later, NumPy, SciPy, pandas, Matplotlib, PyYAML, and Stim 1.16.
 
 \appendix
 \section{Proof details for the lower-bound embedding}
